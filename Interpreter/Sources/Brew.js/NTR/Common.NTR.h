@@ -142,41 +142,6 @@ namespace fs
     }
 }
 
-namespace console
-{
-
-    static PrintConsole top, bottom;
-
-    // console.init()
-    // console.init(Screen)
-    inline duk_ret_t CFUNC_init(duk_context *ctx)
-    {
-        if(duk_get_top(ctx) >= 1)
-        {
-            int screen = duk_to_number(ctx, 0);
-            if(screen == 0) consoleInit(&top, 3, BgType_Text4bpp, BgSize_T_256x256, 31, 0, true, true);
-            else if(screen == 1) consoleInit(&bottom, 3, BgType_Text4bpp, BgSize_T_256x256, 31, 0, false, true);
-        }
-        else if(duk_get_top(ctx) == 0)
-        {
-            consoleInit(&top, 3, BgType_Text4bpp, BgSize_T_256x256, 31, 0, true, true);
-        }
-        return 1;
-    }
-
-    // console.setScreen(Screen)
-    inline duk_ret_t CFUNC_setScreen(duk_context *ctx)
-    {
-        if(duk_get_top(ctx) >= 1)
-        {
-            int screen = duk_to_number(ctx, 0);
-            if(screen == 0) consoleSelect(&top);
-            else if(screen == 1) consoleSelect(&bottom);
-        }
-        return 1;
-    }
-}
-
 void CTX_CommonNTR(duk_context *ctx)
 {
     duk_push_c_function(ctx, game::CFUNC_flush, DUK_VARARGS);
@@ -201,10 +166,6 @@ void CTX_CommonNTR(duk_context *ctx)
 	duk_put_global_string(ctx, "__CFUNC__fs_pathFAT");
     duk_push_c_function(ctx, fs::CFUNC_pathRomFS, DUK_VARARGS);
 	duk_put_global_string(ctx, "__CFUNC__fs_pathRomFS");
-    duk_push_c_function(ctx, console::CFUNC_init, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__console_init");
-    duk_push_c_function(ctx, console::CFUNC_setScreen, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__console_setScreen");
 }
 
 string JS_CommonNTR()
@@ -240,7 +201,5 @@ string JS_CommonNTR()
     js += "input.touchData=function(){var tch=[];tch.X=__CFUNC__PART__input_touchData_x();tch.Y=__CFUNC__PART__input_touchData_y();return tch;};";
     js += "fs.pathFAT=function(Path){return __CFUNC__fs_pathFAT(Path);};";
     js += "fs.pathRomFS=function(Path){return __CFUNC__fs_pathRomFS(Path);};";
-    js += "console.init=function(Screen){__CFUNC__console_init(Screen);};";
-    js += "console.setScreen=function(Screen){__CFUNC__console_setScreen(Screen);};";
     return js;
 }

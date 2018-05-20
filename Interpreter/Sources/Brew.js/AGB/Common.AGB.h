@@ -40,19 +40,6 @@ namespace input
     }
 }
 
-namespace console
-{
-    // console.init()
-    inline duk_ret_t CFUNC_init(duk_context *ctx)
-    {
-        consoleInit(0, 4, 0, NULL, 0, 15);
-        BG_COLORS[0] = RGB8(0, 0, 0);
-	    BG_COLORS[241] = RGB8(255, 255, 255);
-        SetMode(MODE_0 | BG0_ON);
-        return 1;
-    }
-}
-
 void CTX_CommonAGB(duk_context *ctx)
 {
     duk_push_c_function(ctx, game::CFUNC_flush, DUK_VARARGS);
@@ -63,8 +50,6 @@ void CTX_CommonAGB(duk_context *ctx)
 	duk_put_global_string(ctx, "__CFUNC__input_checkReleased");
     duk_push_c_function(ctx, input::CFUNC_checkHeld, DUK_VARARGS);
 	duk_put_global_string(ctx, "__CFUNC__input_checkHeld");
-    duk_push_c_function(ctx, console::CFUNC_init, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__console_init");
 }
 
 string JS_CommonAGB()
@@ -88,6 +73,5 @@ string JS_CommonAGB()
     js += "input.checkHeld=function(){return __CFUNC__input_checkHeld();};";
     js += "input.checkPressed=function(){return __CFUNC__input_checkPressed();};";
     js += "input.checkReleased=function(){return __CFUNC__input_checkReleased();};";
-    js += "console.init=function(Screen){__CFUNC__console_init(Screen);};";
     return js;
 }

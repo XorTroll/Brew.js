@@ -19,12 +19,27 @@
 #include <switch.h>
 #include "types.hpp"
 
-extern const ffnt_header_t tahoma24_nxfnt;
-extern const ffnt_header_t interuiregular20_nxfnt;
+extern const ffnt_header_t interuimedium20_nxfnt;
+extern const ffnt_header_t interuimedium28_nxfnt;
+extern const ffnt_header_t interuimedium30_nxfnt;
+extern const ffnt_header_t interuimedium42_nxfnt;
 extern const ffnt_header_t interuiregular14_nxfnt;
-#define font24 &tahoma24_nxfnt
-#define font20 &interuiregular20_nxfnt
-#define font14 &interuiregular14_nxfnt
+extern const ffnt_header_t interuiregular18_nxfnt;
+extern const ffnt_header_t interuiregular20_nxfnt;
+extern const ffnt_header_t interuiregular24_nxfnt;
+extern const ffnt_header_t tahoma12_nxfnt;
+extern const ffnt_header_t tahoma24_nxfnt;
+
+#define InterUI_Medium_20 &interuimedium20_nxfnt
+#define InterUI_Medium_28 &interuimedium28_nxfnt
+#define InterUI_Medium_30 &interuimedium30_nxfnt
+#define InterUI_Medium_42 &interuimedium42_nxfnt
+#define InterUI_Regular_14 &interuiregular14_nxfnt
+#define InterUI_Regular_18 &interuiregular18_nxfnt
+#define InterUI_Regular_20 &interuiregular20_nxfnt
+#define InterUI_Regular_24 &interuiregular24_nxfnt
+#define Tahoma_12 &tahoma12_nxfnt
+#define Tahoma_24 &tahoma24_nxfnt
 
 // the following code is from nx-hbmenu
 // https://github.com/switchbrew/nx-hbmenu/blob/master/common/common.h#L63

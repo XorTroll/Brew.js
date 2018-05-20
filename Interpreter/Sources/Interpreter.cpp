@@ -3,17 +3,49 @@
 #include "Brew.js/Brew.js.h"
 
 volatile int selected;
+static int bck_offx = 575;
+static int bck_offy = 235;
+
+static string MainMenu = "sdmc:/switch/Brew.js/Brew.js.data0";
+static string Information = "sdmc:/switch/Brew.js/Brew.js.data1";
+static string CodeEnd = "sdmc:/switch/Brew.js/Brew.js.data2";
+static string NoSources = "sdmc:/switch/Brew.js/Brew.js.data3";
+
+void DrawBack(string path)
+{
+    unsigned res;
+    u8 *raw;
+    unsigned w;
+    unsigned h;
+    res = lodepng_decode32_file(&raw, &w, &h, path.c_str());
+    if(res)
+    {
+        consoleInit(NULL);
+        cout << "decode error!";
+        return;
+    }
+    DrawImage(0, 0, w, h, raw, IMAGE_MODE_RGBA32);
+}
+
+bool FileExists(string path)
+{
+	ifstream ifs(path);
+	bool ex = ifs.good();
+	ifs.close();
+	return ex;
+}
 
 string selectprj(vector<string> dirs)
 {
 	consoleClear();
-	cout << endl << endl;
-	cout << "  --  " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " interpreter  --" << endl << endl;
-	cout << endl << " Found projects (" << CONSOLE_GREEN << dirs.size() << CONSOLE_RESET << "):                    (Press " << CONSOLE_CYAN << "+" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "-" << CONSOLE_RESET << " to display control info)" << endl << endl;
+
+	DrawBack(MainMenu);
+	int noffy = bck_offy;
 	for(int i = 0; i < dirs.size(); i++)
 	{
-		if(i == selected) cout << CONSOLE_RED << " -- " << CONSOLE_RESET << dirs[i] << endl;
-		else cout << " -- " << dirs[i] << endl;
+		if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+		else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+		noffy += 45;
 	}
 	while(true)
 	{
@@ -26,45 +58,31 @@ string selectprj(vector<string> dirs)
 		{
 			selected++;
 			if(selected >= dirs.size()) selected = 0;
-			consoleClear();
-			cout << endl << endl;
-			cout << "  --  " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " interpreter  --" << endl << endl;
-			cout << endl << " Found projects (" << CONSOLE_GREEN << dirs.size() << CONSOLE_RESET << "):                    (Press " << CONSOLE_CYAN << "+" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "-" << CONSOLE_RESET << " to display control info)" << endl << endl;
+			DrawBack(MainMenu);
+			int noffy = bck_offy;
 			for(int i = 0; i < dirs.size(); i++)
 			{
-				if(i == selected) cout << CONSOLE_RED << " -- " << CONSOLE_RESET << dirs[i] << endl;
-				else cout << " -- " << dirs[i] << endl;
+				if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 45;
 			}
 		}
 		else if(k & KEY_DUP)
 		{
 			selected--;
 			if(selected < 0) selected = dirs.size() - 1;
-			consoleClear();
-			cout << endl << endl;
-			cout << "  --  " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " interpreter  --" << endl << endl;
-			cout << endl << " Found projects (" << CONSOLE_GREEN << dirs.size() << CONSOLE_RESET << "):                    (Press " << CONSOLE_CYAN << "+" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "-" << CONSOLE_RESET << " to display control info)" << endl << endl;
+			DrawBack(MainMenu);
+			int noffy = bck_offy;
 			for(int i = 0; i < dirs.size(); i++)
 			{
-				if(i == selected) cout << CONSOLE_RED << " -- " << CONSOLE_RESET << dirs[i] << endl;
-				else cout << " -- " << dirs[i] << endl;
+				if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 45;
 			}
 		}
 		else if(k & KEY_PLUS || k & KEY_MINUS)
 		{
-			consoleClear();
-			cout << endl << endl;
-			cout << "     --  " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " interpreter information  --" << endl << endl << endl;
-			cout << "   A " << CONSOLE_BLUE << "project folder" << CONSOLE_RESET << " must contain " << CONSOLE_YELLOW << "JS" << CONSOLE_RESET << " files. (*." << CONSOLE_YELLOW << "js" << CONSOLE_RESET << ")" << endl << endl;
-			cout << endl;
-			cout << "    - Press " << CONSOLE_CYAN << "A" << CONSOLE_RESET << " to interpretate a project folder." << endl << endl;
-			cout << "    - Use " << CONSOLE_CYAN << "Up" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "Down" << CONSOLE_RESET << " to move around " << CONSOLE_BLUE << "project folders" << CONSOLE_RESET << "." << endl << endl;
-			cout << "    - Press " << CONSOLE_CYAN << "+" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "-" << CONSOLE_RESET << " to display this info." << endl << endl;
-			cout << endl;
-			cout << "   This interpreter is part of " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " project." << endl << endl;
-			cout << "   Copyright 2018 by " << CONSOLE_CYAN << "X" << CONSOLE_RESET << "or" << CONSOLE_CYAN << "T" << CONSOLE_RESET << "roll." << endl << endl;
-			cout << endl;
-			cout << "   Now, press " << CONSOLE_CYAN << "B" << CONSOLE_RESET << " to return to the menu." << endl << endl;
+			DrawBack(Information);
 			while(true)
 			{
 				gfxFlushBuffers();
@@ -74,14 +92,13 @@ string selectprj(vector<string> dirs)
 				int k = hidKeysDown(CONTROLLER_P1_AUTO);
 				if(k & KEY_B)
 				{
-					consoleClear();
-					cout << endl << endl;
-					cout << "  --  " << CONSOLE_GREEN << "Brew" << CONSOLE_RESET << "." << CONSOLE_GREEN << "js" << CONSOLE_RESET << " interpreter  --" << endl << endl;
-					cout << endl << " Found projects (" << CONSOLE_GREEN << dirs.size() << CONSOLE_RESET << "):                    (Press " << CONSOLE_CYAN << "+" << CONSOLE_RESET << " or " << CONSOLE_CYAN << "-" << CONSOLE_RESET << " to display control info)" << endl << endl;
+					DrawBack(MainMenu);
+					int noffy = bck_offy;
 					for(int i = 0; i < dirs.size(); i++)
 					{
-						if(i == selected) cout << CONSOLE_RED << " -- " << CONSOLE_RESET << dirs[i] << endl;
-						else cout << " -- " << dirs[i] << endl;
+						if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+						else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+						noffy += 45;
 					}
 					break;
 				}
@@ -97,7 +114,82 @@ string selectprj(vector<string> dirs)
 int main()
 {
 	PreEvaluate();
-	consoleInit(NULL);
+	if(!FileExists(MainMenu))
+	{
+		consoleInit(NULL);
+		cout << endl << endl;
+		cout << "   Required file does not exist:" << endl;
+		cout << "   " << MainMenu << endl;
+		cout << endl << endl;
+		cout << "   Press B to exit interpreter.";
+		while(true)
+		{
+			gfxFlushBuffers();
+			gfxSwapBuffers();
+			gfxWaitForVsync();
+			hidScanInput();
+			int k = hidKeysDown(CONTROLLER_P1_AUTO);
+			if(k & KEY_B)
+			{
+				PostEvaluate();
+				return 0;
+			}
+		}
+	}
+	if(!FileExists(Information))
+	{
+		consoleInit(NULL);
+		cout << endl << endl;
+		cout << "   Required file does not exist:" << endl;
+		cout << "   " << Information << endl;
+		cout << endl << endl;
+		cout << "   Press B to exit interpreter.";
+		while(true)
+		{
+			gfxFlushBuffers();
+			gfxSwapBuffers();
+			gfxWaitForVsync();
+			hidScanInput();
+			int k = hidKeysDown(CONTROLLER_P1_AUTO);
+			if(k & KEY_B) return 0;
+		}
+	}
+	if(!FileExists(CodeEnd))
+	{
+		consoleInit(NULL);
+		cout << endl << endl;
+		cout << "   Required file does not exist:" << endl;
+		cout << "   " << CodeEnd << endl;
+		cout << endl << endl;
+		cout << "   Press B to exit interpreter.";
+		while(true)
+		{
+			gfxFlushBuffers();
+			gfxSwapBuffers();
+			gfxWaitForVsync();
+			hidScanInput();
+			int k = hidKeysDown(CONTROLLER_P1_AUTO);
+			if(k & KEY_B) return 0;
+		}
+	}
+	if(!FileExists(NoSources))
+	{
+		consoleInit(NULL);
+		cout << endl << endl;
+		cout << "   Required file does not exist:" << endl;
+		cout << "   " << NoSources << endl;
+		cout << endl << endl;
+		cout << "   Press B to exit interpreter.";
+		while(true)
+		{
+			gfxFlushBuffers();
+			gfxSwapBuffers();
+			gfxWaitForVsync();
+			hidScanInput();
+			int k = hidKeysDown(CONTROLLER_P1_AUTO);
+			if(k & KEY_B) return 0;
+		}
+	}
 	string sjscode;
 	ifstream ifs;
 	vector<string> srcs, prjs;
@@ -127,7 +219,7 @@ int main()
 		sort(prjs.begin(), prjs.end());
 	}
 	string dir = "sdmc:/switch/Brew.js/" + selectprj(prjs);
-	consoleClear();
+	sjscode += "game.ProjectDir='" + dir + "';";
 	dp = opendir(dir.c_str());
 	if (dp)
 	{
@@ -154,11 +246,7 @@ int main()
 	}
 	else
 	{
-		consoleClear();
-		cout << endl;
-		cout << "   No source files were found in selected project folder." << endl;
-		cout << endl;
-		cout << "   Press " << CONSOLE_CYAN << "B" << CONSOLE_RESET << " to return to the menu." << endl << endl;
+		DrawBack(NoSources);
 		while(true)
 		{
 			gfxFlushBuffers();
@@ -169,7 +257,35 @@ int main()
 			if(k & KEY_B) goto start;
 		}
 	}
-	Evaluate(sjscode);
+	for(int a = 0; a < 1280; a++)
+	{
+		for(int b = 0; b < 720; b++)
+		{
+			DrawPixel(a, b, MakeColor(0, 0, 0, 255));
+		}
+	}
+	string res = Evaluate(sjscode);
+	ofstream rst(dir + ".log");
+	if(rst.good()) remove(res.c_str());
+	rst.close();
+	rst.open(dir + ".log");
+	rst << res;
+	rst.close();
+	DrawBack(CodeEnd);
+	while(true)
+	{
+		gfxFlushBuffers();
+		gfxSwapBuffers();
+		gfxWaitForVsync();
+		hidScanInput();
+		int k = hidKeysDown(CONTROLLER_P1_AUTO);
+		if(k & KEY_A) goto start;
+		else if(k & KEY_B)
+		{
+			PostEvaluate();
+			return 0;
+		}
+	}
 	PostEvaluate();
 	return 0;
 }

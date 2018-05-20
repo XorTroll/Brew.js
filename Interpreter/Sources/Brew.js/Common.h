@@ -1,4 +1,5 @@
 #include "Includes.h"
+#include "inih/INIReader.h"
 
 namespace game
 {
@@ -90,31 +91,22 @@ namespace fs
         }
         return 1;
     }
-}
 
-namespace console
-{
-    // console.log(...)
-    inline duk_ret_t CFUNC_log(duk_context *ctx)
+    // fs.configReadValue(Path, Section, Name) -> string
+    inline duk_ret_t CFUNC_readConfigFile(duk_context *ctx)
     {
-        int argc = duk_get_top(ctx);
-        if (argc > 0) for (int i = 0; i < argc; i++)
+        if(duk_get_top(ctx) >= 3)
         {
-            cout << duk_to_string(ctx, i);
+            string file = string(duk_to_string(ctx, 0));
+            string sect = string(duk_to_string(ctx, 1));
+            string name = string(duk_to_string(ctx, 2));
+            INIReader cfg(file);
+            if(cfg.ParseError() == 0)
+            {
+                string value = cfg.Get(sect, name, "undefined");
+                duk_push_string(ctx, value.c_str());
+            }
         }
-        return 1;
-    }
-
-    // console.clear()
-    inline duk_ret_t CFUNC_clear(duk_context *ctx)
-    {
-        cout << "\x1b[2J";
-        return 1;
-    }
-
-    inline duk_ret_t INTERNAL_prline(duk_context *ctx)
-    {
-        cout << endl;
         return 1;
     }
 }
@@ -133,12 +125,8 @@ void CTX_Common(duk_context *ctx)
 	duk_put_global_string(ctx, "__CFUNC__fs_readText");
     duk_push_c_function(ctx, fs::CFUNC_writeText, DUK_VARARGS);
 	duk_put_global_string(ctx, "__CFUNC__fs_writeText");
-    duk_push_c_function(ctx, console::CFUNC_log, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__console_log");
-    duk_push_c_function(ctx, console::CFUNC_clear, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__console_clear");
-    duk_push_c_function(ctx, console::INTERNAL_prline, DUK_VARARGS);
-	duk_put_global_string(ctx, "__CFUNC__INTERNAL__console__prline");
+    duk_push_c_function(ctx, fs::CFUNC_readConfigFile, DUK_VARARGS);
+	duk_put_global_string(ctx, "__CFUNC__fs_readConfigFile");
 }
 
 string JS_Common()
@@ -149,7 +137,6 @@ string JS_Common()
     js += "device.screen=[];";
     js += "var input=[];";
     js += "var fs=[];";
-    js += "var console=[];";
     js += "var gfx=[];";
     js += "game.exit=function(){__CFUNC__game_exit();};";
     js += "fs.exists=function(Path){return __CFUNC__fs_exists(Path);};";
@@ -157,8 +144,6 @@ string JS_Common()
     js += "fs.isDirectory=function(Path){return __CFUNC__fs_isDirectory(Path);};";
     js += "fs.readText=function(Path){return __CFUNC__fs_readText(Path);};";
     js += "fs.writeText=function(Path,Text){__CFUNC__fs_writeText(Path,Text);};";
-    js += "console.log=function(){for(var i=0;i!=arguments.length;i++){__CFUNC__console_log(arguments[i]);}};";
-    js += "console.clear=function(){__CFUNC__console_clear();};";
-    js += "console.logLine=function(){for(var i=0;i!=arguments.length;i++){__CFUNC__console_log(arguments[i]);}__CFUNC__INTERNAL__console__prline();};";
+    js += "fs.readConfigFile=function(Path,Section,Name){return __CFUNC__fs_readConfigFile(Path,Section,Name);};";
     return js;
 }

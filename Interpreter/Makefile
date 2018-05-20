@@ -37,8 +37,9 @@ APP_VERSION	:=	0.1
 
 TARGET		:=	Brew.js
 OUTDIR		:=	Release
+DATA        :=  Data
 BUILD		:=	__build
-SOURCES		:=	Sources Sources/Brew.js Sources/Brew.js/duktape Sources/Brew.js/HAC Sources/Brew.js/HAC/gfx
+SOURCES		:=	Sources Sources/Brew.js Sources/Brew.js/duktape Sources/Brew.js/inih Sources/Brew.js/NX Sources/Brew.js/NX/gfx
 ICON    	:=	Icon.jpg
 EXEFS_SRC	:=	ExeFS
 #  ROMFS	:=	romfs
