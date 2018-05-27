@@ -1,24 +1,30 @@
 
 // Brew.js example for Nintendo Switch: Hello World
 
-/*
-    No need to call something like "gfx.init()", gfx already started
-
-    We create the text with text "Hello world!",
-    using Tahoma font (see API for more fonts),
-    with size 15 (Tahoma only allows 12 and 24 sizes, so if it's bigger than 12 24 is used),
-    coordinates X: 20 and Y: 20,
-    and RGB color green (R: 0, G: 255, B: 0).
-*/
-var text = gfx.createText("Hello world!", gfx.font.Tahoma, 15, 20, 20, 0, 255, 0);
-// We show the text
-gfx.showText(text);
+// We set the background with a full blue color
+gfx.setBackground({ R: 0, G: 0, B: 255 });
+// We create the text with text, X and Y coords, depth, color and font.
+var text = gfx.text.create("Hello world!", 10, 10, 0, { R: 255, G: 64, B: 0 }, gfx.text.Tahoma24);
+// We show the text.
+text.show();
 
 // Main loop
-while(true)
+game.mainLoop(function()
 {
-    // Flush data on main loop, should ALWAYS be done to avoid lag or gfx errors
-    game.flush();
-}
+    // We check pressed input.
+    var key = input.checkPressed();
+    // We get current X and Y values of our text.
+    if(key == input.A)
+    {
+        // We create a random color and set it to the text.
+        var r = device.randomNumber(0, 255);
+        var g = device.randomNumber(0, 255);
+        var b = device.randomNumber(0, 255);
+        var color = { R: r, G: g, B: b };
+        text.color(color);
+    }
+    // If + is pressed, the main loop ends.
+    else if(key == input.Plus) game.exitLoop();
+});
 
 // Execution ends

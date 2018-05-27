@@ -3,13 +3,13 @@
 #include "Brew.js/Brew.js.h"
 
 volatile int selected;
-static int bck_offx = 575;
-static int bck_offy = 235;
+static int bck_offx = 75;
+static int bck_offy = 290;
 
-static string MainMenu = "sdmc:/switch/Brew.js/Brew.js.data0";
-static string Information = "sdmc:/switch/Brew.js/Brew.js.data1";
-static string CodeEnd = "sdmc:/switch/Brew.js/Brew.js.data2";
-static string NoSources = "sdmc:/switch/Brew.js/Brew.js.data3";
+static string MainMenu = "romfs:/MainMenu.png";
+static string Information = "romfs:/Information.png";
+static string CodeEnd = "romfs:/CodeEnd.png";
+static string NoSources = "romfs:/NoSources.png";
 
 void DrawBack(string path)
 {
@@ -21,18 +21,9 @@ void DrawBack(string path)
     if(res)
     {
         consoleInit(NULL);
-        cout << "decode error!";
         return;
     }
     DrawImage(0, 0, w, h, raw, IMAGE_MODE_RGBA32);
-}
-
-bool FileExists(string path)
-{
-	ifstream ifs(path);
-	bool ex = ifs.good();
-	ifs.close();
-	return ex;
 }
 
 string selectprj(vector<string> dirs)
@@ -41,11 +32,19 @@ string selectprj(vector<string> dirs)
 
 	DrawBack(MainMenu);
 	int noffy = bck_offy;
+	int noffx = bck_offx;
 	for(int i = 0; i < dirs.size(); i++)
 	{
-		if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
-		else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
-		noffy += 45;
+		if (i == selected)
+			DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+		else
+			DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+		noffy += 50;
+		if ((i + 1) % 7 == 0)
+		{
+			noffy = bck_offy;
+			noffx += 325;
+		}
 	}
 	while(true)
 	{
@@ -54,30 +53,80 @@ string selectprj(vector<string> dirs)
         gfxWaitForVsync();
 		hidScanInput();
 		int k = hidKeysDown(CONTROLLER_P1_AUTO);
-		if(k & KEY_DDOWN)
+		if(k & KEY_DOWN)
 		{
 			selected++;
 			if(selected >= dirs.size()) selected = 0;
 			DrawBack(MainMenu);
 			int noffy = bck_offy;
+			int noffx = bck_offx;
 			for(int i = 0; i < dirs.size(); i++)
 			{
-				if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
-				else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
-				noffy += 45;
+				if(i == selected) DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 50;
+				if((i + 1) % 7 == 0)
+				{
+					noffy = bck_offy;
+					noffx += 325;
+				}
 			}
 		}
-		else if(k & KEY_DUP)
+		else if(k & KEY_UP)
 		{
 			selected--;
-			if(selected < 0) selected = dirs.size() - 1;
+			if(selected < 0 || selected > dirs.size()) selected = dirs.size() - 1;
 			DrawBack(MainMenu);
 			int noffy = bck_offy;
+			int noffx = bck_offx;
 			for(int i = 0; i < dirs.size(); i++)
 			{
-				if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
-				else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
-				noffy += 45;
+				if(i == selected) DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 50;
+				if((i + 1) % 7 == 0)
+				{
+					noffy = bck_offy;
+					noffx += 325;
+				}
+			}
+		}
+		else if(k & KEY_RIGHT)
+		{
+			selected += 7;
+			if(selected < 0 || selected > dirs.size()) selected = dirs.size() - 1;
+			DrawBack(MainMenu);
+			int noffy = bck_offy;
+			int noffx = bck_offx;
+			for(int i = 0; i < dirs.size(); i++)
+			{
+				if(i == selected) DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 50;
+				if((i + 1) % 7 == 0)
+				{
+					noffy = bck_offy;
+					noffx += 325;
+				}
+			}
+		}
+		else if(k & KEY_LEFT)
+		{
+			selected -= 7;
+			if(selected < 0 || selected > dirs.size()) selected = dirs.size() - 1;
+			DrawBack(MainMenu);
+			int noffy = bck_offy;
+			int noffx = bck_offx;
+			for(int i = 0; i < dirs.size(); i++)
+			{
+				if(i == selected) DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+				else DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+				noffy += 50;
+				if((i + 1) % 7 == 0)
+				{
+					noffy = bck_offy;
+					noffx += 325;
+				}
 			}
 		}
 		else if(k & KEY_PLUS || k & KEY_MINUS)
@@ -94,11 +143,17 @@ string selectprj(vector<string> dirs)
 				{
 					DrawBack(MainMenu);
 					int noffy = bck_offy;
+					int noffx = bck_offx;
 					for(int i = 0; i < dirs.size(); i++)
 					{
-						if(i == selected) DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
-						else DrawText(InterUI_Regular_24, bck_offx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
-						noffy += 45;
+						if(i == selected) DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 194, 0, 255), dirs[i].c_str());
+						else DrawText(InterUI_Medium_30, noffx, noffy, MakeColor(255, 255, 255, 255), dirs[i].c_str());
+						noffy += 50;
+						if((i + 1) % 7 == 0)
+						{
+							noffy = bck_offy;
+							noffx += 325;
+						}
 					}
 					break;
 				}
@@ -113,83 +168,8 @@ string selectprj(vector<string> dirs)
 
 int main()
 {
-	PreEvaluate();
-	if(!FileExists(MainMenu))
-	{
-		consoleInit(NULL);
-		cout << endl << endl;
-		cout << "   Required file does not exist:" << endl;
-		cout << "   " << MainMenu << endl;
-		cout << endl << endl;
-		cout << "   Press B to exit interpreter.";
-		while(true)
-		{
-			gfxFlushBuffers();
-			gfxSwapBuffers();
-			gfxWaitForVsync();
-			hidScanInput();
-			int k = hidKeysDown(CONTROLLER_P1_AUTO);
-			if(k & KEY_B)
-			{
-				PostEvaluate();
-				return 0;
-			}
-		}
-	}
-	if(!FileExists(Information))
-	{
-		consoleInit(NULL);
-		cout << endl << endl;
-		cout << "   Required file does not exist:" << endl;
-		cout << "   " << Information << endl;
-		cout << endl << endl;
-		cout << "   Press B to exit interpreter.";
-		while(true)
-		{
-			gfxFlushBuffers();
-			gfxSwapBuffers();
-			gfxWaitForVsync();
-			hidScanInput();
-			int k = hidKeysDown(CONTROLLER_P1_AUTO);
-			if(k & KEY_B) return 0;
-		}
-	}
-	if(!FileExists(CodeEnd))
-	{
-		consoleInit(NULL);
-		cout << endl << endl;
-		cout << "   Required file does not exist:" << endl;
-		cout << "   " << CodeEnd << endl;
-		cout << endl << endl;
-		cout << "   Press B to exit interpreter.";
-		while(true)
-		{
-			gfxFlushBuffers();
-			gfxSwapBuffers();
-			gfxWaitForVsync();
-			hidScanInput();
-			int k = hidKeysDown(CONTROLLER_P1_AUTO);
-			if(k & KEY_B) return 0;
-		}
-	}
-	if(!FileExists(NoSources))
-	{
-		consoleInit(NULL);
-		cout << endl << endl;
-		cout << "   Required file does not exist:" << endl;
-		cout << "   " << NoSources << endl;
-		cout << endl << endl;
-		cout << "   Press B to exit interpreter.";
-		while(true)
-		{
-			gfxFlushBuffers();
-			gfxSwapBuffers();
-			gfxWaitForVsync();
-			hidScanInput();
-			int k = hidKeysDown(CONTROLLER_P1_AUTO);
-			if(k & KEY_B) return 0;
-		}
-	}
+	gfxInitDefault();
+	romfsInit();
 	string sjscode;
 	ifstream ifs;
 	vector<string> srcs, prjs;
@@ -197,6 +177,7 @@ int main()
 	DIR *dp;
 	goto start;
 	start:
+	sjscode = "";
 	srcs = vector<string>();
 	prjs = vector<string>();
 	selected = 0;
@@ -257,14 +238,9 @@ int main()
 			if(k & KEY_B) goto start;
 		}
 	}
-	for(int a = 0; a < 1280; a++)
-	{
-		for(int b = 0; b < 720; b++)
-		{
-			DrawPixel(a, b, MakeColor(0, 0, 0, 255));
-		}
-	}
+	PreEvaluate();
 	string res = Evaluate(sjscode);
+	PostEvaluate();
 	ofstream rst(dir + ".log");
 	if(rst.good()) remove(res.c_str());
 	rst.close();
@@ -272,6 +248,7 @@ int main()
 	rst << res;
 	rst.close();
 	DrawBack(CodeEnd);
+	DrawText(Tahoma_24, 335, 340, MakeColor(255, 255, 255, 255), res.c_str());
 	while(true)
 	{
 		gfxFlushBuffers();
@@ -279,13 +256,9 @@ int main()
 		gfxWaitForVsync();
 		hidScanInput();
 		int k = hidKeysDown(CONTROLLER_P1_AUTO);
-		if(k & KEY_A) goto start;
-		else if(k & KEY_B)
-		{
-			PostEvaluate();
-			return 0;
-		}
+		if(k & KEY_B) goto start;
 	}
-	PostEvaluate();
+	romfsExit();
+	gfxExit();
 	return 0;
 }

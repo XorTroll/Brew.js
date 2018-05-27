@@ -33,7 +33,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 
 APP_TITLE	:=	Brew.js - JS interpreter for Nintendo Switch
 APP_AUTHOR	:=	XorTroll
-APP_VERSION	:=	0.1
+APP_VERSION	:=	0.2
 
 TARGET		:=	Brew.js
 OUTDIR		:=	Release
@@ -42,14 +42,14 @@ BUILD		:=	__build
 SOURCES		:=	Sources Sources/Brew.js Sources/Brew.js/duktape Sources/Brew.js/inih Sources/Brew.js/NX Sources/Brew.js/NX/gfx
 ICON    	:=	Icon.jpg
 EXEFS_SRC	:=	ExeFS
-#  ROMFS	:=	romfs
+ROMFS	:=	RomFS
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE
 
-CFLAGS	:=	-g -Wall -O3 -ffunction-sections \
+CFLAGS	:=	-g -w -O3 -ffunction-sections \
 			$(ARCH) $(DEFINES) \
 			-DVERSION_MAJOR=${VERSION_MAJOR} \
 			-DVERSION_MINOR=${VERSION_MINOR} \

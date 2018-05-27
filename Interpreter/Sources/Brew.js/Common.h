@@ -139,6 +139,7 @@ string JS_Common()
     js += "var fs=[];";
     js += "var gfx=[];";
     js += "game.exit=function(){__CFUNC__game_exit();};";
+    js += "device.randomNumber=function(){if(arguments.length>=2){var min=arguments[0];var max=arguments[1];return Math.floor(Math.random()*(max-min+1))+min;}else{var max=arguments[0];return Math.floor(Math.random()*(max+1));}};";
     js += "fs.exists=function(Path){return __CFUNC__fs_exists(Path);};";
     js += "fs.isFile=function(Path){return __CFUNC__fs_isFile(Path);};";
     js += "fs.isDirectory=function(Path){return __CFUNC__fs_isDirectory(Path);};";

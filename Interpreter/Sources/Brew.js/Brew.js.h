@@ -102,17 +102,28 @@ string JS_API()
 #elif defined NX
 
 #include "NX/Includes.NX.h"
+#include "NX/Graphics.NX.h"
 #include "NX/Common.NX.h"
 #include "NX/NX.h"
 
 void PreEvaluate()
 {
     gfxInitDefault();
+    srand(time(NULL));
+    for(int a = 0; a < 1280; a++)
+    {
+        for(int b = 0; b < 720; b++)
+        {
+            DrawPixel(a, b, MakeColor(255, 255, 255, 255));
+        }
+    }
 }
 
 void PostEvaluate()
 {
-    gfxExit();
+    gfx::gfxblock = vector<gfx::Object>();
+    gfx::txtblock = vector<gfx::Text>();
+    gfx::bgnul = true;
 }
 
 duk_context *GenerateContext()
@@ -120,6 +131,7 @@ duk_context *GenerateContext()
     duk_context *ctx = duk_create_heap_default();
     CTX_Common(ctx);
     CTX_CommonNX(ctx);
+    CTX_GraphicsNX(ctx);
     CTX_NX(ctx);
     return ctx;
 }
@@ -128,6 +140,7 @@ string JS_API()
 {
     string js = JS_Common();
     js += JS_CommonNX();
+    js += JS_GraphicsNX();
     js += JS_NX();
     js += "'Brew.js (NX platform)';";
     return js;
