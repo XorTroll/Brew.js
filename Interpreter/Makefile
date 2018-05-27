@@ -33,7 +33,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 
 APP_TITLE	:=	Brew.js - JS interpreter for Nintendo Switch
 APP_AUTHOR	:=	XorTroll
-APP_VERSION	:=	0.2
+APP_VERSION	:=	0.3
 
 TARGET		:=	Brew.js
 OUTDIR		:=	Release
