@@ -1,7 +1,7 @@
 # Brew.js API for Nintendo Switch
 
-  > If you like my projects, buy me a sandwich:
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/XorTroll/3)
+  > If you like my projects, buy me a sandwich:  
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/XorTroll/2.50)
 
   > This API and interpreter are part of Brew.js project.  
   Copyright © 2018, by XorTroll.
