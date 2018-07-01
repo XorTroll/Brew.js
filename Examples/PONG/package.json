@@ -1,0 +1,6 @@
+{
+    "name" : "PONG example",
+    "version" : "1.0",
+    "description" : "Example by XorTroll",
+    "main": "Source.js"
+}
