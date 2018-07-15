@@ -3,6 +3,7 @@
 
 var sdl = require("sdl");
 var input = require("input");
+var game = require("game");
 
 // Greenish blue background
 sdl.setBackground({ R: 0, G: 128, B: 255, A: 255 });
