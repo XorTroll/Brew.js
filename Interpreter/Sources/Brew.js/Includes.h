@@ -21,6 +21,7 @@
 #include <cstring>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <dirent.h>
 #include <random>
 using namespace std;
