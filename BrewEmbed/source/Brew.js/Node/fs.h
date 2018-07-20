@@ -6,6 +6,7 @@
 
 #include <switch.h>
 #include "../duktape/duktape.h"
+#include <sys/stat.h>
 
 namespace fs
 {
