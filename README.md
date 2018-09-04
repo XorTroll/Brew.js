@@ -133,4 +133,4 @@
    - upng | PNG decoding | by elanthis
    - sf2dlib | 3DS GPU rendering via citro3d | by xerpi
 
-### Go to [my web page](https://xortroll.github.io/brew.js) to see all the documentation!
+### Go to [my web page](https://xortroll.github.io/Brew.js) to see all the documentation!
