@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['unlink',['unlink',['../namespace_brew_1_1_built_in_1_1_f_s.html#abbfdb90e14ff82c11f000b90b73a7e4b',1,'Brew::BuiltIn::FS']]],
+  ['upng_5fdecode',['upng_decode',['../upng_8h.html#a9e1fabd99092960231ba185842dd0e79',1,'upng.h']]],
+  ['upng_5ffree',['upng_free',['../upng_8h.html#a25ff72f9e4b80d6f7a2f45f242183efc',1,'upng.h']]],
+  ['upng_5fget_5fbitdepth',['upng_get_bitdepth',['../upng_8h.html#a3c934d9d8fb0a45f8bfba1aee23e33fa',1,'upng.h']]],
+  ['upng_5fget_5fbpp',['upng_get_bpp',['../upng_8h.html#abd4f34b285038436e392e178978a92b1',1,'upng.h']]],
+  ['upng_5fget_5fbuffer',['upng_get_buffer',['../upng_8h.html#a109f7ebf5cefc53c859adcf515913bb3',1,'upng.h']]],
+  ['upng_5fget_5fcomponents',['upng_get_components',['../upng_8h.html#aae7961fa06b84c690dadae7e56f1e961',1,'upng.h']]],
+  ['upng_5fget_5ferror',['upng_get_error',['../upng_8h.html#a11d5bb2baec2eceea69349d760efe296',1,'upng.h']]],
+  ['upng_5fget_5ferror_5fline',['upng_get_error_line',['../upng_8h.html#abea6289745b423833c3a750c24c35b1a',1,'upng.h']]],
+  ['upng_5fget_5fformat',['upng_get_format',['../upng_8h.html#a275e9c36da36fd0ea64be2a654d9eac1',1,'upng.h']]],
+  ['upng_5fget_5fheight',['upng_get_height',['../upng_8h.html#a633db14928bd88406c81b959c2c3940e',1,'upng.h']]],
+  ['upng_5fget_5fpixelsize',['upng_get_pixelsize',['../upng_8h.html#a345925a84ab640b6c5339537f4402e54',1,'upng.h']]],
+  ['upng_5fget_5fsize',['upng_get_size',['../upng_8h.html#a864cdbc226cd78e470208ad6c32bd001',1,'upng.h']]],
+  ['upng_5fget_5fwidth',['upng_get_width',['../upng_8h.html#acf036cb6e7152262ea0bed983c136140',1,'upng.h']]],
+  ['upng_5fheader',['upng_header',['../upng_8h.html#acd82f163cbd977ce05dee38167970c3a',1,'upng.h']]],
+  ['upng_5fnew_5ffrom_5fbytes',['upng_new_from_bytes',['../upng_8h.html#a1e04eb5caf6f13a9dc89c1e87ddf90d2',1,'upng.h']]],
+  ['upng_5fnew_5ffrom_5ffile',['upng_new_from_file',['../upng_8h.html#acbd50b0e6be0b5aeacf729903b667573',1,'upng.h']]],
+  ['upsample',['upsample',['../classbitmap__image.html#a740924a5e9a2c3ac4db49471c8354745',1,'bitmap_image::upsample()'],['../bitmap__image_8hpp.html#a898adf4ed2a4a71a9c4b4fae4d132956',1,'upsample():&#160;bitmap_image.hpp']]]
+];
