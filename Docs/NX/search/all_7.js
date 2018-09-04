@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['getargc',['getArgc',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a65ae876085b5956dd753b81d8bd2b80f',1,'Brew::API::FunctionHandler']]],
+  ['getargtype',['getArgType',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ab2cd338814ac9a7b9459c6c2582ee929',1,'Brew::API::FunctionHandler']]],
+  ['getboolean',['getBoolean',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ab03ef987e0dd53d1d4f68c21b16fe7aa',1,'Brew::API::FunctionHandler']]],
+  ['getdouble',['getDouble',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a40055a8e66a46079be7910398925828e',1,'Brew::API::FunctionHandler']]],
+  ['geterror',['getError',['../class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375',1,'Brew::Environment']]],
+  ['getgamecarttitle',['getGameCartTitle',['../namespace_brew_1_1_built_in_1_1_n_x.html#a55e55d02d26e9a5e832b465cc5851ca2',1,'Brew::BuiltIn::NX']]],
+  ['getheld',['getHeld',['../namespace_brew_1_1_built_in_1_1_input.html#abbcd54d17daa62a19a09bf973b5e58dd',1,'Brew::BuiltIn::Input']]],
+  ['getint',['getInt',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a14c43ed5172063d5271bfa753fa34e7a',1,'Brew::API::FunctionHandler']]],
+  ['getnandtitles',['getNANDTitles',['../namespace_brew_1_1_built_in_1_1_n_x.html#adfe7e6e31cca9dd718b0a0c2af12da69',1,'Brew::BuiltIn::NX']]],
+  ['getpressed',['getPressed',['../namespace_brew_1_1_built_in_1_1_input.html#a788332015e157c01947d04350fa30cd7',1,'Brew::BuiltIn::Input']]],
+  ['getprojectlist',['getProjectList',['../class_brew_1_1_environment.html#adeae5edc175230ab411857c07d96f7c0',1,'Brew::Environment']]],
+  ['getreleased',['getReleased',['../namespace_brew_1_1_built_in_1_1_input.html#ae1ddf30740dafa464f0f6ba982100b7f',1,'Brew::BuiltIn::Input']]],
+  ['getresult',['getResult',['../class_brew_1_1_environment.html#a63b5d1fe101e2224c49e56750698863a',1,'Brew::Environment']]],
+  ['getsdtitles',['getSDTitles',['../namespace_brew_1_1_built_in_1_1_n_x.html#a1a553cdd0eba30c3aef5df7988752a24',1,'Brew::BuiltIn::NX']]],
+  ['getstring',['getString',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a427e78287c1cda9efad69c858523a475',1,'Brew::API::FunctionHandler']]],
+  ['gettitles',['getTitles',['../namespace_brew_1_1_built_in_1_1_n_x.html#a418ec4e7b3841de8232ae7badf7cf560',1,'Brew::BuiltIn::NX']]],
+  ['gettouch',['getTouch',['../namespace_brew_1_1_built_in_1_1_input.html#a6098d5383a0c495a4545e226e1ecb58c',1,'Brew::BuiltIn::Input']]],
+  ['gettouchnumber',['getTouchNumber',['../namespace_brew_1_1_built_in_1_1_input.html#af50ef49f50d511c76f4ff4baee7e4955',1,'Brew::BuiltIn::Input']]],
+  ['gettype',['getType',['../class_brew_1_1_execution_result.html#a05c1dff3a45b91b48f858e46a1c7d3f2',1,'Brew::ExecutionResult']]],
+  ['getuint',['getUInt',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a01226ba6f4638e3b965c004d3b4fae1a',1,'Brew::API::FunctionHandler']]],
+  ['gfx_2ehpp',['Gfx.hpp',['../_gfx_8hpp.html',1,'']]],
+  ['global',['Global',['../namespace_brew_1_1_a_p_i.html#a2e874ee8d242594be4bdf4b2fa8e9c24',1,'Brew::API']]],
+  ['globalobject',['GlobalObject',['../class_brew_1_1_a_p_i_1_1_global_object.html',1,'Brew::API::GlobalObject'],['../class_brew_1_1_a_p_i_1_1_global_object.html#ae8a0c9456c115ff1ac0ef63698fb0c40',1,'Brew::API::GlobalObject::GlobalObject()']]]
+];

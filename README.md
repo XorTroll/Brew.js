@@ -34,7 +34,7 @@
      - Evaluating directly source code
      - Evaluating code from a file
      - Evaluating a Brew.js/Node.js project
-   
+
      All of them return a execution result, which has information such as if there was any error or the result's type.
 
 - In case you want to extend the API:
@@ -92,7 +92,7 @@
    myModule.pushFunction("myFunction", myFunction);
    Brew::API::addModule(myModule);
    // Now we could do: require('mymodule').myFunction('one', 'two')
-   
+
    // - Option 2: Create a module and add it as a global object
    // We start the same way as in option 1
    Brew::API::Module myModule("mymodule");
@@ -122,6 +122,15 @@
    Brew::API::addModule(example);
    ```
 
-   - For more information, browse the documentation.
+   - For more information, browse the documentation below.
 
-###  Go to [my web page](https://xortroll.github.io/brew.js) to see all the documentation!
+## Used libraries
+
+   - duktape | C JavaScript engine | by svaarala
+   - bitmap_image | BMP decoding | by ArashPartow
+   - jsoncpp | JSON parsing for C++ | by nlohmann
+   - nanojpeg | JPEG decoding | by Martin J. Fiedler
+   - upng | PNG decoding | by elanthis
+   - sf2dlib | 3DS GPU rendering via citro3d | by xerpi
+
+### Go to [my web page](https://xortroll.github.io/brew.js) to see all the documentation!

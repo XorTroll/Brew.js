@@ -1,0 +1,75 @@
+@font-face
+{
+	src: url("../Fonts/Roboto-Regular.ttf");
+	font-family: RobotoFont;
+}
+
+*
+{
+	user-select: none;
+	font-family: RobotoFont;
+	color: white;
+}
+
+a
+{
+	color: #B19A00;
+}
+
+a:hover
+{
+	color: #ECCD00;
+}
+
+li
+{
+	margin: 10px 0;
+}
+
+body
+{
+	background: url("../Graphics/Background.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.img-logo
+{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 125px;
+}
+
+.txt-title
+{
+	position: absolute;
+	font-weight: bold;
+	left: 150px;
+	top: 28px;
+	color: white;
+	font-size: 30px;
+}
+
+.txt-main
+{
+	position: relative;
+	left: 20px;
+	top: 20px;
+	width: inherit;
+}
+
+.btn-docs
+{
+	left: 40px;
+	top: 150px;
+}
+
+.div-platform
+{
+	position: relative;
+	top: 150px;
+	left: 75px;
+}
