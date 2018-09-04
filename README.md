@@ -1,4 +1,4 @@
-# Brew.js - C++ userland JavaScript API for Nintendo homebrew, based on Node.js
+# Brew.js - C++ userland JavaScript API for Nintendo homebrew - 2.0 beta 1
 
 ## The engine: duktape
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['modules',['Modules',['../namespace_brew_1_1_a_p_i.html#a60b5d392cca446b4a5e31819724fedcb',1,'Brew::API']]]
+  ['ints',['Ints',['../struct_brew_1_1_a_p_i_1_1_module.html#a916a5989245a7806408595c709434ca2',1,'Brew::API::Module']]]
 ];
