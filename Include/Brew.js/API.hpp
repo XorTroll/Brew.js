@@ -281,6 +281,13 @@ namespace Brew
 					@return The type of the argument.
 				*/
 				bool checkArgType(u32 Index, Type ArgType);
+
+				/**
+					@brief Checks if the the function was called as a constructor call.
+					@return Whether it's a constructor call or not.
+					@note `func()` is a normal call, while `new func()` is a constructor call This is a wrapper for duktape's `duk_is_constructor_call(ctx)`.
+				*/
+				bool isConstructorCall();
 				
 				/**
 					@brief Gets the argument located at the given position as a string.
@@ -383,10 +390,54 @@ namespace Brew
 				*/
 				void throwError(Error ErrorType, string Message);
 
-			private:
+			protected:
 				NativeContext Context;
 		};
-		
+
+		class ClassHandler : public FunctionHandler
+		{
+			public:
+				ClassHandler(NativeContext Context);
+				void setPropertyString(string Name, string Value);
+				void setPropertyInt(string Name, s64 Value);
+				void setPropertyUInt(string Name, u64 Value);
+				void setPropertyDouble(string Name, double Value);
+				void setPropertyBoolean(string Name, bool Value);
+				void setPropertyUndefined(string Name);
+				void setPropertyNull(string Name);
+				void setPropertyNaN(string Name);
+				string getPropertyString(string Name);
+				s64 getPropertyInt(string Name);
+				u64 getPropertyUInt(string Name);
+				double getPropertyDouble(string Name);
+				bool getPropertyBoolean(string Name);
+		};
+
+		struct Class
+		{
+			Class(string Name, NativeFunction Constructor);
+			void addString(string Name, string Value);
+			void addInt(string Name, s64 Value);
+			void addUInt(string Name, u64 Value);
+			void addDouble(string Name, double Value);
+			void addBoolean(string Name, bool Value);
+			void addFunction(string Name, NativeFunction Value);
+			void addUndefined(string Name);
+			void addNull(string Name);
+			void addNaN(string Name);
+			NativeFunction Constructor;
+			map<string, string> Strings;
+			map<string, s64> Ints;
+			map<string, u64> UInts;
+			map<string, double> Doubles;
+			map<string, bool> Booleans;
+			map<string, NativeFunction> Functions;
+			vector<string> Undefineds;
+			vector<string> Nulls;
+			vector<string> NaNs;
+			string Name;
+		};
+
 		/// Class holding a module which can be added and required via Brew.js API.
 		struct Module
 		{
@@ -455,6 +506,7 @@ namespace Brew
 				@param Name the NaN variable has.
 			*/
 			void pushNaN(string Name);
+			void pushClass(Class Value);
 			map<string, string> Strings;
 			map<string, s64> Ints;
 			map<string, u64> UInts;
@@ -464,6 +516,7 @@ namespace Brew
 			vector<string> Undefineds;
 			vector<string> Nulls;
 			vector<string> NaNs;
+			vector<Class> Classes;
 			string Name;
 		};
 

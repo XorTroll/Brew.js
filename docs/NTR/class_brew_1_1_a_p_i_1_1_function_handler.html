@@ -90,20 +90,30 @@ $(document).ready(function(){initNavTree('class_brew_1_1_a_p_i_1_1_function_hand
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_brew_1_1_a_p_i_1_1_function_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Brew::API::FunctionHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class for handling <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. It should be instantiated in <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions.  
+<p><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> for handling <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. It should be instantiated in <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions.  
  <a href="class_brew_1_1_a_p_i_1_1_function_handler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_a_p_i_8hpp_source.html">API.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Brew::API::FunctionHandler:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_brew_1_1_a_p_i_1_1_function_handler.png" usemap="#Brew::API::FunctionHandler_map" alt=""/>
+  <map id="Brew::API::FunctionHandler_map" name="Brew::API::FunctionHandler_map">
+<area href="class_brew_1_1_a_p_i_1_1_class_handler.html" alt="Brew::API::ClassHandler" shape="rect" coords="0,56,167,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a22e67d475422dc0d6948709c2525baa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a22e67d475422dc0d6948709c2525baa6">FunctionHandler</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Context)</td></tr>
+<tr class="memitem:a22e67d475422dc0d6948709c2525baa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a22e67d475422dc0d6948709c2525baa6">FunctionHandler</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83">Context</a>)</td></tr>
 <tr class="memdesc:a22e67d475422dc0d6948709c2525baa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a function handler using the given context.  <a href="#a22e67d475422dc0d6948709c2525baa6">More...</a><br /></td></tr>
 <tr class="separator:a22e67d475422dc0d6948709c2525baa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65ae876085b5956dd753b81d8bd2b80f"><td class="memItemLeft" align="right" valign="top">u32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a65ae876085b5956dd753b81d8bd2b80f">getArgc</a> ()</td></tr>
@@ -121,6 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a324783c1aace78887a6080cb7104bd67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a324783c1aace78887a6080cb7104bd67">checkArgType</a> (u32 Index, <a class="el" href="namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75">Type</a> ArgType)</td></tr>
 <tr class="memdesc:a324783c1aace78887a6080cb7104bd67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the type of the argument located at the given position is a specific type.  <a href="#a324783c1aace78887a6080cb7104bd67">More...</a><br /></td></tr>
 <tr class="separator:a324783c1aace78887a6080cb7104bd67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27f884a8f42d23437690d9926278639e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a27f884a8f42d23437690d9926278639e">isConstructorCall</a> ()</td></tr>
+<tr class="memdesc:a27f884a8f42d23437690d9926278639e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the the function was called as a constructor call.  <a href="#a27f884a8f42d23437690d9926278639e">More...</a><br /></td></tr>
+<tr class="separator:a27f884a8f42d23437690d9926278639e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a427e78287c1cda9efad69c858523a475"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a427e78287c1cda9efad69c858523a475">getString</a> (u32 Index)</td></tr>
 <tr class="memdesc:a427e78287c1cda9efad69c858523a475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the argument located at the given position as a string.  <a href="#a427e78287c1cda9efad69c858523a475">More...</a><br /></td></tr>
 <tr class="separator:a427e78287c1cda9efad69c858523a475"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,9 +182,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a68cdda4e06f284761629bc8ee4e6f773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773">throwError</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35">Error</a> ErrorType, string Message)</td></tr>
 <tr class="memdesc:a68cdda4e06f284761629bc8ee4e6f773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the execution throwing an error.  <a href="#a68cdda4e06f284761629bc8ee4e6f773">More...</a><br /></td></tr>
 <tr class="separator:a68cdda4e06f284761629bc8ee4e6f773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a4e070555f0452153f435a5f69ca18f83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83">Context</a></td></tr>
+<tr class="separator:a4e070555f0452153f435a5f69ca18f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for handling <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. It should be instantiated in <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. </p>
+<div class="textblock"><p><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> for handling <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. It should be instantiated in <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS functions. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a22e67d475422dc0d6948709c2525baa6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22e67d475422dc0d6948709c2525baa6">&#9670;&nbsp;</a></span>FunctionHandler()</h2>
@@ -474,6 +492,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a27f884a8f42d23437690d9926278639e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f884a8f42d23437690d9926278639e">&#9670;&nbsp;</a></span>isConstructorCall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Brew::API::FunctionHandler::isConstructorCall </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the the function was called as a constructor call. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether it's a constructor call or not. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd><code>func()</code> is a normal call, while <code>new func()</code> is a constructor call This is a wrapper for duktape's <code>duk_is_constructor_call(ctx)</code>. </dd></dl>
+
+</div>
+</div>
 <a id="ab587032f42463c7bdad4f08ba67c26d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab587032f42463c7bdad4f08ba67c26d2">&#9670;&nbsp;</a></span>pushArray()</h2>
 
@@ -749,6 +788,29 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4e070555f0452153f435a5f69ca18f83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e070555f0452153f435a5f69ca18f83">&#9670;&nbsp;</a></span>Context</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Brew::API::FunctionHandler::Context</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

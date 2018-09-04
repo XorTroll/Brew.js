@@ -3,6 +3,8 @@ var _a_p_i_8hpp =
     [ "Array", "class_brew_1_1_a_p_i_1_1_array.html", "class_brew_1_1_a_p_i_1_1_array" ],
     [ "Object", "class_brew_1_1_a_p_i_1_1_object.html", "class_brew_1_1_a_p_i_1_1_object" ],
     [ "FunctionHandler", "class_brew_1_1_a_p_i_1_1_function_handler.html", "class_brew_1_1_a_p_i_1_1_function_handler" ],
+    [ "ClassHandler", "class_brew_1_1_a_p_i_1_1_class_handler.html", "class_brew_1_1_a_p_i_1_1_class_handler" ],
+    [ "Class", "struct_brew_1_1_a_p_i_1_1_class.html", "struct_brew_1_1_a_p_i_1_1_class" ],
     [ "Module", "struct_brew_1_1_a_p_i_1_1_module.html", "struct_brew_1_1_a_p_i_1_1_module" ],
     [ "GlobalObject", "class_brew_1_1_a_p_i_1_1_global_object.html", "class_brew_1_1_a_p_i_1_1_global_object" ],
     [ "Function", "_a_p_i_8hpp.html#ac97799a151a2b6bba2ef0a291e253bea", null ],

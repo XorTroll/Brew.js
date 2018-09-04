@@ -11,6 +11,7 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "getInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a14c43ed5172063d5271bfa753fa34e7a", null ],
     [ "getString", "class_brew_1_1_a_p_i_1_1_function_handler.html#a427e78287c1cda9efad69c858523a475", null ],
     [ "getUInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a01226ba6f4638e3b965c004d3b4fae1a", null ],
+    [ "isConstructorCall", "class_brew_1_1_a_p_i_1_1_function_handler.html#a27f884a8f42d23437690d9926278639e", null ],
     [ "pushArray", "class_brew_1_1_a_p_i_1_1_function_handler.html#ab587032f42463c7bdad4f08ba67c26d2", null ],
     [ "pushBoolean", "class_brew_1_1_a_p_i_1_1_function_handler.html#a7f0be9a2a3cb40ed0b42878902792e7a", null ],
     [ "pushDouble", "class_brew_1_1_a_p_i_1_1_function_handler.html#a95ce98357b1b003594b8b4df769f534e", null ],
@@ -21,5 +22,6 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "pushString", "class_brew_1_1_a_p_i_1_1_function_handler.html#abda8e3a8a0ebf23eeadbde2caa3d53d0", null ],
     [ "pushUInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a39ac4665fbd5563a4abac229bedb2c1c", null ],
     [ "pushUndefined", "class_brew_1_1_a_p_i_1_1_function_handler.html#a2dd2edf8f4cf55d64b54604e3ff9a1f1", null ],
-    [ "throwError", "class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773", null ]
+    [ "throwError", "class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773", null ],
+    [ "Context", "class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83", null ]
 ];

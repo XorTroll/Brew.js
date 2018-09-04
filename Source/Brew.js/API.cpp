@@ -212,6 +212,12 @@ bool Brew::API::FunctionHandler::checkArgType(u32 Index, Type ArgType)
 	return check;
 }
 
+bool Brew::API::FunctionHandler::isConstructorCall()
+{
+	bool ctor = duk_is_constructor_call(this->Context);
+	return ctor;
+}
+
 string Brew::API::FunctionHandler::getString(u32 Index)
 {
 	string str = "";
@@ -297,14 +303,147 @@ void Brew::API::FunctionHandler::pushNaN()
 	duk_push_nan(this->Context);
 }
 
+Brew::API::ClassHandler::ClassHandler(Brew::API::NativeContext Context) : Brew::API::FunctionHandler(Context)
+{
+	duk_push_this(Context);
+}
+
+void Brew::API::ClassHandler::setPropertyString(string Name, string Value)
+{
+	duk_push_string(this->Context, Value.c_str());
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyInt(string Name, s64 Value)
+{
+	duk_push_int(this->Context, Value);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyUInt(string Name, u64 Value)
+{
+	duk_push_uint(this->Context, Value);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyBoolean(string Name, bool Value)
+{
+	duk_push_boolean(this->Context, Value);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyUndefined(string Name)
+{
+	duk_push_undefined(this->Context);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyNull(string Name)
+{
+	duk_push_null(this->Context);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::setPropertyNaN(string Name)
+{
+	duk_push_nan(this->Context);
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+string Brew::API::ClassHandler::getPropertyString(string Name)
+{
+	duk_get_prop_string(this->Context, -1, Name.c_str());
+	string prop = string(duk_safe_to_string(this->Context, -1));
+	return prop;
+}
+
+s64 Brew::API::ClassHandler::getPropertyInt(string Name)
+{
+	duk_get_prop_string(this->Context, -1, Name.c_str());
+	s64 prop = duk_to_int(this->Context, -1);
+	return prop;
+}
+
+u64 Brew::API::ClassHandler::getPropertyUInt(string Name)
+{
+	duk_get_prop_string(this->Context, -1, Name.c_str());
+	u64 prop = duk_to_uint(this->Context, -1);
+	return prop;
+}
+
+double Brew::API::ClassHandler::getPropertyDouble(string Name)
+{
+	duk_get_prop_string(this->Context, -1, Name.c_str());
+	double prop = duk_to_number(this->Context, -1);
+	return prop;
+}
+
+bool Brew::API::ClassHandler::getPropertyBoolean(string Name)
+{
+	duk_get_prop_string(this->Context, -1, Name.c_str());
+	bool prop = duk_to_boolean(this->Context, -1);
+	return prop;
+}
+
 void Brew::API::FunctionHandler::throwError(Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
 {
 	duk_error(this->Context, (duk_errcode_t)ErrorType, Message.c_str());
 }
 
+Brew::API::Class::Class(string Name, Brew::API::NativeFunction Constructor)
+{
+	this->Name = Name;
+	this->Constructor = Constructor;
+}
+
+void Brew::API::Class::addString(string Name, string Value)
+{
+	Strings.insert(pair<string, string>(Name, Value));
+}
+
+void Brew::API::Class::addInt(string Name, s64 Value)
+{
+	Ints.insert(pair<string, s64>(Name, Value));
+}
+
+void Brew::API::Class::addUInt(string Name, u64 Value)
+{
+	UInts.insert(pair<string, u64>(Name, Value));
+}
+
+void Brew::API::Class::addDouble(string Name, double Value)
+{
+	Doubles.insert(pair<string, double>(Name, Value));
+}
+
+void Brew::API::Class::addBoolean(string Name, bool Value)
+{
+	Booleans.insert(pair<string, bool>(Name, Value));
+}
+
+void Brew::API::Class::addFunction(string Name, NativeFunction Value)
+{
+	Functions.insert(pair<string, NativeFunction>(Name, Value));
+}
+
+void Brew::API::Class::addUndefined(string Name)
+{
+	Undefineds.push_back(Name);
+}
+
+void Brew::API::Class::addNull(string Name)
+{
+	Nulls.push_back(Name);
+}
+
+void Brew::API::Class::addNaN(string Name)
+{
+	NaNs.push_back(Name);
+}
+
 Brew::API::Module::Module(string Module)
 {
-	Name = Module;
+	this->Name = Module;
 }
 
 void Brew::API::Module::pushString(string Name, string Value)
@@ -350,6 +489,11 @@ void Brew::API::Module::pushNull(string Name)
 void Brew::API::Module::pushNaN(string Name)
 {
 	NaNs.push_back(Name);
+}
+
+void Brew::API::Module::pushClass(Brew::API::Class Value)
+{
+	Classes.push_back(Value);
 }
 
 Brew::API::GlobalObject::GlobalObject(Brew::API::NativeContext Context)
@@ -535,6 +679,59 @@ Brew::API::Function Brew::API::require(Brew::API::NativeContext Context)
 			{
 				duk_push_nan(Context);
 				duk_put_prop_string(Context, objidx, Module.NaNs[i].c_str());
+			}
+			if(!Module.Classes.empty()) for(u32 i = 0; i < Module.Classes.size(); i++)
+			{
+				Brew::API::Class cls = Module.Classes[i];
+				duk_push_c_function(Context, cls.Constructor, DUK_VARARGS);
+				duk_push_object(Context);
+				if(!cls.Strings.empty()) for(auto const& str : cls.Strings)
+				{
+					duk_push_string(Context, str.second.c_str());
+					duk_put_prop_string(Context, -2, str.first.c_str());
+				}
+				if(!cls.Ints.empty()) for(auto const& intt : cls.Ints)
+				{
+					duk_push_int(Context, intt.second);
+					duk_put_prop_string(Context, -2, intt.first.c_str());
+				}
+				if(!cls.UInts.empty()) for(auto const& uint : cls.UInts)
+				{
+					duk_push_uint(Context, uint.second);
+					duk_put_prop_string(Context, -2, uint.first.c_str());
+				}
+				if(!cls.Doubles.empty()) for(auto const& dbl : cls.Doubles)
+				{
+					duk_push_number(Context, dbl.second);
+					duk_put_prop_string(Context, -2, dbl.first.c_str());
+				}
+				if(!cls.Booleans.empty()) for(auto const& bol : cls.Booleans)
+				{
+					duk_push_boolean(Context, bol.second);
+					duk_put_prop_string(Context, -2, bol.first.c_str());
+				}
+				if(!cls.Functions.empty()) for(auto const& func : cls.Functions)
+				{
+					duk_push_c_function(Context, func.second, DUK_VARARGS);
+					duk_put_prop_string(Context, -2, func.first.c_str());
+				}
+				if(!cls.Undefineds.empty()) for(u32 i = 0; i < cls.Undefineds.size(); i++)
+				{
+					duk_push_undefined(Context);
+					duk_put_prop_string(Context, -2, cls.Undefineds[i].c_str());
+				}
+				if(!cls.Nulls.empty()) for(u32 i = 0; i < cls.Nulls.size(); i++)
+				{
+					duk_push_null(Context);
+					duk_put_prop_string(Context, -2, cls.Nulls[i].c_str());
+				}
+				if(!cls.NaNs.empty()) for(u32 i = 0; i < cls.NaNs.size(); i++)
+				{
+					duk_push_nan(Context);
+					duk_put_prop_string(Context, -2, cls.NaNs[i].c_str());
+				}
+				duk_put_prop_string(Context, -2, "prototype");
+				duk_put_prop_string(Context, objidx, cls.Name.c_str());
 			}
 		}
 		else handler.throwError(Brew::API::Error::CommonError, "Cannot find module \'" + modname + "\'");
