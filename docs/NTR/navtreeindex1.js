@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"namespace_brew_1_1_built_in_1_1_gfx.html":[1,0,0,1,2],
 "namespace_brew_1_1_built_in_1_1_input.html":[1,0,0,1,3],
 "namespace_brew_1_1_built_in_1_1_n_t_r.html":[1,0,0,1,4],
 "namespace_brew_1_1_built_in_1_1_o_s.html":[1,0,0,1,5],

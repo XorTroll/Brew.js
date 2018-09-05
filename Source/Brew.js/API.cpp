@@ -179,6 +179,7 @@ void Brew::API::Object::end()
 Brew::API::FunctionHandler::FunctionHandler(Brew::API::NativeContext Context)
 {
 	this->Context = Context;
+	this->count = -1;
 }
 
 u32 Brew::API::FunctionHandler::getArgc()
@@ -221,7 +222,8 @@ bool Brew::API::FunctionHandler::isConstructorCall()
 string Brew::API::FunctionHandler::getString(u32 Index)
 {
 	string str = "";
-	if(duk_get_type(this->Context, Index) == DUK_TYPE_STRING) str = string(duk_get_string_default(this->Context, Index, ""));
+	if(duk_get_type(this->Context, Index) == DUK_TYPE_STRING) str = string(duk_safe_to_string(this->Context, Index));
+	count--;
 	return str;
 }
 
@@ -229,6 +231,7 @@ s64 Brew::API::FunctionHandler::getInt(u32 Index)
 {
 	s64 intt = 0;
 	if(duk_get_type(this->Context, Index) == DUK_TYPE_NUMBER) intt = duk_get_int(this->Context, Index);
+	count--;
 	return intt;
 }
 
@@ -236,6 +239,7 @@ u64 Brew::API::FunctionHandler::getUInt(u32 Index)
 {
 	u64 intt = 0;
 	if(duk_get_type(this->Context, Index) == DUK_TYPE_NUMBER) intt = duk_get_uint(this->Context, Index);
+	count--;
 	return intt;
 }
 
@@ -243,6 +247,7 @@ double Brew::API::FunctionHandler::getDouble(u32 Index)
 {
 	double intt = 0.0;
 	if(duk_get_type(this->Context, Index) == DUK_TYPE_NUMBER) intt = duk_get_number(this->Context, Index);
+	count--;
 	return intt;
 }
 
@@ -250,6 +255,7 @@ bool Brew::API::FunctionHandler::getBoolean(u32 Index)
 {
 	bool booln = false;
 	if(duk_get_type(this->Context, Index) == DUK_TYPE_BOOLEAN) booln = duk_get_boolean(this->Context, Index);
+	count--;
 	return booln;
 }
 
@@ -303,9 +309,15 @@ void Brew::API::FunctionHandler::pushNaN()
 	duk_push_nan(this->Context);
 }
 
+void Brew::API::FunctionHandler::throwError(Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
+{
+	duk_error(this->Context, (duk_errcode_t)ErrorType, Message.c_str());
+}
+
 Brew::API::ClassHandler::ClassHandler(Brew::API::NativeContext Context) : Brew::API::FunctionHandler(Context)
 {
 	duk_push_this(Context);
+	this->propcount = -1;
 }
 
 void Brew::API::ClassHandler::setPropertyString(string Name, string Value)
@@ -352,42 +364,42 @@ void Brew::API::ClassHandler::setPropertyNaN(string Name)
 
 string Brew::API::ClassHandler::getPropertyString(string Name)
 {
-	duk_get_prop_string(this->Context, -1, Name.c_str());
+	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
 	string prop = string(duk_safe_to_string(this->Context, -1));
+	this->propcount--;
 	return prop;
 }
 
 s64 Brew::API::ClassHandler::getPropertyInt(string Name)
 {
-	duk_get_prop_string(this->Context, -1, Name.c_str());
+	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
 	s64 prop = duk_to_int(this->Context, -1);
+	this->propcount--;
 	return prop;
 }
 
 u64 Brew::API::ClassHandler::getPropertyUInt(string Name)
 {
-	duk_get_prop_string(this->Context, -1, Name.c_str());
+	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
 	u64 prop = duk_to_uint(this->Context, -1);
+	this->propcount--;
 	return prop;
 }
 
 double Brew::API::ClassHandler::getPropertyDouble(string Name)
 {
-	duk_get_prop_string(this->Context, -1, Name.c_str());
+	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
 	double prop = duk_to_number(this->Context, -1);
+	this->propcount--;
 	return prop;
 }
 
 bool Brew::API::ClassHandler::getPropertyBoolean(string Name)
 {
-	duk_get_prop_string(this->Context, -1, Name.c_str());
+	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
 	bool prop = duk_to_boolean(this->Context, -1);
+	this->propcount--;
 	return prop;
-}
-
-void Brew::API::FunctionHandler::throwError(Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
-{
-	duk_error(this->Context, (duk_errcode_t)ErrorType, Message.c_str());
 }
 
 Brew::API::Class::Class(string Name, Brew::API::NativeFunction Constructor)

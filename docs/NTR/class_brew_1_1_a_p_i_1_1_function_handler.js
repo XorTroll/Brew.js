@@ -23,5 +23,6 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "pushUInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a39ac4665fbd5563a4abac229bedb2c1c", null ],
     [ "pushUndefined", "class_brew_1_1_a_p_i_1_1_function_handler.html#a2dd2edf8f4cf55d64b54604e3ff9a1f1", null ],
     [ "throwError", "class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773", null ],
-    [ "Context", "class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83", null ]
+    [ "Context", "class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83", null ],
+    [ "count", "class_brew_1_1_a_p_i_1_1_function_handler.html#ae43a8ded81a0b9cba195d652dc34063b", null ]
 ];

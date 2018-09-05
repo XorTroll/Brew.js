@@ -120,26 +120,8 @@ Brew::API::Function Brew::BuiltIn::FS::rename(Brew::API::NativeContext Context)
     return Brew::API::Return::Void;
 }
 
-Brew::API::Function ctor(Brew::API::NativeContext Context)
-{
-    Brew::API::ClassHandler handler(Context);
-    handler.setPropertyString("Test", "no");
-    return Brew::API::Return::Void;
-}
-
-Brew::API::Function testfunc(Brew::API::NativeContext Context)
-{
-    Brew::API::ClassHandler handler(Context);
-    handler.setPropertyString("Test", "NewValue");
-    return Brew::API::Return::Void;
-}
-
 Brew::API::Module Brew::BuiltIn::FS::initModule()
 {
-    Brew::API::Class test("TestClass", ctor);
-    test.addString("Name", "Value");
-    test.addFunction("testFunc", testfunc);
-    fs.pushClass(test);
     fs.pushFunction("readFile", readFile);
     fs.pushFunction("writeFile", writeFile);
     fs.pushFunction("exists", exists);

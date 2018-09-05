@@ -11,6 +11,7 @@ var searchData=
   ['console_2ehpp',['Console.hpp',['../_console_8hpp.html',1,'']]],
   ['constructor',['Constructor',['../struct_brew_1_1_a_p_i_1_1_class.html#a1fdd828060447ee47d85b2316bffb3f6',1,'Brew::API::Class']]],
   ['context',['Context',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83',1,'Brew::API::FunctionHandler']]],
+  ['count',['count',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ae43a8ded81a0b9cba195d652dc34063b',1,'Brew::API::FunctionHandler']]],
   ['createcontext',['createContext',['../namespace_brew_1_1_a_p_i.html#a0c50e1aa4354d9dc80443ab5118c2095',1,'Brew::API']]],
   ['createerror',['createError',['../namespace_brew.html#a31a90deb1ea873aa5dd2d8f918d527e4',1,'Brew']]],
   ['ctr',['CTR',['../namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa997006996136fa0cacfb79a20e2c0805',1,'Brew']]],

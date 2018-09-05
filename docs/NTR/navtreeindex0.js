@@ -183,6 +183,7 @@ var NAVTREEINDEX0 =
 "class_brew_1_1_a_p_i_1_1_function_handler.html#abda8e3a8a0ebf23eeadbde2caa3d53d0":[2,0,0,0,3,19],
 "class_brew_1_1_a_p_i_1_1_function_handler.html#ac7229f1e2e94208c938f18f8abc1c57a":[2,0,0,0,3,17],
 "class_brew_1_1_a_p_i_1_1_function_handler.html#ace357125138bd4f5807256675a044aa5":[2,0,0,0,3,16],
+"class_brew_1_1_a_p_i_1_1_function_handler.html#ae43a8ded81a0b9cba195d652dc34063b":[2,0,0,0,3,24],
 "class_brew_1_1_a_p_i_1_1_global_object.html":[2,0,0,0,4],
 "class_brew_1_1_a_p_i_1_1_global_object.html#a0142d56798eae9a4879c30f4834795dd":[2,0,0,0,4,1],
 "class_brew_1_1_a_p_i_1_1_global_object.html#a190070452553ee4f91d1d21fabc0aba8":[2,0,0,0,4,7],
@@ -243,11 +244,10 @@ var NAVTREEINDEX0 =
 "index.html":[0],
 "namespace_brew.html":[1,0,0],
 "namespace_brew.html":[2,0,0],
-"namespace_brew_1_1_a_p_i.html":[1,0,0,0],
 "namespace_brew_1_1_a_p_i.html":[2,0,0,0],
+"namespace_brew_1_1_a_p_i.html":[1,0,0,0],
 "namespace_brew_1_1_built_in.html":[2,0,0,1],
 "namespace_brew_1_1_built_in.html":[1,0,0,1],
 "namespace_brew_1_1_built_in_1_1_console.html":[1,0,0,1,0],
-"namespace_brew_1_1_built_in_1_1_f_s.html":[1,0,0,1,1],
-"namespace_brew_1_1_built_in_1_1_gfx.html":[1,0,0,1,2]
+"namespace_brew_1_1_built_in_1_1_f_s.html":[1,0,0,1,1]
 };

@@ -392,6 +392,7 @@ namespace Brew
 
 			protected:
 				NativeContext Context;
+				int count;
 		};
 
 		class ClassHandler : public FunctionHandler
@@ -411,6 +412,8 @@ namespace Brew
 				u64 getPropertyUInt(string Name);
 				double getPropertyDouble(string Name);
 				bool getPropertyBoolean(string Name);
+			private:
+				int propcount;
 		};
 
 		struct Class
