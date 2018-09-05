@@ -236,6 +236,25 @@ namespace Brew
 				bool start;
 		};
 		
+		class Callback
+		{
+			public:
+				Callback(NativeContext Context, u32 Index);
+				void addArgumentString(string Value);
+				void addArgumentInt(s64 Value);
+				void addArgumentUInt(u64 Value);
+				void addArgumentDouble(double Value);
+				void addArgumentBoolean(bool Value);
+				void callFunction();
+			private:
+				NativeContext Context;
+				vector<string> Strings;
+				vector<s64> Ints;
+				vector<u64> UInts;
+				vector<double> Doubles;
+				vector<bool> Booleans;
+		};
+
 		/// Class for handling API JS functions. It should be instantiated in API JS functions.
 		class FunctionHandler
 		{
@@ -323,6 +342,8 @@ namespace Brew
 					@return The argument as a boolean.
 				*/
 				bool getBoolean(u32 Index);
+
+				Callback getCallback(u32 Index);
 				
 				/**
 					@brief Returns a string. Will only return the variable if the return code of the JS function is \ref Variable.

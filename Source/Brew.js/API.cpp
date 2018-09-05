@@ -176,6 +176,48 @@ void Brew::API::Object::end()
 	duk_pop(this->Context);
 }
 
+Brew::API::Callback::Callback(Brew::API::NativeContext Context, u32 Index)
+{
+	this->Context = Context;
+	duk_get_heapptr(this->Context, Index);
+}
+
+void Brew::API::Callback::addArgumentString(string Value)
+{
+	this->Strings.push_back(Value);
+}
+
+void Brew::API::Callback::addArgumentInt(s64 Value)
+{
+	this->Ints.push_back(Value);
+}
+
+void Brew::API::Callback::addArgumentUInt(u64 Value)
+{
+	this->UInts.push_back(Value);
+}
+
+void Brew::API::Callback::addArgumentDouble(double Value)
+{
+	this->Doubles.push_back(Value);
+}
+
+void Brew::API::Callback::addArgumentBoolean(bool Value)
+{
+	this->Booleans.push_back(Value);
+}
+
+void Brew::API::Callback::callFunction()
+{
+	if(!this->Strings.empty()) for(u32 i = 0; i < this->Strings.size(); i++) duk_push_string(this->Context, this->Strings[i].c_str());
+	if(!this->Ints.empty()) for(u32 i = 0; i < this->Ints.size(); i++) duk_push_int(this->Context, this->Ints[i]);
+	if(!this->UInts.empty()) for(u32 i = 0; i < this->UInts.size(); i++) duk_push_uint(this->Context, this->UInts[i]);
+	if(!this->Doubles.empty()) for(u32 i = 0; i < this->Doubles.size(); i++) duk_push_number(this->Context, this->Doubles[i]);
+	if(!this->Booleans.empty()) for(u32 i = 0; i < this->Booleans.size(); i++) duk_push_boolean(this->Context, this->Booleans[i]);
+	u32 args = this->Strings.size() + this->Ints.size() + this->UInts.size() + this->Doubles.size() + this->Booleans.size();
+	duk_call(this->Context, args);
+}
+
 Brew::API::FunctionHandler::FunctionHandler(Brew::API::NativeContext Context)
 {
 	this->Context = Context;
@@ -257,6 +299,12 @@ bool Brew::API::FunctionHandler::getBoolean(u32 Index)
 	if(duk_get_type(this->Context, Index) == DUK_TYPE_BOOLEAN) booln = duk_get_boolean(this->Context, Index);
 	count--;
 	return booln;
+}
+
+Brew::API::Callback Brew::API::FunctionHandler::getCallback(u32 Index)
+{
+	if(!duk_is_function(this->Context, Index)) this->throwError(Brew::API::Error::TypeError, "Argument at index " + to_string(Index) + " is not a callable function");
+	return Brew::API::Callback(this->Context, Index);
 }
 
 void Brew::API::FunctionHandler::pushString(string Value)

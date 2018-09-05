@@ -7,6 +7,7 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "getArgc", "class_brew_1_1_a_p_i_1_1_function_handler.html#a65ae876085b5956dd753b81d8bd2b80f", null ],
     [ "getArgType", "class_brew_1_1_a_p_i_1_1_function_handler.html#ab2cd338814ac9a7b9459c6c2582ee929", null ],
     [ "getBoolean", "class_brew_1_1_a_p_i_1_1_function_handler.html#ab03ef987e0dd53d1d4f68c21b16fe7aa", null ],
+    [ "getCallback", "class_brew_1_1_a_p_i_1_1_function_handler.html#a32a4791f79485cfa0ee1729d7072ce3e", null ],
     [ "getDouble", "class_brew_1_1_a_p_i_1_1_function_handler.html#a40055a8e66a46079be7910398925828e", null ],
     [ "getInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a14c43ed5172063d5271bfa753fa34e7a", null ],
     [ "getString", "class_brew_1_1_a_p_i_1_1_function_handler.html#a427e78287c1cda9efad69c858523a475", null ],

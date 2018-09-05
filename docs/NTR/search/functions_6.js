@@ -3,6 +3,7 @@ var searchData=
   ['getargc',['getArgc',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a65ae876085b5956dd753b81d8bd2b80f',1,'Brew::API::FunctionHandler']]],
   ['getargtype',['getArgType',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ab2cd338814ac9a7b9459c6c2582ee929',1,'Brew::API::FunctionHandler']]],
   ['getboolean',['getBoolean',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ab03ef987e0dd53d1d4f68c21b16fe7aa',1,'Brew::API::FunctionHandler']]],
+  ['getcallback',['getCallback',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a32a4791f79485cfa0ee1729d7072ce3e',1,'Brew::API::FunctionHandler']]],
   ['getdouble',['getDouble',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a40055a8e66a46079be7910398925828e',1,'Brew::API::FunctionHandler']]],
   ['geterror',['getError',['../class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375',1,'Brew::Environment']]],
   ['getheld',['getHeld',['../namespace_brew_1_1_built_in_1_1_input.html#abbcd54d17daa62a19a09bf973b5e58dd',1,'Brew::BuiltIn::Input']]],
