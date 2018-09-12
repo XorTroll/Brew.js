@@ -79,6 +79,7 @@ namespace Brew
 					@param Context The context to use with the array.
 				*/
 				Array(NativeContext Context);
+				Array(NativeContext Context, u32 Index);
 
 				/**
 				    @brief Initializes internally the array.
@@ -142,11 +143,20 @@ namespace Brew
 					@note This should NOT be CALLED if using it from a \ref FunctionHandler. 
 				*/
 				void end();
+
+				string getString(u32 Index);
+				s64 getInt(u32 Index);
+				u64 getUInt(u32 Index);
+				double getDouble(u32 Index);
+				bool getBoolean(u32 Index);
+
 			private:
 				NativeContext Context;
 				duk_idx_t arridx;
 				u32 idx;
 				bool start;
+				bool padd;
+				u32 uidx;
 		};
 		
 		/// Represents a JavaScript object. Usually used in \ref FunctionHandler.
@@ -159,6 +169,7 @@ namespace Brew
 					@param Context The context to use with the array.
 				*/
 				Object(NativeContext Context);
+				Object(NativeContext Context, u32 Index);
 
 				/**
 				    @brief Initializes internally the array.
@@ -231,10 +242,19 @@ namespace Brew
 					@note This should NOT be CALLED if using it from a \ref FunctionHandler. 
 				*/
 				void end();
+
+				string getString(string Name);
+				s64 getInt(string Name);
+				u64 getUInt(string Name);
+				double getDouble(string Name);
+				bool getBoolean(string Name);
+
 			private:
 				NativeContext Context;
 				duk_idx_t objidx;
 				bool start;
+				bool padd;
+				u32 idx;
 		};
 		
 		/// Class representing a callback, which is a function as an object. To be used inside API JS functions/methods.
@@ -407,6 +427,10 @@ namespace Brew
 				bool getBoolean(u32 Index);
 
 				Callback getCallback(u32 Index);
+
+				Object getObject(u32 Index);
+
+				Array getArray(u32 Index);
 				
 				/**
 					@brief Returns a string. Will only return the variable if the return code of the JS function is \ref Variable.
@@ -466,13 +490,6 @@ namespace Brew
 					@brief Returns NaN. Will only return the variable if the return code of the JS function is \ref Variable.
 				*/
 				void pushNaN();
-
-				/**
-					@brief Aborts the execution throwing an error.
-					@param ErrorType The error to throw.
-					@param Message the message of the thrown error.
-				*/
-				void throwError(Error ErrorType, string Message);
 
 			protected:
 				NativeContext Context;
@@ -715,6 +732,14 @@ namespace Brew
 			@note This function is called internally when creating a new \ref Environment, so it should not be called anywhere else.
 		*/
 		void initializeGlobalObject(NativeContext Context);
+
+		/**
+			@brief Aborts the execution throwing an error.
+			@param Context The context to throw the error on.
+			@param ErrorType The error to throw.
+			@param Message the message of the thrown error.
+		*/
+		void throwError(NativeContext Context, Error ErrorType, string Message);
 
 		/// Represents the global object of Brew.js API. Add manually variable to the global object via this class.
 		static GlobalObject Global(NULL);

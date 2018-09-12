@@ -106,6 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a697c5b212a0b5e5ba92b784a5d174ca8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a697c5b212a0b5e5ba92b784a5d174ca8">Object</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Context)</td></tr>
 <tr class="memdesc:a697c5b212a0b5e5ba92b784a5d174ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object with the given context.  <a href="#a697c5b212a0b5e5ba92b784a5d174ca8">More...</a><br /></td></tr>
 <tr class="separator:a697c5b212a0b5e5ba92b784a5d174ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4954c3038e04c697c49b4adde6e396"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a9a4954c3038e04c697c49b4adde6e396">Object</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Context, u32 Index)</td></tr>
+<tr class="separator:a9a4954c3038e04c697c49b4adde6e396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a1ecd639f8437ea885714d805004bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a4a1ecd639f8437ea885714d805004bae">init</a> ()</td></tr>
 <tr class="memdesc:a4a1ecd639f8437ea885714d805004bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes internally the array.  <a href="#a4a1ecd639f8437ea885714d805004bae">More...</a><br /></td></tr>
 <tr class="separator:a4a1ecd639f8437ea885714d805004bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,12 +141,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a765b04838aa95806967a0ba736bdc03d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d">end</a> ()</td></tr>
 <tr class="memdesc:a765b04838aa95806967a0ba736bdc03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finishes the object (closes it).  <a href="#a765b04838aa95806967a0ba736bdc03d">More...</a><br /></td></tr>
 <tr class="separator:a765b04838aa95806967a0ba736bdc03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4203909ac26052a1651eb07a917369"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a6d4203909ac26052a1651eb07a917369">getPropertyString</a> (string Name)</td></tr>
+<tr class="separator:a6d4203909ac26052a1651eb07a917369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e405290fd043afab3147bcf9527674"><td class="memItemLeft" align="right" valign="top">s64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a13e405290fd043afab3147bcf9527674">getPropertyInt</a> (string Name)</td></tr>
+<tr class="separator:a13e405290fd043afab3147bcf9527674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1278c094b12d9c984a6ea1429864ff0"><td class="memItemLeft" align="right" valign="top">u64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#af1278c094b12d9c984a6ea1429864ff0">getPropertyUInt</a> (string Name)</td></tr>
+<tr class="separator:af1278c094b12d9c984a6ea1429864ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db4bd41d73485a671114cefecc00a1f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a5db4bd41d73485a671114cefecc00a1f">getPropertyDouble</a> (string Name)</td></tr>
+<tr class="separator:a5db4bd41d73485a671114cefecc00a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a021313596e12b33b9d47d4b95c9b4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a0a021313596e12b33b9d47d4b95c9b4c">getPropertyBoolean</a> (string Name)</td></tr>
+<tr class="separator:a0a021313596e12b33b9d47d4b95c9b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a JavaScript object. Usually used in <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html">FunctionHandler</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a697c5b212a0b5e5ba92b784a5d174ca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a697c5b212a0b5e5ba92b784a5d174ca8">&#9670;&nbsp;</a></span>Object()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a697c5b212a0b5e5ba92b784a5d174ca8">&#9670;&nbsp;</a></span>Object() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,6 +178,34 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a9a4954c3038e04c697c49b4adde6e396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4954c3038e04c697c49b4adde6e396">&#9670;&nbsp;</a></span>Object() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Brew::API::Object::Object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a>&#160;</td>
+          <td class="paramname"><em>Context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">u32&#160;</td>
+          <td class="paramname"><em>Index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -487,6 +527,96 @@ Public Member Functions</h2></td></tr>
 
 <p>Finishes the object (closes it). </p>
 <dl class="section note"><dt>Note</dt><dd>This should NOT be CALLED if using it from a <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html">FunctionHandler</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a0a021313596e12b33b9d47d4b95c9b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a021313596e12b33b9d47d4b95c9b4c">&#9670;&nbsp;</a></span>getPropertyBoolean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Brew::API::Object::getPropertyBoolean </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db4bd41d73485a671114cefecc00a1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db4bd41d73485a671114cefecc00a1f">&#9670;&nbsp;</a></span>getPropertyDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Brew::API::Object::getPropertyDouble </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13e405290fd043afab3147bcf9527674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e405290fd043afab3147bcf9527674">&#9670;&nbsp;</a></span>getPropertyInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s64 Brew::API::Object::getPropertyInt </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d4203909ac26052a1651eb07a917369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d4203909ac26052a1651eb07a917369">&#9670;&nbsp;</a></span>getPropertyString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Brew::API::Object::getPropertyString </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1278c094b12d9c984a6ea1429864ff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1278c094b12d9c984a6ea1429864ff0">&#9670;&nbsp;</a></span>getPropertyUInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">u64 Brew::API::Object::getPropertyUInt </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

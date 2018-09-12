@@ -129,6 +129,7 @@ Brew::API::Function Brew::BuiltIn::Console::exit(Brew::API::NativeContext Contex
 
 Brew::API::Module Brew::BuiltIn::Console::initModule()
 {
+    console.pushUInt("Top", 0);
     console.pushUInt("Bottom", 1);
     console.pushFunction("init", init);
     console.pushFunction("log", print);

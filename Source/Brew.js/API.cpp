@@ -4,10 +4,25 @@ Brew::API::Array::Array(Brew::API::NativeContext Context)
 {
 	this->Context = Context;
 	this->start = false;
+	this->arridx = 0;
+	this->idx = 0;
+	this->padd = true;
+	this->uidx = 0;
+}
+
+Brew::API::Array::Array(Brew::API::NativeContext Context, u32 Index)
+{
+	this->Context = Context;
+	this->start = false;
+	this->arridx = 0;
+	this->idx = 0;
+	this->padd = false;
+	this->uidx = Index;
 }
 
 void Brew::API::Array::init()
 {
+	if(!this->padd) return;
 	if(!this->start)
 	{
 		arridx = duk_push_array(this->Context);
@@ -18,6 +33,7 @@ void Brew::API::Array::init()
 
 void Brew::API::Array::addString(string Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_string(this->Context, Value.c_str());
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -26,6 +42,7 @@ void Brew::API::Array::addString(string Value)
 
 void Brew::API::Array::addInt(s64 Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_int(this->Context, Value);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -34,6 +51,7 @@ void Brew::API::Array::addInt(s64 Value)
 
 void Brew::API::Array::addUInt(u64 Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_uint(this->Context, Value);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -42,6 +60,7 @@ void Brew::API::Array::addUInt(u64 Value)
 
 void Brew::API::Array::addDouble(double Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_number(this->Context, Value);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -50,6 +69,7 @@ void Brew::API::Array::addDouble(double Value)
 
 void Brew::API::Array::addBoolean(bool Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_boolean(this->Context, Value);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -58,6 +78,7 @@ void Brew::API::Array::addBoolean(bool Value)
 
 void Brew::API::Array::addFunction(NativeFunction Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_c_function(this->Context, Value, DUK_VARARGS);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -66,6 +87,7 @@ void Brew::API::Array::addFunction(NativeFunction Value)
 
 void Brew::API::Array::addUndefined()
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_undefined(this->Context);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -74,6 +96,7 @@ void Brew::API::Array::addUndefined()
 
 void Brew::API::Array::addNull()
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_null(this->Context);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -82,6 +105,7 @@ void Brew::API::Array::addNull()
 
 void Brew::API::Array::addNaN()
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_nan(this->Context);
 	duk_put_prop_index(this->Context, arridx, idx);
@@ -90,17 +114,66 @@ void Brew::API::Array::addNaN()
 
 void Brew::API::Array::end()
 {
+	if(!this->padd) return;
 	duk_pop(this->Context);
+}
+
+string Brew::API::Array::getString(u32 Index)
+{
+	if(this->padd) return "";
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return string(duk_to_string(this->Context, -1));
+}
+
+s64 Brew::API::Array::getInt(u32 Index)
+{
+	if(this->padd) return 0;
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return duk_to_int(this->Context, -1);
+}
+
+u64 Brew::API::Array::getUInt(u32 Index)
+{
+	if(this->padd) return 0;
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return duk_to_uint(this->Context, -1);
+}
+
+double Brew::API::Array::getDouble(u32 Index)
+{
+	if(this->padd) return 0;
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return duk_to_number(this->Context, -1);
+}
+
+bool Brew::API::Array::getBoolean(u32 Index)
+{
+	if(this->padd) return false;
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return duk_to_boolean(this->Context, -1);
 }
 
 Brew::API::Object::Object(Brew::API::NativeContext Context)
 {
 	this->Context = Context;
 	this->start = false;
+	this->padd = true;
+	this->idx = 0;
+	this->objidx = 0;
+}
+
+Brew::API::Object::Object(Brew::API::NativeContext Context, u32 Index)
+{
+	this->Context = Context;
+	this->start = false;
+	this->padd = false;
+	this->idx = Index;
+	this->objidx = 0;
 }
 
 void Brew::API::Object::init()
 {
+	if(!this->padd) return;
 	if(!this->start)
 	{
 		objidx = duk_push_object(this->Context);
@@ -110,6 +183,7 @@ void Brew::API::Object::init()
 
 void Brew::API::Object::addString(string Name, string Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_string(this->Context, Value.c_str());
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -117,6 +191,7 @@ void Brew::API::Object::addString(string Name, string Value)
 
 void Brew::API::Object::addInt(string Name, s64 Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_int(this->Context, Value);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -124,6 +199,7 @@ void Brew::API::Object::addInt(string Name, s64 Value)
 
 void Brew::API::Object::addUInt(string Name, u64 Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_uint(this->Context, Value);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -131,6 +207,7 @@ void Brew::API::Object::addUInt(string Name, u64 Value)
 
 void Brew::API::Object::addDouble(string Name, double Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_number(this->Context, Value);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -138,6 +215,7 @@ void Brew::API::Object::addDouble(string Name, double Value)
 
 void Brew::API::Object::addBoolean(string Name, bool Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_boolean(this->Context, Value);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -145,6 +223,7 @@ void Brew::API::Object::addBoolean(string Name, bool Value)
 
 void Brew::API::Object::addFunction(string Name, NativeFunction Value)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_c_function(this->Context, Value, DUK_VARARGS);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -152,6 +231,7 @@ void Brew::API::Object::addFunction(string Name, NativeFunction Value)
 
 void Brew::API::Object::addUndefined(string Name)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_undefined(this->Context);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -159,6 +239,7 @@ void Brew::API::Object::addUndefined(string Name)
 
 void Brew::API::Object::addNull(string Name)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_null(this->Context);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -166,6 +247,7 @@ void Brew::API::Object::addNull(string Name)
 
 void Brew::API::Object::addNaN(string Name)
 {
+	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_nan(this->Context);
 	duk_put_prop_string(this->Context, objidx, Name.c_str());
@@ -173,7 +255,43 @@ void Brew::API::Object::addNaN(string Name)
 
 void Brew::API::Object::end()
 {
+	if(!this->padd) return;
 	duk_pop(this->Context);
+}
+
+string Brew::API::Object::getString(string Name)
+{
+	if(this->padd) return "";
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return string(duk_to_string(this->Context, -1));
+}
+
+s64 Brew::API::Object::getInt(string Name)
+{
+	if(this->padd) return 0;
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return duk_to_int(this->Context, -1);
+}
+
+u64 Brew::API::Object::getUInt(string Name)
+{
+	if(this->padd) return 0;
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return duk_to_uint(this->Context, -1);
+}
+
+double Brew::API::Object::getDouble(string Name)
+{
+	if(this->padd) return 0;
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return duk_to_number(this->Context, -1);
+}
+
+bool Brew::API::Object::getBoolean(string Name)
+{
+	if(this->padd) return false;
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return duk_to_boolean(this->Context, -1);
 }
 
 Brew::API::Callback::Callback(Brew::API::NativeContext Context, u32 Index)
@@ -294,22 +412,66 @@ void Brew::API::Callback::callFunction()
 			}
 		}
 	}
-	/*
-	if(!this->Strings.empty()) for(u32 i = 0; i < this->Strings.size(); i++) duk_push_string(this->Context, this->Strings[i].c_str());
-	if(!this->Ints.empty()) for(u32 i = 0; i < this->Ints.size(); i++) duk_push_int(this->Context, this->Ints[i]);
-	if(!this->UInts.empty()) for(u32 i = 0; i < this->UInts.size(); i++) duk_push_uint(this->Context, this->UInts[i]);
-	if(!this->Doubles.empty()) for(u32 i = 0; i < this->Doubles.size(); i++) duk_push_number(this->Context, this->Doubles[i]);
-	if(!this->Booleans.empty()) for(u32 i = 0; i < this->Booleans.size(); i++) duk_push_boolean(this->Context, this->Booleans[i]);
-	if(this->Undefineds > 0) for(u32 i = 0; i < this->Undefineds; i++) duk_push_undefined(this->Context);
-	if(this->Nulls > 0) for(u32 i = 0; i < this->Nulls; i++) duk_push_null(this->Context);
-	if(this->NaNs > 0) for(u32 i = 0; i < this->NaNs; i++) duk_push_nan(this->Context);
-	*/
 	duk_pcall(this->Context, this->iter);
 }
 
 void Brew::API::Callback::callFunctionNew()
 {
-	
+	if(!this->reg.empty()) for(u32 i = 0; i < this->reg.size(); i++)
+	{
+		u32 rtype = this->reg[i];
+		switch(rtype)
+		{
+			case 0:
+			{
+				duk_push_string(this->Context, this->Strings[i].c_str());
+				break;
+			}
+
+			case 1:
+			{
+				duk_push_int(this->Context, this->Ints[i]);
+				break;
+			}
+
+			case 2:
+			{
+				duk_push_uint(this->Context, this->UInts[i]);
+				break;
+			}
+
+			case 3:
+			{
+				duk_push_number(this->Context, this->Doubles[i]);
+				break;
+			}
+
+			case 4:
+			{
+				duk_push_boolean(this->Context, this->Booleans[i]);
+				break;
+			}
+
+			case 5:
+			{
+				duk_push_undefined(this->Context);
+				break;
+			}
+
+			case 6:
+			{
+				duk_push_null(this->Context);
+				break;
+			}
+
+			case 7:
+			{
+				duk_push_nan(this->Context);
+				break;
+			}
+		}
+	}
+	duk_pnew(this->Context, this->iter);
 }
 
 Brew::API::FunctionHandler::FunctionHandler(Brew::API::NativeContext Context)
@@ -397,8 +559,20 @@ bool Brew::API::FunctionHandler::getBoolean(u32 Index)
 
 Brew::API::Callback Brew::API::FunctionHandler::getCallback(u32 Index)
 {
-	if(!duk_is_function(this->Context, Index)) this->throwError(Brew::API::Error::TypeError, "Argument at index " + to_string(Index) + " is not a callable function");
+	if(!duk_is_function(this->Context, Index)) throwError(this->Context, Brew::API::Error::TypeError, "Argument at index " + to_string(Index) + " is not a callable function");
 	return Brew::API::Callback(this->Context, Index);
+}
+
+Brew::API::Object Brew::API::FunctionHandler::getObject(u32 Index)
+{
+	if(!duk_is_object(this->Context, Index)) throwError(this->Context, Brew::API::Error::TypeError, "Argument at index " + to_string(Index) + " is not an object");
+	return Brew::API::Object(this->Context, Index);
+}
+
+Brew::API::Array Brew::API::FunctionHandler::getArray(u32 Index)
+{
+	if(!duk_is_array(this->Context, Index)) throwError(this->Context, Brew::API::Error::TypeError, "Argument at index " + to_string(Index) + " is not an array");
+	return Brew::API::Array(this->Context, Index);
 }
 
 void Brew::API::FunctionHandler::pushString(string Value)
@@ -449,11 +623,6 @@ void Brew::API::FunctionHandler::pushNull()
 void Brew::API::FunctionHandler::pushNaN()
 {
 	duk_push_nan(this->Context);
-}
-
-void Brew::API::FunctionHandler::throwError(Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
-{
-	duk_error(this->Context, (duk_errcode_t)ErrorType, Message.c_str());
 }
 
 Brew::API::ClassHandler::ClassHandler(Brew::API::NativeContext Context) : Brew::API::FunctionHandler(Context)
@@ -888,7 +1057,7 @@ Brew::API::Function Brew::API::require(Brew::API::NativeContext Context)
 				duk_put_prop_string(Context, objidx, cls.Name.c_str());
 			}
 		}
-		else handler.throwError(Brew::API::Error::CommonError, "Cannot find module \'" + modname + "\'");
+		else throwError(Context, Brew::API::Error::CommonError, "Cannot find module \'" + modname + "\'");
 	}
 	return Brew::API::Return::Variable;
 }
@@ -935,4 +1104,9 @@ void Brew::API::initializeGlobalObject(Brew::API::NativeContext Context)
 	Brew::API::Global.pushFunction("evalFile", evalFile);
 	Brew::API::Global.pushFunction("randRange", randRange);
 	Brew::API::Global.pushModule(Brew::BuiltIn::Console::initModule());
+}
+
+void Brew::API::throwError(Brew::API::NativeContext Context, Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
+{
+	duk_error(Context, (duk_errcode_t)ErrorType, Message.c_str());
 }

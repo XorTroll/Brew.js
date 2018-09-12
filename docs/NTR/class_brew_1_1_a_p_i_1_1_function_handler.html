@@ -151,6 +151,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab03ef987e0dd53d1d4f68c21b16fe7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32a4791f79485cfa0ee1729d7072ce3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_brew_1_1_a_p_i_1_1_callback.html">Callback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a32a4791f79485cfa0ee1729d7072ce3e">getCallback</a> (u32 Index)</td></tr>
 <tr class="separator:a32a4791f79485cfa0ee1729d7072ce3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8960cbc6d5e511929addd4af07bc950c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a8960cbc6d5e511929addd4af07bc950c">getObject</a> (u32 Index)</td></tr>
+<tr class="separator:a8960cbc6d5e511929addd4af07bc950c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adac6c2ac91773972addcf4fff2c56e96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_brew_1_1_a_p_i_1_1_array.html">Array</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#adac6c2ac91773972addcf4fff2c56e96">getArray</a> (u32 Index)</td></tr>
+<tr class="separator:adac6c2ac91773972addcf4fff2c56e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda8e3a8a0ebf23eeadbde2caa3d53d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#abda8e3a8a0ebf23eeadbde2caa3d53d0">pushString</a> (string Value)</td></tr>
 <tr class="memdesc:abda8e3a8a0ebf23eeadbde2caa3d53d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string. Will only return the variable if the return code of the JS function is <a class="el" href="namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6ea49630c8aec52f57591b5951e3981bbe3">Variable</a>.  <a href="#abda8e3a8a0ebf23eeadbde2caa3d53d0">More...</a><br /></td></tr>
 <tr class="separator:abda8e3a8a0ebf23eeadbde2caa3d53d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,9 +185,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace357125138bd4f5807256675a044aa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#ace357125138bd4f5807256675a044aa5">pushNaN</a> ()</td></tr>
 <tr class="memdesc:ace357125138bd4f5807256675a044aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns NaN. Will only return the variable if the return code of the JS function is <a class="el" href="namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6ea49630c8aec52f57591b5951e3981bbe3">Variable</a>.  <a href="#ace357125138bd4f5807256675a044aa5">More...</a><br /></td></tr>
 <tr class="separator:ace357125138bd4f5807256675a044aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68cdda4e06f284761629bc8ee4e6f773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773">throwError</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35">Error</a> ErrorType, string Message)</td></tr>
-<tr class="memdesc:a68cdda4e06f284761629bc8ee4e6f773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the execution throwing an error.  <a href="#a68cdda4e06f284761629bc8ee4e6f773">More...</a><br /></td></tr>
-<tr class="separator:a68cdda4e06f284761629bc8ee4e6f773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -361,6 +362,24 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="adac6c2ac91773972addcf4fff2c56e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac6c2ac91773972addcf4fff2c56e96">&#9670;&nbsp;</a></span>getArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_brew_1_1_a_p_i_1_1_array.html">Array</a> Brew::API::FunctionHandler::getArray </td>
+          <td>(</td>
+          <td class="paramtype">u32&#160;</td>
+          <td class="paramname"><em>Index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab03ef987e0dd53d1d4f68c21b16fe7aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab03ef987e0dd53d1d4f68c21b16fe7aa">&#9670;&nbsp;</a></span>getBoolean()</h2>
 
@@ -457,6 +476,24 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The argument as a signed integer. </dd></dl>
+
+</div>
+</div>
+<a id="a8960cbc6d5e511929addd4af07bc950c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8960cbc6d5e511929addd4af07bc950c">&#9670;&nbsp;</a></span>getObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a> Brew::API::FunctionHandler::getObject </td>
+          <td>(</td>
+          <td class="paramtype">u32&#160;</td>
+          <td class="paramname"><em>Index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -773,43 +810,6 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns undefined. Will only return the variable if the return code of the JS function is <a class="el" href="namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6ea49630c8aec52f57591b5951e3981bbe3">Variable</a>. </p>
-
-</div>
-</div>
-<a id="a68cdda4e06f284761629bc8ee4e6f773"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68cdda4e06f284761629bc8ee4e6f773">&#9670;&nbsp;</a></span>throwError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Brew::API::FunctionHandler::throwError </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35">Error</a>&#160;</td>
-          <td class="paramname"><em>ErrorType</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>Message</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Aborts the execution throwing an error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ErrorType</td><td>The error to throw. </td></tr>
-    <tr><td class="paramname">Message</td><td>the message of the thrown error. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

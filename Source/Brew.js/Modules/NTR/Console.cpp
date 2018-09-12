@@ -111,7 +111,7 @@ Brew::API::Function Brew::BuiltIn::Console::select(Brew::API::NativeContext Cont
 
 Brew::API::Function Brew::BuiltIn::Console::refresh(Brew::API::NativeContext Context)
 {
-    /*if(cinit)*/ swiWaitForVBlank();
+    if(cinit) swiWaitForVBlank();
     return Brew::API::Return::Void;
 }
 

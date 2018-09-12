@@ -16,7 +16,7 @@ Brew::API::Function Brew::BuiltIn::FS::readFile(Brew::API::NativeContext Context
             strm << ifs.rdbuf();
             data = strm.str();
         }
-        else handler.throwError(Brew::API::Error::CommonError, "File \'" + path + "\' was not found");
+        else throwError(Context, Brew::API::Error::CommonError, "File \'" + path + "\' was not found");
         ifs.close();
     }
     handler.pushString(data);
@@ -32,7 +32,7 @@ Brew::API::Function Brew::BuiltIn::FS::writeFile(Brew::API::NativeContext Contex
         string data = handler.getString(1);
         ofstream ofs(path);
         if(ofs.good()) ofs << data;
-        else handler.throwError(Brew::API::Error::CommonError, "File \'" + path + "\' was not found");
+        else throwError(Context, Brew::API::Error::CommonError, "File \'" + path + "\' was not found");
         ofs.close();
     }
     return Brew::API::Return::Void;
@@ -209,7 +209,7 @@ Brew::API::Class Brew::BuiltIn::FS::Stats()
                 handler.setPropertyUInt("mtimeMs", st.st_mtime);
                 handler.setPropertyUInt("ctimeMs", st.st_ctime);
             }
-            else handler.throwError(Brew::API::Error::CommonError, "No such file or directory: \'" + path + "\'");
+            else throwError(Context, Brew::API::Error::CommonError, "No such file or directory: \'" + path + "\'");
         }
         return Brew::API::Return::Void;
     });
