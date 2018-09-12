@@ -1,4 +1,4 @@
-# Brew.js API documentation - Nintendo DS version
+# Welcome to Brew.js! - Nintendo DS version
 
 **Welcome to the documentation of Brew.js for Nintendo DS!**
 

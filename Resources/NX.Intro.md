@@ -1,4 +1,4 @@
-# Brew.js API documentation - Nintendo Switch version
+# Welcome to Brew.js! - Nintendo Switch version
 
 **Welcome to the documentation of Brew.js for Nintendo Switch!**
 

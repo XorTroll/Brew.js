@@ -1,4 +1,4 @@
-# Brew.js API documentation - Nintendo 3DS version
+# Welcome to Brew.js! - Nintendo 3DS version
 
 **Welcome to the documentation of Brew.js for Nintendo 3DS!**
 
