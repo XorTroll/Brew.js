@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_brew_1_1_a_p_i_1_1_object.html#aad04b4c66c8542631b974431aa2190f9":[3,0,0,0,7,9],
+"class_brew_1_1_a_p_i_1_1_object.html#ab428fb0a72a47023b3f03dd7f897d73a":[3,0,0,0,7,3],
 "class_brew_1_1_a_p_i_1_1_object.html#addda682d3557902408544a5987aabc88":[3,0,0,0,7,14],
 "class_brew_1_1_a_p_i_1_1_object.html#af89002d59b8a39dc2bd54269c4a836d0":[3,0,0,0,7,7],
 "class_brew_1_1_environment.html":[3,0,0,2],

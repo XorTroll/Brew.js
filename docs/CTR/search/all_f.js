@@ -4,7 +4,7 @@ var searchData=
   ['r_5ffailed',['R_FAILED',['../_detect_8hpp.html#a0040b35f38c0d2fef6766d5b284fefc7',1,'Detect.hpp']]],
   ['r_5fmodule',['R_MODULE',['../_detect_8hpp.html#a5b0e010ac431ca11f51ae23fdf4d7af2',1,'Detect.hpp']]],
   ['r_5fsucceeded',['R_SUCCEEDED',['../_detect_8hpp.html#aed427354b69859fdfab4dc33706acd45',1,'Detect.hpp']]],
-  ['randrange',['randRange',['../namespace_brew_1_1_a_p_i.html#a7c3f4cd5855522b24a2f4c13a66d239b',1,'Brew::API']]],
+  ['randrange',['randRange',['../namespace_brew_1_1_built_in.html#a061e2c9c2f5e07cad503c68b62c3e777',1,'Brew::BuiltIn']]],
   ['rangeerror',['RangeError',['../namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35a49a31d6b81509c5a14723b287999ef36',1,'Brew::API']]],
   ['rangeerrorcode',['RangeErrorCode',['../namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6eaf47d0e0c5e28ad67da5a3e32d63cad6f',1,'Brew::API']]],
   ['readdir',['readdir',['../namespace_brew_1_1_built_in_1_1_f_s.html#ad9e42ef91084e5a161f8abdfb1f5f579',1,'Brew::BuiltIn::FS']]],
@@ -14,7 +14,7 @@ var searchData=
   ['referenceerrorcode',['ReferenceErrorCode',['../namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6eaf1babecf3d395a3cc74814275f47274b',1,'Brew::API']]],
   ['refresh',['refresh',['../namespace_brew_1_1_built_in_1_1_console.html#a9c535f1ea5b380e0c86092aeaf74c915',1,'Brew::BuiltIn::Console::refresh()'],['../namespace_brew_1_1_built_in_1_1_s_f2_d.html#a6e87e83aee89c94ab4de25e411348a19',1,'Brew::BuiltIn::SF2D::refresh()']]],
   ['rename',['rename',['../namespace_brew_1_1_built_in_1_1_f_s.html#aa59d02f910265f56fbd0970e6b58eac7',1,'Brew::BuiltIn::FS']]],
-  ['require',['require',['../namespace_brew_1_1_a_p_i.html#a15fbc626973a0c7ae080fba96c9ea848',1,'Brew::API']]],
+  ['require',['require',['../namespace_brew_1_1_built_in.html#a8018e35e0dcfb6c9b56e9f1296797a89',1,'Brew::BuiltIn']]],
   ['resultstring',['resultString',['../class_brew_1_1_execution_result.html#af7f3eca6b7cb37c9d28b9689fb5bc2af',1,'Brew::ExecutionResult']]],
   ['return',['Return',['../namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6e',1,'Brew::API']]],
   ['rmdir',['rmdir',['../namespace_brew_1_1_built_in_1_1_f_s.html#a8454aef3c25c9b2d83a59c4204e28682',1,'Brew::BuiltIn::FS']]]

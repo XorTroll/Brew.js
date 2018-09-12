@@ -43,25 +43,21 @@ Brew::Environment::Environment(Brew::API::NativeContext Context)
 {
 	srand(time(NULL));
 	this->ctx = Context;
-	API::initializeGlobalObject(this->ctx);
+	BuiltIn::initGlobal(this->ctx);
 	API::addModule(BuiltIn::FS::initModule());
 	API::addModule(BuiltIn::OS::initModule());
 	API::addModule(BuiltIn::Path::initModule());
 	API::addModule(BuiltIn::Process::initModule());
 	#if __curOS == 0
-
 		romfsInit();
 		API::addModule(BuiltIn::NX::initModule());
 		API::addModule(BuiltIn::Gfx::initModule());
 		API::addModule(BuiltIn::Input::initModule());
-
 	#elif __curOS == 1
-
 		romfsInit();
 		API::addModule(BuiltIn::CTR::initModule());
 		API::addModule(BuiltIn::Input::initModule());
 		API::addModule(BuiltIn::SF2D::initModule());
-
 	#elif __curOS == 2
 
 		nitroFSInit(NULL);
@@ -69,16 +65,13 @@ Brew::Environment::Environment(Brew::API::NativeContext Context)
 		API::addModule(BuiltIn::Gfx::initModule());
 		API::addModule(BuiltIn::Input::initModule());
 		API::addModule(BuiltIn::NTR::initModule());
-
 	#endif
 }
 
 Brew::Environment::~Environment()
 {
 	#if __curOS == 0 || curOS == 1
-
 		romfsExit();
-
 	#endif
 	API::Modules.clear();
 	duk_destroy_heap(this->ctx);
@@ -139,8 +132,6 @@ Brew::ExecutionResult Brew::Environment::evaluateSourceCode(string Source)
 Brew::ExecutionResult Brew::Environment::evaluateFile(string Path)
 {
 	string dir = Path.substr(0, Path.find_last_of("/\\"));
-	//API::Global.pushString("__dirname", dir);
-	//API::Global.pushString("__filename", Path);
 	ifstream ifs(Path);
 	if(ifs.good())
 	{

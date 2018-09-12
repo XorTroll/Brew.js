@@ -717,21 +717,6 @@ namespace Brew
 			@note If there's already another module with the same name, then the module won't be added.
 		*/
 		void addModule(Module Module);
-		
-		/**
-			@brief [Global] API JS Function: "function require(ModuleName) → Object"
-			@note Imports (tries to import) a module. This description is for using the function with JavaScript.
-		*/
-		Function require(NativeContext Context);
-		Function evalFile(NativeContext Context);
-		Function randRange(NativeContext Context);
-		
-		/**
-			@brief This function adds basic API (require function, global objects like 'console') to the \ref Global object of Brew.js.
-			@param Context The context to use with.
-			@note This function is called internally when creating a new \ref Environment, so it should not be called anywhere else.
-		*/
-		void initializeGlobalObject(NativeContext Context);
 
 		/**
 			@brief Aborts the execution throwing an error.
@@ -751,17 +736,3 @@ namespace Brew
 		static string Version = "2.0 beta 1";
 	}
 }
-
-#if __curOS == 0
-
-	#include "Modules/NX/Console.hpp"
-
-#elif __curOS == 1
-
-	#include "Modules/CTR/Console.hpp"
-
-#elif __curOS == 2
-
-	#include "Modules/NTR/Console.hpp"
-
-#endif

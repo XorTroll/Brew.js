@@ -39,12 +39,11 @@
 */
 
 #pragma once
-#include "API.hpp"
+#include "Modules/Global.hpp"
 
 #include "Modules/Node/FS.hpp"
 #include "Modules/Node/OS.hpp"
 #include "Modules/Node/Path.hpp"
-#include "Modules/Node/Process.hpp"
 
 #if __curOS == 0
 
