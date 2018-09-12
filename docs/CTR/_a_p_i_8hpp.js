@@ -49,6 +49,7 @@ var _a_p_i_8hpp =
     [ "initializeGlobalObject", "_a_p_i_8hpp.html#a103d119833c9d97aa7b2eac0a679f1fe", null ],
     [ "randRange", "_a_p_i_8hpp.html#a7c3f4cd5855522b24a2f4c13a66d239b", null ],
     [ "require", "_a_p_i_8hpp.html#a15fbc626973a0c7ae080fba96c9ea848", null ],
+    [ "throwError", "_a_p_i_8hpp.html#a18577835628062956e60167b9556be04", null ],
     [ "Global", "_a_p_i_8hpp.html#a2e874ee8d242594be4bdf4b2fa8e9c24", null ],
     [ "Modules", "_a_p_i_8hpp.html#a60b5d392cca446b4a5e31819724fedcb", null ],
     [ "Version", "_a_p_i_8hpp.html#ad655b20dd0ce87531083b9e0e508472b", null ]

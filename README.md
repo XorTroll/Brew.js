@@ -26,7 +26,7 @@
    ``` cpp
    Brew::ExecutionResult res1 = myenv.evaluateSourceCode("var x = 9;");
    Brew::executionResult res2 = myenv.evaluateFile("sdmc:/test.js");
-   vector<Brew::Projects> projects = myenv.getProjectList("sdmc:/Projects");
+   vector<Brew::Project> projects = myenv.getProjectList("sdmc:/Projects");
    Brew::ExecutionResult res3 = myenv.evaluateProject(projects[0]);
    ```
 

@@ -6,10 +6,12 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "checkArgType", "class_brew_1_1_a_p_i_1_1_function_handler.html#a324783c1aace78887a6080cb7104bd67", null ],
     [ "getArgc", "class_brew_1_1_a_p_i_1_1_function_handler.html#a65ae876085b5956dd753b81d8bd2b80f", null ],
     [ "getArgType", "class_brew_1_1_a_p_i_1_1_function_handler.html#ab2cd338814ac9a7b9459c6c2582ee929", null ],
+    [ "getArray", "class_brew_1_1_a_p_i_1_1_function_handler.html#adac6c2ac91773972addcf4fff2c56e96", null ],
     [ "getBoolean", "class_brew_1_1_a_p_i_1_1_function_handler.html#ab03ef987e0dd53d1d4f68c21b16fe7aa", null ],
     [ "getCallback", "class_brew_1_1_a_p_i_1_1_function_handler.html#a32a4791f79485cfa0ee1729d7072ce3e", null ],
     [ "getDouble", "class_brew_1_1_a_p_i_1_1_function_handler.html#a40055a8e66a46079be7910398925828e", null ],
     [ "getInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a14c43ed5172063d5271bfa753fa34e7a", null ],
+    [ "getObject", "class_brew_1_1_a_p_i_1_1_function_handler.html#a8960cbc6d5e511929addd4af07bc950c", null ],
     [ "getString", "class_brew_1_1_a_p_i_1_1_function_handler.html#a427e78287c1cda9efad69c858523a475", null ],
     [ "getUInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a01226ba6f4638e3b965c004d3b4fae1a", null ],
     [ "isConstructorCall", "class_brew_1_1_a_p_i_1_1_function_handler.html#a27f884a8f42d23437690d9926278639e", null ],
@@ -23,7 +25,6 @@ var class_brew_1_1_a_p_i_1_1_function_handler =
     [ "pushString", "class_brew_1_1_a_p_i_1_1_function_handler.html#abda8e3a8a0ebf23eeadbde2caa3d53d0", null ],
     [ "pushUInt", "class_brew_1_1_a_p_i_1_1_function_handler.html#a39ac4665fbd5563a4abac229bedb2c1c", null ],
     [ "pushUndefined", "class_brew_1_1_a_p_i_1_1_function_handler.html#a2dd2edf8f4cf55d64b54604e3ff9a1f1", null ],
-    [ "throwError", "class_brew_1_1_a_p_i_1_1_function_handler.html#a68cdda4e06f284761629bc8ee4e6f773", null ],
     [ "Context", "class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83", null ],
     [ "count", "class_brew_1_1_a_p_i_1_1_function_handler.html#ae43a8ded81a0b9cba195d652dc34063b", null ]
 ];

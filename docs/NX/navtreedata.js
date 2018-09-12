@@ -24,7 +24,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Brew.js", "index.html", [
-    [ "Brew.js API documentation - Nintendo Switch version", "index.html", null ],
+    [ "Welcome to Brew.js! - Nintendo Switch version", "index.html", null ],
+    [ "Creating classes", "md__resources__how_8_classes.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -59,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a_p_i_8hpp.html",
-"class_brew_1_1_execution_result.html#af7f3eca6b7cb37c9d28b9689fb5bc2af"
+"class_brew_1_1_environment.html#ae50be437f69ba833406a7f4da83b4af8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

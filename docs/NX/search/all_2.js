@@ -10,7 +10,6 @@ var searchData=
   ['console',['Console',['../namespace_brew_1_1_built_in_1_1_console.html',1,'Brew::BuiltIn']]],
   ['fs',['FS',['../namespace_brew_1_1_built_in_1_1_f_s.html',1,'Brew::BuiltIn']]],
   ['gfx',['Gfx',['../namespace_brew_1_1_built_in_1_1_gfx.html',1,'Brew::BuiltIn']]],
-  ['brew_2ejs_20api_20documentation_20_2d_20nintendo_20switch_20version',['Brew.js API documentation - Nintendo Switch version',['../index.html',1,'']]],
   ['input',['Input',['../namespace_brew_1_1_built_in_1_1_input.html',1,'Brew::BuiltIn']]],
   ['nx',['NX',['../namespace_brew_1_1_built_in_1_1_n_x.html',1,'Brew::BuiltIn']]],
   ['os',['OS',['../namespace_brew_1_1_built_in_1_1_o_s.html',1,'Brew::BuiltIn']]],

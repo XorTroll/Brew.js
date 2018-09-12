@@ -19,5 +19,6 @@ var searchData=
   ['createerror',['createError',['../namespace_brew.html#a31a90deb1ea873aa5dd2d8f918d527e4',1,'Brew']]],
   ['ctr',['CTR',['../namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa997006996136fa0cacfb79a20e2c0805',1,'Brew']]],
   ['currentos',['currentOS',['../namespace_brew.html#a678d94c8254fa751503c003161b567c2',1,'Brew']]],
-  ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]]
+  ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]],
+  ['creating_20classes',['Creating classes',['../md__resources__how_8_classes.html',1,'']]]
 ];

@@ -24,7 +24,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Brew.js", "index.html", [
-    [ "Brew.js API documentation - Nintendo DS version", "index.html", null ],
+    [ "Welcome to Brew.js! - Nintendo DS version", "index.html", null ],
+    [ "Creating classes", "md__resources__how_8_classes.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

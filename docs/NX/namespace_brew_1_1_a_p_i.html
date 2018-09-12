@@ -203,6 +203,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a103d119833c9d97aa7b2eac0a679f1fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a103d119833c9d97aa7b2eac0a679f1fe">initializeGlobalObject</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Context)</td></tr>
 <tr class="memdesc:a103d119833c9d97aa7b2eac0a679f1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function adds basic <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> (require function, global objects like 'console') to the <a class="el" href="namespace_brew_1_1_a_p_i.html#a2e874ee8d242594be4bdf4b2fa8e9c24">Global</a> object of Brew.js.  <a href="#a103d119833c9d97aa7b2eac0a679f1fe">More...</a><br /></td></tr>
 <tr class="separator:a103d119833c9d97aa7b2eac0a679f1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18577835628062956e60167b9556be04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a18577835628062956e60167b9556be04">throwError</a> (<a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a> Context, <a class="el" href="namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35">Error</a> ErrorType, string Message)</td></tr>
+<tr class="memdesc:a18577835628062956e60167b9556be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the execution throwing an error.  <a href="#a18577835628062956e60167b9556be04">More...</a><br /></td></tr>
+<tr class="separator:a18577835628062956e60167b9556be04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -502,6 +505,50 @@ Variables</h2></td></tr>
 
 <p>[Global] <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS Function: "function require(ModuleName) → Object" </p>
 <dl class="section note"><dt>Note</dt><dd>Imports (tries to import) a module. This description is for using the function with JavaScript. </dd></dl>
+
+</div>
+</div>
+<a id="a18577835628062956e60167b9556be04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18577835628062956e60167b9556be04">&#9670;&nbsp;</a></span>throwError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::throwError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40">NativeContext</a>&#160;</td>
+          <td class="paramname"><em>Context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35">Error</a>&#160;</td>
+          <td class="paramname"><em>ErrorType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aborts the execution throwing an error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Context</td><td>The context to throw the error on. </td></tr>
+    <tr><td class="paramname">ErrorType</td><td>The error to throw. </td></tr>
+    <tr><td class="paramname">Message</td><td>the message of the thrown error. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

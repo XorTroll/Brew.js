@@ -21,5 +21,6 @@ var searchData=
   ['ctr_2ehpp',['CTR.hpp',['../_c_t_r_8hpp.html',1,'']]],
   ['ctr_2eintro_2emd',['CTR.Intro.md',['../_c_t_r_8_intro_8md.html',1,'']]],
   ['currentos',['currentOS',['../namespace_brew.html#a678d94c8254fa751503c003161b567c2',1,'Brew']]],
-  ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]]
+  ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]],
+  ['creating_20classes',['Creating classes',['../md__resources__how_8_classes.html',1,'']]]
 ];

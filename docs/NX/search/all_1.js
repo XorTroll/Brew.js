@@ -20,5 +20,5 @@ var searchData=
   ['addundefined',['addUndefined',['../class_brew_1_1_a_p_i_1_1_array.html#a8764b2151a3253b7f1c57d5fe2b7b90c',1,'Brew::API::Array::addUndefined()'],['../class_brew_1_1_a_p_i_1_1_object.html#aa6707a8cd0c348b5a2c7b2af273b3342',1,'Brew::API::Object::addUndefined()'],['../struct_brew_1_1_a_p_i_1_1_class.html#a88265c087a4da1d153289e0bb0b84c26',1,'Brew::API::Class::addUndefined()']]],
   ['api_2ehpp',['API.hpp',['../_a_p_i_8hpp.html',1,'']]],
   ['arch',['arch',['../namespace_brew_1_1_built_in_1_1_o_s.html#af920bcc54093d784c365ce85c5288f81',1,'Brew::BuiltIn::OS']]],
-  ['array',['Array',['../class_brew_1_1_a_p_i_1_1_array.html',1,'Brew::API::Array'],['../class_brew_1_1_a_p_i_1_1_array.html#ab8a644d0df515361fbdf5dcc48c3f726',1,'Brew::API::Array::Array()']]]
+  ['array',['Array',['../class_brew_1_1_a_p_i_1_1_array.html',1,'Brew::API::Array'],['../class_brew_1_1_a_p_i_1_1_array.html#ab8a644d0df515361fbdf5dcc48c3f726',1,'Brew::API::Array::Array(NativeContext Context)'],['../class_brew_1_1_a_p_i_1_1_array.html#a0b0fb279cfcfded651d50aa4a6e4e1c2',1,'Brew::API::Array::Array(NativeContext Context, u32 Index)']]]
 ];
