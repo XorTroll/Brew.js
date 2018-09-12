@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['description',['Description',['../struct_brew_1_1_project.html#adfb46a3ceb1df22735ffb210ef214e14',1,'Brew::Project']]],
-  ['directory',['Directory',['../struct_brew_1_1_project.html#a080edc68229ef193bd86a5a123995e0c',1,'Brew::Project']]],
-  ['doubles',['Doubles',['../struct_brew_1_1_a_p_i_1_1_module.html#aa361455507c8c46d3f374d2a00856419',1,'Brew::API::Module']]]
+  ['classes',['Classes',['../struct_brew_1_1_a_p_i_1_1_module.html#a3797e38575d0b8e22469416b95e46781',1,'Brew::API::Module']]],
+  ['constructor',['Constructor',['../struct_brew_1_1_a_p_i_1_1_class.html#a1fdd828060447ee47d85b2316bffb3f6',1,'Brew::API::Class']]],
+  ['context',['Context',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a4e070555f0452153f435a5f69ca18f83',1,'Brew::API::FunctionHandler']]],
+  ['count',['count',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ae43a8ded81a0b9cba195d652dc34063b',1,'Brew::API::FunctionHandler']]]
 ];

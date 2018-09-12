@@ -3636,7 +3636,7 @@ typedef duk_uint32_t duk_instr_t;
 #if !defined(DUK_LEXER_H_INCLUDED)
 #define DUK_LEXER_H_INCLUDED
 
-typedef void (*duk_re_range_callback)(void *user, duk_codepoint_t r1, duk_codepoint_t r2, duk_bool_t direct);
+typedef void (*duk_re_range_Callback)(void *user, duk_codepoint_t r1, duk_codepoint_t r2, duk_bool_t direct);
 
 /*
  *  A token is interpreted as any possible production of InputElementDiv
@@ -4063,7 +4063,7 @@ void duk_lexer_parse_js_input_element(duk_lexer_ctx *lex_ctx,
                                       duk_bool_t regexp_mode);
 #if defined(DUK_USE_REGEXP_SUPPORT)
 DUK_INTERNAL_DECL void duk_lexer_parse_re_token(duk_lexer_ctx *lex_ctx, duk_re_token *out_token);
-DUK_INTERNAL_DECL void duk_lexer_parse_re_ranges(duk_lexer_ctx *lex_ctx, duk_re_range_callback gen_range, void *userdata);
+DUK_INTERNAL_DECL void duk_lexer_parse_re_ranges(duk_lexer_ctx *lex_ctx, duk_re_range_Callback gen_range, void *userdata);
 #endif  /* DUK_USE_REGEXP_SUPPORT */
 
 #endif  /* DUK_LEXER_H_INCLUDED */
@@ -7462,7 +7462,7 @@ struct duk_hboundfunc {
  * duk_hbufobj 'length') to the current dynamic buffer limits to yield
  * a byte length limit that's safe for memory accesses.  This value can
  * be invalidated by any side effect because it may trigger a user
- * callback that resizes the underlying buffer.
+ * Callback that resizes the underlying buffer.
  */
 #define DUK_HBUFOBJ_CLAMP_BYTELENGTH(h,len) \
 	(DUK_ASSERT_EXPR((h) != NULL), \
@@ -7689,7 +7689,7 @@ DUK_INTERNAL_DECL void duk_hbufobj_promote_plain(duk_hthread *thr, duk_idx_t idx
 	} while (0)
 
 /* Assertions for API call entry specifically.  Checks 'ctx' but also may
- * check internal state (e.g. not in a debugger transport callback).
+ * check internal state (e.g. not in a debugger transport Callback).
  */
 #define DUK_ASSERT_API_ENTRY(thr) do { \
 		DUK_ASSERT_CTX_VALID((thr)); \
@@ -8608,14 +8608,14 @@ struct duk_hproxy {
  *      causing a realloc retry to use an invalid pointer.  Example: we're
  *      reallocating the value stack and a finalizer resizes the same value
  *      stack during mark-and-sweep.  The indirect variant requests for the
- *      current location of the pointer being reallocated using a callback
+ *      current location of the pointer being reallocated using a Callback
  *      right before every realloc attempt; this circuitous approach is used
  *      to avoid strict aliasing issues in a more straightforward indirect
  *      pointer (void **) approach.  Note: the pointer in the storage
  *      location is read but is NOT updated; the caller must do that.
  */
 
-/* callback for indirect reallocs, request for current pointer */
+/* Callback for indirect reallocs, request for current pointer */
 typedef void *(*duk_mem_getptr)(duk_heap *heap, void *ud);
 
 #define DUK_ALLOC(heap,size)                            duk_heap_mem_alloc((heap), (size))
@@ -8745,7 +8745,7 @@ struct duk_heap {
 	duk_free_function free_func;
 
 	/* Heap udata, used for allocator functions but also for other heap
-	 * level callbacks like fatal function, pointer compression, etc.
+	 * level Callbacks like fatal function, pointer compression, etc.
 	 */
 	void *heap_udata;
 
@@ -15861,7 +15861,7 @@ DUK_EXTERNAL void duk_debugger_attach(duk_hthread *thr,
 	DUK_ASSERT_API_ENTRY(thr);
 	DUK_ASSERT(read_cb != NULL);
 	DUK_ASSERT(write_cb != NULL);
-	/* Other callbacks are optional. */
+	/* Other Callbacks are optional. */
 
 	heap = thr->heap;
 	heap->dbg_read_cb = read_cb;
@@ -15958,7 +15958,7 @@ DUK_EXTERNAL duk_bool_t duk_debugger_notify(duk_hthread *thr, duk_idx_t nvalues)
 		/* Return non-zero (true) if we have a good reason to believe
 		 * the notify was delivered; if we're still attached at least
 		 * a transport error was not indicated by the transport write
-		 * callback.  This is not a 100% guarantee of course.
+		 * Callback.  This is not a 100% guarantee of course.
 		 */
 		if (duk_debug_is_attached(thr->heap)) {
 			ret = 1;
@@ -24598,7 +24598,7 @@ DUK_EXTERNAL void duk_join(duk_hthread *thr, duk_idx_t count) {
  * Case conversion needs also the character surroundings though.
  */
 
-DUK_EXTERNAL void duk_decode_string(duk_hthread *thr, duk_idx_t idx, duk_decode_char_function callback, void *udata) {
+DUK_EXTERNAL void duk_decode_string(duk_hthread *thr, duk_idx_t idx, duk_decode_char_function Callback, void *udata) {
 	duk_hstring *h_input;
 	const duk_uint8_t *p, *p_start, *p_end;
 	duk_codepoint_t cp;
@@ -24617,11 +24617,11 @@ DUK_EXTERNAL void duk_decode_string(duk_hthread *thr, duk_idx_t idx, duk_decode_
 			break;
 		}
 		cp = (duk_codepoint_t) duk_unicode_decode_xutf8_checked(thr, &p, p_start, p_end);
-		callback(udata, cp);
+		Callback(udata, cp);
 	}
 }
 
-DUK_EXTERNAL void duk_map_string(duk_hthread *thr, duk_idx_t idx, duk_map_char_function callback, void *udata) {
+DUK_EXTERNAL void duk_map_string(duk_hthread *thr, duk_idx_t idx, duk_map_char_function Callback, void *udata) {
 	duk_hstring *h_input;
 	duk_bufwriter_ctx bw_alloc;
 	duk_bufwriter_ctx *bw;
@@ -24651,7 +24651,7 @@ DUK_EXTERNAL void duk_map_string(duk_hthread *thr, duk_idx_t idx, duk_map_char_f
 			break;
 		}
 		cp = (duk_codepoint_t) duk_unicode_decode_xutf8_checked(thr, &p, p_start, p_end);
-		cp = callback(udata, cp);
+		cp = Callback(udata, cp);
 
 		DUK_BW_WRITE_ENSURE_XUTF8(thr, bw, cp);
 	}
@@ -24707,7 +24707,7 @@ DUK_EXTERNAL void duk_substring(duk_hthread *thr, duk_idx_t idx, duk_size_t star
 }
 
 /* XXX: this is quite clunky.  Add Unicode helpers to scan backwards and
- * forwards with a callback to process codepoints?
+ * forwards with a Callback to process codepoints?
  */
 DUK_EXTERNAL void duk_trim(duk_hthread *thr, duk_idx_t idx) {
 	duk_hstring *h;
@@ -26378,7 +26378,7 @@ DUK_INTERNAL duk_ret_t duk_bi_array_prototype_iter_shared(duk_hthread *thr) {
 		duk_push_undefined(thr);
 	}
 
-	/* stack[0] = callback
+	/* stack[0] = Callback
 	 * stack[1] = thisArg
 	 * stack[2] = object
 	 * stack[3] = ToUint32(length)  (unused, but avoid unnecessary pop)
@@ -26391,7 +26391,7 @@ DUK_INTERNAL duk_ret_t duk_bi_array_prototype_iter_shared(duk_hthread *thr) {
 
 		if (!duk_get_prop_index(thr, 2, (duk_uarridx_t) i)) {
 			/* For 'map' trailing missing elements don't invoke the
-			 * callback but count towards the result length.
+			 * Callback but count towards the result length.
 			 */
 			if (iter_type == DUK__ITER_MAP) {
 				res_length = i + 1;
@@ -26409,7 +26409,7 @@ DUK_INTERNAL duk_ret_t duk_bi_array_prototype_iter_shared(duk_hthread *thr) {
 		duk_dup_1(thr);
 		duk_dup_m3(thr);
 		duk_push_u32(thr, i);
-		duk_dup_2(thr);  /* [ ... val callback thisArg val i obj ] */
+		duk_dup_2(thr);  /* [ ... val Callback thisArg val i obj ] */
 		duk_call_method(thr, 3); /* -> [ ... val retval ] */
 
 		switch (iter_type) {
@@ -26498,7 +26498,7 @@ DUK_INTERNAL duk_ret_t duk_bi_array_prototype_reduce_shared(duk_hthread *thr) {
 	len = duk__push_this_obj_len_u32(thr);
 	duk_require_callable(thr, 0);
 
-	/* stack[0] = callback fn
+	/* stack[0] = Callback fn
 	 * stack[1] = initialValue
 	 * stack[2] = object (coerced this)
 	 * stack[3] = length (not needed, but not popped above)
@@ -33477,7 +33477,7 @@ DUK_INTERNAL duk_ret_t duk_bi_function_prototype_hasinstance(duk_hthread *thr) {
  *  Encoding/decoding helpers
  */
 
-/* XXX: Could add fast path (for each transform callback) with direct byte
+/* XXX: Could add fast path (for each transform Callback) with direct byte
  * lookups (no shifting) and no explicit check for x < 0x80 before table
  * lookup.
  */
@@ -33562,7 +33562,7 @@ typedef struct {
 	const duk_uint8_t *p_end;
 } duk__transform_context;
 
-typedef void (*duk__transform_callback)(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp);
+typedef void (*duk__transform_Callback)(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp);
 
 /* XXX: refactor and share with other code */
 DUK_LOCAL duk_small_int_t duk__decode_hex_escape(const duk_uint8_t *p, duk_small_int_t n) {
@@ -33582,7 +33582,7 @@ DUK_LOCAL duk_small_int_t duk__decode_hex_escape(const duk_uint8_t *p, duk_small
 	return t;
 }
 
-DUK_LOCAL int duk__transform_helper(duk_hthread *thr, duk__transform_callback callback, const void *udata) {
+DUK_LOCAL int duk__transform_helper(duk_hthread *thr, duk__transform_Callback Callback, const void *udata) {
 	duk__transform_context tfm_ctx_alloc;
 	duk__transform_context *tfm_ctx = &tfm_ctx_alloc;
 	duk_codepoint_t cp;
@@ -33600,7 +33600,7 @@ DUK_LOCAL int duk__transform_helper(duk_hthread *thr, duk__transform_callback ca
 
 	while (tfm_ctx->p < tfm_ctx->p_end) {
 		cp = (duk_codepoint_t) duk_unicode_decode_xutf8_checked(thr, &tfm_ctx->p, tfm_ctx->p_start, tfm_ctx->p_end);
-		callback(tfm_ctx, udata, cp);
+		Callback(tfm_ctx, udata, cp);
 	}
 
 	DUK_BW_COMPACT(thr, &tfm_ctx->bw);
@@ -33609,7 +33609,7 @@ DUK_LOCAL int duk__transform_helper(duk_hthread *thr, duk__transform_callback ca
 	return 1;
 }
 
-DUK_LOCAL void duk__transform_callback_encode_uri(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
+DUK_LOCAL void duk__transform_Callback_encode_uri(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
 	duk_uint8_t xutf8_buf[DUK_UNICODE_MAX_XUTF8_LENGTH];
 	duk_small_int_t len;
 	duk_codepoint_t cp1, cp2;
@@ -33672,7 +33672,7 @@ DUK_LOCAL void duk__transform_callback_encode_uri(duk__transform_context *tfm_ct
 	DUK_WO_NORETURN(return;);
 }
 
-DUK_LOCAL void duk__transform_callback_decode_uri(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
+DUK_LOCAL void duk__transform_Callback_decode_uri(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
 	const duk_uint8_t *reserved_table = (const duk_uint8_t *) udata;
 	duk_small_uint_t utf8_blen;
 	duk_codepoint_t min_cp;
@@ -33812,7 +33812,7 @@ DUK_LOCAL void duk__transform_callback_decode_uri(duk__transform_context *tfm_ct
 }
 
 #if defined(DUK_USE_SECTION_B)
-DUK_LOCAL void duk__transform_callback_escape(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
+DUK_LOCAL void duk__transform_Callback_escape(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
 	DUK_UNREF(udata);
 
 	DUK_BW_ENSURE(tfm_ctx->thr, &tfm_ctx->bw, 6);
@@ -33852,7 +33852,7 @@ DUK_LOCAL void duk__transform_callback_escape(duk__transform_context *tfm_ctx, c
 	DUK_WO_NORETURN(return;);
 }
 
-DUK_LOCAL void duk__transform_callback_unescape(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
+DUK_LOCAL void duk__transform_Callback_unescape(duk__transform_context *tfm_ctx, const void *udata, duk_codepoint_t cp) {
 	duk_small_int_t t;
 
 	DUK_UNREF(udata);
@@ -34169,28 +34169,28 @@ DUK_INTERNAL duk_ret_t duk_bi_global_object_is_finite(duk_hthread *thr) {
 
 #if defined(DUK_USE_GLOBAL_BUILTIN)
 DUK_INTERNAL duk_ret_t duk_bi_global_object_decode_uri(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_decode_uri, (const void *) duk__decode_uri_reserved_table);
+	return duk__transform_helper(thr, duk__transform_Callback_decode_uri, (const void *) duk__decode_uri_reserved_table);
 }
 
 DUK_INTERNAL duk_ret_t duk_bi_global_object_decode_uri_component(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_decode_uri, (const void *) duk__decode_uri_component_reserved_table);
+	return duk__transform_helper(thr, duk__transform_Callback_decode_uri, (const void *) duk__decode_uri_component_reserved_table);
 }
 
 DUK_INTERNAL duk_ret_t duk_bi_global_object_encode_uri(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_encode_uri, (const void *) duk__encode_uriunescaped_table);
+	return duk__transform_helper(thr, duk__transform_Callback_encode_uri, (const void *) duk__encode_uriunescaped_table);
 }
 
 DUK_INTERNAL duk_ret_t duk_bi_global_object_encode_uri_component(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_encode_uri, (const void *) duk__encode_uricomponent_unescaped_table);
+	return duk__transform_helper(thr, duk__transform_Callback_encode_uri, (const void *) duk__encode_uricomponent_unescaped_table);
 }
 
 #if defined(DUK_USE_SECTION_B)
 DUK_INTERNAL duk_ret_t duk_bi_global_object_escape(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_escape, (const void *) NULL);
+	return duk__transform_helper(thr, duk__transform_Callback_escape, (const void *) NULL);
 }
 
 DUK_INTERNAL duk_ret_t duk_bi_global_object_unescape(duk_hthread *thr) {
-	return duk__transform_helper(thr, duk__transform_callback_unescape, (const void *) NULL);
+	return duk__transform_helper(thr, duk__transform_Callback_unescape, (const void *) NULL);
 }
 #endif  /* DUK_USE_SECTION_B */
 #endif  /* DUK_USE_GLOBAL_BUILTIN */
@@ -42899,10 +42899,10 @@ typedef union {
 DUK_LOCAL void duk__debug_do_detach1(duk_heap *heap, duk_int_t reason) {
 	/* Can be called multiple times with no harm.  Mark the transport
 	 * bad (dbg_read_cb == NULL) and clear state except for the detached
-	 * callback and the udata field.  The detached callback is delayed
+	 * Callback and the udata field.  The detached Callback is delayed
 	 * to the message loop so that it can be called between messages;
 	 * this avoids corner cases related to immediate debugger reattach
-	 * inside the detached callback.
+	 * inside the detached Callback.
 	 */
 
 	if (heap->dbg_detaching) {
@@ -42974,7 +42974,7 @@ DUK_LOCAL void duk__debug_do_detach2(duk_heap *heap) {
 	if (detached_cb) {
 		/* Careful here: state must be wiped before the call
 		 * so that we can cleanly handle a re-attach from
-		 * inside the callback.
+		 * inside the Callback.
 		 */
 		DUK_D(DUK_DPRINT("detached during message loop, delayed call to detached_cb"));
 		detached_cb(thr, detached_udata);
@@ -42988,18 +42988,18 @@ DUK_INTERNAL void duk_debug_do_detach(duk_heap *heap) {
 	duk__debug_do_detach2(heap);
 }
 
-/* Called on a read/write error: NULL all callbacks except the detached
- * callback so that we never accidentally call them after a read/write
+/* Called on a read/write error: NULL all Callbacks except the detached
+ * Callback so that we never accidentally call them after a read/write
  * error has been indicated.  This is especially important for the transport
- * I/O callbacks to fulfill guaranteed callback semantics.
+ * I/O Callbacks to fulfill guaranteed Callback semantics.
  */
-DUK_LOCAL void duk__debug_null_most_callbacks(duk_hthread *thr) {
+DUK_LOCAL void duk__debug_null_most_Callbacks(duk_hthread *thr) {
 	duk_heap *heap;
 
 	DUK_ASSERT(thr != NULL);
 
 	heap = thr->heap;
-	DUK_D(DUK_DPRINT("transport read/write error, NULL all callbacks expected detached"));
+	DUK_D(DUK_DPRINT("transport read/write error, NULL all Callbacks expected detached"));
 	heap->dbg_read_cb = NULL;
 	heap->dbg_write_cb = NULL;  /* this is especially critical to avoid another write call in detach1() */
 	heap->dbg_peek_cb = NULL;
@@ -43054,7 +43054,7 @@ DUK_INTERNAL duk_bool_t duk_debug_read_peek(duk_hthread *thr) {
 		return 0;
 	}
 	if (heap->dbg_peek_cb == NULL) {
-		DUK_DD(DUK_DDPRINT("no peek callback, return zero (= no data)"));
+		DUK_DD(DUK_DDPRINT("no peek Callback, return zero (= no data)"));
 		return 0;
 	}
 
@@ -43076,7 +43076,7 @@ DUK_INTERNAL void duk_debug_read_flush(duk_hthread *thr) {
 		return;
 	}
 	if (heap->dbg_read_flush_cb == NULL) {
-		DUK_DD(DUK_DDPRINT("no read flush callback, ignore"));
+		DUK_DD(DUK_DDPRINT("no read flush Callback, ignore"));
 		return;
 	}
 
@@ -43097,7 +43097,7 @@ DUK_INTERNAL void duk_debug_write_flush(duk_hthread *thr) {
 		return;
 	}
 	if (heap->dbg_write_flush_cb == NULL) {
-		DUK_DD(DUK_DDPRINT("no write flush callback, ignore"));
+		DUK_DD(DUK_DDPRINT("no write flush Callback, ignore"));
 		return;
 	}
 
@@ -43188,7 +43188,7 @@ DUK_INTERNAL void duk_debug_read_bytes(duk_hthread *thr, duk_uint8_t *data, duk_
 
 		if (got == 0 || got > left) {
 			DUK_D(DUK_DPRINT("connection error during read, return zero data"));
-			duk__debug_null_most_callbacks(thr);  /* avoid calling write callback in detach1() */
+			duk__debug_null_most_Callbacks(thr);  /* avoid calling write Callback in detach1() */
 			DUK__SET_CONN_BROKEN(thr, 1);
 			goto fail;
 		}
@@ -43203,7 +43203,7 @@ DUK_INTERNAL void duk_debug_read_bytes(duk_hthread *thr, duk_uint8_t *data, duk_
 DUK_INTERNAL duk_uint8_t duk_debug_read_byte(duk_hthread *thr) {
 	duk_uint8_t x;
 
-	x = 0;  /* just in case callback is broken and won't write 'x' */
+	x = 0;  /* just in case Callback is broken and won't write 'x' */
 	duk_debug_read_bytes(thr, &x, 1);
 	return x;
 }
@@ -43524,7 +43524,7 @@ DUK_INTERNAL void duk_debug_write_bytes(duk_hthread *thr, const duk_uint8_t *dat
 		return;
 	}
 	if (length == 0) {
-		/* Avoid doing an actual write callback with length == 0,
+		/* Avoid doing an actual write Callback with length == 0,
 		 * because that's reserved for a write flush.
 		 */
 		return;
@@ -43547,7 +43547,7 @@ DUK_INTERNAL void duk_debug_write_bytes(duk_hthread *thr, const duk_uint8_t *dat
 		DUK__DBG_TPORT_EXIT();
 
 		if (got == 0 || got > left) {
-			duk__debug_null_most_callbacks(thr);  /* avoid calling write callback in detach1() */
+			duk__debug_null_most_Callbacks(thr);  /* avoid calling write Callback in detach1() */
 			DUK_D(DUK_DPRINT("connection error during write"));
 			DUK__SET_CONN_BROKEN(thr, 1);
 			return;
@@ -44499,7 +44499,7 @@ DUK_LOCAL void duk__debug_handle_apprequest(duk_hthread *thr, duk_heap *heap) {
 		duk_idx_t top, idx;
 
 		/* Read tvals from the message and push them onto the valstack,
-		 * then call the request callback to process the request.
+		 * then call the request Callback to process the request.
 		 */
 		while (duk_debug_peek_byte(thr) != DUK_DBG_IB_EOM) {
 			duk_tval *tv;
@@ -44516,7 +44516,7 @@ DUK_LOCAL void duk__debug_handle_apprequest(duk_hthread *thr, duk_heap *heap) {
 		}
 		DUK_ASSERT(duk_get_top(thr) == old_top + nvalues);
 
-		/* Request callback should push values for reply to client onto valstack */
+		/* Request Callback should push values for reply to client onto valstack */
 		DUK_D(DUK_DPRINT("calling into AppRequest request_cb with nvalues=%ld, old_top=%ld, top=%ld",
 		                 (long) nvalues, (long) old_top, (long) duk_get_top(thr)));
 		nrets = heap->dbg_request_cb(thr, heap->dbg_udata, nvalues);
@@ -44525,14 +44525,14 @@ DUK_LOCAL void duk__debug_handle_apprequest(duk_hthread *thr, duk_heap *heap) {
 		if (nrets >= 0) {
 			DUK_ASSERT(duk_get_top(thr) >= old_top + nrets);
 			if (duk_get_top(thr) < old_top + nrets) {
-				DUK_D(DUK_DPRINT("AppRequest callback doesn't match value stack configuration, "
+				DUK_D(DUK_DPRINT("AppRequest Callback doesn't match value stack configuration, "
 				                 "top=%ld < old_top=%ld + nrets=%ld; "
 				                 "this might mean it's unsafe to continue!",
 				                 (long) duk_get_top(thr), (long) old_top, (long) nrets));
 				goto fail;
 			}
 
-			/* Reply with tvals pushed by request callback */
+			/* Reply with tvals pushed by request Callback */
 			duk_debug_write_byte(thr, DUK_DBG_IB_REPLY);
 			top = duk_get_top(thr);
 			for (idx = top - nrets; idx < top; idx++) {
@@ -44542,7 +44542,7 @@ DUK_LOCAL void duk__debug_handle_apprequest(duk_hthread *thr, duk_heap *heap) {
 		} else {
 			DUK_ASSERT(duk_get_top(thr) >= old_top + 1);
 			if (duk_get_top(thr) < old_top + 1) {
-				DUK_D(DUK_DPRINT("request callback return value doesn't match value stack configuration"));
+				DUK_D(DUK_DPRINT("request Callback return value doesn't match value stack configuration"));
 				goto fail;
 			}
 			duk_debug_write_error_eom(thr, DUK_DBG_ERR_APPLICATION, duk_get_string(thr, -1));
@@ -44550,7 +44550,7 @@ DUK_LOCAL void duk__debug_handle_apprequest(duk_hthread *thr, duk_heap *heap) {
 
 		duk_set_top(thr, old_top);  /* restore stack top */
 	} else {
-		DUK_D(DUK_DPRINT("no request callback, treat AppRequest as unsupported"));
+		DUK_D(DUK_DPRINT("no request Callback, treat AppRequest as unsupported"));
 		duk_debug_write_error_eom(thr, DUK_DBG_ERR_UNSUPPORTED, "AppRequest unsupported by target");
 	}
 
@@ -45475,7 +45475,7 @@ DUK_INTERNAL duk_bool_t duk_debug_process_messages(duk_hthread *thr, duk_bool_t 
 		while (thr->heap->dbg_read_cb == NULL && thr->heap->dbg_detaching) {
 			/* Detach is pending; can be triggered from outside the
 			 * debugger loop (e.g. Status notify write error) or by
-			 * previous message handling.  Call detached callback
+			 * previous message handling.  Call detached Callback
 			 * here, in a controlled state, to ensure a possible
 			 * reattach inside the detached_cb is handled correctly.
 			 *
@@ -45496,7 +45496,7 @@ DUK_INTERNAL duk_bool_t duk_debug_process_messages(duk_hthread *thr, duk_bool_t 
 			DUK_D(DUK_DPRINT("detach pending (dbg_read_cb == NULL, dbg_detaching != 0), call detach2"));
 
 			duk__debug_do_detach2(thr->heap);
-			thr->heap->dbg_processing = 1;  /* may be set to 0 by duk_debugger_attach() inside callback */
+			thr->heap->dbg_processing = 1;  /* may be set to 0 by duk_debugger_attach() inside Callback */
 
 			DUK_D(DUK_DPRINT("after detach2 (and possible reattach): dbg_read_cb=%s, dbg_detaching=%ld",
 			                 thr->heap->dbg_read_cb ? "not NULL" : "NULL", (long) thr->heap->dbg_detaching));
@@ -47340,7 +47340,7 @@ DUK_INTERNAL void duk_heap_free(duk_heap *heap) {
 	 * safely.
 	 */
 	/* XXX: Add a flag to reject an attempt to re-attach?  Otherwise
-	 * the detached callback may immediately reattach.
+	 * the detached Callback may immediately reattach.
 	 */
 	duk_debug_do_detach(heap);
 #endif
@@ -50465,7 +50465,7 @@ DUK_INTERNAL void *duk_heap_mem_realloc(duk_heap *heap, void *ptr, duk_size_t ne
 }
 
 /*
- *  Reallocate memory with garbage collection, using a callback to provide
+ *  Reallocate memory with garbage collection, using a Callback to provide
  *  the current allocated pointer.  This variant is used when a mark-and-sweep
  *  (e.g. finalizers) might change the original pointer.
  */
@@ -53279,7 +53279,7 @@ DUK_INTERNAL duk_hproxy *duk_hproxy_alloc(duk_hthread *thr, duk_uint_t hobject_f
  */
 
 /*
- *  Helper to sort enumeration keys using a callback for pairwise duk_hstring
+ *  Helper to sort enumeration keys using a Callback for pairwise duk_hstring
  *  comparisons.  The keys are in the enumeration object entry part, starting
  *  from DUK__ENUM_START_INDEX, and the entry part is dense.  Entry part values
  *  are all "true", e.g. "1" -> true, "3" -> true, "foo" -> true, "2" -> true,
@@ -83765,7 +83765,7 @@ DUK_INTERNAL void duk_lexer_parse_re_token(duk_lexer_ctx *lex_ctx, duk_re_token 
 }
 
 /*
- *  Special parser for character classes; calls callback for every
+ *  Special parser for character classes; calls Callback for every
  *  range parsed and returns the number of ranges present.
  */
 
@@ -83786,7 +83786,7 @@ DUK_INTERNAL void duk_lexer_parse_re_token(duk_lexer_ctx *lex_ctx, duk_re_token 
 
 DUK_LOCAL
 void duk__emit_u16_direct_ranges(duk_lexer_ctx *lex_ctx,
-                                 duk_re_range_callback gen_range,
+                                 duk_re_range_Callback gen_range,
                                  void *userdata,
                                  const duk_uint16_t *ranges,
                                  duk_small_int_t num) {
@@ -83802,7 +83802,7 @@ void duk__emit_u16_direct_ranges(duk_lexer_ctx *lex_ctx,
 	}
 }
 
-DUK_INTERNAL void duk_lexer_parse_re_ranges(duk_lexer_ctx *lex_ctx, duk_re_range_callback gen_range, void *userdata) {
+DUK_INTERNAL void duk_lexer_parse_re_ranges(duk_lexer_ctx *lex_ctx, duk_re_range_Callback gen_range, void *userdata) {
 	duk_codepoint_t start = -1;
 	duk_codepoint_t ch;
 	duk_codepoint_t x;
@@ -86550,7 +86550,7 @@ DUK_LOCAL duk_uint32_t duk__append_jump_offset(duk_re_compiler_ctx *re_ctx, duk_
 }
 
 /*
- *  duk_re_range_callback for generating character class ranges.
+ *  duk_re_range_Callback for generating character class ranges.
  *
  *  When ignoreCase is false, the range is simply emitted as is.  We don't,
  *  for instance, eliminate duplicates or overlapping ranges in a character
@@ -87219,7 +87219,7 @@ DUK_LOCAL void duk__parse_disjunction(duk_re_compiler_ctx *re_ctx, duk_bool_t ex
 			 *
 			 *  Another complication is the handling of character ranges when
 			 *  case insensitive matching is used (see docs for discussion).
-			 *  The range handler callback given to the lexer takes care of this
+			 *  The range handler Callback given to the lexer takes care of this
 			 *  as well.
 			 *
 			 *  Note that duplicate ranges are not eliminated when parsing character

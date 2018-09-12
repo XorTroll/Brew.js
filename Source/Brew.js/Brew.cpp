@@ -16,17 +16,17 @@ Brew::ExecutionResult::ExecutionResult(Brew::API::Type Type, string Result, int 
 
 string Brew::ExecutionResult::resultString()
 {
-	return sres;
+	return this->sres;
 }
 
 bool Brew::ExecutionResult::isOK()
 {
-	return (res == 0);
+	return (this->res == 0);
 }
 
 int Brew::ExecutionResult::nativeCode()
 {
-	return res;
+	return this->res;
 }
 
 Brew::API::Type Brew::ExecutionResult::getType()
@@ -118,6 +118,7 @@ vector<Brew::Project> Brew::Environment::getProjectList(string ProjectsDirectory
 					ifs.close();
 				}
 			}
+			else this->res = createError(Brew::Error::ProjectFolderNotFound);
 		}
 	}
 	else this->res = createError(Brew::Error::ProjectsPathNotFound);

@@ -142,6 +142,7 @@ namespace Brew
 	{
 		FileNotFound,          ///< The selected file was not found.
 		ProjectsPathNotFound,  ///< The folder containing projects was not found.
+		ProjectFolderNotFound, ///< The folder containing the project files was not found.
 		EntrySourceNotFound,   ///< The entrypoint source file was not found.
 		PackageJsonNotFound,   ///< Project file "package.json" file was not found, so it's not a valid project.
 	};

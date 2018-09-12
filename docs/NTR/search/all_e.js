@@ -7,6 +7,7 @@ var searchData=
   ['print',['print',['../namespace_brew_1_1_built_in_1_1_console.html#a01d3a0c85fe335de4e6770670df92321',1,'Brew::BuiltIn::Console']]],
   ['process_2ehpp',['Process.hpp',['../_process_8hpp.html',1,'']]],
   ['project',['Project',['../struct_brew_1_1_project.html',1,'Brew']]],
+  ['projectfoldernotfound',['ProjectFolderNotFound',['../namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4cadc8ffb0495acbec71e9df6f0c88fc634',1,'Brew']]],
   ['projectspathnotfound',['ProjectsPathNotFound',['../namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca47f12a63b74833bb4a43ea02f1b26b7f',1,'Brew']]],
   ['pusharray',['pushArray',['../class_brew_1_1_a_p_i_1_1_function_handler.html#ab587032f42463c7bdad4f08ba67c26d2',1,'Brew::API::FunctionHandler']]],
   ['pushboolean',['pushBoolean',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a7f0be9a2a3cb40ed0b42878902792e7a',1,'Brew::API::FunctionHandler::pushBoolean()'],['../struct_brew_1_1_a_p_i_1_1_module.html#a237a9a79d05fb812beefd477b4dc2c79',1,'Brew::API::Module::pushBoolean()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a0142d56798eae9a4879c30f4834795dd',1,'Brew::API::GlobalObject::pushBoolean()']]],

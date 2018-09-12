@@ -6,6 +6,7 @@ var _brew_8hpp =
     [ "Error", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4c", [
       [ "FileNotFound", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4ca33bde4fa07315fd60edd0b701c83e156", null ],
       [ "ProjectsPathNotFound", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4ca47f12a63b74833bb4a43ea02f1b26b7f", null ],
+      [ "ProjectFolderNotFound", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4cadc8ffb0495acbec71e9df6f0c88fc634", null ],
       [ "EntrySourceNotFound", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4ca4832feda45f04aef929b508b22487668", null ],
       [ "PackageJsonNotFound", "_brew_8hpp.html#aa1bbf45ccb188965dec87bcf0bc86b4ca8a589f6036cd6b0081d379ae1c2c55a2", null ]
     ] ],

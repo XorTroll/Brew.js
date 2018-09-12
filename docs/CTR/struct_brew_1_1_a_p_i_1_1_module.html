@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('struct_brew_1_1_a_p_i_1_1_module.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Class holding a module which can be added and required via Brew.js <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>.  
+<p><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> holding a module which can be added and required via Brew.js <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>.  
  <a href="struct_brew_1_1_a_p_i_1_1_module.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_a_p_i_8hpp_source.html">API.hpp</a>&gt;</code></p>
@@ -134,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a600ace3837db58c872b5eacc11ca6a98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#a600ace3837db58c872b5eacc11ca6a98">pushNaN</a> (string <a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#a826c0c18c47ef91f70e7b70050047bcb">Name</a>)</td></tr>
 <tr class="memdesc:a600ace3837db58c872b5eacc11ca6a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variable containing a NaN value to the module.  <a href="#a600ace3837db58c872b5eacc11ca6a98">More...</a><br /></td></tr>
 <tr class="separator:a600ace3837db58c872b5eacc11ca6a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01551ec516d7ad60a6e48663974032f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#af01551ec516d7ad60a6e48663974032f">pushClass</a> (<a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> Value)</td></tr>
+<tr class="separator:af01551ec516d7ad60a6e48663974032f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -155,11 +157,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:acd771e9e8997b5c12739de00540fa6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9c9053cb871a5515080518687171f33"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#ae9c9053cb871a5515080518687171f33">NaNs</a></td></tr>
 <tr class="separator:ae9c9053cb871a5515080518687171f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3797e38575d0b8e22469416b95e46781"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#a3797e38575d0b8e22469416b95e46781">Classes</a></td></tr>
+<tr class="separator:a3797e38575d0b8e22469416b95e46781"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a826c0c18c47ef91f70e7b70050047bcb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#a826c0c18c47ef91f70e7b70050047bcb">Name</a></td></tr>
 <tr class="separator:a826c0c18c47ef91f70e7b70050047bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class holding a module which can be added and required via Brew.js <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>. </p>
+<div class="textblock"><p><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a> holding a module which can be added and required via Brew.js <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a349e5bde3260b4bc85972566ec9075a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a349e5bde3260b4bc85972566ec9075a3">&#9670;&nbsp;</a></span>Module()</h2>
@@ -222,6 +226,24 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af01551ec516d7ad60a6e48663974032f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01551ec516d7ad60a6e48663974032f">&#9670;&nbsp;</a></span>pushClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::Module::pushClass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a>&#160;</td>
+          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -497,6 +519,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">map&lt;string, bool&gt; Brew::API::Module::Booleans</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3797e38575d0b8e22469416b95e46781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3797e38575d0b8e22469416b95e46781">&#9670;&nbsp;</a></span>Classes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html">Class</a>&gt; Brew::API::Module::Classes</td>
         </tr>
       </table>
 </div><div class="memdoc">

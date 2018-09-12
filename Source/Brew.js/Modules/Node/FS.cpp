@@ -104,6 +104,7 @@ Brew::API::Function Brew::BuiltIn::FS::readdir(Brew::API::NativeContext Context)
                 arr.addString(string(de->d_name));
             }
         }
+        closedir(dir);
     }
     return Brew::API::Return::Variable;
 }
@@ -120,8 +121,112 @@ Brew::API::Function Brew::BuiltIn::FS::rename(Brew::API::NativeContext Context)
     return Brew::API::Return::Void;
 }
 
+Brew::API::Function Brew::BuiltIn::FS::Stats_isDirectory(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool isdir = (smod & S_IFDIR);
+    handler.pushBoolean(isdir);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isFile(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool isfile = (smod & S_IFREG);
+    handler.pushBoolean(isfile);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isFIFO(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool isffo = (smod & S_IFIFO);
+    handler.pushBoolean(isffo);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isBlockDevice(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool isblk = (smod & S_IFBLK);
+    handler.pushBoolean(isblk);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isCharacterDevice(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool ischr = (smod & S_IFCHR);
+    handler.pushBoolean(ischr);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isSocket(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool issck = (smod & S_IFSOCK);
+    handler.pushBoolean(issck);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::BuiltIn::FS::Stats_isSymbolicLink(Brew::API::NativeContext Context)
+{
+    Brew::API::ClassHandler handler(Context);
+    mode_t smod = handler.getPropertyUInt("mode");
+    bool islnk = (smod & S_IFLNK);
+    handler.pushBoolean(islnk);
+    return Brew::API::Return::Variable;
+}
+
+Brew::API::Class Brew::BuiltIn::FS::Stats()
+{
+    Brew::API::Class cStats("Stats", [](Brew::API::NativeContext Context) -> Brew::API::Function
+    {
+        Brew::API::ClassHandler handler(Context);
+        if(handler.checkArgc(1))
+        {
+            string path = handler.getString(0);
+            struct stat st;
+            bool err = false;
+            if(stat(path.c_str(), &st) == 0)
+            {
+                handler.setPropertyUInt("dev", st.st_dev);
+                handler.setPropertyUInt("ino", st.st_ino);
+                handler.setPropertyUInt("mode", st.st_mode);
+                handler.setPropertyUInt("nlink", st.st_nlink);
+                handler.setPropertyUInt("uid", st.st_uid);
+                handler.setPropertyUInt("rdev", st.st_rdev);
+                handler.setPropertyUInt("size", st.st_size);
+                handler.setPropertyUInt("blksize", st.st_blksize);
+                handler.setPropertyUInt("blocks", st.st_blocks);
+                handler.setPropertyUInt("atimeMs", st.st_atime);
+                handler.setPropertyUInt("mtimeMs", st.st_mtime);
+                handler.setPropertyUInt("ctimeMs", st.st_ctime);
+            }
+            else handler.throwError(Brew::API::Error::CommonError, "No such file or directory: \'" + path + "\'");
+        }
+        return Brew::API::Return::Void;
+    });
+
+    cStats.addFunction("isDirectory", Stats_isDirectory);
+    cStats.addFunction("isFile", Stats_isFile);
+    cStats.addFunction("isFIFO", Stats_isFIFO);
+    cStats.addFunction("isBlockDevice", Stats_isBlockDevice);
+    cStats.addFunction("isCharacterDevice", Stats_isCharacterDevice);
+    cStats.addFunction("isSocket", Stats_isSocket);
+    cStats.addFunction("isSymbolicLink", Stats_isSymbolicLink);
+    return cStats;
+}
+
 Brew::API::Module Brew::BuiltIn::FS::initModule()
 {
+    fs.pushClass(Stats());
     fs.pushFunction("readFile", readFile);
     fs.pushFunction("writeFile", writeFile);
     fs.pushFunction("exists", exists);

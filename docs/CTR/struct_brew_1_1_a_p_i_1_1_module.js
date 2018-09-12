@@ -2,6 +2,7 @@ var struct_brew_1_1_a_p_i_1_1_module =
 [
     [ "Module", "struct_brew_1_1_a_p_i_1_1_module.html#a349e5bde3260b4bc85972566ec9075a3", null ],
     [ "pushBoolean", "struct_brew_1_1_a_p_i_1_1_module.html#a237a9a79d05fb812beefd477b4dc2c79", null ],
+    [ "pushClass", "struct_brew_1_1_a_p_i_1_1_module.html#af01551ec516d7ad60a6e48663974032f", null ],
     [ "pushDouble", "struct_brew_1_1_a_p_i_1_1_module.html#a5fffe05b264fa4a14485017793082868", null ],
     [ "pushFunction", "struct_brew_1_1_a_p_i_1_1_module.html#ac5fc83541cc88aa989571ffdc36b520b", null ],
     [ "pushInt", "struct_brew_1_1_a_p_i_1_1_module.html#a8f1ccfdd3dbcc2500d28410a84b718d3", null ],
@@ -11,6 +12,7 @@ var struct_brew_1_1_a_p_i_1_1_module =
     [ "pushUInt", "struct_brew_1_1_a_p_i_1_1_module.html#ac1804c4d1907269a48625480eed12547", null ],
     [ "pushUndefined", "struct_brew_1_1_a_p_i_1_1_module.html#af47f8bde6a4c9eb27f86275393a4e4cb", null ],
     [ "Booleans", "struct_brew_1_1_a_p_i_1_1_module.html#ac130066dec7cf7dfcbdfacb087196579", null ],
+    [ "Classes", "struct_brew_1_1_a_p_i_1_1_module.html#a3797e38575d0b8e22469416b95e46781", null ],
     [ "Doubles", "struct_brew_1_1_a_p_i_1_1_module.html#aa361455507c8c46d3f374d2a00856419", null ],
     [ "Functions", "struct_brew_1_1_a_p_i_1_1_module.html#a724f096c2898c02a24805844a6b59627", null ],
     [ "Ints", "struct_brew_1_1_a_p_i_1_1_module.html#a916a5989245a7806408595c709434ca2", null ],

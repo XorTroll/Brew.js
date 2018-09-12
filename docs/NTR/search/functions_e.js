@@ -10,5 +10,13 @@ var searchData=
   ['setpropertyuint',['setPropertyUInt',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a412177216d820f17ca344f6a6c41682f',1,'Brew::API::ClassHandler']]],
   ['setpropertyundefined',['setPropertyUndefined',['../class_brew_1_1_a_p_i_1_1_class_handler.html#aa4119dfbe65be6c0865bc54f54a36b27',1,'Brew::API::ClassHandler']]],
   ['shutdown',['shutDown',['../namespace_brew_1_1_built_in_1_1_n_t_r.html#a0146b4e6c1912329986c629917c5d0c1',1,'Brew::BuiltIn::NTR']]],
-  ['sleep',['sleep',['../namespace_brew_1_1_built_in_1_1_n_t_r.html#a8a5ac7e1da6b99729215329a2a70182e',1,'Brew::BuiltIn::NTR']]]
+  ['sleep',['sleep',['../namespace_brew_1_1_built_in_1_1_n_t_r.html#a8a5ac7e1da6b99729215329a2a70182e',1,'Brew::BuiltIn::NTR']]],
+  ['stats',['Stats',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc5cd5aa4ac98307cf8019454cb504b5',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fisblockdevice',['Stats_isBlockDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc012dc0f796b00ab6025bd302e1ddcb',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fischaracterdevice',['Stats_isCharacterDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#a899e4eaf3afd8b04ac5cfc391fa23927',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fisdirectory',['Stats_isDirectory',['../namespace_brew_1_1_built_in_1_1_f_s.html#ac44909abf42ba3717002fe92bf470938',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fisfifo',['Stats_isFIFO',['../namespace_brew_1_1_built_in_1_1_f_s.html#ad3e2f44a38bb404af170d8a344a7c8a0',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fisfile',['Stats_isFile',['../namespace_brew_1_1_built_in_1_1_f_s.html#a9eceaa70bd84a4e6cb37cc460032c194',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fissocket',['Stats_isSocket',['../namespace_brew_1_1_built_in_1_1_f_s.html#a2de8c8b989f4647a4d3d6032943f946d',1,'Brew::BuiltIn::FS']]],
+  ['stats_5fissymboliclink',['Stats_isSymbolicLink',['../namespace_brew_1_1_built_in_1_1_f_s.html#a57249f145bb8fe5ef7affd0061a6267d',1,'Brew::BuiltIn::FS']]]
 ];

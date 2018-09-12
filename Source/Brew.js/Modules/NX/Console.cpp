@@ -93,7 +93,6 @@ Brew::API::Function Brew::BuiltIn::Console::refresh(Brew::API::NativeContext Con
     {
         gfxFlushBuffers();
         gfxSwapBuffers();
-        gfxWaitForVsync();
     }
     return Brew::API::Return::Void;
 }

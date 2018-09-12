@@ -873,7 +873,7 @@ enum class value_t : std::uint8_t
     number_integer,   ///< number value (signed integer)
     number_unsigned,  ///< number value (unsigned integer)
     number_float,     ///< number value (floating-point)
-    discarded         ///< discarded by the the parser callback function
+    discarded         ///< discarded by the the parser Callback function
 };
 
 /*!
@@ -3634,20 +3634,20 @@ class json_sax_dom_parser : public json_sax<BasicJsonType>
 };
 
 template<typename BasicJsonType>
-class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
+class json_sax_dom_Callback_parser : public json_sax<BasicJsonType>
 {
   public:
     using number_integer_t = typename BasicJsonType::number_integer_t;
     using number_unsigned_t = typename BasicJsonType::number_unsigned_t;
     using number_float_t = typename BasicJsonType::number_float_t;
     using string_t = typename BasicJsonType::string_t;
-    using parser_callback_t = typename BasicJsonType::parser_callback_t;
+    using parser_Callback_t = typename BasicJsonType::parser_Callback_t;
     using parse_event_t = typename BasicJsonType::parse_event_t;
 
-    json_sax_dom_callback_parser(BasicJsonType& r,
-                                 const parser_callback_t cb,
+    json_sax_dom_Callback_parser(BasicJsonType& r,
+                                 const parser_Callback_t cb,
                                  const bool allow_exceptions_ = true)
-        : root(r), callback(cb), allow_exceptions(allow_exceptions_)
+        : root(r), Callback(cb), allow_exceptions(allow_exceptions_)
     {
         keep_stack.push_back(true);
     }
@@ -3690,8 +3690,8 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
 
     bool start_object(std::size_t len) override
     {
-        // check callback for object start
-        const bool keep = callback(static_cast<int>(ref_stack.size()), parse_event_t::object_start, discarded);
+        // check Callback for object start
+        const bool keep = Callback(static_cast<int>(ref_stack.size()), parse_event_t::object_start, discarded);
         keep_stack.push_back(keep);
 
         auto val = handle_value(BasicJsonType::value_t::object, true);
@@ -3714,8 +3714,8 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
     {
         BasicJsonType k = BasicJsonType(val);
 
-        // check callback for key
-        const bool keep = callback(static_cast<int>(ref_stack.size()), parse_event_t::key, k);
+        // check Callback for key
+        const bool keep = Callback(static_cast<int>(ref_stack.size()), parse_event_t::key, k);
         key_keep_stack.push_back(keep);
 
         // add discarded value at given key and store the reference for later
@@ -3732,7 +3732,7 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
         bool keep = true;
         if (ref_stack.back())
         {
-            keep = callback(static_cast<int>(ref_stack.size()) - 1, parse_event_t::object_end, *ref_stack.back());
+            keep = Callback(static_cast<int>(ref_stack.size()) - 1, parse_event_t::object_end, *ref_stack.back());
             if (not keep)
             {
                 // discard object
@@ -3766,7 +3766,7 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
 
     bool start_array(std::size_t len) override
     {
-        const bool keep = callback(static_cast<int>(ref_stack.size()), parse_event_t::array_start, discarded);
+        const bool keep = Callback(static_cast<int>(ref_stack.size()), parse_event_t::array_start, discarded);
         keep_stack.push_back(keep);
 
         auto val = handle_value(BasicJsonType::value_t::array, true);
@@ -3791,7 +3791,7 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
 
         if (ref_stack.back())
         {
-            keep = callback(static_cast<int>(ref_stack.size()) - 1, parse_event_t::array_end, *ref_stack.back());
+            keep = Callback(static_cast<int>(ref_stack.size()) - 1, parse_event_t::array_end, *ref_stack.back());
             if (not keep)
             {
                 // discard array
@@ -3850,10 +3850,10 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
   private:
     /*!
     @param[in] v  value to add to the JSON value we build during parsing
-    @param[in] skip_callback  whether we should skip calling the callback
+    @param[in] skip_Callback  whether we should skip calling the Callback
                function; this is required after start_array() and
                start_object() SAX events, because otherwise we would call the
-               callback function with an empty array or object, respectively.
+               Callback function with an empty array or object, respectively.
 
     @invariant If the ref stack is empty, then the passed value will be the new
                root.
@@ -3864,7 +3864,7 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
             passed value in the ref_stack hierarchy; nullptr if not kept)
     */
     template<typename Value>
-    std::pair<bool, BasicJsonType*> handle_value(Value&& v, const bool skip_callback = false)
+    std::pair<bool, BasicJsonType*> handle_value(Value&& v, const bool skip_Callback = false)
     {
         assert(not keep_stack.empty());
 
@@ -3878,8 +3878,8 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
         // create value
         auto value = BasicJsonType(std::forward<Value>(v));
 
-        // check callback
-        const bool keep = skip_callback or callback(static_cast<int>(ref_stack.size()), parse_event_t::value, value);
+        // check Callback
+        const bool keep = skip_Callback or Callback(static_cast<int>(ref_stack.size()), parse_event_t::value, value);
 
         // do not handle this value if we just learnt it shall be discarded
         if (not keep)
@@ -3931,11 +3931,11 @@ class json_sax_dom_callback_parser : public json_sax<BasicJsonType>
     BasicJsonType* object_element = nullptr;
     /// whether a syntax error occurred
     bool errored = false;
-    /// callback function
-    const parser_callback_t callback = nullptr;
+    /// Callback function
+    const parser_Callback_t Callback = nullptr;
     /// whether to throw exceptions in case of errors
     const bool allow_exceptions = true;
-    /// a discarded value for the callback
+    /// a discarded value for the Callback
     BasicJsonType discarded = BasicJsonType::value_t::discarded;
 };
 
@@ -4059,14 +4059,14 @@ class parser
 
     using json_sax_t = json_sax<BasicJsonType>;
 
-    using parser_callback_t =
+    using parser_Callback_t =
         std::function<bool(int depth, parse_event_t event, BasicJsonType& parsed)>;
 
     /// a parser reading from an input adapter
     explicit parser(detail::input_adapter_t&& adapter,
-                    const parser_callback_t cb = nullptr,
+                    const parser_Callback_t cb = nullptr,
                     const bool allow_exceptions_ = true)
-        : callback(cb), m_lexer(std::move(adapter)), allow_exceptions(allow_exceptions_)
+        : Callback(cb), m_lexer(std::move(adapter)), allow_exceptions(allow_exceptions_)
     {
         // read first token
         get_token();
@@ -4084,9 +4084,9 @@ class parser
     */
     void parse(const bool strict, BasicJsonType& result)
     {
-        if (callback)
+        if (Callback)
         {
-            json_sax_dom_callback_parser<BasicJsonType> sdp(result, callback, allow_exceptions);
+            json_sax_dom_Callback_parser<BasicJsonType> sdp(result, Callback, allow_exceptions);
             sax_parse_internal(&sdp);
             result.assert_invariant();
 
@@ -4105,7 +4105,7 @@ class parser
                 return;
             }
 
-            // set top-level value to null if it was discarded by the callback
+            // set top-level value to null if it was discarded by the Callback
             // function
             if (result.is_discarded())
             {
@@ -4476,8 +4476,8 @@ class parser
     }
 
   private:
-    /// callback function
-    const parser_callback_t callback = nullptr;
+    /// Callback function
+    const parser_Callback_t Callback = nullptr;
     /// the type of the last read token
     token_type last_token = token_type::uninitialized;
     /// the lexer
@@ -10919,7 +10919,7 @@ class basic_json
     template<typename BasicJsonType>
     friend class ::nlohmann::detail::json_sax_dom_parser;
     template<typename BasicJsonType>
-    friend class ::nlohmann::detail::json_sax_dom_callback_parser;
+    friend class ::nlohmann::detail::json_sax_dom_Callback_parser;
 
     /// workaround type for MSVC
     using basic_json_t = NLOHMANN_BASIC_JSON_TPL;
@@ -11785,13 +11785,13 @@ class basic_json
 
   public:
     //////////////////////////
-    // JSON parser callback //
+    // JSON parser Callback //
     //////////////////////////
 
     /*!
     @brief parser event types
 
-    The parser callback distinguishes the following events:
+    The parser Callback distinguishes the following events:
     - `object_start`: the parser read `{` and started to process a JSON object
     - `key`: the parser read a key of a value in an object
     - `object_end`: the parser read `}` and finished processing a JSON object
@@ -11799,24 +11799,24 @@ class basic_json
     - `array_end`: the parser read `]` and finished processing a JSON array
     - `value`: the parser finished reading a JSON value
 
-    @image html callback_events.png "Example when certain parse events are triggered"
+    @image html Callback_events.png "Example when certain parse events are triggered"
 
-    @sa @ref parser_callback_t for more information and examples
+    @sa @ref parser_Callback_t for more information and examples
     */
     using parse_event_t = typename parser::parse_event_t;
 
     /*!
-    @brief per-element parser callback type
+    @brief per-element parser Callback type
 
-    With a parser callback function, the result of parsing a JSON text can be
+    With a parser Callback function, the result of parsing a JSON text can be
     influenced. When passed to @ref parse, it is called on certain events
     (passed as @ref parse_event_t via parameter @a event) with a set recursion
     depth @a depth and context JSON value @a parsed. The return value of the
-    callback function is a boolean indicating whether the element that emitted
-    the callback shall be kept or not.
+    Callback function is a boolean indicating whether the element that emitted
+    the Callback shall be kept or not.
 
     We distinguish six scenarios (determined by the event type) in which the
-    callback function can be called. The following table describes the values
+    Callback function can be called. The following table describes the values
     of the parameters @a depth, @a event, and @a parsed.
 
     parameter @a event | description | parameter @a depth | parameter @a parsed
@@ -11828,7 +11828,7 @@ class basic_json
     parse_event_t::array_end | the parser read `]` and finished processing a JSON array | depth of the parent of the JSON array | the parsed JSON array
     parse_event_t::value | the parser finished reading a JSON value | depth of the value | the parsed JSON value
 
-    @image html callback_events.png "Example when certain parse events are triggered"
+    @image html Callback_events.png "Example when certain parse events are triggered"
 
     Discarding a value (i.e., returning `false`) has different effects
     depending on the context in which function was called:
@@ -11841,7 +11841,7 @@ class basic_json
     @param[in] depth  the depth of the recursion during parsing
 
     @param[in] event  an event of type parse_event_t indicating the context in
-    the callback function has been called
+    the Callback function has been called
 
     @param[in,out] parsed  the current intermediate parse result; note that
     writing to this value has no effect for parse_event_t::key events
@@ -11854,7 +11854,7 @@ class basic_json
 
     @since version 1.0.0
     */
-    using parser_callback_t = typename parser::parser_callback_t;
+    using parser_Callback_t = typename parser::parser_Callback_t;
 
     using json_sax_t = typename parser::json_sax_t;
 
@@ -13036,7 +13036,7 @@ class basic_json
     @brief return whether value is discarded
 
     This function returns true if and only if the JSON value was discarded
-    during parsing with a callback function (see @ref parser_callback_t).
+    during parsing with a Callback function (see @ref parser_Callback_t).
 
     @note This function will always be `false` for JSON values after parsing.
     That is, discarded values can only occur during parsing, but will be
@@ -16712,7 +16712,7 @@ class basic_json
              likely yield segmentation violation.
 
     @param[in] i  input to read from
-    @param[in] cb  a parser callback function of type @ref parser_callback_t
+    @param[in] cb  a parser Callback function of type @ref parser_Callback_t
     which is used to control the deserialization by filtering unwanted values
     (optional)
 
@@ -16724,27 +16724,27 @@ class basic_json
     @throw parse_error.103 if to_unicode fails
 
     @complexity Linear in the length of the input. The parser is a predictive
-    LL(1) parser. The complexity can be higher if the parser callback function
+    LL(1) parser. The complexity can be higher if the parser Callback function
     @a cb has a super-linear complexity.
 
     @note A UTF-8 byte order mark is silently ignored.
 
     @liveexample{The example below demonstrates the `parse()` function reading
-    from an array.,parse__array__parser_callback_t}
+    from an array.,parse__array__parser_Callback_t}
 
     @liveexample{The example below demonstrates the `parse()` function with
-    and without callback function.,parse__string__parser_callback_t}
+    and without Callback function.,parse__string__parser_Callback_t}
 
     @liveexample{The example below demonstrates the `parse()` function with
-    and without callback function.,parse__istream__parser_callback_t}
+    and without Callback function.,parse__istream__parser_Callback_t}
 
     @liveexample{The example below demonstrates the `parse()` function reading
-    from a contiguous container.,parse__contiguouscontainer__parser_callback_t}
+    from a contiguous container.,parse__contiguouscontainer__parser_Callback_t}
 
     @since version 2.0.3 (contiguous containers)
     */
     static basic_json parse(detail::input_adapter&& i,
-                            const parser_callback_t cb = nullptr,
+                            const parser_Callback_t cb = nullptr,
                             const bool allow_exceptions = true)
     {
         basic_json result;
@@ -16795,7 +16795,7 @@ class basic_json
     @tparam IteratorType iterator of container with contiguous storage
     @param[in] first  begin of the range to parse (included)
     @param[in] last  end of the range to parse (excluded)
-    @param[in] cb  a parser callback function of type @ref parser_callback_t
+    @param[in] cb  a parser Callback function of type @ref parser_Callback_t
     which is used to control the deserialization by filtering unwanted values
     (optional)
     @param[in] allow_exceptions  whether to throw exceptions in case of a
@@ -16808,13 +16808,13 @@ class basic_json
     @throw parse_error.103 if to_unicode fails
 
     @complexity Linear in the length of the input. The parser is a predictive
-    LL(1) parser. The complexity can be higher if the parser callback function
+    LL(1) parser. The complexity can be higher if the parser Callback function
     @a cb has a super-linear complexity.
 
     @note A UTF-8 byte order mark is silently ignored.
 
     @liveexample{The example below demonstrates the `parse()` function reading
-    from an iterator range.,parse__iteratortype__parser_callback_t}
+    from an iterator range.,parse__iteratortype__parser_Callback_t}
 
     @since version 2.0.3
     */
@@ -16823,7 +16823,7 @@ class basic_json
                      std::random_access_iterator_tag,
                      typename std::iterator_traits<IteratorType>::iterator_category>::value, int>::type = 0>
     static basic_json parse(IteratorType first, IteratorType last,
-                            const parser_callback_t cb = nullptr,
+                            const parser_Callback_t cb = nullptr,
                             const bool allow_exceptions = true)
     {
         basic_json result;
@@ -16883,8 +16883,8 @@ class basic_json
     @liveexample{The example below shows how a JSON value is constructed by
     reading a serialization from a stream.,operator_deserialize}
 
-    @sa parse(std::istream&, const parser_callback_t) for a variant with a
-    parser callback function to filter values while parsing
+    @sa parse(std::istream&, const parser_Callback_t) for a variant with a
+    parser Callback function to filter values while parsing
 
     @since version 1.0.0
     */

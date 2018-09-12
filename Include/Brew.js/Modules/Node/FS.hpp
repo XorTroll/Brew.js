@@ -66,6 +66,54 @@ namespace Brew
             API::Function rename(API::NativeContext Context);
 
             /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isDirectory()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isDirectory(API::NativeContext Context);
+            
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isFile()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isFile(API::NativeContext Context);
+
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isFIFO()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isFIFO(API::NativeContext Context);
+
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isBlockDevice()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isBlockDevice(API::NativeContext Context);
+            
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isCharacterDevice()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isCharacterDevice(API::NativeContext Context);
+
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isSocket()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isSocket(API::NativeContext Context);
+
+            /**
+                @brief API JS Class method (fs.Stats): "fs.Stats.isSymbolicLink()"
+                @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Function Stats_isSymbolicLink(API::NativeContext Context);
+
+            /**
+                @brief API JS Class - constructor: "new fs.Stats(Path)"
+                @note This class is similar to Node.js's one. This description is for using the class with JavaScript.
+            */
+            API::Class Stats();
+
+            /**
                 @brief Gets the Brew.js module of fs.
                 @return The module.
             */

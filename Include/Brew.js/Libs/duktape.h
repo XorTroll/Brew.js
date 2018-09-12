@@ -1156,8 +1156,8 @@ DUK_EXTERNAL_DECL void duk_freeze(duk_context *ctx, duk_idx_t obj_idx);
 
 DUK_EXTERNAL_DECL void duk_concat(duk_context *ctx, duk_idx_t count);
 DUK_EXTERNAL_DECL void duk_join(duk_context *ctx, duk_idx_t count);
-DUK_EXTERNAL_DECL void duk_decode_string(duk_context *ctx, duk_idx_t idx, duk_decode_char_function callback, void *udata);
-DUK_EXTERNAL_DECL void duk_map_string(duk_context *ctx, duk_idx_t idx, duk_map_char_function callback, void *udata);
+DUK_EXTERNAL_DECL void duk_decode_string(duk_context *ctx, duk_idx_t idx, duk_decode_char_function Callback, void *udata);
+DUK_EXTERNAL_DECL void duk_map_string(duk_context *ctx, duk_idx_t idx, duk_map_char_function Callback, void *udata);
 DUK_EXTERNAL_DECL void duk_substring(duk_context *ctx, duk_idx_t idx, duk_size_t start_char_offset, duk_size_t end_char_offset);
 DUK_EXTERNAL_DECL void duk_trim(duk_context *ctx, duk_idx_t idx);
 DUK_EXTERNAL_DECL duk_codepoint_t duk_char_code_at(duk_context *ctx, duk_idx_t idx, duk_size_t char_offset);

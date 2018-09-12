@@ -179,43 +179,137 @@ void Brew::API::Object::end()
 Brew::API::Callback::Callback(Brew::API::NativeContext Context, u32 Index)
 {
 	this->Context = Context;
-	duk_get_heapptr(this->Context, Index);
+	this->iter = 0;
 }
 
 void Brew::API::Callback::addArgumentString(string Value)
 {
-	this->Strings.push_back(Value);
+	this->reg.push_back(0);
+	this->Strings.insert(pair<u32, string>(this->iter, Value));
+	this->iter++;
 }
 
 void Brew::API::Callback::addArgumentInt(s64 Value)
 {
-	this->Ints.push_back(Value);
+	this->reg.push_back(1);
+	this->Ints.insert(pair<u32, s64>(this->iter, Value));
+	this->iter++;
 }
 
 void Brew::API::Callback::addArgumentUInt(u64 Value)
 {
-	this->UInts.push_back(Value);
+	this->reg.push_back(2);
+	this->UInts.insert(pair<u32, u64>(this->iter, Value));
+	this->iter++;
 }
 
 void Brew::API::Callback::addArgumentDouble(double Value)
 {
-	this->Doubles.push_back(Value);
+	this->reg.push_back(3);
+	this->Doubles.insert(pair<u32, double>(this->iter, Value));
+	this->iter++;
 }
 
 void Brew::API::Callback::addArgumentBoolean(bool Value)
 {
-	this->Booleans.push_back(Value);
+	this->reg.push_back(4);
+	this->Booleans.insert(pair<u32, bool>(this->iter, Value));
+	this->iter++;
+}
+
+void Brew::API::Callback::addArgumentUndefined()
+{
+	this->reg.push_back(5);
+	this->Undefineds.push_back(this->iter);
+	this->iter++;
+}
+
+void Brew::API::Callback::addArgumentNull()
+{
+	this->reg.push_back(6);
+	this->Nulls.push_back(this->iter);
+	this->iter++;
+}
+
+void Brew::API::Callback::addArgumentNaN()
+{
+	this->reg.push_back(7);
+	this->NaNs.push_back(this->iter);
+	this->iter++;
 }
 
 void Brew::API::Callback::callFunction()
 {
+	if(!this->reg.empty()) for(u32 i = 0; i < this->reg.size(); i++)
+	{
+		u32 rtype = this->reg[i];
+		switch(rtype)
+		{
+			case 0:
+			{
+				duk_push_string(this->Context, this->Strings[i].c_str());
+				break;
+			}
+
+			case 1:
+			{
+				duk_push_int(this->Context, this->Ints[i]);
+				break;
+			}
+
+			case 2:
+			{
+				duk_push_uint(this->Context, this->UInts[i]);
+				break;
+			}
+
+			case 3:
+			{
+				duk_push_number(this->Context, this->Doubles[i]);
+				break;
+			}
+
+			case 4:
+			{
+				duk_push_boolean(this->Context, this->Booleans[i]);
+				break;
+			}
+
+			case 5:
+			{
+				duk_push_undefined(this->Context);
+				break;
+			}
+
+			case 6:
+			{
+				duk_push_null(this->Context);
+				break;
+			}
+
+			case 7:
+			{
+				duk_push_nan(this->Context);
+				break;
+			}
+		}
+	}
+	/*
 	if(!this->Strings.empty()) for(u32 i = 0; i < this->Strings.size(); i++) duk_push_string(this->Context, this->Strings[i].c_str());
 	if(!this->Ints.empty()) for(u32 i = 0; i < this->Ints.size(); i++) duk_push_int(this->Context, this->Ints[i]);
 	if(!this->UInts.empty()) for(u32 i = 0; i < this->UInts.size(); i++) duk_push_uint(this->Context, this->UInts[i]);
 	if(!this->Doubles.empty()) for(u32 i = 0; i < this->Doubles.size(); i++) duk_push_number(this->Context, this->Doubles[i]);
 	if(!this->Booleans.empty()) for(u32 i = 0; i < this->Booleans.size(); i++) duk_push_boolean(this->Context, this->Booleans[i]);
-	u32 args = this->Strings.size() + this->Ints.size() + this->UInts.size() + this->Doubles.size() + this->Booleans.size();
-	duk_call(this->Context, args);
+	if(this->Undefineds > 0) for(u32 i = 0; i < this->Undefineds; i++) duk_push_undefined(this->Context);
+	if(this->Nulls > 0) for(u32 i = 0; i < this->Nulls; i++) duk_push_null(this->Context);
+	if(this->NaNs > 0) for(u32 i = 0; i < this->NaNs; i++) duk_push_nan(this->Context);
+	*/
+	duk_pcall(this->Context, this->iter);
+}
+
+void Brew::API::Callback::callFunctionNew()
+{
+	
 }
 
 Brew::API::FunctionHandler::FunctionHandler(Brew::API::NativeContext Context)

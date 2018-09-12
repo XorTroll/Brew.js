@@ -2,7 +2,7 @@ var searchData=
 [
   ['api',['API',['../namespace_brew_1_1_a_p_i.html',1,'Brew']]],
   ['boolean',['Boolean',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75a5c600958b71356cd1e43a056d1788c14',1,'Brew::API']]],
-  ['booleans',['Booleans',['../struct_brew_1_1_a_p_i_1_1_module.html#ac130066dec7cf7dfcbdfacb087196579',1,'Brew::API::Module']]],
+  ['booleans',['Booleans',['../struct_brew_1_1_a_p_i_1_1_class.html#ab7a520953c3a027fea00b4059d9cbaa5',1,'Brew::API::Class::Booleans()'],['../struct_brew_1_1_a_p_i_1_1_module.html#ac130066dec7cf7dfcbdfacb087196579',1,'Brew::API::Module::Booleans()']]],
   ['brew',['Brew',['../namespace_brew.html',1,'']]],
   ['brew_2ehpp',['Brew.hpp',['../_brew_8hpp.html',1,'']]],
   ['buffer',['Buffer',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75a6883156d72130a02bc0f7998da78f591',1,'Brew::API']]],

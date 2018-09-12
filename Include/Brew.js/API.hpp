@@ -82,7 +82,7 @@ namespace Brew
 
 				/**
 				    @brief Initializes internally the array.
-					@note This should NOT be CALLED manually, as adding the array actually calls this.
+					@note This should NOT be CALLED manually, as pushing it to \ref FunctionHandler actually calls this.
 				*/
 				void init();
 				
@@ -149,6 +149,7 @@ namespace Brew
 				bool start;
 		};
 		
+		/// Represents a JavaScript object. Usually used in \ref FunctionHandler.
 		class Object
 		{
 			public:
@@ -161,7 +162,7 @@ namespace Brew
 
 				/**
 				    @brief Initializes internally the array.
-					@note This shouldn NOT be CALLED manually, as adding the array actually calls this.
+					@note This should NOT be CALLED manually, as pushing it to \ref FunctionHandler actually calls this.
 				*/
 				void init();
 
@@ -236,23 +237,85 @@ namespace Brew
 				bool start;
 		};
 		
+		/// Class representing a callback, which is a function as an object. To be used inside API JS functions/methods.
 		class Callback
 		{
 			public:
+
+				/**
+				    @brief Gets the callback function from the given index using the given context. If the argument is not a function throws an error.
+					@param Context The context to use it with.
+					@param Index The index of the argument of the API JS function.
+					@note This should NOT be CALLED manually. use \ref FunctionHandler::getCallback(...) to get it.
+				*/
 				Callback(NativeContext Context, u32 Index);
+				
+				/**
+				    @brief Passes a string as an argument for the callback function.
+					@param Value The string to pass.
+					@note The value is added as the next argument.
+				*/
 				void addArgumentString(string Value);
+				
+				/**
+				    @brief Passes a signed integer as an argument for the callback function.
+					@param Value The signed integer to pass.
+					@note The value is added as the next argument.
+				*/
 				void addArgumentInt(s64 Value);
+
+				/**
+				    @brief Passes an unsigned integer as an argument for the callback function.
+					@param Value The unsigned integer to pass.
+					@note The value is added as the next argument.
+				*/
 				void addArgumentUInt(u64 Value);
+
+				/**
+				    @brief Passes a double as an argument for the callback function.
+					@param Value The double to pass.
+					@note The value is added as the next argument.
+				*/
 				void addArgumentDouble(double Value);
+
+				/**
+				    @brief Passes a boolean as an argument for the callback function.
+					@param Value The boolean to pass.
+					@note The value is added as the next argument.
+				*/
 				void addArgumentBoolean(bool Value);
+
+				/**
+				    @brief Passes undefined as an argument for the callback function.
+					@note The value is added as the next argument.
+				*/
+				void addArgumentUndefined();
+				
+				/**
+				    @brief Passes null as an argument for the callback function.
+					@note The value is added as the next argument.
+				*/
+				void addArgumentNull();
+
+				/**
+				    @brief Passes NaN as an argument for the callback function.
+					@note The value is added as the next argument.
+				*/
+				void addArgumentNaN();
 				void callFunction();
+				void callFunctionNew();
 			private:
 				NativeContext Context;
-				vector<string> Strings;
-				vector<s64> Ints;
-				vector<u64> UInts;
-				vector<double> Doubles;
-				vector<bool> Booleans;
+				map<u32, string> Strings;
+				map<u32, s64> Ints;
+				map<u32, u64> UInts;
+				map<u32, double> Doubles;
+				map<u32, bool> Booleans;
+				vector<u32> Undefineds;
+				vector<u32> Nulls;
+				vector<u32> NaNs;
+				vector<u32> reg;
+				u32 iter;
 		};
 
 		/// Class for handling API JS functions. It should be instantiated in API JS functions.

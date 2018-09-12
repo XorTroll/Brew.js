@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5f_5fnx_5fapplet_5ftype',['__nx_applet_type',['../_detect_8hpp.html#a791b847de0f1f3a66c8061158be45506',1,'Detect.hpp']]]
+  ['booleans',['Booleans',['../struct_brew_1_1_a_p_i_1_1_class.html#ab7a520953c3a027fea00b4059d9cbaa5',1,'Brew::API::Class::Booleans()'],['../struct_brew_1_1_a_p_i_1_1_module.html#ac130066dec7cf7dfcbdfacb087196579',1,'Brew::API::Module::Booleans()']]]
 ];

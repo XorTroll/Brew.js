@@ -13,7 +13,6 @@
 
 	#define __curOS 0
 	#include <switch.h>
-	extern "C" u32 __nx_applet_type = AppletType_SystemApplication;
 
 #elif defined _3DS || defined ARM11
 
