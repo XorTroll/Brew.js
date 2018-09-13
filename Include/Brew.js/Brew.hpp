@@ -10,11 +10,11 @@
 
 /*
 
-	//////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////
 
-	 * Brew.js - C++ userland JavaScript API for Nintendo homebrew, based on Node.js (with some Node.js API ported) * 
+	         -----  Brew.js - C++ userland JavaScript API for Nintendo homebrew  -----         
 	
-	//////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////
 
 	Using duktape engine (https://duktape.org), base of the JS API.
 
@@ -32,9 +32,8 @@
 	  Theoretically no. Brew.js automatically should detect the current OS we're compiling for, and it'll error if it fails detecting it.
 	  Everything should be automatically done.
 
-	- Are the libraries closed or I can extend the API myself?
-	  You can extend the API easily. Brew.js's "Brew::API" namespace has all the API classes, enumerations and functions to extend the current built-in API.
-	  Remember to add the modules via "Brew::API::addModule(...)" or add them as objects to the global object via "Brew::API::Global.pushModule(...)".
+	- Where can I get more info or docs?
+	  You have the documentations and the repository here: https://XorTroll.github.io/Brew.js
 	
 */
 
@@ -46,23 +45,17 @@
 #include "Modules/Node/Path.hpp"
 
 #if __curOS == 0
-
 	#include "Modules/NX/NX.hpp"
 	#include "Modules/NX/Gfx.hpp"
 	#include "Modules/NX/Input.hpp"
-
 #elif __curOS == 1
-
 	#include "Modules/CTR/CTR.hpp"
 	#include "Modules/CTR/Input.hpp"
 	#include "Modules/CTR/SF2D.hpp"
-
 #elif __curOS == 2
-
 	#include "Modules/NTR/Gfx.hpp"
 	#include "Modules/NTR/Input.hpp"
 	#include "Modules/NTR/NTR.hpp"
-
 #endif
 
 namespace Brew

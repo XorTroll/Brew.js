@@ -66,43 +66,43 @@ namespace Brew
             API::Function rename(API::NativeContext Context);
 
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isDirectory()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isDirectory() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isDirectory(API::NativeContext Context);
             
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isFile()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isFile() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isFile(API::NativeContext Context);
 
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isFIFO()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isFIFO() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isFIFO(API::NativeContext Context);
 
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isBlockDevice()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isBlockDevice() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isBlockDevice(API::NativeContext Context);
             
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isCharacterDevice()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isCharacterDevice() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isCharacterDevice(API::NativeContext Context);
 
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isSocket()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isSocket() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isSocket(API::NativeContext Context);
 
             /**
-                @brief API JS Class method (fs.Stats): "fs.Stats.isSymbolicLink()"
+                @brief API JS Class method (fs.Stats): "fs.Stats.isSymbolicLink() → Boolean"
                 @note This method is similar to Node.js's one. This description is for using the class with JavaScript.
             */
             API::Function Stats_isSymbolicLink(API::NativeContext Context);

@@ -22,7 +22,7 @@ Brew::API::Function Brew::BuiltIn::Console::print(Brew::API::NativeContext Conte
     if(handler.checkArgc(1) && cinit)
     {
         u32 arg = handler.getArgc();
-        for(int i = 0; i < arg; i++)
+        for(u32 i = 0; i < arg; i++)
         {
             if(handler.checkArgType(i, Brew::API::Type::String))
             {
@@ -41,6 +41,11 @@ Brew::API::Function Brew::BuiltIn::Console::print(Brew::API::NativeContext Conte
                 bool arg = handler.getBoolean(i);
                 string sbool = (arg ? "true" : "false");
                 cout << sbool;
+            }
+            else if(handler.checkArgType(i, Brew::API::Type::ObjectArray))
+            {
+                duk_json_encode(Context, i);
+                cout << duk_to_string(Context, -1);
             }
             else if(handler.checkArgType(i, Brew::API::Type::Undefined)) cout << "undefined";
             else if(handler.checkArgType(i, Brew::API::Type::Null)) cout << "null";

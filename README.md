@@ -1,4 +1,8 @@
-# Brew.js - C++ userland JavaScript API for Nintendo homebrew - 2.0 beta 1
+# Brew.js - Userland JavaScript API for Nintendo homebrew for C++
+
+- Current dev version: **2.0 (early commits, no released)**
+
+- Latest released version: [1.0](https://github.com/XorTroll/Brew.js/releases/latest)
 
 ## The engine: duktape
 
@@ -122,7 +126,7 @@
    Brew::API::addModule(example);
    ```
 
-   - For more information, browse the documentation below.
+   - For more information, browse the **[platform-specific documentations](https://XorTroll.github.io/Brew.js)**!
 
 ## Used libraries
 
@@ -132,5 +136,3 @@
    - nanojpeg | JPEG decoding | by Martin J. Fiedler
    - upng | PNG decoding | by elanthis
    - sf2dlib | 3DS GPU rendering via citro3d | by xerpi
-
-### Go to [my web page](https://xortroll.github.io/Brew.js) to see all the documentation!

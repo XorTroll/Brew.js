@@ -79,6 +79,13 @@ namespace Brew
 					@param Context The context to use with the array.
 				*/
 				Array(NativeContext Context);
+				
+				/**
+				    @brief Creates a new array object with the given context and from the specifiec argument index.
+					@param Context The context to use with the array.
+					@param Index The argument index to get it from.
+					@note Better to call \ref FunctionHandler.getArray(...) instead!
+				*/
 				Array(NativeContext Context, u32 Index);
 
 				/**
@@ -144,11 +151,68 @@ namespace Brew
 				*/
 				void end();
 
+				/**
+				    @brief Gets the argument at given index as a string. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as a string.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				string getString(u32 Index);
+				
+				/**
+				    @brief Gets the argument at given index as a signed integer. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as a signed integer.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				s64 getInt(u32 Index);
+
+				/**
+				    @brief Gets the argument at given index as an unsigned integer. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as an unsigned integer.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				u64 getUInt(u32 Index);
+
+				/**
+				    @brief Gets the argument at given index as a double. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as a double.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				double getDouble(u32 Index);
+
+				/**
+				    @brief Gets the argument at given index as a boolean. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as a boolean.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				bool getBoolean(u32 Index);
+
+				/**
+				    @brief Gets the argument at given index as an array. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as an array.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				Array getArray(u32 Index);
+
+				/**
+				    @brief Gets the argument at given index as an object. No conversions are done to get it.
+					@param Index The index to get the argument from.
+					@return The argument as an object.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				Object getObject(u32 Index);
+
+				/**
+				    @brief Gets the JSON string representation of this array.
+					@return The JSON representation as a string.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				string asJSON();
 
 			private:
 				NativeContext Context;
@@ -166,9 +230,16 @@ namespace Brew
 
 				/**
 				    @brief Creates a new object with the given context.
-					@param Context The context to use with the array.
+					@param Context The context to use with the object.
 				*/
 				Object(NativeContext Context);
+
+				/**
+				    @brief Creates a new object object with the given context and from the specifiec argument index.
+					@param Context The context to use with the object.
+					@param Index The argument index to get it from.
+					@note Better to call \ref FunctionHandler.getObject(...) instead!
+				*/
 				Object(NativeContext Context, u32 Index);
 
 				/**
@@ -243,11 +314,68 @@ namespace Brew
 				*/
 				void end();
 
+				/**
+				    @brief Gets the property named as the given name as a string. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as a string.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				string getString(string Name);
+
+				/**
+				    @brief Gets the property named as the given name as a signed integer. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as a signed integer.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				s64 getInt(string Name);
+
+				/**
+				    @brief Gets the property named as the given name as an unsigned integer. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as an unsigned integer.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				u64 getUInt(string Name);
+				
+				/**
+				    @brief Gets the property named as the given name as a double. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as a double.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				double getDouble(string Name);
+
+				/**
+				    @brief Gets the property named as the given name as a boolean. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as a boolean.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
 				bool getBoolean(string Name);
+
+				/**
+				    @brief Gets the property named as the given name as an array. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as an array.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				Array getArray(string Name);
+
+				/**
+				    @brief Gets the property named as the given name as an object. No conversions are done to get it.
+					@param Name The name of the property.
+					@return The property as an object.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				Object getObject(string Name);
+
+				/**
+				    @brief Gets the JSON string representation of this object.
+					@return The JSON representation as a string.
+					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
+				*/
+				string asJSON();
 
 			private:
 				NativeContext Context;
@@ -322,7 +450,17 @@ namespace Brew
 					@note The value is added as the next argument.
 				*/
 				void addArgumentNaN();
+				
+				/**
+				    @brief Calls the function with currently added arguments (in order). Like doing "func(...args);".
+					@note This should be called after adding all the arguments in order.
+				*/
 				void callFunction();
+				
+				/**
+				    @brief Like \ref callFunction, but like calling it with "new". Like doing "new func(...args);".
+					@note This should be called after adding all the arguments in order.
+				*/
 				void callFunctionNew();
 			private:
 				NativeContext Context;
@@ -426,10 +564,25 @@ namespace Brew
 				*/
 				bool getBoolean(u32 Index);
 
+				/**
+					@brief Gets the argument located at the given position as a callback (function as argument).
+					@param Index The position of the argument.
+					@return The argument as a \ref Brew::API::Callback.
+				*/
 				Callback getCallback(u32 Index);
 
+				/**
+					@brief Gets the argument located at the given position as an object.
+					@param Index The position of the argument.
+					@return The argument as a \ref Brew::API::Object.
+				*/
 				Object getObject(u32 Index);
 
+				/**
+					@brief Gets the argument located at the given position as an array.
+					@param Index The position of the argument.
+					@return The argument as a \ref Brew::API::Array.
+				*/
 				Array getArray(u32 Index);
 				
 				/**
@@ -496,38 +649,185 @@ namespace Brew
 				int count;
 		};
 
+		/// An extended \ref FunctionHandler to be used in \ref Brew::API::Class-related API JS functions.
 		class ClassHandler : public FunctionHandler
 		{
 			public:
+
+				/**
+					@brief Creates a \ref ClassHandler.
+					@param Context The context to use it with.
+				*/
 				ClassHandler(NativeContext Context);
+				
+				/**
+					@brief Sets an internal property to a string. Like doing "this.<Name> = <Value>;".
+					@param Name The name of the property to set.
+					@param Value The string value to set.
+				*/
 				void setPropertyString(string Name, string Value);
+				
+				/**
+					@brief Sets an internal property to a signed integer. Like doing "this.<Name> = <Value>;".
+					@param Name The name of the property to set.
+					@param Value The signed integer value to set.
+				*/
 				void setPropertyInt(string Name, s64 Value);
+				
+				/**
+					@brief Sets an internal property to an unsigned integer. Like doing "this.<Name> = <Value>;".
+					@param Name The name of the property to set.
+					@param Value The unsigned integer value to set.
+				*/
 				void setPropertyUInt(string Name, u64 Value);
+				
+				/**
+					@brief Sets an internal property to a double. Like doing "this.<Name> = <Value>;".
+					@param Name The name of the property to set.
+					@param Value The double value to set.
+				*/
 				void setPropertyDouble(string Name, double Value);
+				
+				/**
+					@brief Sets an internal property to a boolean. Like doing "this.<Name> = <Value>;".
+					@param Name The name of the property to set.
+					@param Value The boolean value to set.
+				*/
 				void setPropertyBoolean(string Name, bool Value);
+
+				/**
+					@brief Sets an internal property to undefined. Like doing "this.<Name> = undefined;".
+					@param Name The name of the property to set to undefined.
+				*/
 				void setPropertyUndefined(string Name);
+				
+				/**
+					@brief Sets an internal property to null. Like doing "this.<Name> = null;".
+					@param Name The name of the property to set to null.
+				*/
 				void setPropertyNull(string Name);
+
+				/**
+					@brief Sets an internal property to NaN. Like doing "this.<Name> = NaN;".
+					@param Name The name of the property to set to NaN.
+				*/
 				void setPropertyNaN(string Name);
+				
+				/**
+					@brief Gets an internal property as a string. Like getting "this.<Name>;".
+					@param Name The name of the property to get.
+					@return The property as a string.
+				*/
 				string getPropertyString(string Name);
+				
+				/**
+					@brief Gets an internal property as a signed integer. Like getting "this.<Name>;".
+					@param Name The name of the property to get.
+					@return The property as a signed integer.
+				*/
 				s64 getPropertyInt(string Name);
+
+				/**
+					@brief Gets an internal property as an unsigned integer. Like getting "this.<Name>;".
+					@param Name The name of the property to get.
+					@return The property as an unsigned integer.
+				*/
 				u64 getPropertyUInt(string Name);
+
+				/**
+					@brief Gets an internal property as a double. Like getting "this.<Name>;".
+					@param Name The name of the property to get.
+					@return The property as a double.
+				*/
 				double getPropertyDouble(string Name);
+
+				/**
+					@brief Gets an internal property as a boolean. Like getting "this.<Name>;".
+					@param Name The name of the property to get.
+					@return The property as a boolean.
+				*/
 				bool getPropertyBoolean(string Name);
 			private:
 				int propcount;
 		};
 
+		/// Represents a JavaScript class, which can be added to a module.
 		struct Class
 		{
+			/**
+				@brief Creates a class with the class name and the constructor function.
+				@param Name The name of the class.
+				@param Constructor The API JS function of the class constructor.
+			*/
 			Class(string Name, NativeFunction Constructor);
+
+			/**
+				@brief Adds a string as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The string to set as property.
+				@note The property WON'T be static.
+			*/
 			void addString(string Name, string Value);
+			
+			/**
+				@brief Adds a signed integer as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The signed integer to set as property.
+				@note The property WON'T be static.
+			*/
 			void addInt(string Name, s64 Value);
+
+			/**
+				@brief Adds an unsigned integer as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The unsigned integer to set as property.
+				@note The property WON'T be static.
+			*/
 			void addUInt(string Name, u64 Value);
+
+			/**
+				@brief Adds a double as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The double to set as property.
+				@note The property WON'T be static.
+			*/
 			void addDouble(string Name, double Value);
+
+			/**
+				@brief Adds a boolean as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The boolean to set as property.
+				@note The property WON'T be static.
+			*/
 			void addBoolean(string Name, bool Value);
+
+			/**
+				@brief Adds an API JS function as a property with the given name.
+				@param Name The name of the property to set.
+				@param Value The API JS function to set as property.
+				@note The property WON'T be static.
+			*/
 			void addFunction(string Name, NativeFunction Value);
+
+			/**
+				@brief Adds undefined as a property with the given name.
+				@param Name The name of the property to set to undefined.
+				@note The property WON'T be static.
+			*/
 			void addUndefined(string Name);
+			
+			/**
+				@brief Adds null as a property with the given name.
+				@param Name The name of the property to set to null.
+				@note The property WON'T be static.
+			*/
 			void addNull(string Name);
+
+			/**
+				@brief Adds NaN as a property with the given name.
+				@param Name The name of the property to set to NaN.
+				@note The property WON'T be static.
+			*/
 			void addNaN(string Name);
 			NativeFunction Constructor;
 			map<string, string> Strings;
@@ -610,6 +910,11 @@ namespace Brew
 				@param Name the NaN variable has.
 			*/
 			void pushNaN(string Name);
+			
+			/**
+				@brief Adds a class object to the module.
+				@param Value The class object to add.
+			*/
 			void pushClass(Class Value);
 			map<string, string> Strings;
 			map<string, s64> Ints;

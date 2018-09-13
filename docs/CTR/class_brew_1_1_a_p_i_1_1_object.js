@@ -11,10 +11,13 @@ var class_brew_1_1_a_p_i_1_1_object =
     [ "addString", "class_brew_1_1_a_p_i_1_1_object.html#aa6c7709a92bad353d34162b358a18cf4", null ],
     [ "addUInt", "class_brew_1_1_a_p_i_1_1_object.html#aad04b4c66c8542631b974431aa2190f9", null ],
     [ "addUndefined", "class_brew_1_1_a_p_i_1_1_object.html#aa6707a8cd0c348b5a2c7b2af273b3342", null ],
+    [ "asJSON", "class_brew_1_1_a_p_i_1_1_object.html#a2ffb9c275f24af843c53b5064d2deac7", null ],
     [ "end", "class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d", null ],
+    [ "getArray", "class_brew_1_1_a_p_i_1_1_object.html#a85c1551f7273c91fab4c7157a3493ba5", null ],
     [ "getBoolean", "class_brew_1_1_a_p_i_1_1_object.html#a295394316ee1db924d0a97e51bf62a72", null ],
     [ "getDouble", "class_brew_1_1_a_p_i_1_1_object.html#aa61196bd39c372bd4b305bd99eed89fa", null ],
     [ "getInt", "class_brew_1_1_a_p_i_1_1_object.html#addda682d3557902408544a5987aabc88", null ],
+    [ "getObject", "class_brew_1_1_a_p_i_1_1_object.html#acc45aff3f3745128c69a404e1a1d8c6f", null ],
     [ "getString", "class_brew_1_1_a_p_i_1_1_object.html#a74a05eb23b1b7ecf06727c13f3dafdb5", null ],
     [ "getUInt", "class_brew_1_1_a_p_i_1_1_object.html#a5cc40b1d98bba9faa61aeb37bd764bc4", null ],
     [ "init", "class_brew_1_1_a_p_i_1_1_object.html#a4a1ecd639f8437ea885714d805004bae", null ]

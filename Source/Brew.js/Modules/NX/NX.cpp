@@ -62,7 +62,7 @@ Brew::API::Function Brew::BuiltIn::NX::getTitles(Brew::API::NativeContext Contex
         ncmContentMetaDatabaseListApplication(metadb, 0x80, metas, size, &written, &total);
         if(total > 0) for(u32 i = 0; i < total; i++) arr.addUInt(metas[i].metaRecord.titleId);
     }
-    else handler.throwError(Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
+    else throwError(Context, Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
     ncmExit();
     return Brew::API::Return::Variable;
 }
@@ -82,7 +82,7 @@ Brew::API::Function Brew::BuiltIn::NX::getGameCartTitle(Brew::API::NativeContext
         if((total > 0) && (written > 0)) handler.pushUInt(metas[0].metaRecord.titleId);
         else handler.pushUInt(0);
     }
-    else handler.throwError(Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
+    else throwError(Context, Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
     ncmExit();
     return Brew::API::Return::Variable;
 }
@@ -103,7 +103,7 @@ Brew::API::Function Brew::BuiltIn::NX::getNANDTitles(Brew::API::NativeContext Co
         ncmContentMetaDatabaseListApplication(metadb, 0x80, metas, size, &written, &total);
         if(total > 0) for(u32 i = 0; i < total; i++) arr.addUInt(metas[i].metaRecord.titleId);
     }
-    else handler.throwError(Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
+    else throwError(Context, Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
     ncmExit();
     return Brew::API::Return::Variable;
 }
@@ -124,7 +124,7 @@ Brew::API::Function Brew::BuiltIn::NX::getSDTitles(Brew::API::NativeContext Cont
         ncmContentMetaDatabaseListApplication(metadb, 0x80, metas, size, &written, &total);
         if(total > 0) for(u32 i = 0; i < total; i++) arr.addUInt(metas[i].metaRecord.titleId);
     }
-    else handler.throwError(Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
+    else throwError(Context, Brew::API::Error::CommonError, "Could not initialize \'ncm\' service");
     ncmExit();
     return Brew::API::Return::Variable;
 }

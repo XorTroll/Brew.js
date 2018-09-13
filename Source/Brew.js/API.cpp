@@ -120,37 +120,58 @@ void Brew::API::Array::end()
 
 string Brew::API::Array::getString(u32 Index)
 {
-	if(this->padd) return "";
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
 	duk_get_prop_index(this->Context, this->uidx, Index);
 	return string(duk_to_string(this->Context, -1));
 }
 
 s64 Brew::API::Array::getInt(u32 Index)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
 	duk_get_prop_index(this->Context, this->uidx, Index);
 	return duk_to_int(this->Context, -1);
 }
 
 u64 Brew::API::Array::getUInt(u32 Index)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
 	duk_get_prop_index(this->Context, this->uidx, Index);
 	return duk_to_uint(this->Context, -1);
 }
 
 double Brew::API::Array::getDouble(u32 Index)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
 	duk_get_prop_index(this->Context, this->uidx, Index);
 	return duk_to_number(this->Context, -1);
 }
 
 bool Brew::API::Array::getBoolean(u32 Index)
 {
-	if(this->padd) return false;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
 	duk_get_prop_index(this->Context, this->uidx, Index);
 	return duk_to_boolean(this->Context, -1);
+}
+
+Brew::API::Array Brew::API::Array::getArray(u32 Index)
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return Brew::API::Array(this->Context, -1);
+}
+
+Brew::API::Object Brew::API::Array::getObject(u32 Index)
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
+	duk_get_prop_index(this->Context, this->uidx, Index);
+	return Brew::API::Object(this->Context, -1);
+}
+
+string Brew::API::Array::asJSON()
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array not accessed as a function argument");
+	duk_json_encode(this->Context, this->uidx);
+	return string(duk_to_string(this->Context, -1));
 }
 
 Brew::API::Object::Object(Brew::API::NativeContext Context)
@@ -261,37 +282,58 @@ void Brew::API::Object::end()
 
 string Brew::API::Object::getString(string Name)
 {
-	if(this->padd) return "";
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_get_prop_string(this->Context, this->idx, Name.c_str());
 	return string(duk_to_string(this->Context, -1));
 }
 
 s64 Brew::API::Object::getInt(string Name)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_get_prop_string(this->Context, this->idx, Name.c_str());
 	return duk_to_int(this->Context, -1);
 }
 
 u64 Brew::API::Object::getUInt(string Name)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_get_prop_string(this->Context, this->idx, Name.c_str());
 	return duk_to_uint(this->Context, -1);
 }
 
 double Brew::API::Object::getDouble(string Name)
 {
-	if(this->padd) return 0;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_get_prop_string(this->Context, this->idx, Name.c_str());
 	return duk_to_number(this->Context, -1);
 }
 
 bool Brew::API::Object::getBoolean(string Name)
 {
-	if(this->padd) return false;
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_get_prop_string(this->Context, this->idx, Name.c_str());
 	return duk_to_boolean(this->Context, -1);
+}
+
+Brew::API::Array Brew::API::Object::getArray(string Name)
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return Brew::API::Array(this->Context, -1);
+}
+
+Brew::API::Object Brew::API::Object::getObject(string Name)
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
+	duk_get_prop_string(this->Context, this->idx, Name.c_str());
+	return Brew::API::Object(this->Context, -1);
+}
+
+string Brew::API::Object::asJSON()
+{
+	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
+	duk_json_encode(this->Context, this->idx);
+	return string(duk_to_string(this->Context, -1));
 }
 
 Brew::API::Callback::Callback(Brew::API::NativeContext Context, u32 Index)
