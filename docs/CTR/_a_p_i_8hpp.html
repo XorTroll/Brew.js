@@ -105,6 +105,8 @@ $(document).ready(function(){initNavTree('_a_p_i_8hpp.html','');});
 <div class="textblock"><code>#include &quot;<a class="el" href="_detect_8hpp_source.html">Detect.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_include_8hpp_source.html">Include.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_libs_8hpp_source.html">Libs/Libs.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_process_8hpp_source.html">Modules/Node/Process.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_console_8hpp_source.html">Modules/CTR/Console.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_a_p_i_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -209,23 +211,35 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0c50e1aa4354d9dc80443ab5118c2095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a context using default heap.  <a href="namespace_brew_1_1_a_p_i.html#a0c50e1aa4354d9dc80443ab5118c2095">More...</a><br /></td></tr>
 <tr class="separator:a0c50e1aa4354d9dc80443ab5118c2095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4261f354ef8cf3f4f4404d303afdfb13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a4261f354ef8cf3f4f4404d303afdfb13">Brew::API::addModule</a> (Module Module)</td></tr>
-<tr class="memdesc:a4261f354ef8cf3f4f4404d303afdfb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a module to the module list, so it can be included via require function.  <a href="namespace_brew_1_1_a_p_i.html#a4261f354ef8cf3f4f4404d303afdfb13">More...</a><br /></td></tr>
+<tr class="memdesc:a4261f354ef8cf3f4f4404d303afdfb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a module to the module list, so it can be included via <a class="el" href="namespace_brew_1_1_a_p_i.html#a6c0cf140675f1245858b97c82d6db867">require</a> function.  <a href="namespace_brew_1_1_a_p_i.html#a4261f354ef8cf3f4f4404d303afdfb13">More...</a><br /></td></tr>
 <tr class="separator:a4261f354ef8cf3f4f4404d303afdfb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18577835628062956e60167b9556be04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a18577835628062956e60167b9556be04">Brew::API::throwError</a> (NativeContext Context, Error ErrorType, string Message)</td></tr>
 <tr class="memdesc:a18577835628062956e60167b9556be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the execution throwing an error.  <a href="namespace_brew_1_1_a_p_i.html#a18577835628062956e60167b9556be04">More...</a><br /></td></tr>
 <tr class="separator:a18577835628062956e60167b9556be04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0cf140675f1245858b97c82d6db867"><td class="memItemLeft" align="right" valign="top">API::Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a6c0cf140675f1245858b97c82d6db867">Brew::API::require</a> (API::NativeContext Context)</td></tr>
+<tr class="memdesc:a6c0cf140675f1245858b97c82d6db867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global object elements.  <a href="namespace_brew_1_1_a_p_i.html#a6c0cf140675f1245858b97c82d6db867">More...</a><br /></td></tr>
+<tr class="separator:a6c0cf140675f1245858b97c82d6db867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad449f3dbbd69708a79d352d7ee380e36"><td class="memItemLeft" align="right" valign="top">API::Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#ad449f3dbbd69708a79d352d7ee380e36">Brew::API::evalFile</a> (API::NativeContext Context)</td></tr>
+<tr class="memdesc:ad449f3dbbd69708a79d352d7ee380e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Global] <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS Function: "function evalFile(File)"  <a href="namespace_brew_1_1_a_p_i.html#ad449f3dbbd69708a79d352d7ee380e36">More...</a><br /></td></tr>
+<tr class="separator:ad449f3dbbd69708a79d352d7ee380e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f2b0fff950548aeff226e61d48448b"><td class="memItemLeft" align="right" valign="top">API::Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a81f2b0fff950548aeff226e61d48448b">Brew::API::randRange</a> (API::NativeContext Context)</td></tr>
+<tr class="memdesc:a81f2b0fff950548aeff226e61d48448b"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Global] <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a> JS Function: "function randRange(Min, Max) → Number"  <a href="namespace_brew_1_1_a_p_i.html#a81f2b0fff950548aeff226e61d48448b">More...</a><br /></td></tr>
+<tr class="separator:a81f2b0fff950548aeff226e61d48448b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4a1f590006b424844fa50dde791018"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a6e4a1f590006b424844fa50dde791018">Brew::API::initGlobal</a> (API::NativeContext Context)</td></tr>
+<tr class="memdesc:a6e4a1f590006b424844fa50dde791018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes global elements into the <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>.  <a href="namespace_brew_1_1_a_p_i.html#a6e4a1f590006b424844fa50dde791018">More...</a><br /></td></tr>
+<tr class="separator:a6e4a1f590006b424844fa50dde791018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a2e874ee8d242594be4bdf4b2fa8e9c24"><td class="memItemLeft" align="right" valign="top">static GlobalObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a2e874ee8d242594be4bdf4b2fa8e9c24">Brew::API::Global</a> (NULL)</td></tr>
 <tr class="memdesc:a2e874ee8d242594be4bdf4b2fa8e9c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the global object of Brew.js <a class="el" href="namespace_brew_1_1_a_p_i.html">API</a>. Add manually variable to the global object via this class.  <a href="namespace_brew_1_1_a_p_i.html#a2e874ee8d242594be4bdf4b2fa8e9c24">More...</a><br /></td></tr>
 <tr class="separator:a2e874ee8d242594be4bdf4b2fa8e9c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60b5d392cca446b4a5e31819724fedcb"><td class="memItemLeft" align="right" valign="top">static vector&lt; Module &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a60b5d392cca446b4a5e31819724fedcb">Brew::API::Modules</a></td></tr>
-<tr class="memdesc:a60b5d392cca446b4a5e31819724fedcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of modules which will be included when creating a <a class="el" href="class_brew_1_1_environment.html" title="Class holding a Brew.js environment, which is a wrapper for a context with some evaluation functions...">Environment</a>.  <a href="namespace_brew_1_1_a_p_i.html#a60b5d392cca446b4a5e31819724fedcb">More...</a><br /></td></tr>
-<tr class="separator:a60b5d392cca446b4a5e31819724fedcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad655b20dd0ce87531083b9e0e508472b"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#ad655b20dd0ce87531083b9e0e508472b">Brew::API::Version</a> = &quot;2.0 beta 1&quot;</td></tr>
 <tr class="memdesc:ad655b20dd0ce87531083b9e0e508472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current version of Brew.js (it's on <a class="el" href="_a_p_i_8hpp.html" title="API of Brew.js, interaction between C++ ↔ JavaScript. ">API.hpp</a> to be accessed from built-in modules)  <a href="namespace_brew_1_1_a_p_i.html#ad655b20dd0ce87531083b9e0e508472b">More...</a><br /></td></tr>
 <tr class="separator:ad655b20dd0ce87531083b9e0e508472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bc9f7e13a7a9565d62618f59955db17"><td class="memItemLeft" align="right" valign="top">static vector&lt; API::Module &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew_1_1_a_p_i.html#a3bc9f7e13a7a9565d62618f59955db17">Brew::API::Modules</a></td></tr>
+<tr class="memdesc:a3bc9f7e13a7a9565d62618f59955db17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of modules which will be included when creating a <a class="el" href="class_brew_1_1_environment.html" title="Class holding a Brew.js environment, which is a wrapper for a context with some evaluation functions...">Environment</a>.  <a href="namespace_brew_1_1_a_p_i.html#a3bc9f7e13a7a9565d62618f59955db17">More...</a><br /></td></tr>
+<tr class="separator:a3bc9f7e13a7a9565d62618f59955db17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>API of Brew.js, interaction between C++ ↔ JavaScript. </p>

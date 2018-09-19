@@ -30,6 +30,5 @@ var searchData=
   ['getuint',['getUInt',['../class_brew_1_1_a_p_i_1_1_array.html#a1a407956c949cb5424fdb34eaa231905',1,'Brew::API::Array::getUInt()'],['../class_brew_1_1_a_p_i_1_1_object.html#a5cc40b1d98bba9faa61aeb37bd764bc4',1,'Brew::API::Object::getUInt()'],['../class_brew_1_1_a_p_i_1_1_function_handler.html#a01226ba6f4638e3b965c004d3b4fae1a',1,'Brew::API::FunctionHandler::getUInt()']]],
   ['gfx_2ehpp',['Gfx.hpp',['../_gfx_8hpp.html',1,'']]],
   ['global',['Global',['../namespace_brew_1_1_a_p_i.html#a2e874ee8d242594be4bdf4b2fa8e9c24',1,'Brew::API']]],
-  ['global_2ehpp',['Global.hpp',['../_global_8hpp.html',1,'']]],
   ['globalobject',['GlobalObject',['../class_brew_1_1_a_p_i_1_1_global_object.html',1,'Brew::API::GlobalObject'],['../class_brew_1_1_a_p_i_1_1_global_object.html#ae8a0c9456c115ff1ac0ef63698fb0c40',1,'Brew::API::GlobalObject::GlobalObject()']]]
 ];

@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d":[3,0,0,0,7,12],
+"class_brew_1_1_a_p_i_1_1_object.html#a85c1551f7273c91fab4c7157a3493ba5":[3,0,0,0,7,13],
 "class_brew_1_1_a_p_i_1_1_object.html#a87e3f46a894c000a76a657a1bb00e2f0":[3,0,0,0,7,5],
 "class_brew_1_1_a_p_i_1_1_object.html#a9a4954c3038e04c697c49b4adde6e396":[3,0,0,0,7,1],
 "class_brew_1_1_a_p_i_1_1_object.html#aa61196bd39c372bd4b305bd99eed89fa":[3,0,0,0,7,15],
@@ -43,8 +45,8 @@ var NAVTREEINDEX1 =
 "index.html":[],
 "index.html":[0],
 "md__resources__how_8_classes.html":[1],
-"namespace_brew.html":[3,0,0],
 "namespace_brew.html":[2,0,0],
+"namespace_brew.html":[3,0,0],
 "namespace_brew_1_1_a_p_i.html":[3,0,0,0],
 "namespace_brew_1_1_a_p_i.html":[2,0,0,0],
 "namespace_brew_1_1_built_in.html":[2,0,0,1],

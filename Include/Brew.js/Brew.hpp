@@ -38,7 +38,7 @@
 */
 
 #pragma once
-#include "Modules/Global.hpp"
+#include "API.hpp"
 
 #include "Modules/Node/FS.hpp"
 #include "Modules/Node/OS.hpp"
@@ -48,6 +48,7 @@
 	#include "Modules/NX/NX.hpp"
 	#include "Modules/NX/Gfx.hpp"
 	#include "Modules/NX/Input.hpp"
+	#include "Modules/NX/PegaSwitch.hpp"
 #elif __curOS == 1
 	#include "Modules/CTR/CTR.hpp"
 	#include "Modules/CTR/Input.hpp"

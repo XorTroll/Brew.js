@@ -45,8 +45,12 @@ var _a_p_i_8hpp =
     ] ],
     [ "addModule", "_a_p_i_8hpp.html#a4261f354ef8cf3f4f4404d303afdfb13", null ],
     [ "createContext", "_a_p_i_8hpp.html#a0c50e1aa4354d9dc80443ab5118c2095", null ],
+    [ "evalFile", "_a_p_i_8hpp.html#ad449f3dbbd69708a79d352d7ee380e36", null ],
+    [ "initGlobal", "_a_p_i_8hpp.html#a6e4a1f590006b424844fa50dde791018", null ],
+    [ "randRange", "_a_p_i_8hpp.html#a81f2b0fff950548aeff226e61d48448b", null ],
+    [ "require", "_a_p_i_8hpp.html#a6c0cf140675f1245858b97c82d6db867", null ],
     [ "throwError", "_a_p_i_8hpp.html#a18577835628062956e60167b9556be04", null ],
     [ "Global", "_a_p_i_8hpp.html#a2e874ee8d242594be4bdf4b2fa8e9c24", null ],
-    [ "Modules", "_a_p_i_8hpp.html#a60b5d392cca446b4a5e31819724fedcb", null ],
+    [ "Modules", "_a_p_i_8hpp.html#a3bc9f7e13a7a9565d62618f59955db17", null ],
     [ "Version", "_a_p_i_8hpp.html#ad655b20dd0ce87531083b9e0e508472b", null ]
 ];

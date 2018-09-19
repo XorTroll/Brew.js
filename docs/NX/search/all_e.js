@@ -2,6 +2,7 @@ var searchData=
 [
   ['packagejsonnotfound',['PackageJsonNotFound',['../namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca8a589f6036cd6b0081d379ae1c2c55a2',1,'Brew']]],
   ['path_2ehpp',['Path.hpp',['../_path_8hpp.html',1,'']]],
+  ['pegaswitch_2ehpp',['PegaSwitch.hpp',['../_pega_switch_8hpp.html',1,'']]],
   ['platform',['platform',['../namespace_brew_1_1_built_in_1_1_o_s.html#a854ccb10894cba0d42c1b61b8d3c39f9',1,'Brew::BuiltIn::OS']]],
   ['pointer',['Pointer',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75a395636f2d3ffb0aae618f3a1fee298b2',1,'Brew::API']]],
   ['print',['print',['../namespace_brew_1_1_built_in_1_1_console.html#a01d3a0c85fe335de4e6770670df92321',1,'Brew::BuiltIn::Console']]],

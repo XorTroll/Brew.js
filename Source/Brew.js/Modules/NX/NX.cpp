@@ -4,7 +4,7 @@ Brew::API::Module nx("nx");
 
 Brew::API::Function Brew::BuiltIn::NX::reboot(Brew::API::NativeContext Context)
 {
-    Service bpc;
+    ::Service bpc;
     smGetService(&bpc, kernelAbove200() ? "bpc" : "bpc:c");
     IpcCommand c;
     ipcInitialize(&c);
@@ -23,7 +23,7 @@ Brew::API::Function Brew::BuiltIn::NX::reboot(Brew::API::NativeContext Context)
 
 Brew::API::Function Brew::BuiltIn::NX::shutDown(Brew::API::NativeContext Context)
 {
-    Service bpc;
+    ::Service bpc;
     smGetService(&bpc, kernelAbove200() ? "bpc" : "bpc:c");
     IpcCommand c;
     ipcInitialize(&c);

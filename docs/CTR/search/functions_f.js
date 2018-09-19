@@ -13,6 +13,8 @@ var searchData=
   ['setpropertyundefined',['setPropertyUndefined',['../class_brew_1_1_a_p_i_1_1_class_handler.html#aa4119dfbe65be6c0865bc54f54a36b27',1,'Brew::API::ClassHandler']]],
   ['shutdown',['shutDown',['../namespace_brew_1_1_built_in_1_1_c_t_r.html#a713051bc16c4e5a1c76c93a6077d3bea',1,'Brew::BuiltIn::CTR']]],
   ['startframe',['startFrame',['../namespace_brew_1_1_built_in_1_1_s_f2_d.html#a4de6d232bb73e1b98ce2651f3d473508',1,'Brew::BuiltIn::SF2D']]],
+  ['startsetpropertyarray',['startSetPropertyArray',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a9819fd8abc98814a65cbe4b781f3f099',1,'Brew::API::ClassHandler']]],
+  ['startsetpropertyobject',['startSetPropertyObject',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a09f1ca0502cb1cb056bd7b24edc0920b',1,'Brew::API::ClassHandler']]],
   ['stats',['Stats',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc5cd5aa4ac98307cf8019454cb504b5',1,'Brew::BuiltIn::FS']]],
   ['stats_5fisblockdevice',['Stats_isBlockDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc012dc0f796b00ab6025bd302e1ddcb',1,'Brew::BuiltIn::FS']]],
   ['stats_5fischaracterdevice',['Stats_isCharacterDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#a899e4eaf3afd8b04ac5cfc391fa23927',1,'Brew::BuiltIn::FS']]],

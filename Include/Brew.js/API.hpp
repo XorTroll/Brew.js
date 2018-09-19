@@ -712,6 +712,12 @@ namespace Brew
 					@param Name The name of the property to set to NaN.
 				*/
 				void setPropertyNaN(string Name);
+
+				void startSetPropertyArray(Array Value);
+				void endSetPropertyArray(string Name);
+
+				void startSetPropertyObject(Object Value);
+				void endSetPropertyObject(string Name);
 				
 				/**
 					@brief Gets an internal property as a string. Like getting "this.<Name>;".
@@ -749,6 +755,7 @@ namespace Brew
 				bool getPropertyBoolean(string Name);
 			private:
 				int propcount;
+				string tempname;
 		};
 
 		/// Represents a JavaScript class, which can be added to a module.
@@ -1034,10 +1041,46 @@ namespace Brew
 		/// Represents the global object of Brew.js API. Add manually variable to the global object via this class.
 		static GlobalObject Global(NULL);
 
-		/// The list of modules which will be included when creating a Environment.
-		static vector<Module> Modules;
-
 		/// Current version of Brew.js (it's on API.hpp to be accessed from built-in modules)
 		static string Version = "2.0 beta 1";
+
+		/// The list of modules which will be included when creating a Environment.
+		static vector<API::Module> Modules;
+
+		/// Global object elements
+
+		/**
+			@brief [Global] API JS Function: "function require(ModuleName) → Object"
+			@note Imports (tries to import) a module. This description is for using the function with JavaScript.
+		*/
+		API::Function require(API::NativeContext Context);
+		
+        /**
+			@brief [Global] API JS Function: "function evalFile(File)"
+			@note Evaluated a JavaScript file's source code. This description is for using the function with JavaScript.
+		*/
+        API::Function evalFile(API::NativeContext Context);
+		
+        /**
+			@brief [Global] API JS Function: "function randRange(Min, Max) → Number"
+			@note Generates a random (integer) number between a minimum and a maximum value. This description is for using the function with JavaScript.
+		*/
+        API::Function randRange(API::NativeContext Context);
+
+        /**
+            @brief Initializes global elements into the API.
+            @param Context The context to laod the global elements to.
+            @note This is internally called in the constructor of \ref Environment
+        */
+        void initGlobal(API::NativeContext Context);
 	}
 }
+
+#include "Modules/Node/Process.hpp"
+#if __curOS == 0
+	#include "Modules/NX/Console.hpp"
+#elif __curOS == 1
+	#include "Modules/CTR/Console.hpp"
+#elif __curOS == 2
+	#include "Modules/NTR/Console.hpp"
+#endif

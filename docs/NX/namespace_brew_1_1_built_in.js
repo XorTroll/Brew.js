@@ -7,5 +7,6 @@ var namespace_brew_1_1_built_in =
     [ "NX", "namespace_brew_1_1_built_in_1_1_n_x.html", null ],
     [ "OS", "namespace_brew_1_1_built_in_1_1_o_s.html", null ],
     [ "Path", "namespace_brew_1_1_built_in_1_1_path.html", null ],
+    [ "PegaSwitch", "namespace_brew_1_1_built_in_1_1_pega_switch.html", null ],
     [ "Process", "namespace_brew_1_1_built_in_1_1_process.html", null ]
 ];

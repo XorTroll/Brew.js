@@ -715,6 +715,26 @@ void Brew::API::ClassHandler::setPropertyNaN(string Name)
 	duk_put_prop_string(this->Context, -2, Name.c_str());
 }
 
+void Brew::API::ClassHandler::startSetPropertyArray(Brew::API::Array Value)
+{
+	Value.init();
+}
+
+void Brew::API::ClassHandler::endSetPropertyArray(string Name)
+{
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
+void Brew::API::ClassHandler::startSetPropertyObject(Brew::API::Object Value)
+{
+	Value.init();
+}
+
+void Brew::API::ClassHandler::endSetPropertyObject(string Name)
+{
+	duk_put_prop_string(this->Context, -2, Name.c_str());
+}
+
 string Brew::API::ClassHandler::getPropertyString(string Name)
 {
 	duk_get_prop_string(this->Context, this->propcount, Name.c_str());
@@ -986,4 +1006,191 @@ void Brew::API::addModule(Brew::API::Module Module)
 void Brew::API::throwError(Brew::API::NativeContext Context, Brew::API::Error ErrorType = Brew::API::Error::CommonError, string Message = "An error was thrown.")
 {
 	duk_error(Context, (duk_errcode_t)ErrorType, Message.c_str());
+}
+
+Brew::API::Function Brew::API::require(Brew::API::NativeContext Context)
+{
+	Brew::API::Module mmod("");
+	bool found = false;
+	Brew::API::FunctionHandler handler(Context);
+	if(handler.checkArgc(1))
+	{
+		string modname = handler.getString(0);
+		struct stat st;
+		if(stat(modname.c_str(), &st) == 0)
+		{
+			if(st.st_mode & S_IFREG)
+			{
+				ifstream ifs(modname);
+				stringstream strm;
+				strm << ifs.rdbuf();
+				ifs.close();
+				string base = strm.str();
+				string exports = "var exports = {};" + base + ";exports";
+				int err = duk_peval_string(Context, exports.c_str());
+				if(err != 0)
+				{
+					string moduleexports = "var module = {};module.exports = {};" + base + ";module.exports";
+					err = duk_peval_string(Context, moduleexports.c_str());
+					if(err != 0) throwError(Context, Brew::API::Error::CommonError, "Failed importing source file: " + string(duk_safe_to_string(Context, -1)));
+				}
+			}
+			else throwError(Context, Brew::API::Error::CommonError, "Attempted to import a folder (or something which is not a file?)");
+		}
+		else
+		{
+			transform(modname.begin(), modname.end(), modname.begin(), ::tolower);
+			if(!Brew::API::Modules.empty()) for(int i = 0; i < Brew::API::Modules.size(); i++) if(Brew::API::Modules[i].Name == modname)
+			{
+				mmod = Brew::API::Modules[i];
+				found = true;
+			}
+			if(found)
+			{
+				duk_idx_t objidx = duk_push_object(Context);
+				if(!mmod.Strings.empty()) for(auto const& str : mmod.Strings)
+				{
+					duk_push_string(Context, str.second.c_str());
+					duk_put_prop_string(Context, objidx, str.first.c_str());
+				}
+				if(!mmod.Ints.empty()) for(auto const& intt : mmod.Ints)
+				{
+					duk_push_int(Context, intt.second);
+					duk_put_prop_string(Context, objidx, intt.first.c_str());
+				}
+				if(!mmod.UInts.empty()) for(auto const& uint : mmod.UInts)
+				{
+					duk_push_uint(Context, uint.second);
+					duk_put_prop_string(Context, objidx, uint.first.c_str());
+				}
+				if(!mmod.Doubles.empty()) for(auto const& dbl : mmod.Doubles)
+				{
+					duk_push_number(Context, dbl.second);
+					duk_put_prop_string(Context, objidx, dbl.first.c_str());
+				}
+				if(!mmod.Booleans.empty()) for(auto const& bol : mmod.Booleans)
+				{
+					duk_push_boolean(Context, bol.second);
+					duk_put_prop_string(Context, objidx, bol.first.c_str());
+				}
+				if(!mmod.Functions.empty()) for(auto const& func : mmod.Functions)
+				{
+					duk_push_c_function(Context, func.second, DUK_VARARGS);
+					duk_put_prop_string(Context, objidx, func.first.c_str());
+				}
+				if(!mmod.Undefineds.empty()) for(u32 i = 0; i < mmod.Undefineds.size(); i++)
+				{
+					duk_push_undefined(Context);
+					duk_put_prop_string(Context, objidx, mmod.Undefineds[i].c_str());
+				}
+				if(!mmod.Nulls.empty()) for(u32 i = 0; i < mmod.Nulls.size(); i++)
+				{
+					duk_push_null(Context);
+					duk_put_prop_string(Context, objidx, mmod.Nulls[i].c_str());
+				}
+				if(!mmod.NaNs.empty()) for(u32 i = 0; i < mmod.NaNs.size(); i++)
+				{
+					duk_push_nan(Context);
+					duk_put_prop_string(Context, objidx, mmod.NaNs[i].c_str());
+				}
+				if(!mmod.Classes.empty()) for(u32 i = 0; i < mmod.Classes.size(); i++)
+				{
+					Brew::API::Class cls = mmod.Classes[i];
+					duk_push_c_function(Context, cls.Constructor, DUK_VARARGS);
+					duk_push_object(Context);
+					if(!cls.Strings.empty()) for(auto const& str : cls.Strings)
+					{
+						duk_push_string(Context, str.second.c_str());
+						duk_put_prop_string(Context, -2, str.first.c_str());
+					}
+					if(!cls.Ints.empty()) for(auto const& intt : cls.Ints)
+					{
+						duk_push_int(Context, intt.second);
+						duk_put_prop_string(Context, -2, intt.first.c_str());
+					}
+					if(!cls.UInts.empty()) for(auto const& uint : cls.UInts)
+					{
+						duk_push_uint(Context, uint.second);
+						duk_put_prop_string(Context, -2, uint.first.c_str());
+					}
+					if(!cls.Doubles.empty()) for(auto const& dbl : cls.Doubles)
+					{
+						duk_push_number(Context, dbl.second);
+						duk_put_prop_string(Context, -2, dbl.first.c_str());
+					}
+					if(!cls.Booleans.empty()) for(auto const& bol : cls.Booleans)
+					{
+						duk_push_boolean(Context, bol.second);
+						duk_put_prop_string(Context, -2, bol.first.c_str());
+					}
+					if(!cls.Functions.empty()) for(auto const& func : cls.Functions)
+					{
+						duk_push_c_function(Context, func.second, DUK_VARARGS);
+						duk_put_prop_string(Context, -2, func.first.c_str());
+					}
+					if(!cls.Undefineds.empty()) for(u32 i = 0; i < cls.Undefineds.size(); i++)
+					{
+						duk_push_undefined(Context);
+						duk_put_prop_string(Context, -2, cls.Undefineds[i].c_str());
+					}
+					if(!cls.Nulls.empty()) for(u32 i = 0; i < cls.Nulls.size(); i++)
+					{
+						duk_push_null(Context);
+						duk_put_prop_string(Context, -2, cls.Nulls[i].c_str());
+					}
+					if(!cls.NaNs.empty()) for(u32 i = 0; i < cls.NaNs.size(); i++)
+					{
+						duk_push_nan(Context);
+						duk_put_prop_string(Context, -2, cls.NaNs[i].c_str());
+					}
+					duk_put_prop_string(Context, -2, "prototype");
+					duk_put_prop_string(Context, objidx, cls.Name.c_str());
+				}
+			}
+			else throwError(Context, Brew::API::Error::CommonError, "Cannot find module \'" + modname + "\'");
+		}
+	}
+	return Brew::API::Return::Variable;
+}
+
+Brew::API::Function Brew::API::evalFile(Brew::API::NativeContext Context)
+{
+	Brew::API::FunctionHandler handler(Context);
+	if(handler.checkArgc(1))
+	{
+		string file = handler.getString(0);
+		ifstream ifs(file);
+		if(ifs.good())
+		{
+			stringstream strm;
+			strm << ifs.rdbuf();
+			duk_get_global_string(Context, "eval");
+			duk_push_string(Context, strm.str().c_str());
+			duk_call(Context, 1);
+		}
+	}
+	return Brew::API::Return::Void;
+}
+
+Brew::API::Function Brew::API::randRange(Brew::API::NativeContext Context)
+{
+	Brew::API::FunctionHandler handler(Context);
+	if(handler.checkArgc(2))
+	{
+		int min = handler.getInt(0);
+		int max = handler.getInt(1);
+		int rnd = (min + rand() % (max - min));
+		handler.pushInt(rnd);
+	}
+	return Brew::API::Return::Variable;
+}
+
+void Brew::API::initGlobal(Brew::API::NativeContext Context)
+{
+	Brew::API::Global = Brew::API::GlobalObject(Context);
+	Brew::API::Global.pushModule(Brew::BuiltIn::Console::initModule());
+    Brew::API::Global.pushModule(Brew::BuiltIn::Process::initModule());
+	Brew::API::Global.pushFunction("require", require);
+	Brew::API::Global.pushFunction("evalFile", evalFile);
+	Brew::API::Global.pushFunction("randRange", randRange);
 }

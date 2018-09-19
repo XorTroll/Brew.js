@@ -12,6 +12,8 @@
 #if defined __SWITCH__
 	#define __curOS 0
 	#include <switch.h>
+	#include <EGL/egl.h>
+	#include <gl/gl.h>
 #elif defined _3DS || defined ARM11
 	#define __curOS 1
 	#include <3ds.h>

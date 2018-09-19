@@ -52,7 +52,7 @@ namespace Brew
                 @note Gets all title IDs from the SD card. This description is for using the function with JavaScript.
             */
             API::Function getSDTitles(API::NativeContext Context);
-            
+
             /**
                 @brief Gets the Brew.js module of nx.
                 @return The module.

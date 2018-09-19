@@ -43,7 +43,7 @@ Brew::Environment::Environment(Brew::API::NativeContext Context)
 {
 	srand(time(NULL));
 	this->ctx = Context;
-	BuiltIn::initGlobal(this->ctx);
+	API::initGlobal(Context);
 	API::addModule(BuiltIn::FS::initModule());
 	API::addModule(BuiltIn::OS::initModule());
 	API::addModule(BuiltIn::Path::initModule());
@@ -53,13 +53,13 @@ Brew::Environment::Environment(Brew::API::NativeContext Context)
 		API::addModule(BuiltIn::NX::initModule());
 		API::addModule(BuiltIn::Gfx::initModule());
 		API::addModule(BuiltIn::Input::initModule());
+		API::addModule(BuiltIn::PegaSwitch::initModule());
 	#elif __curOS == 1
 		romfsInit();
 		API::addModule(BuiltIn::CTR::initModule());
 		API::addModule(BuiltIn::Input::initModule());
 		API::addModule(BuiltIn::SF2D::initModule());
 	#elif __curOS == 2
-
 		nitroFSInit(NULL);
 		fatInitDefault();
 		API::addModule(BuiltIn::Gfx::initModule());
