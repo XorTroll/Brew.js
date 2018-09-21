@@ -1,4 +1,4 @@
-# Brew.js - Userland JavaScript API for Nintendo homebrew for C++
+# Brew.js - C++ high-level JavaScript API for Nintendo homebrew
 
 - Current dev version: **2.0 (early commits, no released)**
 

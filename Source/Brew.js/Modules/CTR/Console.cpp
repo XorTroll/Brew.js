@@ -146,6 +146,6 @@ Brew::API::Module Brew::BuiltIn::Console::initModule()
     console.pushFunction("clear", clear);
     console.pushFunction("select", select);
     console.pushFunction("refresh", refresh);
-    console.pushFunction("exit", Brew::BuiltIn::Console::exit);
+    console.pushFunction("exit", exit);
     return console;
 }

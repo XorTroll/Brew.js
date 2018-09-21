@@ -1,9 +1,12 @@
 var searchData=
 [
   ['end',['end',['../class_brew_1_1_a_p_i_1_1_array.html#a7a1fd21fedaa28e45d5f1cce8d35c1f1',1,'Brew::API::Array::end()'],['../class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d',1,'Brew::API::Object::end()']]],
+  ['endaddarray',['endAddArray',['../class_brew_1_1_a_p_i_1_1_object.html#af26db28e89a17c3c0555f2879480bc9e',1,'Brew::API::Object']]],
+  ['endaddobject',['endAddObject',['../class_brew_1_1_a_p_i_1_1_object.html#a0439a3820d17e56d034a77fb57811731',1,'Brew::API::Object']]],
   ['endianess',['endianess',['../namespace_brew_1_1_built_in_1_1_o_s.html#a22df8cf962cd01027161151bc3fa7944',1,'Brew::BuiltIn::OS']]],
-  ['endsetpropertyarray',['endSetPropertyArray',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a7e76fd15e2845ca98eb502eecf119fcb',1,'Brew::API::ClassHandler']]],
-  ['endsetpropertyobject',['endSetPropertyObject',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a176a5c73ccb83ac1aa73481d417a46ad',1,'Brew::API::ClassHandler']]],
+  ['endpushobject',['endPushObject',['../class_brew_1_1_a_p_i_1_1_global_object.html#ade656625bc5bcaace5c253c05714a2cd',1,'Brew::API::GlobalObject']]],
+  ['endsetpropertyarray',['endSetPropertyArray',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a10440d6f09d38f5b2ff8806ad9af9797',1,'Brew::API::ClassHandler']]],
+  ['endsetpropertyobject',['endSetPropertyObject',['../class_brew_1_1_a_p_i_1_1_class_handler.html#aaeb2938228d18ba980a4ad4b2b10b30d',1,'Brew::API::ClassHandler']]],
   ['entrysource',['EntrySource',['../struct_brew_1_1_project.html#a68f98038ca17bc8707780880bf53ee83',1,'Brew::Project']]],
   ['entrysourcenotfound',['EntrySourceNotFound',['../namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca4832feda45f04aef929b508b22487668',1,'Brew']]],
   ['environment',['Environment',['../class_brew_1_1_environment.html',1,'Brew::Environment'],['../class_brew_1_1_environment.html#aa647ff4ed52a25176cb85294230dbd33',1,'Brew::Environment::Environment()']]],

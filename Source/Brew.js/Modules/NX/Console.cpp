@@ -123,6 +123,6 @@ Brew::API::Module Brew::BuiltIn::Console::initModule()
     console.pushFunction("trace", trace);
     console.pushFunction("clear", clear);
     console.pushFunction("refresh", refresh);
-    console.pushFunction("exit", Brew::BuiltIn::Console::exit);
+    console.pushFunction("exit", exit);
     return console;
 }

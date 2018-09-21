@@ -77,6 +77,12 @@ Brew::Environment::~Environment()
 	duk_destroy_heap(this->ctx);
 }
 
+void Brew::Environment::reloadContext(Brew::API::NativeContext NewContext)
+{
+	this->ctx = NewContext;
+	API::initGlobal(NewContext);
+}
+
 vector<Brew::Project> Brew::Environment::getProjectList(string ProjectsDirectory)
 {
 	vector<Brew::Project> prjs;

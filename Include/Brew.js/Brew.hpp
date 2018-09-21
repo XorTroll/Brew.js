@@ -151,6 +151,8 @@ namespace Brew
 			*/
 			Environment(API::NativeContext Context);
 			~Environment();
+
+			void reloadContext(API::NativeContext NewContext);
 			
 			/**
 				@brief Gets a vector list of projects from the given directory.

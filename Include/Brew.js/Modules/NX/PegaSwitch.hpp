@@ -17,15 +17,15 @@ namespace Brew
     {
         namespace PegaSwitch
         {
+            API::Function str2ab(API::NativeContext Context);
             API::Function Service_xDescriptor(API::NativeContext Context);
             API::Function Service_cDescriptor(API::NativeContext Context);
             API::Function Service_datau32(API::NativeContext Context);
             API::Function Service_datau64(API::NativeContext Context);
+            API::Function Service_sendPid(API::NativeContext Context);
             API::Function Service_send(API::NativeContext Context);
             API::Function Service_ipcMsg(API::NativeContext Context);
             API::Function Service_getService(API::NativeContext Context);
-
-
             API::Class Service();
 
             /**

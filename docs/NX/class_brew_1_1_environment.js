@@ -7,5 +7,6 @@ var class_brew_1_1_environment =
     [ "evaluateSourceCode", "class_brew_1_1_environment.html#ae50be437f69ba833406a7f4da83b4af8", null ],
     [ "getError", "class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375", null ],
     [ "getProjectList", "class_brew_1_1_environment.html#adeae5edc175230ab411857c07d96f7c0", null ],
-    [ "getResult", "class_brew_1_1_environment.html#a63b5d1fe101e2224c49e56750698863a", null ]
+    [ "getResult", "class_brew_1_1_environment.html#a63b5d1fe101e2224c49e56750698863a", null ],
+    [ "reloadContext", "class_brew_1_1_environment.html#a0293420262c2d5b7fac9490cdeb3152e", null ]
 ];

@@ -9,6 +9,7 @@ var searchData=
   ['geterror',['getError',['../class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375',1,'Brew::Environment']]],
   ['getgamecarttitle',['getGameCartTitle',['../namespace_brew_1_1_built_in_1_1_n_x.html#a55e55d02d26e9a5e832b465cc5851ca2',1,'Brew::BuiltIn::NX']]],
   ['getheld',['getHeld',['../namespace_brew_1_1_built_in_1_1_input.html#abbcd54d17daa62a19a09bf973b5e58dd',1,'Brew::BuiltIn::Input']]],
+  ['getid',['getID',['../class_brew_1_1_a_p_i_1_1_array.html#a66401e106167c42c1cee485bcdd360d7',1,'Brew::API::Array::getID()'],['../class_brew_1_1_a_p_i_1_1_object.html#a52b436b09070e2e680dc6720671881a4',1,'Brew::API::Object::getID()']]],
   ['getint',['getInt',['../class_brew_1_1_a_p_i_1_1_array.html#ad442de4444c2a06f73193e4d219f3730',1,'Brew::API::Array::getInt()'],['../class_brew_1_1_a_p_i_1_1_object.html#addda682d3557902408544a5987aabc88',1,'Brew::API::Object::getInt()'],['../class_brew_1_1_a_p_i_1_1_function_handler.html#a14c43ed5172063d5271bfa753fa34e7a',1,'Brew::API::FunctionHandler::getInt()']]],
   ['getnandtitles',['getNANDTitles',['../namespace_brew_1_1_built_in_1_1_n_x.html#adfe7e6e31cca9dd718b0a0c2af12da69',1,'Brew::BuiltIn::NX']]],
   ['getobject',['getObject',['../class_brew_1_1_a_p_i_1_1_array.html#aba3c4892907fe04c7f9113c1344d9aef',1,'Brew::API::Array::getObject()'],['../class_brew_1_1_a_p_i_1_1_object.html#acc45aff3f3745128c69a404e1a1d8c6f',1,'Brew::API::Object::getObject()'],['../class_brew_1_1_a_p_i_1_1_function_handler.html#a8960cbc6d5e511929addd4af07bc950c',1,'Brew::API::FunctionHandler::getObject()']]],

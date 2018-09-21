@@ -5,14 +5,18 @@ vector<u32> u32data;
 vector<u64> u64data;
 vector<u32> treg;
 map<pair<void*, size_t>, u32> desc;
+bool sendpid = false;
 
 Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_xDescriptor(Brew::API::NativeContext Context)
 {
     Brew::API::ClassHandler handler(Context);
-    if(handler.checkArgc(1))
+    if(handler.checkArgc(2))
     {
-        size_t bsize;
-        void *buf = duk_get_buffer_data(Context, 0, &bsize);
+        void *buf = NULL;
+        if(handler.checkArgType(0, Brew::API::Type::String)) buf = (void*)handler.getString(0).c_str();
+        else if(handler.checkArgType(0, Brew::API::Type::Buffer)) buf = duk_get_buffer_data(Context, 0, NULL);
+        else throwError(Context, Brew::API::Error::CommonError, "Unknown type?");
+        size_t bsize = handler.getUInt(1);
         desc.insert(pair<pair<void*, size_t>, u32>(pair<void*, size_t>(buf, bsize), 0));
     }
     return Brew::API::Return::Void;
@@ -21,7 +25,7 @@ Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_xDescriptor(Brew::API::Na
 Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_cDescriptor(Brew::API::NativeContext Context)
 {
     Brew::API::ClassHandler handler(Context);
-    if(handler.checkArgc(1))
+    if(handler.checkArgc(2))
     {
         size_t bsize;
         void *buf = duk_get_buffer_data(Context, 0, &bsize);
@@ -54,6 +58,12 @@ Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_datau64(Brew::API::Native
     return Brew::API::Return::Void;
 }
 
+Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_sendPid(Brew::API::NativeContext Context)
+{
+    sendpid = true;
+    return Brew::API::Return::Void;
+}
+
 Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_send(Brew::API::NativeContext Context)
 {
     Brew::API::ClassHandler handler(Context);
@@ -62,6 +72,7 @@ Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_send(Brew::API::NativeCon
     Result rc = 0;
     IpcCommand c;
     ipcInitialize(&c);
+    if(sendpid) ipcSendPid(&c);
     u8 idx = 0;
     if(!desc.empty()) for(auto const& ds : desc)
     {
@@ -98,6 +109,7 @@ Brew::API::Function Brew::BuiltIn::PegaSwitch::Service_send(Brew::API::NativeCon
     u32data.clear();
     u64data.clear();
     treg.clear();
+    sendpid = false;
     Brew::API::Array arr(Context);
     handler.pushArray(arr);
     for(u32 i = 0; i < IPC_MAX_OBJECTS; i++) arr.addUInt(r.Handles[i]);
@@ -164,6 +176,7 @@ Brew::API::Class Brew::BuiltIn::PegaSwitch::Service()
     cService.addFunction("cDescriptor", Service_cDescriptor);
     cService.addFunction("datau32", Service_datau32);
     cService.addFunction("datau64", Service_datau64);
+    cService.addFunction("sendPid", Service_sendPid);
     cService.addFunction("send", Service_send);
     cService.addFunction("ipcMsg", Service_ipcMsg);
     cService.addFunction("getService", Service_getService);

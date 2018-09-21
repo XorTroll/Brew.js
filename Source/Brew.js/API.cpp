@@ -174,6 +174,12 @@ string Brew::API::Array::asJSON()
 	return string(duk_to_string(this->Context, -1));
 }
 
+int Brew::API::Array::getID()
+{
+	if(!this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Array accessed as a function argument");
+	return this->arridx;
+}
+
 Brew::API::Object::Object(Brew::API::NativeContext Context)
 {
 	this->Context = Context;
@@ -197,7 +203,7 @@ void Brew::API::Object::init()
 	if(!this->padd) return;
 	if(!this->start)
 	{
-		objidx = duk_push_object(this->Context);
+		this->objidx = duk_push_object(this->Context);
 		start = true;
 	}
 }
@@ -207,7 +213,7 @@ void Brew::API::Object::addString(string Name, string Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_string(this->Context, Value.c_str());
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addInt(string Name, s64 Value)
@@ -215,7 +221,7 @@ void Brew::API::Object::addInt(string Name, s64 Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_int(this->Context, Value);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addUInt(string Name, u64 Value)
@@ -223,7 +229,7 @@ void Brew::API::Object::addUInt(string Name, u64 Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_uint(this->Context, Value);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addDouble(string Name, double Value)
@@ -231,7 +237,7 @@ void Brew::API::Object::addDouble(string Name, double Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_number(this->Context, Value);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addBoolean(string Name, bool Value)
@@ -239,7 +245,7 @@ void Brew::API::Object::addBoolean(string Name, bool Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_boolean(this->Context, Value);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addFunction(string Name, NativeFunction Value)
@@ -247,7 +253,7 @@ void Brew::API::Object::addFunction(string Name, NativeFunction Value)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_c_function(this->Context, Value, DUK_VARARGS);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addUndefined(string Name)
@@ -255,7 +261,7 @@ void Brew::API::Object::addUndefined(string Name)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_undefined(this->Context);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addNull(string Name)
@@ -263,7 +269,7 @@ void Brew::API::Object::addNull(string Name)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_null(this->Context);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
 }
 
 void Brew::API::Object::addNaN(string Name)
@@ -271,7 +277,33 @@ void Brew::API::Object::addNaN(string Name)
 	if(!this->padd) return;
 	if(!this->start) init();
 	duk_push_nan(this->Context);
-	duk_put_prop_string(this->Context, objidx, Name.c_str());
+	duk_put_prop_string(this->Context, this->objidx, Name.c_str());
+}
+
+void Brew::API::Object::startAddArray(string Name, Brew::API::Array Value)
+{
+	if(!this->padd) return;
+	if(!this->start) init();
+	Value.init();
+	this->tempname = Name;
+}
+
+void Brew::API::Object::endAddArray()
+{
+	duk_put_prop_string(this->Context, this->objidx, this->tempname.c_str());
+}
+
+void Brew::API::Object::startAddObject(string Name, Brew::API::Object Value)
+{
+	if(!this->padd) return;
+	if(!this->start) init();
+	Value.init();
+	this->tempname = Name;
+}
+
+void Brew::API::Object::endAddObject()
+{
+	duk_put_prop_string(this->Context, this->objidx, this->tempname.c_str());
 }
 
 void Brew::API::Object::end()
@@ -334,6 +366,12 @@ string Brew::API::Object::asJSON()
 	if(this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object not accessed as a function argument");
 	duk_json_encode(this->Context, this->idx);
 	return string(duk_to_string(this->Context, -1));
+}
+
+int Brew::API::Object::getID()
+{
+	if(!this->padd) throwError(this->Context, Brew::API::Error::CommonError, "Object accessed as a function argument");
+	return this->objidx;
 }
 
 Brew::API::Callback::Callback(Brew::API::NativeContext Context, u32 Index)
@@ -671,6 +709,7 @@ Brew::API::ClassHandler::ClassHandler(Brew::API::NativeContext Context) : Brew::
 {
 	duk_push_this(Context);
 	this->propcount = -1;
+	this->tempid = 0;
 }
 
 void Brew::API::ClassHandler::setPropertyString(string Name, string Value)
@@ -715,24 +754,28 @@ void Brew::API::ClassHandler::setPropertyNaN(string Name)
 	duk_put_prop_string(this->Context, -2, Name.c_str());
 }
 
-void Brew::API::ClassHandler::startSetPropertyArray(Brew::API::Array Value)
+void Brew::API::ClassHandler::startSetPropertyArray(string Name, Brew::API::Array Value)
 {
 	Value.init();
+	this->tempname = Name;
+	this->tempid = Value.getID();
 }
 
-void Brew::API::ClassHandler::endSetPropertyArray(string Name)
+void Brew::API::ClassHandler::endSetPropertyArray()
 {
-	duk_put_prop_string(this->Context, -2, Name.c_str());
+	duk_put_prop_string(this->Context, -2, this->tempname.c_str());
 }
 
-void Brew::API::ClassHandler::startSetPropertyObject(Brew::API::Object Value)
+void Brew::API::ClassHandler::startSetPropertyObject(string Name, Brew::API::Object Value)
 {
 	Value.init();
+	this->tempname = Name;
+	this->tempid = Value.getID();
 }
 
-void Brew::API::ClassHandler::endSetPropertyObject(string Name)
+void Brew::API::ClassHandler::endSetPropertyObject()
 {
-	duk_put_prop_string(this->Context, -2, Name.c_str());
+	duk_put_prop_string(this->Context, this->tempid, this->tempname.c_str());
 }
 
 string Brew::API::ClassHandler::getPropertyString(string Name)
@@ -991,6 +1034,17 @@ void Brew::API::GlobalObject::pushModule(Brew::API::Module Module)
 	duk_put_global_string(Context, Module.Name.c_str());
 }
 
+void Brew::API::GlobalObject::startPushObject(string Name, Brew::API::Object Value)
+{
+	Value.init();
+	this->tempname = Name;
+}
+
+void Brew::API::GlobalObject::endPushObject()
+{
+	duk_put_global_string(this->Context, this->tempname.c_str());
+}
+
 Brew::API::NativeContext Brew::API::createContext()
 {
 	return duk_create_heap_default();
@@ -1025,12 +1079,18 @@ Brew::API::Function Brew::API::require(Brew::API::NativeContext Context)
 				stringstream strm;
 				strm << ifs.rdbuf();
 				ifs.close();
+				Brew::API::Object module(Context);
+				Brew::API::Global.startPushObject("module", module);
+				Brew::API::Object moduleexports(Context);
+				module.startAddObject("exports", moduleexports);
+				module.endAddObject();
+				Brew::API::Global.endPushObject();
 				string base = strm.str();
-				string exports = "var exports = {};" + base + ";exports";
+				string exports = base + ";exports";
 				int err = duk_peval_string(Context, exports.c_str());
 				if(err != 0)
 				{
-					string moduleexports = "var module = {};module.exports = {};" + base + ";module.exports";
+					string moduleexports = base + ";module.exports";
 					err = duk_peval_string(Context, moduleexports.c_str());
 					if(err != 0) throwError(Context, Brew::API::Error::CommonError, "Failed importing source file: " + string(duk_safe_to_string(Context, -1)));
 				}
@@ -1188,9 +1248,18 @@ Brew::API::Function Brew::API::randRange(Brew::API::NativeContext Context)
 void Brew::API::initGlobal(Brew::API::NativeContext Context)
 {
 	Brew::API::Global = Brew::API::GlobalObject(Context);
-	Brew::API::Global.pushModule(Brew::BuiltIn::Console::initModule());
-    Brew::API::Global.pushModule(Brew::BuiltIn::Process::initModule());
+	Brew::API::Object exports(Context);
+	Brew::API::Global.startPushObject("exports", exports);
+	Brew::API::Global.endPushObject();
+	Brew::API::Object module(Context);
+	Brew::API::Global.startPushObject("module", module);
+	Brew::API::Object moduleexports(Context);
+	module.startAddObject("exports", moduleexports);
+	module.endAddObject();
+	Brew::API::Global.endPushObject();
 	Brew::API::Global.pushFunction("require", require);
 	Brew::API::Global.pushFunction("evalFile", evalFile);
 	Brew::API::Global.pushFunction("randRange", randRange);
+	Brew::API::Global.pushModule(Brew::BuiltIn::Console::initModule());
+    Brew::API::Global.pushModule(Brew::BuiltIn::Process::initModule());
 }

@@ -33,7 +33,7 @@
    <div id="projectname">Brew.js
    &#160;<span id="projectnumber">2.0 - beta 1</span>
    </div>
-   <div id="projectbrief">C++ userland JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
+   <div id="projectbrief">C++ high-level JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
   </td>
  </tr>
  </tbody>
@@ -133,9 +133,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6da5daa71ecedd3e967427896e695c16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#a6da5daa71ecedd3e967427896e695c16">pushNaN</a> (string Name)</td></tr>
 <tr class="memdesc:a6da5daa71ecedd3e967427896e695c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variable containing a NaN value to the global object.  <a href="#a6da5daa71ecedd3e967427896e695c16">More...</a><br /></td></tr>
 <tr class="separator:a6da5daa71ecedd3e967427896e695c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab84a0098643351d9d0e5c7d059a3d947"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#ab84a0098643351d9d0e5c7d059a3d947">pushModule</a> (<a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html">Module</a> <a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html">Module</a>)</td></tr>
-<tr class="memdesc:ab84a0098643351d9d0e5c7d059a3d947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a module to the global object. It will be created as an object with the module's name.  <a href="#ab84a0098643351d9d0e5c7d059a3d947">More...</a><br /></td></tr>
-<tr class="separator:ab84a0098643351d9d0e5c7d059a3d947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0ea022cf1a7a9a275c2604efe7d955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#a6d0ea022cf1a7a9a275c2604efe7d955">pushModule</a> (<a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html">Module</a> Value)</td></tr>
+<tr class="memdesc:a6d0ea022cf1a7a9a275c2604efe7d955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a module to the global object. It will be created as an object with the module's name.  <a href="#a6d0ea022cf1a7a9a275c2604efe7d955">More...</a><br /></td></tr>
+<tr class="separator:a6d0ea022cf1a7a9a275c2604efe7d955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b1e3ec6e7b29948c4507486e78e854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#a13b1e3ec6e7b29948c4507486e78e854">startPushObject</a> (string Name, <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a> Value)</td></tr>
+<tr class="separator:a13b1e3ec6e7b29948c4507486e78e854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade656625bc5bcaace5c253c05714a2cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#ade656625bc5bcaace5c253c05714a2cd">endPushObject</a> ()</td></tr>
+<tr class="separator:ade656625bc5bcaace5c253c05714a2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="struct_brew_1_1_a_p_i_1_1_class.html" title="Represents a JavaScript class, which can be added to a module. ">Class</a> representing a global object. This should just be only instantiated on Global static variable. </p>
@@ -167,6 +171,23 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ade656625bc5bcaace5c253c05714a2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade656625bc5bcaace5c253c05714a2cd">&#9670;&nbsp;</a></span>endPushObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::GlobalObject::endPushObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0142d56798eae9a4879c30f4834795dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0142d56798eae9a4879c30f4834795dd">&#9670;&nbsp;</a></span>pushBoolean()</h2>
 
@@ -315,8 +336,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab84a0098643351d9d0e5c7d059a3d947"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab84a0098643351d9d0e5c7d059a3d947">&#9670;&nbsp;</a></span>pushModule()</h2>
+<a id="a6d0ea022cf1a7a9a275c2604efe7d955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0ea022cf1a7a9a275c2604efe7d955">&#9670;&nbsp;</a></span>pushModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +346,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Brew::API::GlobalObject::pushModule </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html">Module</a>&#160;</td>
-          <td class="paramname"><em>Module</em></td><td>)</td>
+          <td class="paramname"><em>Value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -491,6 +512,34 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a13b1e3ec6e7b29948c4507486e78e854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b1e3ec6e7b29948c4507486e78e854">&#9670;&nbsp;</a></span>startPushObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::GlobalObject::startPushObject </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a>&#160;</td>
+          <td class="paramname"><em>Value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

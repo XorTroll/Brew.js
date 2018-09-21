@@ -213,6 +213,7 @@ namespace Brew
 					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
 				*/
 				string asJSON();
+				int getID();
 
 			private:
 				NativeContext Context;
@@ -308,6 +309,12 @@ namespace Brew
 				*/
 				void addNaN(string Name);
 
+				void startAddArray(string Name, Array Value);
+				void endAddArray();
+
+				void startAddObject(string Name, Object Value);
+				void endAddObject();
+
 				/**
 				    @brief Finishes the object (closes it).
 					@note This should NOT be CALLED if using it from a \ref FunctionHandler. 
@@ -376,10 +383,12 @@ namespace Brew
 					@note This should ONLY be CALLED if using it from a \ref FunctionHandler. 
 				*/
 				string asJSON();
+				int getID();
 
 			private:
 				NativeContext Context;
 				duk_idx_t objidx;
+				string tempname;
 				bool start;
 				bool padd;
 				u32 idx;
@@ -713,11 +722,11 @@ namespace Brew
 				*/
 				void setPropertyNaN(string Name);
 
-				void startSetPropertyArray(Array Value);
-				void endSetPropertyArray(string Name);
+				void startSetPropertyArray(string Name, Array Value);
+				void endSetPropertyArray();
 
-				void startSetPropertyObject(Object Value);
-				void endSetPropertyObject(string Name);
+				void startSetPropertyObject(string Name, Object Value);
+				void endSetPropertyObject();
 				
 				/**
 					@brief Gets an internal property as a string. Like getting "this.<Name>;".
@@ -756,6 +765,7 @@ namespace Brew
 			private:
 				int propcount;
 				string tempname;
+				int tempid;
 		};
 
 		/// Represents a JavaScript class, which can be added to a module.
@@ -1010,9 +1020,13 @@ namespace Brew
 					@param Value The module to create.
 					@note This is not the way to add modules to \ref require function, check, \ref addModule.
 				*/
-				void pushModule(Module Module);
+				void pushModule(Module Value);
+
+				void startPushObject(string Name, Object Value);
+				void endPushObject();
 
 			private:
+				string tempname;
 				NativeContext Context;
 		};
 		

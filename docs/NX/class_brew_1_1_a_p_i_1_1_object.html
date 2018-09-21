@@ -33,7 +33,7 @@
    <div id="projectname">Brew.js
    &#160;<span id="projectnumber">2.0 - beta 1</span>
    </div>
-   <div id="projectbrief">C++ userland JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
+   <div id="projectbrief">C++ high-level JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
   </td>
  </tr>
  </tbody>
@@ -139,6 +139,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a43f0faf19521d10b6a896fd83bb12fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a43f0faf19521d10b6a896fd83bb12fce">addNaN</a> (string Name)</td></tr>
 <tr class="memdesc:a43f0faf19521d10b6a896fd83bb12fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (pushes) a NaN value with the specified property name to the object.  <a href="#a43f0faf19521d10b6a896fd83bb12fce">More...</a><br /></td></tr>
 <tr class="separator:a43f0faf19521d10b6a896fd83bb12fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00694e6c103601ba1aef05a927b5ee0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a00694e6c103601ba1aef05a927b5ee0d">startAddArray</a> (string Name, <a class="el" href="class_brew_1_1_a_p_i_1_1_array.html">Array</a> Value)</td></tr>
+<tr class="separator:a00694e6c103601ba1aef05a927b5ee0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af26db28e89a17c3c0555f2879480bc9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#af26db28e89a17c3c0555f2879480bc9e">endAddArray</a> ()</td></tr>
+<tr class="separator:af26db28e89a17c3c0555f2879480bc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981442a0802754ec297050a3addbfbf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a981442a0802754ec297050a3addbfbf8">startAddObject</a> (string Name, <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a> Value)</td></tr>
+<tr class="separator:a981442a0802754ec297050a3addbfbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0439a3820d17e56d034a77fb57811731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a0439a3820d17e56d034a77fb57811731">endAddObject</a> ()</td></tr>
+<tr class="separator:a0439a3820d17e56d034a77fb57811731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a765b04838aa95806967a0ba736bdc03d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d">end</a> ()</td></tr>
 <tr class="memdesc:a765b04838aa95806967a0ba736bdc03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finishes the object (closes it).  <a href="#a765b04838aa95806967a0ba736bdc03d">More...</a><br /></td></tr>
 <tr class="separator:a765b04838aa95806967a0ba736bdc03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,6 +174,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2ffb9c275f24af843c53b5064d2deac7"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a2ffb9c275f24af843c53b5064d2deac7">asJSON</a> ()</td></tr>
 <tr class="memdesc:a2ffb9c275f24af843c53b5064d2deac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the JSON string representation of this object.  <a href="#a2ffb9c275f24af843c53b5064d2deac7">More...</a><br /></td></tr>
 <tr class="separator:a2ffb9c275f24af843c53b5064d2deac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52b436b09070e2e680dc6720671881a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a52b436b09070e2e680dc6720671881a4">getID</a> ()</td></tr>
+<tr class="separator:a52b436b09070e2e680dc6720671881a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a JavaScript object. Usually used in <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html">FunctionHandler</a>. </p>
@@ -576,6 +586,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af26db28e89a17c3c0555f2879480bc9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26db28e89a17c3c0555f2879480bc9e">&#9670;&nbsp;</a></span>endAddArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::Object::endAddArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0439a3820d17e56d034a77fb57811731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0439a3820d17e56d034a77fb57811731">&#9670;&nbsp;</a></span>endAddObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::Object::endAddObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a85c1551f7273c91fab4c7157a3493ba5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a85c1551f7273c91fab4c7157a3493ba5">&#9670;&nbsp;</a></span>getArray()</h2>
 
@@ -657,6 +701,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The property as a double. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This should ONLY be CALLED if using it from a <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html">FunctionHandler</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a52b436b09070e2e680dc6720671881a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52b436b09070e2e680dc6720671881a4">&#9670;&nbsp;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Brew::API::Object::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -789,6 +850,62 @@ Public Member Functions</h2></td></tr>
 
 <p>Initializes internally the array. </p>
 <dl class="section note"><dt>Note</dt><dd>This should NOT be CALLED manually, as pushing it to <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html">FunctionHandler</a> actually calls this. </dd></dl>
+
+</div>
+</div>
+<a id="a00694e6c103601ba1aef05a927b5ee0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00694e6c103601ba1aef05a927b5ee0d">&#9670;&nbsp;</a></span>startAddArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::Object::startAddArray </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_brew_1_1_a_p_i_1_1_array.html">Array</a>&#160;</td>
+          <td class="paramname"><em>Value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a981442a0802754ec297050a3addbfbf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981442a0802754ec297050a3addbfbf8">&#9670;&nbsp;</a></span>startAddObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Brew::API::Object::startAddObject </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_brew_1_1_a_p_i_1_1_object.html">Object</a>&#160;</td>
+          <td class="paramname"><em>Value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

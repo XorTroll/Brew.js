@@ -10,17 +10,23 @@ Brew::API::Function Brew::BuiltIn::FS::readFile(Brew::API::NativeContext Context
     {
         string path = handler.getString(0);
         ifstream ifs(path);
+        bool ok = true;
         if(ifs.good())
         {
             stringstream strm;
             strm << ifs.rdbuf();
             data = strm.str();
         }
-        else throwError(Context, Brew::API::Error::CommonError, "File \'" + path + "\' was not found");
+        else ok = false;
         ifs.close();
+        Brew::API::Callback cb = handler.getCallback(1);
+        if(ok) cb.addArgumentNull();
+        else cb.addArgumentString("File \'" + path + "\' was not found");
+        cb.addArgumentString(data);
+        cb.callFunction();
     }
     handler.pushString(data);
-    return Brew::API::Return::Variable;
+    return Brew::API::Return::Void;
 }
 
 Brew::API::Function Brew::BuiltIn::FS::writeFile(Brew::API::NativeContext Context)

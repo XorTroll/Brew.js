@@ -16,6 +16,7 @@ var class_brew_1_1_a_p_i_1_1_array =
     [ "getArray", "class_brew_1_1_a_p_i_1_1_array.html#a0a05ca105e8a89e3052f2d0ea83d043f", null ],
     [ "getBoolean", "class_brew_1_1_a_p_i_1_1_array.html#a043fc7129bb5e155473ed23997d38a40", null ],
     [ "getDouble", "class_brew_1_1_a_p_i_1_1_array.html#a5cd9336ed26e645398341ec099952230", null ],
+    [ "getID", "class_brew_1_1_a_p_i_1_1_array.html#a66401e106167c42c1cee485bcdd360d7", null ],
     [ "getInt", "class_brew_1_1_a_p_i_1_1_array.html#ad442de4444c2a06f73193e4d219f3730", null ],
     [ "getObject", "class_brew_1_1_a_p_i_1_1_array.html#aba3c4892907fe04c7f9113c1344d9aef", null ],
     [ "getString", "class_brew_1_1_a_p_i_1_1_array.html#afb0e3b966f42f3d9f791ab639dcd1d7a", null ],

@@ -5,6 +5,7 @@ var searchData=
   ['readfile',['readFile',['../namespace_brew_1_1_built_in_1_1_f_s.html#a85cdb68f68c27fb1a11e4d7f7f4a165e',1,'Brew::BuiltIn::FS']]],
   ['reboot',['reboot',['../namespace_brew_1_1_built_in_1_1_n_x.html#a8c2a5d7fe7780a93a537ba8f47104d30',1,'Brew::BuiltIn::NX']]],
   ['refresh',['refresh',['../namespace_brew_1_1_built_in_1_1_console.html#a9c535f1ea5b380e0c86092aeaf74c915',1,'Brew::BuiltIn::Console::refresh()'],['../namespace_brew_1_1_built_in_1_1_gfx.html#a5a2ccecdd0c6ba247c0509d59c6e5d9c',1,'Brew::BuiltIn::Gfx::refresh()']]],
+  ['reloadcontext',['reloadContext',['../class_brew_1_1_environment.html#a0293420262c2d5b7fac9490cdeb3152e',1,'Brew::Environment']]],
   ['rename',['rename',['../namespace_brew_1_1_built_in_1_1_f_s.html#aa59d02f910265f56fbd0970e6b58eac7',1,'Brew::BuiltIn::FS']]],
   ['require',['require',['../namespace_brew_1_1_a_p_i.html#a6c0cf140675f1245858b97c82d6db867',1,'Brew::API']]],
   ['resultstring',['resultString',['../class_brew_1_1_execution_result.html#af7f3eca6b7cb37c9d28b9689fb5bc2af',1,'Brew::ExecutionResult']]],

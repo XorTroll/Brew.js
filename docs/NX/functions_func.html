@@ -33,7 +33,7 @@
    <div id="projectname">Brew.js
    &#160;<span id="projectnumber">2.0 - beta 1</span>
    </div>
-   <div id="projectbrief">C++ userland JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
+   <div id="projectbrief">C++ high-level JavaScript API for Nintendo homebrew - Nintendo Switch documentation</div>
   </td>
  </tr>
  </tbody>
@@ -203,11 +203,20 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="class_brew_1_1_a_p_i_1_1_array.html#a7a1fd21fedaa28e45d5f1cce8d35c1f1">Brew::API::Array</a>
 , <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a765b04838aa95806967a0ba736bdc03d">Brew::API::Object</a>
 </li>
+<li>endAddArray()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#af26db28e89a17c3c0555f2879480bc9e">Brew::API::Object</a>
+</li>
+<li>endAddObject()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a0439a3820d17e56d034a77fb57811731">Brew::API::Object</a>
+</li>
+<li>endPushObject()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#ade656625bc5bcaace5c253c05714a2cd">Brew::API::GlobalObject</a>
+</li>
 <li>endSetPropertyArray()
-: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a7e76fd15e2845ca98eb502eecf119fcb">Brew::API::ClassHandler</a>
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a10440d6f09d38f5b2ff8806ad9af9797">Brew::API::ClassHandler</a>
 </li>
 <li>endSetPropertyObject()
-: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a176a5c73ccb83ac1aa73481d417a46ad">Brew::API::ClassHandler</a>
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#aaeb2938228d18ba980a4ad4b2b10b30d">Brew::API::ClassHandler</a>
 </li>
 <li>Environment()
 : <a class="el" href="class_brew_1_1_environment.html#aa647ff4ed52a25176cb85294230dbd33">Brew::Environment</a>
@@ -261,6 +270,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>getError()
 : <a class="el" href="class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375">Brew::Environment</a>
+</li>
+<li>getID()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_array.html#a66401e106167c42c1cee485bcdd360d7">Brew::API::Array</a>
+, <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a52b436b09070e2e680dc6720671881a4">Brew::API::Object</a>
 </li>
 <li>getInt()
 : <a class="el" href="class_brew_1_1_a_p_i_1_1_array.html#ad442de4444c2a06f73193e4d219f3730">Brew::API::Array</a>
@@ -377,7 +390,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 , <a class="el" href="struct_brew_1_1_a_p_i_1_1_module.html#a8f1ccfdd3dbcc2500d28410a84b718d3">Brew::API::Module</a>
 </li>
 <li>pushModule()
-: <a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#ab84a0098643351d9d0e5c7d059a3d947">Brew::API::GlobalObject</a>
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#a6d0ea022cf1a7a9a275c2604efe7d955">Brew::API::GlobalObject</a>
 </li>
 <li>pushNaN()
 : <a class="el" href="class_brew_1_1_a_p_i_1_1_function_handler.html#ace357125138bd4f5807256675a044aa5">Brew::API::FunctionHandler</a>
@@ -411,6 +424,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>reloadContext()
+: <a class="el" href="class_brew_1_1_environment.html#a0293420262c2d5b7fac9490cdeb3152e">Brew::Environment</a>
+</li>
 <li>resultString()
 : <a class="el" href="class_brew_1_1_execution_result.html#af7f3eca6b7cb37c9d28b9689fb5bc2af">Brew::ExecutionResult</a>
 </li>
@@ -442,11 +458,20 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>setPropertyUndefined()
 : <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#aa4119dfbe65be6c0865bc54f54a36b27">Brew::API::ClassHandler</a>
 </li>
+<li>startAddArray()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a00694e6c103601ba1aef05a927b5ee0d">Brew::API::Object</a>
+</li>
+<li>startAddObject()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_object.html#a981442a0802754ec297050a3addbfbf8">Brew::API::Object</a>
+</li>
+<li>startPushObject()
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_global_object.html#a13b1e3ec6e7b29948c4507486e78e854">Brew::API::GlobalObject</a>
+</li>
 <li>startSetPropertyArray()
-: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a9819fd8abc98814a65cbe4b781f3f099">Brew::API::ClassHandler</a>
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a4145675e66e35ce67df812a638f751d5">Brew::API::ClassHandler</a>
 </li>
 <li>startSetPropertyObject()
-: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a09f1ca0502cb1cb056bd7b24edc0920b">Brew::API::ClassHandler</a>
+: <a class="el" href="class_brew_1_1_a_p_i_1_1_class_handler.html#a1605179292c96944fe25e6a7d69f2c71">Brew::API::ClassHandler</a>
 </li>
 </ul>
 
