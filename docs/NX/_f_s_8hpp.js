@@ -1,7 +1,7 @@
 var _f_s_8hpp =
 [
     [ "exists", "_f_s_8hpp.html#a09244c0bf1a086b7172e9c869fe0cdc3", null ],
-    [ "initModule", "_f_s_8hpp.html#a78ab9f3ae49f724d8af98ecc2421a97c", null ],
+    [ "Initialize", "_f_s_8hpp.html#aea13dd91a681ce0cf6da9c602ba72ae1", null ],
     [ "mkdir", "_f_s_8hpp.html#a45bf9e2c537d211cd8849bbea422cfb5", null ],
     [ "readdir", "_f_s_8hpp.html#ad9e42ef91084e5a161f8abdfb1f5f579", null ],
     [ "readFile", "_f_s_8hpp.html#a85cdb68f68c27fb1a11e4d7f7f4a165e", null ],

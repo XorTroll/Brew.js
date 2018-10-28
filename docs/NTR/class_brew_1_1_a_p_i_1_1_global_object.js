@@ -1,14 +1,16 @@
 var class_brew_1_1_a_p_i_1_1_global_object =
 [
     [ "GlobalObject", "class_brew_1_1_a_p_i_1_1_global_object.html#ae8a0c9456c115ff1ac0ef63698fb0c40", null ],
-    [ "pushBoolean", "class_brew_1_1_a_p_i_1_1_global_object.html#a0142d56798eae9a4879c30f4834795dd", null ],
-    [ "pushDouble", "class_brew_1_1_a_p_i_1_1_global_object.html#a300509ff7b72d0faca2bf7aed2227f6e", null ],
-    [ "pushFunction", "class_brew_1_1_a_p_i_1_1_global_object.html#a705ce471a214731a59eb34a6b56bf007", null ],
-    [ "pushInt", "class_brew_1_1_a_p_i_1_1_global_object.html#a7ed3034b73345d975173d4ce59257cbb", null ],
-    [ "pushModule", "class_brew_1_1_a_p_i_1_1_global_object.html#ab84a0098643351d9d0e5c7d059a3d947", null ],
-    [ "pushNaN", "class_brew_1_1_a_p_i_1_1_global_object.html#a6da5daa71ecedd3e967427896e695c16", null ],
-    [ "pushNull", "class_brew_1_1_a_p_i_1_1_global_object.html#a190070452553ee4f91d1d21fabc0aba8", null ],
-    [ "pushString", "class_brew_1_1_a_p_i_1_1_global_object.html#ad6c8a13ce740279474112ea4e8b5ca25", null ],
-    [ "pushUInt", "class_brew_1_1_a_p_i_1_1_global_object.html#aa5e6489db379ea98be1cdb32527a7732", null ],
-    [ "pushUndefined", "class_brew_1_1_a_p_i_1_1_global_object.html#aac4adcd8776d72b732f2218bad95d294", null ]
+    [ "FinalizePushingObject", "class_brew_1_1_a_p_i_1_1_global_object.html#a27778e4ca740d121126aaf6510107f4d", null ],
+    [ "InitializePushingObject", "class_brew_1_1_a_p_i_1_1_global_object.html#a8e8fb46cb39d4652c6d7b033761b14a0", null ],
+    [ "PushBoolean", "class_brew_1_1_a_p_i_1_1_global_object.html#a82743f3a7660a4a59b5b7809dc739994", null ],
+    [ "PushDouble", "class_brew_1_1_a_p_i_1_1_global_object.html#ab461032b67babe5ea614e09b2101090f", null ],
+    [ "PushFunction", "class_brew_1_1_a_p_i_1_1_global_object.html#a845b207903ece1e2bcf76962ad9b960a", null ],
+    [ "PushInt", "class_brew_1_1_a_p_i_1_1_global_object.html#a139aca9f700d5ec09e164cc471240731", null ],
+    [ "PushModule", "class_brew_1_1_a_p_i_1_1_global_object.html#a3d6f7611dd1ddeed1938dcc3f715de09", null ],
+    [ "PushNaN", "class_brew_1_1_a_p_i_1_1_global_object.html#ad706506eeac65dfe7efddcf81d9ef658", null ],
+    [ "PushNull", "class_brew_1_1_a_p_i_1_1_global_object.html#a07943e1da911ac5d95382c1d08e06488", null ],
+    [ "PushString", "class_brew_1_1_a_p_i_1_1_global_object.html#ac132df1c9214b5ea20433b12e504c0be", null ],
+    [ "PushUInt", "class_brew_1_1_a_p_i_1_1_global_object.html#a9d50088c20f62ff6b8076dcf15410258", null ],
+    [ "PushUndefined", "class_brew_1_1_a_p_i_1_1_global_object.html#af37c6a72cba7ab22df721eaee8788afd", null ]
 ];

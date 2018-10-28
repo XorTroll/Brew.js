@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Brew.js: Welcome to Brew.js! - Nintendo Switch version</title>
+<title>Brew.js: Welcome to Brew.js!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Banner.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Doxygen.Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Brew.js
    &#160;<span id="projectnumber">2.0 - beta 1</span>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Welcome to Brew.js! - Nintendo Switch version </div>  </div>
+<div class="title">Welcome to Brew.js! </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><b>Welcome to the documentation of Brew.js for Nintendo Switch!</b></p>
@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="fragment"><div class="line">#include &lt;Brew.js/Brew.hpp&gt;</div></div><!-- fragment --><ul>
 <li>Then create a environment and the native context to use with the environment:</li>
 </ul>
-<div class="fragment"><div class="line">Brew::API::NativeContext context = Brew::API::createContext();</div><div class="line">Brew::Environment myenv(context);</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">Brew::API::NativeContext context = Brew::API::CreateContext();</div><div class="line">Brew::Environment myenv(context);</div></div><!-- fragment --><ul>
 <li><p class="startli">There are 3 possibilities of evaluating code:</p><ul>
 <li>Evaluating directly source code</li>
 <li>Evaluating source code from a file</li>
@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p class="startli">All of them return a execution result, which has information about the result of the execution (result as string, original result type, success / failure...)</p>
 </li>
 </ul>
-<div class="fragment"><div class="line">Brew::ExecutionResult res1 = myenv.evaluateSourceCode(&quot;var num = 9;&quot;);</div><div class="line">Brew::executionResult res2 = myenv.evaluateFile(&quot;sdmc:/test.js&quot;);</div><div class="line">vector&lt;Brew::Projects&gt; projects = myenv.getProjectList(&quot;sdmc:/Projects&quot;);</div><div class="line">Brew::ExecutionResult res3 = myenv.evaluateProject(projects[0]);</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">Brew::EvaluationResult res1 = myenv.EvaluateSourceCode(&quot;var num = 9;&quot;);</div><div class="line">Brew::EvaluationResult res2 = myenv.EvaluateFile(&quot;sdmc:/test.js&quot;);</div><div class="line">vector&lt;Brew::Project&gt; projects = myenv.GetProjectList(&quot;sdmc:/Projects&quot;);</div><div class="line">Brew::EvaluationResult res3 = myenv.EvaluateProject(projects[0]);</div></div><!-- fragment --><ul>
 <li>For more information, browse the documentation. </li>
 </ul>
 </div></div><!-- contents -->

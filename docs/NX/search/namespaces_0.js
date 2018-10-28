@@ -11,5 +11,6 @@ var searchData=
   ['os',['OS',['../namespace_brew_1_1_built_in_1_1_o_s.html',1,'Brew::BuiltIn']]],
   ['path',['Path',['../namespace_brew_1_1_built_in_1_1_path.html',1,'Brew::BuiltIn']]],
   ['pegaswitch',['PegaSwitch',['../namespace_brew_1_1_built_in_1_1_pega_switch.html',1,'Brew::BuiltIn']]],
-  ['process',['Process',['../namespace_brew_1_1_built_in_1_1_process.html',1,'Brew::BuiltIn']]]
+  ['process',['Process',['../namespace_brew_1_1_built_in_1_1_process.html',1,'Brew::BuiltIn']]],
+  ['sdl2',['SDL2',['../namespace_brew_1_1_built_in_1_1_s_d_l2.html',1,'Brew::BuiltIn']]]
 ];

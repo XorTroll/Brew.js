@@ -6,6 +6,6 @@ var _gfx_8hpp =
     [ "drawScreen", "_gfx_8hpp.html#a54921d0c619b02ce6b9c9f9acc49275e", null ],
     [ "exit", "_gfx_8hpp.html#af17648851aac6d1a2cdbe92555b39094", null ],
     [ "init", "_gfx_8hpp.html#a47b9f0027ba5ce0a9c010b7ee71cf9fc", null ],
-    [ "initModule", "_gfx_8hpp.html#a89ef66c0d6ee189830dea983001f6e65", null ],
+    [ "Initialize", "_gfx_8hpp.html#ada8f783762220622c06b5b580f5e2cdd", null ],
     [ "refresh", "_gfx_8hpp.html#a5a2ccecdd0c6ba247c0509d59c6e5d9c", null ]
 ];

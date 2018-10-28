@@ -12,14 +12,14 @@ var _a_p_i_8hpp =
     [ "NativeContext", "_a_p_i_8hpp.html#a8ea80ad604c6208b954874bd19de3a40", null ],
     [ "NativeFunction", "_a_p_i_8hpp.html#a905b29a70f55ec6ee63722c87f9f53f2", null ],
     [ "Error", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35", [
-      [ "NoError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a3ed967bc7a5825237d619b660a068f8d", null ],
-      [ "CommonError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a0213a24e09684421ecf3e394404a8793", null ],
-      [ "EvalError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a73d2ef5559c9a414f11bc62c475d40c4", null ],
-      [ "RangeError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a49a31d6b81509c5a14723b287999ef36", null ],
-      [ "ReferenceError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35ab6772b02d1b168e88ffb8bf46f210faa", null ],
-      [ "SyntaxError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35ad5f13d5fcc2d186d8854dd211a320587", null ],
-      [ "TypeError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35ae48d273393b0e2476744fa33ab7cddd3", null ],
-      [ "URIError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35af20646d5a2d7a51e71f5c6ca589daae9", null ]
+      [ "NoError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a70a47cae4eb221930f2663fd244369ea", null ],
+      [ "CommonError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35affa9f74407e47bb0db86eb22b3953619", null ],
+      [ "EvalError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a582ea4a893de014a244f98de9bac413d", null ],
+      [ "RangeError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a66d83f56eefb07fec956c23a0ee5ad2d", null ],
+      [ "ReferenceError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35af0c115b5c5c017cd42bb8050e8d82306", null ],
+      [ "SyntaxError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35aece592fd242f4ba674cc9da539a625a7", null ],
+      [ "TypeError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35a137bf8cff2d59f0883c600f9524b3eed", null ],
+      [ "URIError", "_a_p_i_8hpp.html#af8498ff7c095826ade44cb5f1d994c35afa88f82fef6524ae2ffffc403c9a6c61", null ]
     ] ],
     [ "Return", "_a_p_i_8hpp.html#a642bb6c2aa3b5160269b42276ed38b6e", [
       [ "Void", "_a_p_i_8hpp.html#a642bb6c2aa3b5160269b42276ed38b6ead92fee3553b037bd6d515d4db0a0df31", null ],
@@ -33,24 +33,24 @@ var _a_p_i_8hpp =
       [ "URIErrorCode", "_a_p_i_8hpp.html#a642bb6c2aa3b5160269b42276ed38b6ea58c5ec4549b06280e83ac7084e843bfe", null ]
     ] ],
     [ "Type", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75", [
-      [ "None", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a8f87b978c222b034f450d9c2adcef911", null ],
-      [ "Undefined", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a8321449afb96ee082457eae3e05de83c", null ],
-      [ "Null", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a197c8fa804610fa972c22887b87f8f56", null ],
-      [ "Boolean", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a5c600958b71356cd1e43a056d1788c14", null ],
-      [ "Number", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a9c263461bae7bf5875828b2e24cd14f4", null ],
-      [ "String", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75aaf82e5f40bae1af4b55c87ab18a2b86e", null ],
-      [ "ObjectArray", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a0c4651afaa9efe46aed0310980831263", null ],
-      [ "Buffer", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a6883156d72130a02bc0f7998da78f591", null ],
-      [ "Pointer", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a395636f2d3ffb0aae618f3a1fee298b2", null ]
+      [ "None", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "Undefined", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75aec0fc0100c4fc1ce4eea230c3dc10360", null ],
+      [ "Null", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75abbb93ef26e3c101ff11cdd21cab08a94", null ],
+      [ "Boolean", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a27226c864bac7454a8504f8edb15d95b", null ],
+      [ "Number", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75ab2ee912b91d69b435159c7c3f6df7f5f", null ],
+      [ "String", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a27118326006d3829667a400ad23d5d98", null ],
+      [ "ObjectArray", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75aee219de6a043fc9d26cb89af7a20d4a1", null ],
+      [ "Buffer", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a7e62bc342f41c946868f0ea6f0b712d8", null ],
+      [ "Pointer", "_a_p_i_8hpp.html#a1bc0dbe96c87225aa668343777423e75a61cf8510205077b6f5491d38cd44c0f7", null ]
     ] ],
-    [ "addModule", "_a_p_i_8hpp.html#a4261f354ef8cf3f4f4404d303afdfb13", null ],
-    [ "createContext", "_a_p_i_8hpp.html#a0c50e1aa4354d9dc80443ab5118c2095", null ],
-    [ "evalFile", "_a_p_i_8hpp.html#ad449f3dbbd69708a79d352d7ee380e36", null ],
-    [ "initGlobal", "_a_p_i_8hpp.html#a6e4a1f590006b424844fa50dde791018", null ],
+    [ "AddModule", "_a_p_i_8hpp.html#ab65401eea644ca45d580d525cf3d9334", null ],
+    [ "CreateContext", "_a_p_i_8hpp.html#a247ca76d421bb35e8e65ad6527a58a63", null ],
+    [ "evalFile", "_a_p_i_8hpp.html#aa8746781dfbcf7fd1808883aa07b95e2", null ],
+    [ "InitializeGlobalObject", "_a_p_i_8hpp.html#aae79346dc5d9e61a1be79f629287d55f", null ],
     [ "randRange", "_a_p_i_8hpp.html#a81f2b0fff950548aeff226e61d48448b", null ],
-    [ "require", "_a_p_i_8hpp.html#a6c0cf140675f1245858b97c82d6db867", null ],
-    [ "throwError", "_a_p_i_8hpp.html#a18577835628062956e60167b9556be04", null ],
+    [ "require", "_a_p_i_8hpp.html#a59f936f6c73d2d9813130cfa5fb6461e", null ],
+    [ "ThrowError", "_a_p_i_8hpp.html#affbcb195152f15d77edcafcac13af202", null ],
     [ "Global", "_a_p_i_8hpp.html#a2e874ee8d242594be4bdf4b2fa8e9c24", null ],
     [ "Modules", "_a_p_i_8hpp.html#a3bc9f7e13a7a9565d62618f59955db17", null ],
-    [ "Version", "_a_p_i_8hpp.html#ad655b20dd0ce87531083b9e0e508472b", null ]
+    [ "Version", "_a_p_i_8hpp.html#ab13de8b568e2045beb8fcf52d8e5f669", null ]
 ];

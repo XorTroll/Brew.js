@@ -4,5 +4,5 @@ var _input_8hpp =
     [ "getPressed", "_input_8hpp.html#a788332015e157c01947d04350fa30cd7", null ],
     [ "getReleased", "_input_8hpp.html#ae1ddf30740dafa464f0f6ba982100b7f", null ],
     [ "getTouch", "_input_8hpp.html#a6098d5383a0c495a4545e226e1ecb58c", null ],
-    [ "initModule", "_input_8hpp.html#aeac811fc050fb36e5c09c438c6a1173e", null ]
+    [ "Initialize", "_input_8hpp.html#a3b2010bfb09b9abd2099b972ea270d25", null ]
 ];

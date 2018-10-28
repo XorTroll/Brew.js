@@ -2,10 +2,11 @@ var class_brew_1_1_environment =
 [
     [ "Environment", "class_brew_1_1_environment.html#aa647ff4ed52a25176cb85294230dbd33", null ],
     [ "~Environment", "class_brew_1_1_environment.html#a4c324963de77f6392b6523155ca60e57", null ],
-    [ "evaluateFile", "class_brew_1_1_environment.html#a0e678f290fc7f2048c619542776dfad2", null ],
-    [ "evaluateProject", "class_brew_1_1_environment.html#afe92c1f31bc08e29f4ab80b97d6493ae", null ],
-    [ "evaluateSourceCode", "class_brew_1_1_environment.html#ae50be437f69ba833406a7f4da83b4af8", null ],
-    [ "getError", "class_brew_1_1_environment.html#a36023fca35ebe9fbf3d99e82fb463375", null ],
-    [ "getProjectList", "class_brew_1_1_environment.html#adeae5edc175230ab411857c07d96f7c0", null ],
-    [ "getResult", "class_brew_1_1_environment.html#a63b5d1fe101e2224c49e56750698863a", null ]
+    [ "EvaluateFile", "class_brew_1_1_environment.html#a62e46e409673999a0e79eb799b95c140", null ],
+    [ "EvaluateProject", "class_brew_1_1_environment.html#a60c65a9203358ef977443bec094d68f6", null ],
+    [ "EvaluateSourceCode", "class_brew_1_1_environment.html#aea9a6da71b5db715ec8fcf35bbbe1e30", null ],
+    [ "GetError", "class_brew_1_1_environment.html#ad2a53f0ec223096f473981ff3d8e1996", null ],
+    [ "GetProjectList", "class_brew_1_1_environment.html#a50c927863d2401e6af943ae0b8726e36", null ],
+    [ "GetResult", "class_brew_1_1_environment.html#a4d3d7a5b82dbdfac89b1057da7dc320b", null ],
+    [ "LoadNewContext", "class_brew_1_1_environment.html#ab97631e767303a4d7e8d6ba1091bc54e", null ]
 ];

@@ -28,12 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Banner.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Doxygen.Logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Brew.js
    &#160;<span id="projectnumber">2.0 - beta 1</span>
    </div>
-   <div id="projectbrief">C++ userland JavaScript API for Nintendo homebrew - Nintendo DS documentation</div>
+   <div id="projectbrief">C++ high-level JavaScript API for Nintendo homebrew - Nintendo DS documentation</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +92,8 @@ $(document).ready(function(){initNavTree('_brew_8hpp.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Brew.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -100,13 +101,15 @@ $(document).ready(function(){initNavTree('_brew_8hpp.html','');});
 
 <p>Main header of Brew.js API.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_global_8hpp_source.html">Modules/Global.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_f_s_8hpp_source.html">Modules/Node/FS.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_o_s_8hpp_source.html">Modules/Node/OS.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_path_8hpp_source.html">Modules/Node/Path.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_gfx_8hpp_source.html">Modules/NTR/Gfx.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_input_8hpp_source.html">Modules/NTR/Input.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_n_t_r_8hpp_source.html">Modules/NTR/NTR.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_a_p_i_8hpp_source.html">Brew.js/API.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_f_s_8hpp_source.html">Brew.js/Modules/Node/FS.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_o_s_8hpp_source.html">Brew.js/Modules/Node/OS.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_path_8hpp_source.html">Brew.js/Modules/Node/Path.hpp</a>&gt;</code><br />
+<code>#include &lt;Brew.js/Modules/NX/NX.hpp&gt;</code><br />
+<code>#include &lt;Brew.js/Modules/NX/Gfx.hpp&gt;</code><br />
+<code>#include &lt;Brew.js/Modules/NX/Input.hpp&gt;</code><br />
+<code>#include &lt;Brew.js/Modules/NX/PegaSwitch.hpp&gt;</code><br />
+<code>#include &lt;Brew.js/Modules/NX/SDL2.hpp&gt;</code><br />
 </div>
 <p><a href="_brew_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -115,8 +118,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_brew_1_1_project.html">Brew::Project</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a JavaScript project which can be executed via an <a class="el" href="class_brew_1_1_environment.html">Environment</a>.  <a href="struct_brew_1_1_project.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_execution_result.html">Brew::ExecutionResult</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the result for evaluating a JavaScript source, file or project.  <a href="class_brew_1_1_execution_result.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_evaluation_result.html">Brew::EvaluationResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the result for evaluating a JavaScript source, file or project.  <a href="class_brew_1_1_evaluation_result.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_brew_1_1_environment.html">Brew::Environment</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class holding a Brew.js environment, which is a wrapper for a context with some evaluation functions.  <a href="class_brew_1_1_environment.html#details">More...</a><br /></td></tr>
@@ -129,20 +132,20 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6e501c0a3edf951baa35a469b8f4ec1a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1a">Brew::OS</a> { <a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa216e4e4fba85eb6e09ffc9f90fed2d9b">Brew::None</a> = -1, 
-<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa039406719c3f6de9c489e04eb0514f5d">Brew::NX</a> = 0, 
-<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa997006996136fa0cacfb79a20e2c0805">Brew::CTR</a> = 1, 
-<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aad3e98d974cee259a50eb55ac238903f6">Brew::NTR</a> = 2
+<tr class="memitem:a6e501c0a3edf951baa35a469b8f4ec1a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1a">Brew::OS</a> { <a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa6adf97f83acf6453d4a6a4b1070f3754">Brew::OS::None</a> = -1, 
+<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aa973fd64b3b915bccdee598a385ee39e1">Brew::OS::NX</a> = 0, 
+<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aaff2a7a5418a49af64a57ef3cf31d7721">Brew::OS::CTR</a> = 1, 
+<a class="el" href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1aafef099d912ec636f224fac89f6380dc9">Brew::OS::NTR</a> = 2
  }</td></tr>
 <tr class="memdesc:a6e501c0a3edf951baa35a469b8f4ec1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The possible operating systems on which Brew.js can run.  <a href="namespace_brew.html#a6e501c0a3edf951baa35a469b8f4ec1a">More...</a><br /></td></tr>
 <tr class="separator:a6e501c0a3edf951baa35a469b8f4ec1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1bbf45ccb188965dec87bcf0bc86b4c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4c">Brew::Error</a> { <br />
-&#160;&#160;<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca33bde4fa07315fd60edd0b701c83e156">Brew::FileNotFound</a>, 
-<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca47f12a63b74833bb4a43ea02f1b26b7f">Brew::ProjectsPathNotFound</a>, 
-<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4cadc8ffb0495acbec71e9df6f0c88fc634">Brew::ProjectFolderNotFound</a>, 
-<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca4832feda45f04aef929b508b22487668">Brew::EntrySourceNotFound</a>, 
+&#160;&#160;<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca2767828026039e8ba7b38973cbb701f2">Brew::Error::FileNotFound</a>, 
+<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4cabc8bb35707d56743b7dff7464a875af7">Brew::Error::ProjectsPathNotFound</a>, 
+<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca3e9a9362573d5c44089f1e141c38f6cd">Brew::Error::ProjectFolderNotFound</a>, 
+<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca152c2cfaad77396b3c26f808419f2113">Brew::Error::EntrySourceNotFound</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca8a589f6036cd6b0081d379ae1c2c55a2">Brew::PackageJsonNotFound</a>
+&#160;&#160;<a class="el" href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4ca1e9944240ce3abad06dba04927d71566">Brew::Error::PackageJsonNotFound</a>
 <br />
  }</td></tr>
 <tr class="memdesc:aa1bbf45ccb188965dec87bcf0bc86b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Possible Brew.js errors related to evaluating files or projects.  <a href="namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4c">More...</a><br /></td></tr>
@@ -150,12 +153,17 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a678d94c8254fa751503c003161b567c2"><td class="memItemLeft" align="right" valign="top">OS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a678d94c8254fa751503c003161b567c2">Brew::currentOS</a> ()</td></tr>
-<tr class="memdesc:a678d94c8254fa751503c003161b567c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current operating system (Nintendo platform).  <a href="namespace_brew.html#a678d94c8254fa751503c003161b567c2">More...</a><br /></td></tr>
-<tr class="separator:a678d94c8254fa751503c003161b567c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31a90deb1ea873aa5dd2d8f918d527e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_detect_8hpp.html#ad1be2721625a17f1be47fac918032afe">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a31a90deb1ea873aa5dd2d8f918d527e4">Brew::createError</a> (Error ErrorType)</td></tr>
-<tr class="memdesc:a31a90deb1ea873aa5dd2d8f918d527e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a libnx Result from a Brew.js error type.  <a href="namespace_brew.html#a31a90deb1ea873aa5dd2d8f918d527e4">More...</a><br /></td></tr>
-<tr class="separator:a31a90deb1ea873aa5dd2d8f918d527e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8dd746d86281d7c36b504cec1123fc"><td class="memItemLeft" align="right" valign="top">OS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a4b8dd746d86281d7c36b504cec1123fc">Brew::GetCurrentOS</a> ()</td></tr>
+<tr class="memdesc:a4b8dd746d86281d7c36b504cec1123fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current operating system (Nintendo platform).  <a href="namespace_brew.html#a4b8dd746d86281d7c36b504cec1123fc">More...</a><br /></td></tr>
+<tr class="separator:a4b8dd746d86281d7c36b504cec1123fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770f7a8aa81b2023acb7ef1128e582e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_detect_8hpp.html#ad1be2721625a17f1be47fac918032afe">Result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a770f7a8aa81b2023acb7ef1128e582e9">Brew::CreateError</a> (Error ErrorType)</td></tr>
+<tr class="memdesc:a770f7a8aa81b2023acb7ef1128e582e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Result (native from libctru or libnx, implemented here for libnds) from a Brew.js error type.  <a href="namespace_brew.html#a770f7a8aa81b2023acb7ef1128e582e9">More...</a><br /></td></tr>
+<tr class="separator:a770f7a8aa81b2023acb7ef1128e582e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a06730ae32e5cc1016cc20c4e9eeaa535"><td class="memItemLeft" align="right" valign="top">static const u32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_brew.html#a06730ae32e5cc1016cc20c4e9eeaa535">Brew::Module</a> = 716</td></tr>
+<tr class="separator:a06730ae32e5cc1016cc20c4e9eeaa535"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main header of Brew.js API. </p>

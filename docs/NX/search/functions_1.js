@@ -1,16 +1,16 @@
 var searchData=
 [
+  ['call',['Call',['../class_brew_1_1_a_p_i_1_1_callback.html#a6aca865106ccfafc36a7111ed595241f',1,'Brew::API::Callback']]],
   ['callback',['Callback',['../class_brew_1_1_a_p_i_1_1_callback.html#a581b840ac739ffdeaf9a0a200822e8d5',1,'Brew::API::Callback']]],
-  ['callfunction',['callFunction',['../class_brew_1_1_a_p_i_1_1_callback.html#a4a244e56d12dbb55a15e7876e90d6bb3',1,'Brew::API::Callback']]],
-  ['callfunctionnew',['callFunctionNew',['../class_brew_1_1_a_p_i_1_1_callback.html#aaea7a8f0404eab6330731e379e5586a2',1,'Brew::API::Callback']]],
-  ['checkargc',['checkArgc',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a0adefeba9eb1a582c15b95c7b632366b',1,'Brew::API::FunctionHandler']]],
-  ['checkargcequal',['checkArgcEqual',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a20eb9b040873f3ac5eb7384c70233bd9',1,'Brew::API::FunctionHandler']]],
-  ['checkargtype',['checkArgType',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a324783c1aace78887a6080cb7104bd67',1,'Brew::API::FunctionHandler']]],
+  ['callnew',['CallNew',['../class_brew_1_1_a_p_i_1_1_callback.html#a6a3018b597810edf82e67caf093fcf20',1,'Brew::API::Callback']]],
+  ['checkargcequal',['CheckArgcEqual',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a5a2859db262e68266a9d775921f11e4e',1,'Brew::API::FunctionHandler']]],
+  ['checkargcequalorbigger',['CheckArgcEqualOrBigger',['../class_brew_1_1_a_p_i_1_1_function_handler.html#afbe6c2d5954534a186af9e556beb628e',1,'Brew::API::FunctionHandler']]],
+  ['checkargumenttype',['CheckArgumentType',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a6f20c3b2f125b676ecdb6641aa9ee25e',1,'Brew::API::FunctionHandler']]],
   ['class',['Class',['../struct_brew_1_1_a_p_i_1_1_class.html#ac052e06e59f080c112f626bc2923db4a',1,'Brew::API::Class']]],
   ['classhandler',['ClassHandler',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a694e91641f99c99907e968c46447f1e2',1,'Brew::API::ClassHandler']]],
   ['clear',['clear',['../namespace_brew_1_1_built_in_1_1_console.html#ad201cc97feda248353a1e84c92495c9c',1,'Brew::BuiltIn::Console']]],
-  ['createcontext',['createContext',['../namespace_brew_1_1_a_p_i.html#a0c50e1aa4354d9dc80443ab5118c2095',1,'Brew::API']]],
-  ['createerror',['createError',['../namespace_brew.html#a31a90deb1ea873aa5dd2d8f918d527e4',1,'Brew']]],
-  ['currentos',['currentOS',['../namespace_brew.html#a678d94c8254fa751503c003161b567c2',1,'Brew']]],
+  ['close',['Close',['../class_brew_1_1_a_p_i_1_1_array.html#a449116c285e9526793dda123050cb8ac',1,'Brew::API::Array::Close()'],['../class_brew_1_1_a_p_i_1_1_object.html#af1458f389cddc3b2122f1b9876d9e102',1,'Brew::API::Object::Close()']]],
+  ['createcontext',['CreateContext',['../namespace_brew_1_1_a_p_i.html#a247ca76d421bb35e8e65ad6527a58a63',1,'Brew::API']]],
+  ['createerror',['CreateError',['../namespace_brew.html#a770f7a8aa81b2023acb7ef1128e582e9',1,'Brew']]],
   ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]]
 ];

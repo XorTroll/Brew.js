@@ -9,16 +9,16 @@ Brew.js API provides the option to create native classes. For instance, the clas
   Brew.js has a Class class: `Brew::API::Class`, which is the base of making classes via the API. First of all, we need to create the class. We need a name and a constructor API JS function to create it. Here's an example, using and without using lambda functions:
 
   ``` cpp
-  Brew::API::Function MyClass_Ctor (Brew::API::NativeContext Context)
+  Brew::API::Function MyClass_Ctor(Brew::API::NativeContext Context)
   {
       // For class-related API JS functions we need to use ClassHandler!
       Brew::API::ClassHandler handler(Context);
 
       // ClassHandler inherits FunctionHandler
-      string arg1 = handler.getString(0);
+      string arg1 = handler.GetString(0);
 
       // Set the property inside the class
-      handler.setPropertyString("sample", arg1);
+      handler.SetPropertyString("sample", arg1);
 
       // Always return "Void" in constructors!
       return Brew::API::Return::Void;
@@ -47,13 +47,17 @@ Brew.js API provides the option to create native classes. For instance, the clas
   As you can see, making a class via the API is a bit longer than making it on plain JS. Then, to add it inside a module, it's as simple as this:
 
   ``` cpp
+  // Create the module object
   Brew::API::Module mymod("myModule");
 
+  // Create the class
+  Brew::API::Class cMyClass = MyClass();
+
   // Add the class from the function above
-  mymod.pushClass(MyClass());
+  mymod.pushClass(cMyClass);
 
   // Add the module to the modules object
-  Brew::API::addModule(mymod);
+  Brew::API::AddModule(mymod);
   ```
 
   This way, after adding the module to Brew.js's API's modules object, it can be called from JavaScript when source code is evaluated from a `Environment`:
