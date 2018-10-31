@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nativecontext',['NativeContext',['../namespace_brew_1_1_a_p_i.html#a8ea80ad604c6208b954874bd19de3a40',1,'Brew::API']]],
-  ['nativefunction',['NativeFunction',['../namespace_brew_1_1_a_p_i.html#a905b29a70f55ec6ee63722c87f9f53f2',1,'Brew::API']]]
+  ['nativecontext',['NativeContext',['../namespacebjs_1_1js.html#a488315754def6b6114338db05a2d1150',1,'bjs::js']]],
+  ['nativefunction',['NativeFunction',['../namespacebjs_1_1js.html#aa2c3229ee238c28865176ec6f38dbc3c',1,'bjs::js']]]
 ];

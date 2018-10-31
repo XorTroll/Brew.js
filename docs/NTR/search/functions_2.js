@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['call',['Call',['../class_brew_1_1_a_p_i_1_1_callback.html#a6aca865106ccfafc36a7111ed595241f',1,'Brew::API::Callback']]],
-  ['callback',['Callback',['../class_brew_1_1_a_p_i_1_1_callback.html#a581b840ac739ffdeaf9a0a200822e8d5',1,'Brew::API::Callback']]],
-  ['callnew',['CallNew',['../class_brew_1_1_a_p_i_1_1_callback.html#a6a3018b597810edf82e67caf093fcf20',1,'Brew::API::Callback']]],
-  ['checkargcequal',['CheckArgcEqual',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a5a2859db262e68266a9d775921f11e4e',1,'Brew::API::FunctionHandler']]],
-  ['checkargcequalorbigger',['CheckArgcEqualOrBigger',['../class_brew_1_1_a_p_i_1_1_function_handler.html#afbe6c2d5954534a186af9e556beb628e',1,'Brew::API::FunctionHandler']]],
-  ['checkargumenttype',['CheckArgumentType',['../class_brew_1_1_a_p_i_1_1_function_handler.html#a6f20c3b2f125b676ecdb6641aa9ee25e',1,'Brew::API::FunctionHandler']]],
-  ['class',['Class',['../struct_brew_1_1_a_p_i_1_1_class.html#ac052e06e59f080c112f626bc2923db4a',1,'Brew::API::Class']]],
-  ['classhandler',['ClassHandler',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a694e91641f99c99907e968c46447f1e2',1,'Brew::API::ClassHandler']]],
-  ['clear',['clear',['../namespace_brew_1_1_built_in_1_1_console.html#ad201cc97feda248353a1e84c92495c9c',1,'Brew::BuiltIn::Console']]],
-  ['close',['Close',['../class_brew_1_1_a_p_i_1_1_array.html#a449116c285e9526793dda123050cb8ac',1,'Brew::API::Array::Close()'],['../class_brew_1_1_a_p_i_1_1_object.html#af1458f389cddc3b2122f1b9876d9e102',1,'Brew::API::Object::Close()']]],
-  ['createcontext',['CreateContext',['../namespace_brew_1_1_a_p_i.html#a247ca76d421bb35e8e65ad6527a58a63',1,'Brew::API']]],
-  ['createerror',['CreateError',['../namespace_brew.html#a770f7a8aa81b2023acb7ef1128e582e9',1,'Brew']]],
-  ['cwd',['cwd',['../namespace_brew_1_1_built_in_1_1_process.html#a5cf58ca1f4f66132ffe01901086c0196',1,'Brew::BuiltIn::Process']]]
+  ['call',['Call',['../classbjs_1_1js_1_1_callback.html#a17e190be98a7a602381a20caf9d1b278',1,'bjs::js::Callback']]],
+  ['callback',['Callback',['../classbjs_1_1js_1_1_callback.html#a4a6da0814d031d3cb8b69eac8c05625a',1,'bjs::js::Callback']]],
+  ['callnew',['CallNew',['../classbjs_1_1js_1_1_callback.html#a05adec30935b80a4ba81efeb0247cd76',1,'bjs::js::Callback']]],
+  ['checkargcequal',['CheckArgcEqual',['../classbjs_1_1js_1_1_function_handler.html#a6eb80a8a93d47566a4fbdcd4ae54a17a',1,'bjs::js::FunctionHandler']]],
+  ['checkargcequalorbigger',['CheckArgcEqualOrBigger',['../classbjs_1_1js_1_1_function_handler.html#af5c3b17cace85311c76b4b0bf7c5df02',1,'bjs::js::FunctionHandler']]],
+  ['checkargumenttype',['CheckArgumentType',['../classbjs_1_1js_1_1_function_handler.html#a1b41f4cfaf7cc322f91d1a818b1e2b98',1,'bjs::js::FunctionHandler']]],
+  ['class',['Class',['../structbjs_1_1js_1_1_class.html#a24d5f9d033d22263544788d1c5b40d37',1,'bjs::js::Class']]],
+  ['classhandler',['ClassHandler',['../classbjs_1_1js_1_1_class_handler.html#a591a16ea14ccef4624a58d8b58d4bbe2',1,'bjs::js::ClassHandler']]],
+  ['clear',['clear',['../namespacebjs_1_1modules_1_1_console.html#a2dcb11adbf7018a98286ad5bee5b1aa2',1,'bjs::modules::Console']]],
+  ['close',['Close',['../classbjs_1_1js_1_1_array.html#a7786fd0897896b7415471528acca0464',1,'bjs::js::Array::Close()'],['../classbjs_1_1js_1_1_object.html#af3cc27ef3d6f02cb0a388509296bb1a9',1,'bjs::js::Object::Close()']]],
+  ['createcontext',['CreateContext',['../namespacebjs_1_1js.html#a563aa7a316f65b02187286593680e9f0',1,'bjs::js']]],
+  ['createerror',['CreateError',['../namespacebjs.html#a10760cdcd29bef43e72149a451653ba9',1,'bjs']]],
+  ['cwd',['cwd',['../namespacebjs_1_1modules_1_1_process.html#a95989aa297667fb97e765e4f0e3aac26',1,'bjs::modules::Process']]]
 ];

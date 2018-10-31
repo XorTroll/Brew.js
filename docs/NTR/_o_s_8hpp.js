@@ -1,9 +1,9 @@
 var _o_s_8hpp =
 [
-    [ "arch", "_o_s_8hpp.html#af920bcc54093d784c365ce85c5288f81", null ],
-    [ "endianess", "_o_s_8hpp.html#a22df8cf962cd01027161151bc3fa7944", null ],
-    [ "homedir", "_o_s_8hpp.html#aeee9489c6c2b3095131c9c9135d9a8fd", null ],
-    [ "Initialize", "_o_s_8hpp.html#a5f294e8cd6019dce663b99037e8bf09f", null ],
-    [ "platform", "_o_s_8hpp.html#a854ccb10894cba0d42c1b61b8d3c39f9", null ],
-    [ "type", "_o_s_8hpp.html#a84f1e936dc10cf1d8f92d0d7067c150b", null ]
+    [ "arch", "_o_s_8hpp.html#acdbf6841e00b2de5e66f42b535873a04", null ],
+    [ "endianess", "_o_s_8hpp.html#a4dab65e4186c98ba725b93aac83cad99", null ],
+    [ "homedir", "_o_s_8hpp.html#a93b9b20380f50f489f2e8231545b2b81", null ],
+    [ "Initialize", "_o_s_8hpp.html#ad310d3cfe0aa8a2da68c3d8e83ad9a30", null ],
+    [ "platform", "_o_s_8hpp.html#aac0d4fd24fbef8ada71306bc604a08a9", null ],
+    [ "type", "_o_s_8hpp.html#a0a5b421a61aaaf32ca3ef89c2736e4c4", null ]
 ];

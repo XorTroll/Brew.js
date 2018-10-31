@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['error',['Error',['../namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35',1,'Brew::API::Error()'],['../namespace_brew.html#aa1bbf45ccb188965dec87bcf0bc86b4c',1,'Brew::Error()']]]
+  ['error',['Error',['../namespacebjs.html#a6c07d890b7cc1e73206e1b3fa85cd168',1,'bjs::Error()'],['../namespacebjs_1_1js.html#a638a55fbe312334d34017cf3f79b68b6',1,'bjs::js::Error()']]]
 ];

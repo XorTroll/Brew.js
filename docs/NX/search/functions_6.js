@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['homedir',['homedir',['../namespace_brew_1_1_built_in_1_1_o_s.html#aeee9489c6c2b3095131c9c9135d9a8fd',1,'Brew::BuiltIn::OS']]]
+  ['hasinitialized',['HasInitialized',['../classbjs_1_1_environment.html#a28665487c12aebfafe82d64e996126db',1,'bjs::Environment']]],
+  ['homedir',['homedir',['../namespacebjs_1_1modules_1_1_o_s.html#a93b9b20380f50f489f2e8231545b2b81',1,'bjs::modules::OS']]]
 ];

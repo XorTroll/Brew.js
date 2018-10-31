@@ -1,15 +1,15 @@
 var hierarchy =
 [
-    [ "Brew::API::Array", "class_brew_1_1_a_p_i_1_1_array.html", null ],
-    [ "Brew::API::Callback", "class_brew_1_1_a_p_i_1_1_callback.html", null ],
-    [ "Brew::API::Class", "struct_brew_1_1_a_p_i_1_1_class.html", null ],
-    [ "Brew::Environment", "class_brew_1_1_environment.html", null ],
-    [ "Brew::EvaluationResult", "class_brew_1_1_evaluation_result.html", null ],
-    [ "Brew::API::FunctionHandler", "class_brew_1_1_a_p_i_1_1_function_handler.html", [
-      [ "Brew::API::ClassHandler", "class_brew_1_1_a_p_i_1_1_class_handler.html", null ]
+    [ "bjs::js::Array", "classbjs_1_1js_1_1_array.html", null ],
+    [ "bjs::js::Callback", "classbjs_1_1js_1_1_callback.html", null ],
+    [ "bjs::js::Class", "structbjs_1_1js_1_1_class.html", null ],
+    [ "bjs::Environment", "classbjs_1_1_environment.html", null ],
+    [ "bjs::EvaluationResult", "classbjs_1_1_evaluation_result.html", null ],
+    [ "bjs::js::FunctionHandler", "classbjs_1_1js_1_1_function_handler.html", [
+      [ "bjs::js::ClassHandler", "classbjs_1_1js_1_1_class_handler.html", null ]
     ] ],
-    [ "Brew::API::GlobalObject", "class_brew_1_1_a_p_i_1_1_global_object.html", null ],
-    [ "Brew::API::Module", "struct_brew_1_1_a_p_i_1_1_module.html", null ],
-    [ "Brew::API::Object", "class_brew_1_1_a_p_i_1_1_object.html", null ],
-    [ "Brew::Project", "struct_brew_1_1_project.html", null ]
+    [ "bjs::js::GlobalObject", "classbjs_1_1js_1_1_global_object.html", null ],
+    [ "bjs::js::Module", "structbjs_1_1js_1_1_module.html", null ],
+    [ "bjs::js::Object", "classbjs_1_1js_1_1_object.html", null ],
+    [ "bjs::Project", "structbjs_1_1_project.html", null ]
 ];

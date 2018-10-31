@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7eenvironment',['~Environment',['../class_brew_1_1_environment.html#a4c324963de77f6392b6523155ca60e57',1,'Brew::Environment']]]
+  ['welcome_20to_20brew_2ejs',['Welcome to Brew.js',['../index.html',1,'']]],
+  ['writefile',['writeFile',['../namespacebjs_1_1modules_1_1_f_s.html#a1bfbf1fdc72efa7f3a354478b94fa386',1,'bjs::modules::FS']]]
 ];

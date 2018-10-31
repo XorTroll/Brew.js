@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['batterylevel',['batteryLevel',['../namespace_brew_1_1_built_in_1_1_n_t_r.html#a9edc380eed59e43d059bdf08825950ac',1,'Brew::BuiltIn::NTR']]]
+  ['batterylevel',['batteryLevel',['../namespacebjs_1_1modules_1_1_n_t_r.html#a8ac24c5de91d7c703b1683b64780fa21',1,'bjs::modules::NTR']]]
 ];

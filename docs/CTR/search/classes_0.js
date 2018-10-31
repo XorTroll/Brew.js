@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['array',['Array',['../class_brew_1_1_a_p_i_1_1_array.html',1,'Brew::API']]]
+  ['array',['Array',['../classbjs_1_1js_1_1_array.html',1,'bjs::js']]]
 ];

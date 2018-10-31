@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['booleans',['Booleans',['../struct_brew_1_1_a_p_i_1_1_class.html#ab7a520953c3a027fea00b4059d9cbaa5',1,'Brew::API::Class::Booleans()'],['../struct_brew_1_1_a_p_i_1_1_module.html#ac130066dec7cf7dfcbdfacb087196579',1,'Brew::API::Module::Booleans()']]]
+  ['count',['count',['../classbjs_1_1js_1_1_function_handler.html#aaf00acdb4e4e1f2a83ca166dce7ca031',1,'bjs::js::FunctionHandler']]],
+  ['ctx',['ctx',['../classbjs_1_1js_1_1_function_handler.html#a93c7fb1eee0396cfb12a7d12a7cd4c33',1,'bjs::js::FunctionHandler']]]
 ];

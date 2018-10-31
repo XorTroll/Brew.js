@@ -116,10 +116,10 @@ $(document).ready(function(){initNavTree('md__d_1__desarrollo__proyectos__homebr
 </ul>
 </li>
 </ul>
-<div class="fragment"><div class="line">#include &lt;Brew.js/Brew.hpp&gt;</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">#include &lt;bjs/Brew.hpp&gt;</div></div><!-- fragment --><ul>
 <li>Then create a environment and the native context to use with the environment:</li>
 </ul>
-<div class="fragment"><div class="line">Brew::API::NativeContext context = Brew::API::createContext();</div><div class="line">Brew::Environment myenv(context);</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">Brew::js::NativeContext context = Brew::js::createContext();</div><div class="line">Brew::Environment myenv(context);</div></div><!-- fragment --><ul>
 <li><p class="startli">There are 3 possibilities of evaluating code:</p><ul>
 <li>Evaluating directly source code</li>
 <li>Evaluating source code from a file</li>

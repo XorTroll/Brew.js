@@ -15,10 +15,10 @@ include $(DEVKITARM)/ds_rules
 # DATA is a list of directories containing data files
 # INCLUDES is a list of directories containing header files
 #---------------------------------------------------------------------------------
-TARGET		:=	Brew.js
+TARGET		:=	bjs
 BUILD		:=	Build.ntr
-SOURCES		:=	Source Source/Brew.js Source/Brew.js/Libs Source/Brew.js/Libs/gfx Source/Brew.js/Modules Source/Brew.js/Modules/Native Source/Brew.js/Modules/Node Source/Brew.js/Modules/NTR
-INCLUDES	:=	Include Include/Brew.js Include/Brew.js/Libs Include/Brew.js/Libs/gfx Include/Brew.js/Modules Include/Brew.js/Modules/Native Include/Brew.js/Modules/Node Include/Brew.js/Modules/NTR
+SOURCES		:=	Source Source/bjs Source/bjs/Libraries Source/bjs/Libraries/gfx Source/bjs/Modules Source/bjs/Modules/Native Source/bjs/Modules/Node Source/bjs/Modules/NTR
+INCLUDES	:=	Include Include/bjs Include/bjs/Libraries Include/bjs/Libraries/gfx Include/bjs/Modules Include/bjs/Modules/Native Include/bjs/Modules/Node Include/bjs/Modules/NTR
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -92,8 +92,8 @@ $(BUILD):
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile.ntr
 	@rm -rf Output/NTR/include
 	@cp -r Include Output/NTR/include
-	@rm -rf Output/NTR/include/Brew.js/Modules/CTR
-	@rm -rf Output/NTR/include/Brew.js/Modules/NX
+	@rm -rf Output/NTR/include/bjs/Modules/CTR
+	@rm -rf Output/NTR/include/bjs/Modules/NX
 
 #---------------------------------------------------------------------------------
 clean:

@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['api',['API',['../namespace_brew_1_1_a_p_i.html',1,'Brew']]],
-  ['brew',['Brew',['../namespace_brew.html',1,'']]],
-  ['builtin',['BuiltIn',['../namespace_brew_1_1_built_in.html',1,'Brew']]],
-  ['console',['Console',['../namespace_brew_1_1_built_in_1_1_console.html',1,'Brew::BuiltIn']]],
-  ['fs',['FS',['../namespace_brew_1_1_built_in_1_1_f_s.html',1,'Brew::BuiltIn']]],
-  ['gfx',['Gfx',['../namespace_brew_1_1_built_in_1_1_gfx.html',1,'Brew::BuiltIn']]],
-  ['input',['Input',['../namespace_brew_1_1_built_in_1_1_input.html',1,'Brew::BuiltIn']]],
-  ['nx',['NX',['../namespace_brew_1_1_built_in_1_1_n_x.html',1,'Brew::BuiltIn']]],
-  ['os',['OS',['../namespace_brew_1_1_built_in_1_1_o_s.html',1,'Brew::BuiltIn']]],
-  ['path',['Path',['../namespace_brew_1_1_built_in_1_1_path.html',1,'Brew::BuiltIn']]],
-  ['pegaswitch',['PegaSwitch',['../namespace_brew_1_1_built_in_1_1_pega_switch.html',1,'Brew::BuiltIn']]],
-  ['process',['Process',['../namespace_brew_1_1_built_in_1_1_process.html',1,'Brew::BuiltIn']]],
-  ['sdl2',['SDL2',['../namespace_brew_1_1_built_in_1_1_s_d_l2.html',1,'Brew::BuiltIn']]]
+  ['bjs',['bjs',['../namespacebjs.html',1,'']]],
+  ['console',['Console',['../namespacebjs_1_1modules_1_1_console.html',1,'bjs::modules']]],
+  ['fs',['FS',['../namespacebjs_1_1modules_1_1_f_s.html',1,'bjs::modules']]],
+  ['gfx',['Gfx',['../namespacebjs_1_1modules_1_1_gfx.html',1,'bjs::modules']]],
+  ['input',['Input',['../namespacebjs_1_1modules_1_1_input.html',1,'bjs::modules']]],
+  ['js',['js',['../namespacebjs_1_1js.html',1,'bjs']]],
+  ['modules',['modules',['../namespacebjs_1_1modules.html',1,'bjs']]],
+  ['nx',['NX',['../namespacebjs_1_1modules_1_1_n_x.html',1,'bjs::modules']]],
+  ['os',['OS',['../namespacebjs_1_1modules_1_1_o_s.html',1,'bjs::modules']]],
+  ['path',['Path',['../namespacebjs_1_1modules_1_1_path.html',1,'bjs::modules']]],
+  ['pegaswitch',['PegaSwitch',['../namespacebjs_1_1modules_1_1_pega_switch.html',1,'bjs::modules']]],
+  ['process',['Process',['../namespacebjs_1_1modules_1_1_process.html',1,'bjs::modules']]],
+  ['sdl2',['SDL2',['../namespacebjs_1_1modules_1_1_s_d_l2.html',1,'bjs::modules']]]
 ];

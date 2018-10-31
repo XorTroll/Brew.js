@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['Type',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75',1,'Brew::API']]]
+  ['type',['Type',['../namespacebjs_1_1js.html#a6b7060fc90248f949bb9e52dbbe9eae2',1,'bjs::js']]]
 ];

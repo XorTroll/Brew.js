@@ -13,7 +13,7 @@ int main()
 {
     gfxInitDefault();
     consoleInit(NULL);
-    Brew::API::NativeContext ctx = Brew::API::createContext();
+    Brew::js::NativeContext ctx = Brew::js::createContext();
     Brew::Environment env(ctx);
     Net_init(BrewPort);
     cout << endl << endl << Spaces << Spaces << "Brew.js link - Brew.js interpreter via PC input" << endl << endl << endl;

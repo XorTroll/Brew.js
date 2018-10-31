@@ -1,4 +1,4 @@
-# Creating classes
+# Brew.js - Creating classes
 
 Brew.js API provides the option to create native classes. For instance, the class `fs.Stats` from Node.js is also present in Brew.js, and it was created this way.
 
@@ -6,31 +6,22 @@ Brew.js API provides the option to create native classes. For instance, the clas
 
 - The class object
 
-  Brew.js has a Class class: `Brew::API::Class`, which is the base of making classes via the API. First of all, we need to create the class. We need a name and a constructor API JS function to create it. Here's an example, using and without using lambda functions:
+  Brew.js has a JavaScript class interpretation via `bjs::js::Class` object, which is the base of making classes via the API. First of all, we need to create the class. We need a name and a constructor API JS function to create it. Here's an example of a constructor:
 
   ``` cpp
-  Brew::API::Function MyClass_Ctor(Brew::API::NativeContext Context)
+  bjs::js::Function MyClass_Ctor(bjs::js::NativeContext Context)
   {
       // For class-related API JS functions we need to use ClassHandler!
-      Brew::API::ClassHandler handler(Context);
+      bjs::js::ClassHandler handler(Context);
 
-      // ClassHandler inherits FunctionHandler
+      // ClassHandler inherits from FunctionHandler
       string arg1 = handler.GetString(0);
 
       // Set the property inside the class
       handler.SetPropertyString("sample", arg1);
 
       // Always return "Void" in constructors!
-      return Brew::API::Return::Void;
-  }
-
-  Brew::API::Class MyClass()
-  {
-      Brew::API::Class classobj("MyClass", MyClass_Ctor);
-
-      // Add other stuff to the class object...
-
-      return classobj;
+      return bjs::js::Return::Void;
   }
   ```
 
@@ -48,19 +39,19 @@ Brew.js API provides the option to create native classes. For instance, the clas
 
   ``` cpp
   // Create the module object
-  Brew::API::Module mymod("myModule");
+  bjs::js::Module mymod("myModule");
 
   // Create the class
-  Brew::API::Class cMyClass = MyClass();
+  bjs::js::Class cMyClass("MyClass", MyClass_Ctor);
 
   // Add the class from the function above
-  mymod.pushClass(cMyClass);
+  mymod.PushClass(cMyClass);
 
   // Add the module to the modules object
-  Brew::API::AddModule(mymod);
+  bjs::modules::Add(mymod);
   ```
 
-  This way, after adding the module to Brew.js's API's modules object, it can be called from JavaScript when source code is evaluated from a `Environment`:
+  This way, after adding the module to Brew.js's API's modules object, it can be called from JavaScript when the source code is evaluated using a `bjs::Environment`:
 
   ``` js
   const myMod = require("myModule");
@@ -69,4 +60,4 @@ Brew.js API provides the option to create native classes. For instance, the clas
 
 ## Important notes
 
-- Always use `Brew::API::ClassHandler` with any API JS functions related to classes, like class members or constructors. This is important because they won't work properly using `Brew::API::FunctionHandler` or even without using neither.
+- Always use `bjs::js::ClassHandler` with any API JS functions related to classes, like class members or constructors. This is important because they won't work properly using `bjs::js::FunctionHandler` or even without using neither.

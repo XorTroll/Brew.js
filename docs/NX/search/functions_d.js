@@ -1,29 +1,6 @@
 var searchData=
 [
-  ['service',['Service',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#ac7cb6d503fca4fb9d60372eb82f5f4ab',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fcdescriptor',['Service_cDescriptor',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#a6e6c31f610659768205ad4c2fb2337c0',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fdatau32',['Service_datau32',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#ab8ee2628510b251dc7fa6130c6d6e6a6',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fdatau64',['Service_datau64',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#a48d9d83e3313403f1807e977c88bf8c6',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fgetservice',['Service_getService',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#adc03c887d9b7f3adde021fb37cd74767',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fipcmsg',['Service_ipcMsg',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#ab97b52a05bd65f3f694c5cd6a9d05cd1',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fsend',['Service_send',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#a1f68ec9d391e1a6846d972721aa5be96',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fsendpid',['Service_sendPid',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#a4e9f858ff501e832a2bdbe994df021ce',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['service_5fxdescriptor',['Service_xDescriptor',['../namespace_brew_1_1_built_in_1_1_pega_switch.html#af44c20e5c5ccb1c81fd4d6e1c65a2c0e',1,'Brew::BuiltIn::PegaSwitch']]],
-  ['setpropertyboolean',['SetPropertyBoolean',['../class_brew_1_1_a_p_i_1_1_class_handler.html#aa0f8b8d4a4fd9c08d365e00c97df3d96',1,'Brew::API::ClassHandler']]],
-  ['setpropertydouble',['SetPropertyDouble',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a385de575f421d103e927e2a14c49f570',1,'Brew::API::ClassHandler']]],
-  ['setpropertyint',['SetPropertyInt',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a2e1a443f972e8969f55c70b663d7cbf2',1,'Brew::API::ClassHandler']]],
-  ['setpropertynan',['SetPropertyNaN',['../class_brew_1_1_a_p_i_1_1_class_handler.html#afa2fe61f503422f0a00dee5b9eb33922',1,'Brew::API::ClassHandler']]],
-  ['setpropertynull',['SetPropertyNull',['../class_brew_1_1_a_p_i_1_1_class_handler.html#ad428f133f9eb0d9da4cffc4a2590bbe0',1,'Brew::API::ClassHandler']]],
-  ['setpropertystring',['SetPropertyString',['../class_brew_1_1_a_p_i_1_1_class_handler.html#af3918702b2c23876f7981ded15b790d2',1,'Brew::API::ClassHandler']]],
-  ['setpropertyuint',['SetPropertyUInt',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a1372a8fb91087cb3a80fe6e7c72713e1',1,'Brew::API::ClassHandler']]],
-  ['setpropertyundefined',['SetPropertyUndefined',['../class_brew_1_1_a_p_i_1_1_class_handler.html#a8d0d26e08ec84907bf22f602b8a1ea3f',1,'Brew::API::ClassHandler']]],
-  ['shutdown',['shutDown',['../namespace_brew_1_1_built_in_1_1_n_x.html#a5176effc8012d2d7341774012b9b44f0',1,'Brew::BuiltIn::NX']]],
-  ['stats',['Stats',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc5cd5aa4ac98307cf8019454cb504b5',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fisblockdevice',['Stats_isBlockDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#adc012dc0f796b00ab6025bd302e1ddcb',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fischaracterdevice',['Stats_isCharacterDevice',['../namespace_brew_1_1_built_in_1_1_f_s.html#a899e4eaf3afd8b04ac5cfc391fa23927',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fisdirectory',['Stats_isDirectory',['../namespace_brew_1_1_built_in_1_1_f_s.html#ac44909abf42ba3717002fe92bf470938',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fisfifo',['Stats_isFIFO',['../namespace_brew_1_1_built_in_1_1_f_s.html#ad3e2f44a38bb404af170d8a344a7c8a0',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fisfile',['Stats_isFile',['../namespace_brew_1_1_built_in_1_1_f_s.html#a9eceaa70bd84a4e6cb37cc460032c194',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fissocket',['Stats_isSocket',['../namespace_brew_1_1_built_in_1_1_f_s.html#a2de8c8b989f4647a4d3d6032943f946d',1,'Brew::BuiltIn::FS']]],
-  ['stats_5fissymboliclink',['Stats_isSymbolicLink',['../namespace_brew_1_1_built_in_1_1_f_s.html#a57249f145bb8fe5ef7affd0061a6267d',1,'Brew::BuiltIn::FS']]]
+  ['throwerror',['ThrowError',['../namespacebjs_1_1js.html#a07f728c836ef5eff4c11b0f91285043c',1,'bjs::js']]],
+  ['trace',['trace',['../namespacebjs_1_1modules_1_1_console.html#a311aae83f24e1ad8295d8da7d07ce59d',1,'bjs::modules::Console']]],
+  ['type',['type',['../namespacebjs_1_1modules_1_1_o_s.html#a0a5b421a61aaaf32ca3ef89c2736e4c4',1,'bjs::modules::OS']]]
 ];

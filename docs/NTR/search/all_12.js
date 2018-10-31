@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['uints',['UInts',['../struct_brew_1_1_a_p_i_1_1_class.html#a340202ca3c3935d668d202063418a9f8',1,'Brew::API::Class::UInts()'],['../struct_brew_1_1_a_p_i_1_1_module.html#a9f7eae8a9dd25e04077aa1b4b25f5f24',1,'Brew::API::Module::UInts()']]],
-  ['undefined',['Undefined',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75aec0fc0100c4fc1ce4eea230c3dc10360',1,'Brew::API']]],
-  ['undefineds',['Undefineds',['../struct_brew_1_1_a_p_i_1_1_class.html#a4868e8dda08b0f3a0011dbe75f2cdefd',1,'Brew::API::Class::Undefineds()'],['../struct_brew_1_1_a_p_i_1_1_module.html#a85650cc3ff8239df2603c55475010cc2',1,'Brew::API::Module::Undefineds()']]],
-  ['unlink',['unlink',['../namespace_brew_1_1_built_in_1_1_f_s.html#abbfdb90e14ff82c11f000b90b73a7e4b',1,'Brew::BuiltIn::FS']]],
-  ['urierror',['URIError',['../namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35afa88f82fef6524ae2ffffc403c9a6c61',1,'Brew::API']]],
-  ['urierrorcode',['URIErrorCode',['../namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6ea58c5ec4549b06280e83ac7084e843bfe',1,'Brew::API']]]
+  ['throwerror',['ThrowError',['../namespacebjs_1_1js.html#a07f728c836ef5eff4c11b0f91285043c',1,'bjs::js']]],
+  ['trace',['trace',['../namespacebjs_1_1modules_1_1_console.html#a311aae83f24e1ad8295d8da7d07ce59d',1,'bjs::modules::Console']]],
+  ['type',['type',['../namespacebjs_1_1modules_1_1_o_s.html#a0a5b421a61aaaf32ca3ef89c2736e4c4',1,'bjs::modules::OS::type()'],['../namespacebjs_1_1js.html#a6b7060fc90248f949bb9e52dbbe9eae2',1,'bjs::js::Type()']]],
+  ['typeerror',['TypeError',['../namespacebjs_1_1js.html#a638a55fbe312334d34017cf3f79b68b6a137bf8cff2d59f0883c600f9524b3eed',1,'bjs::js']]],
+  ['typeerrorcode',['TypeErrorCode',['../namespacebjs_1_1js.html#a6e729d22a7c8015db91d0bda3f6054eead029accc291174a06a4735f46f3be258',1,'bjs::js']]]
 ];

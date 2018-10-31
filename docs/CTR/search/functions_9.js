@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['launchlibraryapplet',['launchLibraryApplet',['../namespace_brew_1_1_built_in_1_1_c_t_r.html#a7c3683c697afb440775f17ea8f234629',1,'Brew::BuiltIn::CTR']]],
-  ['loadnewcontext',['LoadNewContext',['../class_brew_1_1_environment.html#ab97631e767303a4d7e8d6ba1091bc54e',1,'Brew::Environment']]]
+  ['launchlibraryapplet',['launchLibraryApplet',['../namespacebjs_1_1modules_1_1_c_t_r.html#a403219e0dfb948c4ad0a50c79918f6da',1,'bjs::modules::CTR']]]
 ];

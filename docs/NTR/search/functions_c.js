@@ -1,16 +1,20 @@
 var searchData=
 [
-  ['platform',['platform',['../namespace_brew_1_1_built_in_1_1_o_s.html#a854ccb10894cba0d42c1b61b8d3c39f9',1,'Brew::BuiltIn::OS']]],
-  ['print',['print',['../namespace_brew_1_1_built_in_1_1_console.html#a01d3a0c85fe335de4e6770670df92321',1,'Brew::BuiltIn::Console']]],
-  ['pushboolean',['PushBoolean',['../struct_brew_1_1_a_p_i_1_1_module.html#a444825155418dd19c22fceb18a6d8d3b',1,'Brew::API::Module::PushBoolean()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a82743f3a7660a4a59b5b7809dc739994',1,'Brew::API::GlobalObject::PushBoolean()']]],
-  ['pushclass',['PushClass',['../struct_brew_1_1_a_p_i_1_1_module.html#a9228fa1b83b2efb090798d377e836ca5',1,'Brew::API::Module']]],
-  ['pushdouble',['PushDouble',['../struct_brew_1_1_a_p_i_1_1_module.html#a1661732bd6cc6f4fbdd23ec082e0753f',1,'Brew::API::Module::PushDouble()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#ab461032b67babe5ea614e09b2101090f',1,'Brew::API::GlobalObject::PushDouble()']]],
-  ['pushfunction',['PushFunction',['../struct_brew_1_1_a_p_i_1_1_module.html#a51df81a0c5ecc6dc285a670700266dd8',1,'Brew::API::Module::PushFunction()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a845b207903ece1e2bcf76962ad9b960a',1,'Brew::API::GlobalObject::PushFunction()']]],
-  ['pushint',['PushInt',['../struct_brew_1_1_a_p_i_1_1_module.html#a5731b64560dfbd00b8a22c5a3da1e8ac',1,'Brew::API::Module::PushInt()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a139aca9f700d5ec09e164cc471240731',1,'Brew::API::GlobalObject::PushInt()']]],
-  ['pushmodule',['PushModule',['../class_brew_1_1_a_p_i_1_1_global_object.html#a3d6f7611dd1ddeed1938dcc3f715de09',1,'Brew::API::GlobalObject']]],
-  ['pushnan',['PushNaN',['../struct_brew_1_1_a_p_i_1_1_module.html#aa51a3bf499a4d743a364fe5e1bbbb09a',1,'Brew::API::Module::PushNaN()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#ad706506eeac65dfe7efddcf81d9ef658',1,'Brew::API::GlobalObject::PushNaN()']]],
-  ['pushnull',['PushNull',['../struct_brew_1_1_a_p_i_1_1_module.html#a0123f42eef406894b8e53fc6bc485bad',1,'Brew::API::Module::PushNull()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a07943e1da911ac5d95382c1d08e06488',1,'Brew::API::GlobalObject::PushNull()']]],
-  ['pushstring',['PushString',['../struct_brew_1_1_a_p_i_1_1_module.html#a2ec36413f2d5decf7cf6ef5f7f1c1be4',1,'Brew::API::Module::PushString()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#ac132df1c9214b5ea20433b12e504c0be',1,'Brew::API::GlobalObject::PushString()']]],
-  ['pushuint',['PushUInt',['../struct_brew_1_1_a_p_i_1_1_module.html#a829c2a58577baa859e3c62804c1ff301',1,'Brew::API::Module::PushUInt()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#a9d50088c20f62ff6b8076dcf15410258',1,'Brew::API::GlobalObject::PushUInt()']]],
-  ['pushundefined',['PushUndefined',['../struct_brew_1_1_a_p_i_1_1_module.html#a488d226c96dae98c28238bfc1c7ebc94',1,'Brew::API::Module::PushUndefined()'],['../class_brew_1_1_a_p_i_1_1_global_object.html#af37c6a72cba7ab22df721eaee8788afd',1,'Brew::API::GlobalObject::PushUndefined()']]]
+  ['randrange',['randRange',['../namespacebjs_1_1modules.html#af0e2e71ef644be092a1a0b7fe6c7c92c',1,'bjs::modules']]],
+  ['readdir',['readdir',['../namespacebjs_1_1modules_1_1_f_s.html#a520fcf794417842143029b0cbc59845e',1,'bjs::modules::FS']]],
+  ['readfile',['readFile',['../namespacebjs_1_1modules_1_1_f_s.html#a56d2c8fe414a2d05d87401d0be401fce',1,'bjs::modules::FS']]],
+  ['refresh',['refresh',['../namespacebjs_1_1modules_1_1_console.html#a60761b5cce60f05a699e538fe8d1f958',1,'bjs::modules::Console::refresh()'],['../namespacebjs_1_1modules_1_1_gfx.html#a3d9f56e1de60ce054ad31ee37a237e88',1,'bjs::modules::Gfx::refresh()']]],
+  ['rename',['rename',['../namespacebjs_1_1modules_1_1_f_s.html#a2668678bfc3f888aa97d473c05961952',1,'bjs::modules::FS']]],
+  ['require',['require',['../namespacebjs_1_1modules.html#aa6c07ab48e31370b4bead4e9d4f4f6d1',1,'bjs::modules']]],
+  ['returnarray',['ReturnArray',['../classbjs_1_1js_1_1_function_handler.html#a4eff9fa77a809f13f07c1ae6fdac0325',1,'bjs::js::FunctionHandler']]],
+  ['returnboolean',['ReturnBoolean',['../classbjs_1_1js_1_1_function_handler.html#a9d0e652a31106c5bbf20e2e77b5480f1',1,'bjs::js::FunctionHandler']]],
+  ['returndouble',['ReturnDouble',['../classbjs_1_1js_1_1_function_handler.html#a9a7939b9713ff38f54a6ecd716fcb74b',1,'bjs::js::FunctionHandler']]],
+  ['returnint',['ReturnInt',['../classbjs_1_1js_1_1_function_handler.html#ae30ff1c9e3a41b2be615a681b89784fd',1,'bjs::js::FunctionHandler']]],
+  ['returnnan',['ReturnNaN',['../classbjs_1_1js_1_1_function_handler.html#aaf657167a53d118fa679e91d7f19b5b9',1,'bjs::js::FunctionHandler']]],
+  ['returnnull',['ReturnNull',['../classbjs_1_1js_1_1_function_handler.html#a2d16d7ceb7370d7d5a51402af375d829',1,'bjs::js::FunctionHandler']]],
+  ['returnobject',['ReturnObject',['../classbjs_1_1js_1_1_function_handler.html#a439a991359cd2f30ac69c00cac445dfa',1,'bjs::js::FunctionHandler']]],
+  ['returnstring',['ReturnString',['../classbjs_1_1js_1_1_function_handler.html#a5539215d33aff566ab177da86e9a2cb1',1,'bjs::js::FunctionHandler']]],
+  ['returnuint',['ReturnUInt',['../classbjs_1_1js_1_1_function_handler.html#a3c159c1b16ace11c959d2f4fd3444534',1,'bjs::js::FunctionHandler']]],
+  ['returnundefined',['ReturnUndefined',['../classbjs_1_1js_1_1_function_handler.html#aa3046641520eb8af93bbf803c19da1bd',1,'bjs::js::FunctionHandler']]],
+  ['rmdir',['rmdir',['../namespacebjs_1_1modules_1_1_f_s.html#aa0a074b5258b967f269bc8362ef3cb78',1,'bjs::modules::FS']]]
 ];

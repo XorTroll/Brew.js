@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object',['Object',['../class_brew_1_1_a_p_i_1_1_object.html#a697c5b212a0b5e5ba92b784a5d174ca8',1,'Brew::API::Object::Object(NativeContext Context)'],['../class_brew_1_1_a_p_i_1_1_object.html#a9a4954c3038e04c697c49b4adde6e396',1,'Brew::API::Object::Object(NativeContext Context, u32 Index)']]]
+  ['object',['Object',['../classbjs_1_1js_1_1_object.html#abf521cc6fea780561f71a9319f9e0474',1,'bjs::js::Object::Object(NativeContext Context)'],['../classbjs_1_1js_1_1_object.html#a7ea889f83e95f9f796ef259793e3d7a0',1,'bjs::js::Object::Object(NativeContext Context, u32 Index)']]]
 ];

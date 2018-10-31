@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Brew.Link.PC
 {
-    // Note that this is a simple, C# adapted clone of Brew::API::Type enum from Brew.js C++ API
+    // Note that this is a simple, C# adapted clone of Brew::js::Type enum from Brew.js C++ API
     public enum Type
     {
         None,

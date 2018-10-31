@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['undefined',['Undefined',['../namespace_brew_1_1_a_p_i.html#a1bc0dbe96c87225aa668343777423e75aec0fc0100c4fc1ce4eea230c3dc10360',1,'Brew::API']]],
-  ['urierror',['URIError',['../namespace_brew_1_1_a_p_i.html#af8498ff7c095826ade44cb5f1d994c35afa88f82fef6524ae2ffffc403c9a6c61',1,'Brew::API']]],
-  ['urierrorcode',['URIErrorCode',['../namespace_brew_1_1_a_p_i.html#a642bb6c2aa3b5160269b42276ed38b6ea58c5ec4549b06280e83ac7084e843bfe',1,'Brew::API']]]
+  ['undefined',['Undefined',['../namespacebjs_1_1js.html#a6b7060fc90248f949bb9e52dbbe9eae2aec0fc0100c4fc1ce4eea230c3dc10360',1,'bjs::js']]],
+  ['urierror',['URIError',['../namespacebjs_1_1js.html#a638a55fbe312334d34017cf3f79b68b6afa88f82fef6524ae2ffffc403c9a6c61',1,'bjs::js']]],
+  ['urierrorcode',['URIErrorCode',['../namespacebjs_1_1js.html#a6e729d22a7c8015db91d0bda3f6054eeaa318cae359ae97e6a2abdc84bfd65c5f',1,'bjs::js']]]
 ];

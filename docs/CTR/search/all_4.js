@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['description',['Description',['../struct_brew_1_1_project.html#adfb46a3ceb1df22735ffb210ef214e14',1,'Brew::Project']]],
+  ['description',['Description',['../structbjs_1_1_project.html#a99c7366a532c9107e366f526f0a08add',1,'bjs::Project']]],
   ['detect_2ehpp',['Detect.hpp',['../_detect_8hpp.html',1,'']]],
-  ['directory',['Directory',['../struct_brew_1_1_project.html#a080edc68229ef193bd86a5a123995e0c',1,'Brew::Project']]],
-  ['doubles',['Doubles',['../struct_brew_1_1_a_p_i_1_1_class.html#adf0e9d28a9099c8be087fcd30de31247',1,'Brew::API::Class::Doubles()'],['../struct_brew_1_1_a_p_i_1_1_module.html#aa361455507c8c46d3f374d2a00856419',1,'Brew::API::Module::Doubles()']]],
-  ['drawfillcircle',['drawFillCircle',['../namespace_brew_1_1_built_in_1_1_s_f2_d.html#a7b4561214b5c727652380cd7194f3cd6',1,'Brew::BuiltIn::SF2D']]],
-  ['drawrectangle',['drawRectangle',['../namespace_brew_1_1_built_in_1_1_s_f2_d.html#a7467e80bb6ddc8397f7d7f2cf9dd3b2f',1,'Brew::BuiltIn::SF2D']]]
+  ['directory',['Directory',['../structbjs_1_1_project.html#a07e23debc421e72b79451c0146e6b517',1,'bjs::Project']]],
+  ['drawfillcircle',['drawFillCircle',['../namespacebjs_1_1modules_1_1_s_f2_d.html#a02fbc6b6df58a724c21d6aeb47cdc699',1,'bjs::modules::SF2D']]],
+  ['drawrectangle',['drawRectangle',['../namespacebjs_1_1modules_1_1_s_f2_d.html#ace60017660e4af4bc3294176481e710e',1,'bjs::modules::SF2D']]]
 ];

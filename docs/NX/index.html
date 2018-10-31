@@ -95,32 +95,31 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="textblock"><p><b>Welcome to the documentation of Brew.js for Nintendo Switch!</b></p>
 <h2>The engine: duktape</h2>
 <ul>
-<li>Duktape is an embeddable Javascript engine, with a focus on portability and compact footprint, as it's described on its <a href="https://github.com/svaarala/duktape">GitHub page</a>.</li>
+<li>Duktape is an embeddable JavaScript engine, with a focus on portability and compact footprint, as it's described on its <a href="https://github.com/svaarala/duktape">GitHub page</a>.</li>
 <li>It supports ES5 almost entirely, and a few elements of ES6. It has Node.js Buffer bindings and TypedArray from ES2015, plus a partial support of ECMAScript E6 and E7.</li>
 <li>You can use duktape's functions from the code along with Brew.js API, but it's very unstable and it could crash the execution, so be sure to know what you're doing. It's not recommended to do mix duktape functions with Brew.js API.</li>
 </ul>
 <h2>Nintendo Switch (<code>NX</code>) specifications</h2>
 <ul>
-<li>Nintendo Switch build of Brew.js libs has some specific modules:<ul>
+<li>Nintendo Switch version of Brew.js libs has some specific modules:<ul>
 <li><code>nx</code> - Basic functions and constants for the Nintendo Switch system</li>
 <li><code>gfx</code> - Simple framebuffer drawing module</li>
 <li><code>pegaswitch</code> - WIP PegaSwitch port, currently having basic IPC command support</li>
+<li><code>sdl2</code> - WIP custom SDL2 library, using SDL2 API to render objects</li>
 <li>Platform-specific <code>console</code> and <code>input</code> modules</li>
 <li>Platform-specific details in <code>os</code>, <code>path</code> and <code>process</code> Node.js modules.</li>
 </ul>
 </li>
 </ul>
-<h2>Simple JavaScript execution</h2>
+<h2>Simple JavaScript evaluation</h2>
 <ul>
-<li>If you just want to evaluate JavaScript without messing up with the C++ API, that's easy to do:<ul>
+<li>If you just want to evaluate JavaScript without messing up with the C++ API, that's easy to do:</li>
 <li>First of all, include Brew.js's main header to use it:</li>
 </ul>
-</li>
-</ul>
-<div class="fragment"><div class="line">#include &lt;Brew.js/Brew.hpp&gt;</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">#include &lt;bjs/bjs.hpp&gt;</div></div><!-- fragment --><ul>
 <li>Then create a environment and the native context to use with the environment:</li>
 </ul>
-<div class="fragment"><div class="line">Brew::API::NativeContext context = Brew::API::CreateContext();</div><div class="line">Brew::Environment myenv(context);</div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line">bjs::js::NativeContext context = bjs::js::CreateContext();</div><div class="line">bjs::Environment myenv(context);</div></div><!-- fragment --><ul>
 <li><p class="startli">There are 3 possibilities of evaluating code:</p><ul>
 <li>Evaluating directly source code</li>
 <li>Evaluating source code from a file</li>
@@ -129,8 +128,8 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p class="startli">All of them return a execution result, which has information about the result of the execution (result as string, original result type, success / failure...)</p>
 </li>
 </ul>
-<div class="fragment"><div class="line">Brew::EvaluationResult res1 = myenv.EvaluateSourceCode(&quot;var num = 9;&quot;);</div><div class="line">Brew::EvaluationResult res2 = myenv.EvaluateFile(&quot;sdmc:/test.js&quot;);</div><div class="line">vector&lt;Brew::Project&gt; projects = myenv.GetProjectList(&quot;sdmc:/Projects&quot;);</div><div class="line">Brew::EvaluationResult res3 = myenv.EvaluateProject(projects[0]);</div></div><!-- fragment --><ul>
-<li>For more information, browse the documentation. </li>
+<div class="fragment"><div class="line">bjs::EvaluationResult res1 = myenv.EvaluateSourceCode(&quot;var num = 9;&quot;);</div><div class="line">bjs::EvaluationResult res2 = myenv.EvaluateFile(&quot;sdmc:/test.js&quot;);</div><div class="line">vector&lt;bjs::Project&gt; projects = myenv.GetProjectList(&quot;sdmc:/Projects&quot;);</div><div class="line">bjs::EvaluationResult res3 = myenv.EvaluateProject(projects[0]);</div></div><!-- fragment --><ul>
+<li>For more information, check the documentation. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
