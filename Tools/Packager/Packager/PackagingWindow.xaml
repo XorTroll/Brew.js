@@ -1,0 +1,78 @@
+﻿<metro:MetroWindow x:Class="bjs.Packager.PackagingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:bjs.Packager"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Brew.js packager - Package JavaScript sources and assets into an installable NSP package" Background="Azure" BorderThickness="0" Height="400" FontFamily="Segoe UI" ResizeMode="CanMinimize" Width="800" WindowTitleBrush="#000033">
+    <Grid>
+        <TextBox x:Name="Box_SourcePath" HorizontalAlignment="Left" Height="26" Margin="125,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
+        <Button x:Name="Button_SourceBrowse" ToolTip="Browse a folder with JavaScript sources and other assets" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Margin="433,58,0,0" VerticalAlignment="Top" Width="26" Height="26" Click="Button_SourceBrowse_Click">
+            <material:PackIcon Kind="Folder"/>
+        </Button>
+        <Label FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">Package JavaScript sources into an installable title!</Label>
+        <Label HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top">Sources and assets</Label>
+        <Label HorizontalAlignment="Left" Margin="368,136,0,0" VerticalAlignment="Top">Icon</Label>
+        <Button x:Name="Button_IconBrowse" ToolTip="Browse a folder with JavaScript sources and other assets" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Margin="406,136,0,0" VerticalAlignment="Top" Width="26" Height="26" Click="Button_IconBrowse_Click">
+            <material:PackIcon Kind="Folder"/>
+        </Button>
+        <Image x:Name="Image_Icon" HorizontalAlignment="Left" Height="225" Margin="517,58,0,0" VerticalAlignment="Top" Width="225" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Box_Name" HorizontalAlignment="Left" Height="26" Margin="57,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.467,0.522"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
+        <TextBox x:Name="Box_Author" HorizontalAlignment="Left" Height="26" Margin="62,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" RenderTransformOrigin="0.467,0.522"/>
+        <Label Content="Author" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Height="26" Width="47"/>
+        <TextBox x:Name="Box_Version" HorizontalAlignment="Left" MaxLength="15" Height="26" Margin="64,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.467,0.522"/>
+        <Label Content="Version" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.469,0.231" Height="26" Width="49"/>
+        <TextBox x:Name="Box_ApplicationId" HorizontalAlignment="Left" MaxLength="16" Height="26" Margin="99,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" RenderTransformOrigin="0.467,0.522"/>
+        <Label Content="Application Id" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Height="26" Width="84"/>
+        <Label Content="Key generation" HorizontalAlignment="Left" Margin="262,84,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
+        <ComboBox x:Name="Combo_KeyGen" HorizontalAlignment="Left" SelectedIndex="5" Margin="357,84,0,0" VerticalAlignment="Top" Width="127" Height="26">
+            <ComboBoxItem Content="1 (1.0.0 - 2.3.0)"/>
+            <ComboBoxItem Content="2 (3.0.0)"/>
+            <ComboBoxItem Content="3 (3.0.1 - 3.0.2)"/>
+            <ComboBoxItem Content="4 (4.0.0 - 4.1.0)"/>
+            <ComboBoxItem Content="5 (5.0.0 - 5.1.0)"/>
+            <ComboBoxItem Content="6 (6.0.0 - Latest)"/>
+        </ComboBox>
+        <TextBox x:Name="Box_ProductCode" HorizontalAlignment="Left" MaxLength="16" Height="26" Margin="326,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144">LA-H-ABCDE</TextBox>
+        <Label Content="Product code / serial" HorizontalAlignment="Left" Margin="202,162,0,0" VerticalAlignment="Top" Height="26" Width="119"/>
+        <TextBox x:Name="Box_KeySet" HorizontalAlignment="Left" Height="26" Margin="82,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" RenderTransformOrigin="0.467,0.522"/>
+        <Label Content="Keyset file" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Height="26" Width="67"/>
+        <Button x:Name="Button_KeySetBrowse" ToolTip="Browse keyset file (same used with hactool, hacpack...)" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Margin="332,275,0,0" VerticalAlignment="Top" Width="26" Height="26" Click="Button_KeySetBrowse_Click">
+            <material:PackIcon Kind="Folder"/>
+        </Button>
+        <CheckBox x:Name="Check_AllowScreenshots" ToolTip="Will the title allow taking screenshots with the screenshot button?" Margin="10,228,0,0" HorizontalAlignment="Left" Width="136" Height="26" VerticalAlignment="Top">Allow screenshots</CheckBox>
+        <CheckBox x:Name="Check_AllowVideo" ToolTip="Will the title allow recording gameplay with the screenshot button?" Margin="244,228,0,0" HorizontalAlignment="Left" Width="171" Height="26" VerticalAlignment="Top">Allow video capture</CheckBox>
+        <CheckBox x:Name="Check_UserAccount" ToolTip="Will the title ask for a user account when launching it?" Margin="10,202,0,0" HorizontalAlignment="Left" Width="208" Height="26" VerticalAlignment="Top">Ask for a user account to launch it</CheckBox>
+        <Button x:Name="Button_BuildNSP" ToolTip="Build NSP package with the specified assets and content" Margin="0,300,33,0" Height="43" Click="Button_BuildNSP_Click" HorizontalAlignment="Right" Width="375" VerticalAlignment="Top">
+            <DockPanel>
+                <material:PackIcon DockPanel.Dock="Left" HorizontalAlignment="Left" Kind="Buffer" Height="30" Width="30"/>
+                <Label DockPanel.Dock="Left" HorizontalAlignment="Left" FontSize="15">Build NSP package!</Label>
+            </DockPanel>
+        </Button>
+    </Grid>
+    <metro:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <TextBlock Text="{Binding Title,RelativeSource={RelativeSource FindAncestor,AncestorType=Window}}" VerticalAlignment="Center" FontFamily="Segoe UI" Margin="8 -1 0 0"/>
+        </DataTemplate>
+    </metro:MetroWindow.TitleTemplate>
+    <metro:MetroWindow.Resources>
+        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.DeepPurple.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </metro:MetroWindow.Resources>
+</metro:MetroWindow>

@@ -1,4 +1,4 @@
-# Brew.js - Creating classes
+# Brew.js API - Creating classes
 
 Brew.js API provides the option to create native classes. For instance, the class `fs.Stats` from Node.js is also present in Brew.js, and it was created this way.
 

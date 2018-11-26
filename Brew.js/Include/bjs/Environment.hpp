@@ -2,50 +2,24 @@
 /**
 
     @file Environment.hpp
-    @brief Brew.js environments, the high-level JavaScript evaluation contexts
+    @brief Brew.js environments, high-level JavaScript evaluation support
     @author XorTroll
     @copyright Brew.js project
 
 */
 
 #pragma once
-#include <bjs/JavaScript.hpp>
-
-#include <bjs/Modules/Modules.hpp>
-#include <bjs/Modules/Node/FS.hpp>
-#include <bjs/Modules/Node/OS.hpp>
-#include <bjs/Modules/Node/Path.hpp>
-#include <bjs/Modules/Node/Process.hpp>
-
-#if __curOS == 0
-	#include <bjs/Modules/NX/Console.hpp>
-	#include <bjs/Modules/NX/NX.hpp>
-	#include <bjs/Modules/NX/Gfx.hpp>
-	#include <bjs/Modules/NX/Input.hpp>
-	#include <bjs/Modules/NX/PegaSwitch.hpp>
-	#include <bjs/Modules/NX/SDL2.hpp>
-#elif __curOS == 1
-	#include <bjs/Modules/CTR/Console.hpp>
-	#include <bjs/Modules/CTR/CTR.hpp>
-	#include <bjs/Modules/CTR/Input.hpp>
-	#include <bjs/Modules/CTR/SF2D.hpp>
-#elif __curOS == 2	
-	#include <bjs/Modules/NTR/Console.hpp>
-	#include <bjs/Modules/NTR/Gfx.hpp>
-	#include <bjs/Modules/NTR/Input.hpp>
-	#include <bjs/Modules/NTR/NTR.hpp>
+#include <bjs/js.hpp>
+#include <bjs/node.hpp>
+#ifdef bjsPlatformLibNX
+	#include <bjs/platform/libnx.hpp>
+#elif defined bjsPlatformLibCTRU
+	#include <bjs/platform/libctru.hpp>
 #endif
 
 namespace bjs
 {
-	/// The possible operating systems on which Brew.js can run.
-	enum class OS
-	{
-		None = -1,  ///< No module found (Brew.js should error anyway)
-		NX = 0,     ///< Nintendo Switch
-		CTR = 1,    ///< Nintendo 3DS
-		NTR = 2,    ///< Nintendo DS
-	};
+	typedef u32 Result;
 
 	/// Represents a JavaScript project which can be executed via an \ref Environment.
 	struct Project
@@ -61,7 +35,6 @@ namespace bjs
 	class EvaluationResult
 	{
 		public:
-
 			/**
 				@brief Creates a \ref EvaluationResult from a type, a result string and an error code.
 				@param Type The returning type of the execution.
@@ -127,16 +100,15 @@ namespace bjs
 	class Environment
 	{
 		public:
-
 			/**
 				@brief Creates a \ref Environment with a context to use.
 				@param Context The context to use.
 				@param AutoInitialize Shall the context initialize automatically? (loading built-in modules)
 			*/
-			Environment(js::NativeContext Context, bool AutoInitialize);
+			Environment(js::NativeContext Context, bool AutoInitialize = true);
 			~Environment();
 
-			void Initialize(bool UseBuiltInModules);
+			void Initialize(bool UseBuiltInModules = true);
 			
 			/**
 				@brief Gets a vector list of projects from the given directory.
@@ -188,15 +160,9 @@ namespace bjs
 			Result res;
 			bool einit;
 	};
-
-	/**
-		@brief Gets the current operating system (Nintendo platform).
-		@return The current \ref OS.
-	*/
-	OS GetCurrentOS();
 	
 	/**
-		@brief Creates a Result (native from libctru or libnx, implemented here for libnds) from a Brew.js error type.
+		@brief Creates a Result from a Brew.js error type.
 		@return The result from that error type.
 	*/
 	Result CreateError(Error ErrorType);

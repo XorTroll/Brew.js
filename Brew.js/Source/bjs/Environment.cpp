@@ -1,4 +1,10 @@
 #include <bjs/Environment.hpp>
+#include <sys/stat.h>
+#include <dirent.h>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
 
 namespace bjs
 {
@@ -49,7 +55,7 @@ namespace bjs
 
 	Environment::~Environment()
 	{
-		#if (__curOS == 0) || (curOS == 1)
+		#if (bjsPlatformIndex == 0) || (curOS == 1)
 			romfsExit();
 		#endif
 		this->mods.clear();
@@ -60,60 +66,35 @@ namespace bjs
 	{
 		if(!this->einit)
 		{
-			this->global = js::GlobalObject(this->ctx);
-			js::Object exports(this->ctx);
-			this->global.InitializePushingObject("exports", exports);
-			this->global.FinalizePushingObject();
-			js::Object module(this->ctx);
-			this->global.InitializePushingObject("module", module);
-			js::Object moduleexports(this->ctx);
-			module.InitializeAddingObject("exports", moduleexports);
-			module.FinalizeAddingObject();
-			this->global.FinalizePushingObject();
+			this->global = js::InitializeGlobal(this->ctx);
 			if(UseBuiltInModules)
 			{
-				this->global.PushFunction("require", modules::require);
-				this->global.PushFunction("evalFile", modules::evalFile);
-				this->global.PushFunction("randRange", modules::randRange);
-				js::Module console = modules::Console::Initialize();
+				js::Module console = node::console::CreateModule();
 				this->global.PushModule(console);
-				js::Module process = modules::Process::Initialize();
+				js::Module fs = node::fs::CreateModule();
+				js::AddModule(fs);
+				js::Module os = node::os::CreateModule();
+				js::AddModule(os);
+				js::Module path = node::path::CreateModule();
+				js::AddModule(path);
+				js::Module process = node::process::CreateModule();
 				this->global.PushModule(process);
-				js::Module fs = modules::FS::Initialize();
-				modules::Add(fs);
-				js::Module os = modules::OS::Initialize();
-				modules::Add(os);
-				js::Module path = modules::Path::Initialize();
-				modules::Add(path);
-				#if __curOS == 0
+				#ifdef bjsPlatformLibNX
 					romfsInit();
-					js::Module nx = modules::NX::Initialize();
-					modules::Add(nx);
-					js::Module gfx = modules::Gfx::Initialize();
-					modules::Add(gfx);
-					js::Module input = modules::Input::Initialize();
-					modules::Add(input);
-					js::Module pegaswitch = modules::PegaSwitch::Initialize();
-					modules::Add(pegaswitch);
-					js::Module sdl2 = modules::SDL2::Initialize();
-					modules::Add(sdl2);
-				#elif __curOS == 1
+					js::Module input = libnx::input::CreateModule();
+					js::AddModule(input);
+					js::Module nx = libnx::nx::CreateModule();
+					js::AddModule(nx);
+					js::Module pegaswitch = libnx::pegaswitch::CreateModule();
+					js::AddModule(pegaswitch);
+				#elif defined bjsPlatformLibCTRU
 					romfsInit();
-					js::Module ctr = modules::CTR::Initialize();
-					modules::Add(ctr);
-					js::Module input = modules::Input::Initialize();
-					modules::Add(input);
-					js::Module sf2d = modules::SF2D::Initialize();
-					modules::Add(sf2d);
-				#elif __curOS == 2
-					nitroFSInit(NULL);
-					fatInitDefault();
-					js::Module gfx = modules::Gfx::Initialize();
-					modules::Add(gfx);
-					js::Module input = modules::Input::Initialize();
-					modules::Add(input);
-					js::Module ntr = modules::NTR::Initialize();
-					modules::Add(ntr);
+					js::Module ctr = libctru::ctr::CreateModule();
+					js::AddModule(ctr);
+					js::Module input = libctru::input::CreateModule();
+					js::AddModule(input);
+					js::Module sf2d = libctru::sf2d::CreateModule();
+					js::AddModule(sf2d);
 				#endif
 			}
 			this->einit = true;
@@ -190,6 +171,7 @@ namespace bjs
 			ifs.close();
 			return EvaluationResult(js::Type::None, "Empty execution result", -6);
 		}
+		return EvaluationResult(js::Type::None, "Empty execution result", -6);
 	}
 
 	EvaluationResult Environment::EvaluateProject(Project Project)
@@ -205,10 +187,10 @@ namespace bjs
 	std::string Environment::GetError()
 	{
 		std::string err = "Unknown error (possibly not a Brew.js error)";
-		int modl = R_MODULE(this->res);
+		int modl = ((this->res) & 0x1ff);
 		if(modl == ResultModule)
 		{
-			Error desc = static_cast<Error>(R_DESCRIPTION(this->res));
+			Error desc = static_cast<Error>(((this->res) >> 9) & 0x1fff);
 			switch(desc)
 			{
 				case Error::FileNotFound:
@@ -248,13 +230,8 @@ namespace bjs
 		this->mods = Modules;
 	}
 
-	OS GetCurrentOS()
-	{
-		return static_cast<OS>(__curOS);
-	}
-
 	Result CreateError(Error ErrorType)
 	{
-		return MAKERESULT(ResultModule, static_cast<u32>(ErrorType));
+		return (((ResultModule) & 0x1ff) || (((static_cast<u32>(ErrorType)) & 0x1fff) << 9));
 	}
 }
