@@ -28,21 +28,18 @@ namespace bjs::js
 
 	Type FunctionHandler::GetArgumentType(u32 Index)
 	{
-		Type typ = (Type)duk_get_type(this->ctx, Index);
+		Type typ = static_cast<Type>(duk_get_type(this->ctx, Index));
 		return typ;
 	}
 
 	bool FunctionHandler::CheckArgumentType(u32 Index, Type ArgType)
 	{
-		Type typ = GetArgumentType(Index);
-		bool check = (typ == ArgType);
-		return check;
+		return (ArgType == this->GetArgumentType(Index));
 	}
 
 	bool FunctionHandler::IsConstructorCall()
 	{
-		bool ctor = duk_is_constructor_call(this->ctx);
-		return ctor;
+		return duk_is_constructor_call(this->ctx);
 	}
 
 	std::string FunctionHandler::GetString(u32 Index)
@@ -71,10 +68,10 @@ namespace bjs::js
 
 	double FunctionHandler::GetDouble(u32 Index)
 	{
-		double intt = 0.0;
-		if(duk_get_type(this->ctx, Index) == DUK_TYPE_NUMBER) intt = duk_get_number(this->ctx, Index);
+		double flt = 0.0;
+		if(duk_get_type(this->ctx, Index) == DUK_TYPE_NUMBER) flt = duk_get_number(this->ctx, Index);
 		count--;
-		return intt;
+		return flt;
 	}
 
 	bool FunctionHandler::GetBoolean(u32 Index)

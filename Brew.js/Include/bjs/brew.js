@@ -1,7 +1,7 @@
 
 /**
 
-    @file bjs.hpp
+    @file Brew.js
     @brief Main header of Brew.js
     @author XorTroll
     @copyright Brew.js project
@@ -10,13 +10,9 @@
 
 /*
 
-	///////////////////////////////////////////////////////////////////////////////////////////
+	 * Brew.js - C++ high-level JavaScript API for Nintendo 3DS/Switch *
 
-	         -----  Brew.js - C++ userland JavaScript API for Nintendo homebrew  -----         
-	
-	///////////////////////////////////////////////////////////////////////////////////////////
-
-	Using duktape engine (https://duktape.org), base of the JS API.
+	Using duktape engine (https://duktape.org), base of the JavaScript API.
 
 	FAQ:
 	

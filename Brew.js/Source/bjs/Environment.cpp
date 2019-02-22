@@ -70,7 +70,7 @@ namespace bjs
 			if(UseBuiltInModules)
 			{
 				js::Module console = node::console::CreateModule();
-				this->global.PushModule(console);
+				this->global->PushModule(console);
 				js::Module fs = node::fs::CreateModule();
 				js::AddModule(fs);
 				js::Module os = node::os::CreateModule();
@@ -78,7 +78,7 @@ namespace bjs
 				js::Module path = node::path::CreateModule();
 				js::AddModule(path);
 				js::Module process = node::process::CreateModule();
-				this->global.PushModule(process);
+				this->global->PushModule(process);
 				#ifdef bjsPlatformLibNX
 					romfsInit();
 					js::Module input = libnx::input::CreateModule();
@@ -210,12 +210,12 @@ namespace bjs
 		return err;
 	}
 
-	js::GlobalObject Environment::GetGlobalObject()
+	js::GlobalObject *Environment::GetGlobalObject()
 	{
 		return this->global;
 	}
 
-	void Environment::SetGlobalObject(js::GlobalObject &Global)
+	void Environment::SetGlobalObject(js::GlobalObject *Global)
 	{
 		this->global = Global;
 	}
@@ -228,6 +228,11 @@ namespace bjs
 	void Environment::SetModuleList(std::vector<js::Module> Modules)
 	{
 		this->mods = Modules;
+	}
+
+	bool Environment::HasInitialized()
+	{
+		return this->einit;
 	}
 
 	Result CreateError(Error ErrorType)

@@ -94,6 +94,7 @@ namespace bjs::js
 
 	void AddModule(js::Module &NewModule);
     std::vector<js::Module> GetModules();
+	void RemoveModule(std::string Name);
 	void ClearModules();
 
     /**
@@ -114,5 +115,5 @@ namespace bjs::js
 	*/
 	js::Function randRange(js::NativeContext Context);
 
-	js::GlobalObject InitializeGlobal(js::NativeContext Context);
+	js::GlobalObject *InitializeGlobal(js::NativeContext Context);
 }

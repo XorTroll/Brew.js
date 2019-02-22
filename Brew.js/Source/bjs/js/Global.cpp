@@ -153,6 +153,15 @@ namespace bjs::js
 		return mods;
 	}
 
+	void RemoveModule(std::string Name)
+	{
+		if(!mods.empty()) for(u32 i = 0; i < mods.size(); i++) if(mods[i].GetName() == Name)
+		{
+			mods.erase(mods.begin() + i);
+			break;
+		}
+	}
+
 	void ClearModules()
 	{
 		mods.clear();
@@ -357,21 +366,21 @@ namespace bjs::js
 		return js::Return::Variable;
 	}
 
-	js::GlobalObject InitializeGlobal(js::NativeContext Context)
+	js::GlobalObject *InitializeGlobal(js::NativeContext Context)
 	{
-		js::GlobalObject globl(Context);
+		js::GlobalObject *globl = new js::GlobalObject(Context);
 		js::Object exports(Context);
-		globl.InitializePushingObject("exports", exports);
-		globl.FinalizePushingObject();
+		globl->InitializePushingObject("exports", exports);
+		globl->FinalizePushingObject();
 		js::Object module(Context);
-		globl.InitializePushingObject("module", module);
+		globl->InitializePushingObject("module", module);
 		js::Object moduleexports(Context);
 		module.InitializeAddingObject("exports", moduleexports);
 		module.FinalizeAddingObject();
-		globl.FinalizePushingObject();
-		globl.PushFunction("require", require);
-		globl.PushFunction("evalFile", evalFile);
-		globl.PushFunction("randRange", randRange);
+		globl->FinalizePushingObject();
+		globl->PushFunction("require", require);
+		globl->PushFunction("evalFile", evalFile);
+		globl->PushFunction("randRange", randRange);
 		return globl;
 	}
 }

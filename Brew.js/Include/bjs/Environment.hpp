@@ -148,14 +148,14 @@ namespace bjs
 				@return The result of the \ref Environment.
 			*/
 			Result GetResult();
-			js::GlobalObject GetGlobalObject();
-			void SetGlobalObject(js::GlobalObject &Global);
+			js::GlobalObject *GetGlobalObject();
+			void SetGlobalObject(js::GlobalObject *Global);
 			std::vector<js::Module> GetModuleList();
 			void SetModuleList(std::vector<js::Module> Modules);
 			bool HasInitialized();
 		private:
 			std::vector<js::Module> mods;
-			js::GlobalObject global;
+			js::GlobalObject *global;
 			js::NativeContext ctx;
 			Result res;
 			bool einit;

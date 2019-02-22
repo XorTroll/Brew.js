@@ -21,7 +21,7 @@ namespace bjs::libnx::nx
     
     /**
         @brief API JS Function: "nx.reboot()"
-        @note powers off the console. This description is for using the function with JavaScript.
+        @note Powers off the console. This description is for using the function with JavaScript.
     */
     js::Function shutDown(js::NativeContext Context);
 }
