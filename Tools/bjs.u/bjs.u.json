@@ -1,6 +1,6 @@
 {
-    "name": "js",
-    "title_id": "0x0100000000123456",
+    "name": "bjs:u",
+    "title_id": "0x3560000000000006",
     "main_thread_stack_size": "0x10000",
     "main_thread_priority": 10,
     "default_cpu_id": 3,

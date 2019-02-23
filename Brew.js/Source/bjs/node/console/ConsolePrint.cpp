@@ -107,6 +107,18 @@ namespace bjs::node::console
         return js::Return::Void;
     }
 
+    js::Function printAssert(js::NativeContext Context)
+    {
+        js::FunctionHandler handler(Context);
+        if(handler.CheckArgcEqualOrBigger(2))
+        {
+            bool value = handler.GetBoolean(0);
+            std::string emsg = handler.GetString(1);
+            if(!value) std::cout << "Assertion failed: " << emsg;
+        }
+        return js::Return::Void;
+    }
+
     js::Function clear(js::NativeContext Context)
     {
         if(cinit) std::cout << "\x1b[2J";

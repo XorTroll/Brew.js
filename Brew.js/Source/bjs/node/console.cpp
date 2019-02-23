@@ -12,6 +12,7 @@ namespace bjs::node::console
         console.PushFunction("info", print);
         console.PushFunction("debug", print);
         console.PushFunction("trace", trace);
+        console.PushFunction("assert", printAssert);
         console.PushFunction("clear", clear);
         console.PushFunction("refresh", refresh);
         console.PushFunction("exit", exit);

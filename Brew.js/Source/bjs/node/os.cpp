@@ -11,6 +11,7 @@ namespace bjs::node::os
         os.PushFunction("homedir", homedir);
         os.PushFunction("endianess", endianess);
         os.PushFunction("type", type);
+        os.PushFunction("release", release);
         return os;       
     }
 }

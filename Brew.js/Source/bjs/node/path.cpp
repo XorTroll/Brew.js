@@ -7,6 +7,8 @@ namespace bjs::node::path
         js::Module path("path");
         path.PushString("delimiter", ":");
         path.PushString("sep", "/");
+        path.PushFunction("basename", basename);
+        path.PushFunction("extname", extname);
         return path;
     }
 }

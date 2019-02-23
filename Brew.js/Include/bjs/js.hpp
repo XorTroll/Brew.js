@@ -9,5 +9,5 @@
 
 namespace bjs::js
 {
-    static const std::string Version = "0.2 [unreleased]";
+    static const std::string Version = "0.2";
 }

@@ -1,6 +1,6 @@
 
 #pragma once
-#include <bjs/js.hpp>
+#include <bjs/node/path/PathProcess.hpp>
 
 namespace bjs::node::path
 {

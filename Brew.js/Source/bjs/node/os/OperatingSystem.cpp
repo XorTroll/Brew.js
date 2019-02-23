@@ -20,9 +20,9 @@ namespace bjs::node::os
         js::FunctionHandler handler(Context);
         std::string ospl = "Unknown";
         #if defined bjsPlatformLibNX || defined bjsPlatformBiosphere
-            ospl = "NX";
+            ospl = "nx";
         #elif defined bjsPlatformLibCTRU
-            ospl = "CTR";
+            ospl = "ctr";
         #endif
         handler.ReturnString(ospl);
         return js::Return::Variable;
@@ -53,6 +53,20 @@ namespace bjs::node::os
             ost = "Nintendo 3DS";
         #endif
         handler.ReturnString(ost);
+        return js::Return::Variable;
+    }
+
+    js::Function release(js::NativeContext Context)
+    {
+        js::FunctionHandler handler(Context);
+        Result rc = setsysInitialize();
+        if(rc == 0)
+        {
+            SetSysFirmwareVersion fw;
+            rc = setsysGetFirmwareVersion(&fw);
+            if(rc == 0) handler.ReturnString(std::string(fw.display_version));
+            setsysExit();
+        }
         return js::Return::Variable;
     }
 }

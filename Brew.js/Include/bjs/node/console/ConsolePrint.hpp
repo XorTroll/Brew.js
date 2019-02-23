@@ -18,9 +18,11 @@ namespace bjs::node::console
     
     /**
         @brief API JS Function: "console.trace(...)"
-        @note Same as "console.log(...)"" but printing 'Trace: ' before. This description is for using the function with JavaScript.
+        @note Same as "console.log(...)" but printing 'Trace: ' before. This description is for using the function with JavaScript.
     */
     js::Function trace(js::NativeContext Context);
+
+    js::Function printAssert(js::NativeContext Context);
     
     /**
         @brief API JS Function: "console.clear()"

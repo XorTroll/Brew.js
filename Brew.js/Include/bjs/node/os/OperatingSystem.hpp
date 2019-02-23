@@ -33,4 +33,6 @@ namespace bjs::node::os
         @note Returns the type name of the current OS. This description is for using the function with JavaScript.
     */
     js::Function type(js::NativeContext Context);
+
+    js::Function release(js::NativeContext Context);
 }
