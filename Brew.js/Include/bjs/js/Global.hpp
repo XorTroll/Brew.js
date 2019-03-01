@@ -29,14 +29,14 @@ namespace bjs::js
                 @param Name the variable has.
                 @param Value the signed integer value of the variable.
             */
-            void PushInt(std::string Name, s64 Value);
+            void PushInt(std::string Name, int Value);
 
             /**
                 @brief Adds a variable containing an unsigned integer to the global object.
                 @param Name the variable has.
                 @param Value the unsigned integer value of the variable.
             */
-            void PushUInt(std::string Name, u64 Value);
+            void PushUInt(std::string Name, u32 Value);
 
             /**
                 @brief Adds a variable containing a double to the global object.

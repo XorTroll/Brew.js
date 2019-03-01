@@ -54,4 +54,10 @@ namespace bjs::js
         TypeErrorCode = -6,       ///< Similar to throwing TypeError.
         URIErrorCode = -7,        ///< Similar to throwing URIError.
     };
+
+    struct Buffer
+    {
+        void *Pointer;
+        size_t Size;
+    };
 }

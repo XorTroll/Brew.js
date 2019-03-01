@@ -1,11 +1,11 @@
 #include <bjs/js/Handlers.hpp>
+#include <iostream>
 
 namespace bjs::js
 {
     FunctionHandler::FunctionHandler(NativeContext Context)
     {
         this->ctx = Context;
-        this->count = -1;
     }
 
     u32 FunctionHandler::GetArgc()
@@ -46,23 +46,20 @@ namespace bjs::js
     {
         std::string str = "";
         if(duk_get_type(this->ctx, Index) == DUK_TYPE_STRING) str = std::string(duk_safe_to_string(this->ctx, Index));
-        count--;
         return str;
     }
 
-    s64 FunctionHandler::GetInt(u32 Index)
+    int FunctionHandler::GetInt(u32 Index)
     {
-        s64 intt = 0;
+        int intt = 0;
         if(duk_get_type(this->ctx, Index) == DUK_TYPE_NUMBER) intt = duk_get_int(this->ctx, Index);
-        count--;
         return intt;
     }
 
-    u64 FunctionHandler::GetUInt(u32 Index)
+    u32 FunctionHandler::GetUInt(u32 Index)
     {
-        u64 intt = 0;
+        u32 intt = 0;
         if(duk_get_type(this->ctx, Index) == DUK_TYPE_NUMBER) intt = duk_get_uint(this->ctx, Index);
-        count--;
         return intt;
     }
 
@@ -70,7 +67,6 @@ namespace bjs::js
     {
         double flt = 0.0;
         if(duk_get_type(this->ctx, Index) == DUK_TYPE_NUMBER) flt = duk_get_number(this->ctx, Index);
-        count--;
         return flt;
     }
 
@@ -78,8 +74,17 @@ namespace bjs::js
     {
         bool booln = false;
         if(duk_get_type(this->ctx, Index) == DUK_TYPE_BOOLEAN) booln = duk_get_boolean(this->ctx, Index);
-        count--;
         return booln;
+    }
+
+    Buffer FunctionHandler::GetBuffer(u32 Index)
+    {
+        size_t dsize = 0;
+        void *data = duk_get_buffer_data(this->ctx, Index, &dsize);
+        Buffer buf = { 0 };
+        buf.Pointer = data;
+        buf.Size = dsize;
+        return buf;
     }
 
     Callback FunctionHandler::GetCallback(u32 Index)
@@ -105,12 +110,12 @@ namespace bjs::js
         duk_push_string(this->ctx, Value.c_str());
     }
 
-    void FunctionHandler::ReturnInt(s64 Value)
+    void FunctionHandler::ReturnInt(int Value)
     {
         duk_push_int(this->ctx, Value);
     }
 
-    void FunctionHandler::ReturnUInt(u64 Value)
+    void FunctionHandler::ReturnUInt(u32 Value)
     {
         duk_push_uint(this->ctx, Value);
     }
@@ -133,6 +138,12 @@ namespace bjs::js
     void FunctionHandler::ReturnObject(Object &Value)
     {
         Value.Initialize();
+    }
+
+    void FunctionHandler::ReturnBuffer(void *Pointer, size_t Size)
+    {
+        void *bufptr = duk_push_fixed_buffer(this->ctx, Size);
+        memcpy(bufptr, Pointer, Size);
     }
 
     void FunctionHandler::ReturnUndefined()
@@ -158,7 +169,6 @@ namespace bjs::js
     ClassHandler::ClassHandler(NativeContext Context) : FunctionHandler(Context)
     {
         duk_push_this(Context);
-        this->propcount = -1;
         this->tempid = 0;
     }
 
@@ -168,13 +178,13 @@ namespace bjs::js
         duk_put_prop_string(this->ctx, -2, Name.c_str());
     }
 
-    void ClassHandler::SetPropertyInt(std::string Name, s64 Value)
+    void ClassHandler::SetPropertyInt(std::string Name, int Value)
     {
         duk_push_int(this->ctx, Value);
         duk_put_prop_string(this->ctx, -2, Name.c_str());
     }
 
-    void ClassHandler::SetPropertyUInt(std::string Name, u64 Value)
+    void ClassHandler::SetPropertyUInt(std::string Name, u32 Value)
     {
         duk_push_uint(this->ctx, Value);
         duk_put_prop_string(this->ctx, -2, Name.c_str());
@@ -230,41 +240,41 @@ namespace bjs::js
 
     std::string ClassHandler::GetPropertyString(std::string Name)
     {
-        duk_get_prop_string(this->ctx, this->propcount, Name.c_str());
+        duk_get_prop_string(this->ctx, -1, Name.c_str());
         std::string prop = std::string(duk_safe_to_string(this->ctx, -1));
-        this->propcount--;
+        duk_pop(this->ctx);
         return prop;
     }
 
-    s64 ClassHandler::GetPropertyInt(std::string Name)
+    int ClassHandler::GetPropertyInt(std::string Name)
     {
-        duk_get_prop_string(this->ctx, this->propcount, Name.c_str());
-        s64 prop = duk_to_int(this->ctx, -1);
-        this->propcount--;
+        duk_get_prop_string(this->ctx, -1, Name.c_str());
+        int prop = duk_to_int(this->ctx, -1);
+        duk_pop(this->ctx);
         return prop;
     }
 
-    u64 ClassHandler::GetPropertyUInt(std::string Name)
+    u32 ClassHandler::GetPropertyUInt(std::string Name)
     {
-        duk_get_prop_string(this->ctx, this->propcount, Name.c_str());
-        u64 prop = duk_to_uint(this->ctx, -1);
-        this->propcount--;
+        duk_get_prop_string(this->ctx, -1, Name.c_str());
+        u32 prop = duk_to_uint(this->ctx, -1);
+        duk_pop(this->ctx);
         return prop;
     }
 
     double ClassHandler::GetPropertyDouble(std::string Name)
     {
-        duk_get_prop_string(this->ctx, this->propcount, Name.c_str());
+        duk_get_prop_string(this->ctx, -1, Name.c_str());
         double prop = duk_to_number(this->ctx, -1);
-        this->propcount--;
+        duk_pop(this->ctx);
         return prop;
     }
 
     bool ClassHandler::GetPropertyBoolean(std::string Name)
     {
-        duk_get_prop_string(this->ctx, this->propcount, Name.c_str());
+        duk_get_prop_string(this->ctx, -1, Name.c_str());
         bool prop = duk_to_boolean(this->ctx, -1);
-        this->propcount--;
+        duk_pop(this->ctx);
         return prop;
     }
 }

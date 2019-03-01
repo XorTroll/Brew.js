@@ -13,14 +13,14 @@ namespace bjs::js
         this->strs.insert(std::pair<std::string, std::string>(Name, Value));
     }
 
-    void Class::AddInt(std::string Name, s64 Value)
+    void Class::AddInt(std::string Name, int Value)
     {
-        this->ints.insert(std::pair<std::string, s64>(Name, Value));
+        this->ints.insert(std::pair<std::string, int>(Name, Value));
     }
 
-    void Class::AddUInt(std::string Name, u64 Value)
+    void Class::AddUInt(std::string Name, u32 Value)
     {
-        this->uints.insert(std::pair<std::string, u64>(Name, Value));
+        this->uints.insert(std::pair<std::string, u32>(Name, Value));
     }
 
     void Class::AddDouble(std::string Name, double Value)
@@ -63,12 +63,12 @@ namespace bjs::js
         return this->strs;
     }
 
-    std::map<std::string, s64> Class::GetInts()
+    std::map<std::string, int> Class::GetInts()
     {
         return this->ints;
     }
 
-    std::map<std::string, u64> Class::GetUInts()
+    std::map<std::string, u32> Class::GetUInts()
     {
         return this->uints;
     }

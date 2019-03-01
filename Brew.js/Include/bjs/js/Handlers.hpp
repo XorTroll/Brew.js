@@ -70,14 +70,14 @@ namespace bjs::js
                 @param Index The position of the argument.
                 @return The argument as a signed integer.
             */
-            s64 GetInt(u32 Index);
+            int GetInt(u32 Index);
 
             /**
                 @brief Gets the argument located at the given position as an unsigned integer.
                 @param Index The position of the argument.
                 @return The argument as an unsigned integer.
             */
-            u64 GetUInt(u32 Index);
+            u32 GetUInt(u32 Index);
 
             /**
                 @brief Gets the argument located at the given position as a double.
@@ -113,6 +113,8 @@ namespace bjs::js
                 @return The argument as a bjs::js::Array.
             */
             Array GetArray(u32 Index);
+
+            Buffer GetBuffer(u32 Index);
             
             /**
                 @brief Returns a std::string. Will only return the variable if the return code of the JS function is Variable.
@@ -124,13 +126,13 @@ namespace bjs::js
                 @brief Returns a signed integer. Will only return the variable if the return code of the JS function is Variable.
                 @param Value The signed integer to return.
             */
-            void ReturnInt(s64 Value);
+            void ReturnInt(int Value);
             
             /**
                 @brief Returns an unsigned integer. Will only return the variable if the return code of the JS function is Variable.
                 @param Value The unsigned integer to return.
             */
-            void ReturnUInt(u64 Value);
+            void ReturnUInt(u32 Value);
             
             /**
                 @brief Returns a double. Will only return the variable if the return code of the JS function is Variable.
@@ -158,6 +160,8 @@ namespace bjs::js
             */
             void ReturnObject(Object &Value);
 
+            void ReturnBuffer(void *Pointer, size_t Size);
+
             /**
                 @brief Returns undefined. Will only return the variable if the return code of the JS function is Variable.
             */
@@ -175,7 +179,6 @@ namespace bjs::js
             NativeContext GetContext();
         protected:
             NativeContext ctx;
-            int count;
     };
 
     /// An extended FunctionHandler to be used in bjs::js::Class - related API JS functions.
@@ -201,14 +204,14 @@ namespace bjs::js
                 @param Name The name of the property to set.
                 @param Value The signed integer value to set.
             */
-            void SetPropertyInt(std::string Name, s64 Value);
+            void SetPropertyInt(std::string Name, int Value);
             
             /**
                 @brief Sets an internal property to an unsigned integer. Like doing "this.<Name> = <Value>;".
                 @param Name The name of the property to set.
                 @param Value The unsigned integer value to set.
             */
-            void SetPropertyUInt(std::string Name, u64 Value);
+            void SetPropertyUInt(std::string Name, u32 Value);
             
             /**
                 @brief Sets an internal property to a double. Like doing "this.<Name> = <Value>;".
@@ -260,14 +263,14 @@ namespace bjs::js
                 @param Name The name of the property to get.
                 @return The property as a signed integer.
             */
-            s64 GetPropertyInt(std::string Name);
+            int GetPropertyInt(std::string Name);
 
             /**
                 @brief Gets an internal property as an unsigned integer. Like getting "this.<Name>;".
                 @param Name The name of the property to get.
                 @return The property as an unsigned integer.
             */
-            u64 GetPropertyUInt(std::string Name);
+            u32 GetPropertyUInt(std::string Name);
 
             /**
                 @brief Gets an internal property as a double. Like getting "this.<Name>;".
@@ -283,7 +286,6 @@ namespace bjs::js
             */
             bool GetPropertyBoolean(std::string Name);
         private:
-            int propcount;
             std::string tempname;
             int tempid;
     };

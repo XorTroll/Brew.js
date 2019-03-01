@@ -27,14 +27,14 @@ namespace bjs::js
             @param Name the variable has.
             @param Value the signed integer value of the variable.
         */
-        void PushInt(std::string Name, s64 Value);
+        void PushInt(std::string Name, int Value);
 
         /**
             @brief Adds a variable containing an unsigned integer to the module.
             @param Name the variable has.
             @param Value the unsigned integer value of the variable.
         */
-        void PushUInt(std::string Name, u64 Value);
+        void PushUInt(std::string Name, u32 Value);
 
         /**
             @brief Adds a variable containing a double to the module.
@@ -81,8 +81,8 @@ namespace bjs::js
         */
         void PushClass(Class &Value);
         std::map<std::string, std::string> GetStrings();
-        std::map<std::string, s64> GetInts();
-        std::map<std::string, u64> GetUInts();
+        std::map<std::string, int> GetInts();
+        std::map<std::string, u32> GetUInts();
         std::map<std::string, double> GetDoubles();
         std::map<std::string, bool> GetBooleans();
         std::map<std::string, NativeFunction> GetFunctions();
@@ -93,8 +93,8 @@ namespace bjs::js
         std::string GetName();
     private:
         std::map<std::string, std::string> strs;
-        std::map<std::string, s64> ints;
-        std::map<std::string, u64> uints;
+        std::map<std::string, int> ints;
+        std::map<std::string, u32> uints;
         std::map<std::string, double> dbls;
         std::map<std::string, bool> bls;
         std::map<std::string, NativeFunction> fncs;

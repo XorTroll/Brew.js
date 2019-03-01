@@ -43,13 +43,13 @@ namespace bjs::js
                 @brief Adds (pushes) a signed integer to the end of the array.
                 @param Value The signed integer value to add.
             */
-            void AddInt(s64 Value);
+            void AddInt(int Value);
             
             /**
                 @brief Adds (pushes) an unsigned integer to the end of the array.
                 @param Value The unsigned integer value to add.
             */
-            void AddUInt(u64 Value);
+            void AddUInt(u32 Value);
             
             /**
                 @brief Adds (pushes) a double to the end of the array.
@@ -104,7 +104,7 @@ namespace bjs::js
                 @return The argument as a signed integer.
                 @note This should ONLY be CALLED if using it from a FunctionHandler. 
             */
-            s64 GetInt(u32 Index);
+            int GetInt(u32 Index);
 
             /**
                 @brief Gets the argument at given index as an unsigned integer. No conversions are done to get it.
@@ -112,7 +112,7 @@ namespace bjs::js
                 @return The argument as an unsigned integer.
                 @note This should ONLY be CALLED if using it from a FunctionHandler. 
             */
-            u64 GetUInt(u32 Index);
+            u32 GetUInt(u32 Index);
 
             /**
                 @brief Gets the argument at given index as a double. No conversions are done to get it.
@@ -199,14 +199,14 @@ namespace bjs::js
                 @param Name The name the value will have.
                 @param Value The signed integer value to add.
             */
-            void AddInt(std::string Name, s64 Value);
+            void AddInt(std::string Name, int Value);
             
             /**
                 @brief Adds (pushes) an unsigned integer with the specified property name to the object.
                 @param Name The name the value will have.
                 @param Value The unsigned integer value to add.
             */
-            void AddUInt(std::string Name, u64 Value);
+            void AddUInt(std::string Name, u32 Value);
 
             /**
                 @brief Adds (pushes) a double with the specified property name to the object.
@@ -273,7 +273,7 @@ namespace bjs::js
                 @return The property as a signed integer.
                 @note This should ONLY be CALLED if using it from a FunctionHandler. 
             */
-            s64 GetInt(std::string Name);
+            int GetInt(std::string Name);
 
             /**
                 @brief Gets the property named as the given name as an unsigned integer. No conversions are done to get it.
@@ -281,7 +281,7 @@ namespace bjs::js
                 @return The property as an unsigned integer.
                 @note This should ONLY be CALLED if using it from a FunctionHandler. 
             */
-            u64 GetUInt(std::string Name);
+            u32 GetUInt(std::string Name);
             
             /**
                 @brief Gets the property named as the given name as a double. No conversions are done to get it.
@@ -356,14 +356,14 @@ namespace bjs::js
                 @param Value The signed integer to pass.
                 @note The value is added as the next argument.
             */
-            void AddInt(s64 Value);
+            void AddInt(int Value);
 
             /**
                 @brief Passes an unsigned integer as an argument for the callback function.
                 @param Value The unsigned integer to pass.
                 @note The value is added as the next argument.
             */
-            void AddUInt(u64 Value);
+            void AddUInt(u32 Value);
 
             /**
                 @brief Passes a double as an argument for the callback function.
@@ -410,8 +410,8 @@ namespace bjs::js
             void CallNew();
             NativeContext GetContext();
             std::vector<std::string> GetStringArguments();
-            std::vector<s64> GetIntArguments();
-            std::vector<u64> GetUIntArguments();
+            std::vector<int> GetIntArguments();
+            std::vector<u32> GetUIntArguments();
             std::vector<double> GetDoubleArguments();
             std::vector<bool> GetBooleanArguments();
             u32 GetUndefinedArgumentCount();
@@ -420,8 +420,8 @@ namespace bjs::js
         private:
             NativeContext ctx;
             std::map<u32, std::string> strs;
-            std::map<u32, s64> ints;
-            std::map<u32, u64> uints;
+            std::map<u32, int> ints;
+            std::map<u32, u32> uints;
             std::map<u32, double> dbls;
             std::map<u32, bool> bls;
             std::vector<u32> udfs;

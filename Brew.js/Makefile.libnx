@@ -18,8 +18,8 @@ include $(DEVKITPRO)/libnx/switch_rules
 
 TARGET		:=	bjs
 BUILD		:=	Build.libnx
-SOURCES		:=	Source Source/bjs Source/bjs/js Source/bjs/lib Source/bjs/lib/duktape Source/bjs/node Source/bjs/node/console Source/bjs/node/fs Source/bjs/node/os Source/bjs/node/path Source/bjs/node/process Source/bjs/platform Source/bjs/platform/libnx Source/bjs/platform/libnx/input Source/bjs/platform/libnx/sdl2 Source/bjs/platform/libnx/nx Source/bjs/platform/libnx/pegaswitch
-INCLUDES	:=	Include Include/bjs Include/bjs/js Include/bjs/lib Include/bjs/lib/duktape Include/bjs/lib/json Include/bjs/node Include/bjs/node/console Include/bjs/node/fs Include/bjs/node/os Include/bjs/node/path Include/bjs/node/process Include/bjs/platform Include/bjs/platform/libnx Include/bjs/platform/libnx/sdl2 Include/bjs/platform/libnx/input Include/bjs/platform/libnx/nx Include/bjs/platform/libnx/pegaswitch
+SOURCES		:=	Source Source/bjs Source/bjs/js Source/bjs/lib Source/bjs/lib/duktape Source/bjs/node Source/bjs/node/console Source/bjs/node/fs Source/bjs/node/os Source/bjs/node/path Source/bjs/node/process Source/bjs/platform Source/bjs/platform/libnx Source/bjs/platform/libnx/input Source/bjs/platform/libnx/jipc Source/bjs/platform/libnx/nx Source/bjs/platform/libnx/pegaswitch
+INCLUDES	:=	Include Include/bjs Include/bjs/js Include/bjs/lib Include/bjs/lib/duktape Include/bjs/lib/json Include/bjs/node Include/bjs/node/console Include/bjs/node/fs Include/bjs/node/os Include/bjs/node/path Include/bjs/node/process Include/bjs/platform Include/bjs/platform/libnx Include/bjs/platform/libnx/jipc Include/bjs/platform/libnx/input Include/bjs/platform/libnx/nx Include/bjs/platform/libnx/pegaswitch
 
 #---------------------------------------------------------------------------------
 # options for code generation

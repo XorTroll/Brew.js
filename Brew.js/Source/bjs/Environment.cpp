@@ -83,10 +83,10 @@ namespace bjs
                     romfsInit();
                     js::Module input = libnx::input::CreateModule();
                     js::AddModule(input);
+                    js::Module jipc = libnx::jipc::CreateModule();
+                    js::AddModule(jipc);
                     js::Module nx = libnx::nx::CreateModule();
                     js::AddModule(nx);
-                    js::Module pegaswitch = libnx::pegaswitch::CreateModule();
-                    js::AddModule(pegaswitch);
                 #elif defined bjsPlatformLibCTRU
                     romfsInit();
                     js::Module ctr = libctru::ctr::CreateModule();

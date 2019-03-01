@@ -29,7 +29,7 @@ namespace bjs::js
             @param Value The signed integer to set as property.
             @note The property WON'T be static.
         */
-        void AddInt(std::string Name, s64 Value);
+        void AddInt(std::string Name, int Value);
 
         /**
             @brief Adds an unsigned integer as a property with the given name.
@@ -37,7 +37,7 @@ namespace bjs::js
             @param Value The unsigned integer to set as property.
             @note The property WON'T be static.
         */
-        void AddUInt(std::string Name, u64 Value);
+        void AddUInt(std::string Name, u32 Value);
 
         /**
             @brief Adds a double as a property with the given name.
@@ -91,8 +91,8 @@ namespace bjs::js
         */
         NativeFunction GetConstructorFunction();
         std::map<std::string, std::string> GetStrings();
-        std::map<std::string, s64> GetInts();
-        std::map<std::string, u64> GetUInts();
+        std::map<std::string, int> GetInts();
+        std::map<std::string, u32> GetUInts();
         std::map<std::string, double> GetDoubles();
         std::map<std::string, bool> GetBooleans();
         std::map<std::string, NativeFunction> GetFunctions();
@@ -103,8 +103,8 @@ namespace bjs::js
     private:
         NativeFunction ctor;
         std::map<std::string, std::string> strs;
-        std::map<std::string, s64> ints;
-        std::map<std::string, u64> uints;
+        std::map<std::string, int> ints;
+        std::map<std::string, u32> uints;
         std::map<std::string, double> dbls;
         std::map<std::string, bool> bls;
         std::map<std::string, NativeFunction> fncs;

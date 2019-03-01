@@ -12,14 +12,14 @@ namespace bjs::js
         this->strs.insert(std::pair<std::string, std::string>(Name, Value));
     }
 
-    void Module::PushInt(std::string Name, s64 Value)
+    void Module::PushInt(std::string Name, int Value)
     {
-        this->ints.insert(std::pair<std::string, s64>(Name, Value));
+        this->ints.insert(std::pair<std::string, int>(Name, Value));
     }
 
-    void Module::PushUInt(std::string Name, u64 Value)
+    void Module::PushUInt(std::string Name, u32 Value)
     {
-        this->uints.insert(std::pair<std::string, u64>(Name, Value));
+        this->uints.insert(std::pair<std::string, u32>(Name, Value));
     }
 
     void Module::PushDouble(std::string Name, double Value)
@@ -62,12 +62,12 @@ namespace bjs::js
         return this->strs;
     }
 
-    std::map<std::string, s64> Module::GetInts()
+    std::map<std::string, int> Module::GetInts()
     {
         return this->ints;
     }
 
-    std::map<std::string, u64> Module::GetUInts()
+    std::map<std::string, u32> Module::GetUInts()
     {
         return this->uints;
     }

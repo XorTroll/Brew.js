@@ -42,7 +42,7 @@ namespace bjs::js
         idx++;
     }
 
-    void Array::AddInt(s64 Value)
+    void Array::AddInt(int Value)
     {
         if(!this->padd) return;
         if(!this->start) this->Initialize();
@@ -51,7 +51,7 @@ namespace bjs::js
         idx++;
     }
 
-    void Array::AddUInt(u64 Value)
+    void Array::AddUInt(u32 Value)
     {
         if(!this->padd) return;
         if(!this->start) this->Initialize();
@@ -127,14 +127,14 @@ namespace bjs::js
         return std::string(duk_to_string(this->ctx, -1));
     }
 
-    s64 Array::GetInt(u32 Index)
+    int Array::GetInt(u32 Index)
     {
         if(this->padd) js::ThrowError(this->ctx, Error::CommonError, "Array not accessed as a function argument");
         duk_get_prop_index(this->ctx, this->uidx, Index);
         return duk_to_int(this->ctx, -1);
     }
 
-    u64 Array::GetUInt(u32 Index)
+    u32 Array::GetUInt(u32 Index)
     {
         if(this->padd) js::ThrowError(this->ctx, Error::CommonError, "Array not accessed as a function argument");
         duk_get_prop_index(this->ctx, this->uidx, Index);
@@ -223,7 +223,7 @@ namespace bjs::js
         duk_put_prop_string(this->ctx, this->objidx, Name.c_str());
     }
 
-    void Object::AddInt(std::string Name, s64 Value)
+    void Object::AddInt(std::string Name, int Value)
     {
         if(!this->padd) return;
         if(!this->start) this->Initialize();
@@ -231,7 +231,7 @@ namespace bjs::js
         duk_put_prop_string(this->ctx, this->objidx, Name.c_str());
     }
 
-    void Object::AddUInt(std::string Name, u64 Value)
+    void Object::AddUInt(std::string Name, u32 Value)
     {
         if(!this->padd) return;
         if(!this->start) this->Initialize();
@@ -326,14 +326,14 @@ namespace bjs::js
         return std::string(duk_to_string(this->ctx, -1));
     }
 
-    s64 Object::GetInt(std::string Name)
+    int Object::GetInt(std::string Name)
     {
         if(this->padd) js::ThrowError(this->ctx, Error::CommonError, "Object not accessed as a function argument");
         duk_get_prop_string(this->ctx, this->idx, Name.c_str());
         return duk_to_int(this->ctx, -1);
     }
 
-    u64 Object::GetUInt(std::string Name)
+    u32 Object::GetUInt(std::string Name)
     {
         if(this->padd) js::ThrowError(this->ctx, Error::CommonError, "Object not accessed as a function argument");
         duk_get_prop_string(this->ctx, this->idx, Name.c_str());
@@ -399,17 +399,17 @@ namespace bjs::js
         this->iter++;
     }
 
-    void Callback::AddInt(s64 Value)
+    void Callback::AddInt(int Value)
     {
         this->reg.push_back(1);
-        this->ints.insert(std::pair<u32, s64>(this->iter, Value));
+        this->ints.insert(std::pair<u32, int>(this->iter, Value));
         this->iter++;
     }
 
-    void Callback::AddUInt(u64 Value)
+    void Callback::AddUInt(u32 Value)
     {
         this->reg.push_back(2);
-        this->uints.insert(std::pair<u32, u64>(this->iter, Value));
+        this->uints.insert(std::pair<u32, u32>(this->iter, Value));
         this->iter++;
     }
 
@@ -564,16 +564,16 @@ namespace bjs::js
         return vstrs;
     }
 
-    std::vector<s64> Callback::GetIntArguments()
+    std::vector<int> Callback::GetIntArguments()
     {
-        std::vector<s64> vints;
+        std::vector<int> vints;
         if(!this->ints.empty()) for(auto const& vint : this->ints) vints.push_back(vint.second);
         return vints;
     }
 
-    std::vector<u64> Callback::GetUIntArguments()
+    std::vector<u32> Callback::GetUIntArguments()
     {
-        std::vector<u64> vuints;
+        std::vector<u32> vuints;
         if(!this->uints.empty()) for(auto const& vuint : this->uints) vuints.push_back(vuint.second);
         return vuints;
     }

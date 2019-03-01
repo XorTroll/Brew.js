@@ -18,13 +18,13 @@ namespace bjs::js
         duk_put_global_string(this->ctx, Name.c_str());
     }
 
-    void GlobalObject::PushInt(std::string Name, s64 Value)
+    void GlobalObject::PushInt(std::string Name, int Value)
     {
         duk_push_int(this->ctx, Value);
         duk_put_global_string(this->ctx, Name.c_str());
     }
 
-    void GlobalObject::PushUInt(std::string Name, u64 Value)
+    void GlobalObject::PushUInt(std::string Name, u32 Value)
     {
         duk_push_uint(this->ctx, Value);
         duk_put_global_string(this->ctx, Name.c_str());
@@ -75,13 +75,13 @@ namespace bjs::js
             duk_push_string(this->ctx, str.second.c_str());
             duk_put_prop_string(this->ctx, objidx, str.first.c_str());
         }
-        std::map<std::string, s64> ints = Module.GetInts();
+        std::map<std::string, int> ints = Module.GetInts();
         if(!ints.empty()) for(auto const& intt : ints)
         {
             duk_push_int(this->ctx, intt.second);
             duk_put_prop_string(this->ctx, objidx, intt.first.c_str());
         }
-        std::map<std::string, u64> uints = Module.GetUInts();
+        std::map<std::string, u32> uints = Module.GetUInts();
         if(!uints.empty()) for(auto const& uint : uints)
         {
             duk_push_uint(this->ctx, uint.second);
@@ -215,13 +215,13 @@ namespace bjs::js
                         duk_push_string(Context, str.second.c_str());
                         duk_put_prop_string(Context, objidx, str.first.c_str());
                     }
-                    std::map<std::string, s64> ints = mmod.GetInts();
+                    std::map<std::string, int> ints = mmod.GetInts();
                     if(!ints.empty()) for(auto const& intt : ints)
                     {
                         duk_push_int(Context, intt.second);
                         duk_put_prop_string(Context, objidx, intt.first.c_str());
                     }
-                    std::map<std::string, u64> uints = mmod.GetUInts();
+                    std::map<std::string, u32> uints = mmod.GetUInts();
                     if(!uints.empty()) for(auto const& uint : uints)
                     {
                         duk_push_uint(Context, uint.second);
@@ -275,13 +275,13 @@ namespace bjs::js
                             duk_push_string(Context, str.second.c_str());
                             duk_put_prop_string(Context, -2, str.first.c_str());
                         }
-                        std::map<std::string, s64> cints = cls.GetInts();
+                        std::map<std::string, int> cints = cls.GetInts();
                         if(!cints.empty()) for(auto const& intt : cints)
                         {
                             duk_push_int(Context, intt.second);
                             duk_put_prop_string(Context, -2, intt.first.c_str());
                         }
-                        std::map<std::string, u64> cuints = cls.GetUInts();
+                        std::map<std::string, u32> cuints = cls.GetUInts();
                         if(!cuints.empty()) for(auto const& uint : cuints)
                         {
                             duk_push_uint(Context, uint.second);
