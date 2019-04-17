@@ -58,8 +58,9 @@ namespace bjs::node::console
                 }
                 else if(handler.CheckArgumentType(i, js::Type::ObjectArray))
                 {
-                    duk_json_encode(Context, i);
-                    std::cout << duk_to_string(Context, -1);
+                    const char *enc = duk_json_encode(Context, i);
+                    std::cout << std::string(enc);
+                    duk_pop(Context);
                 }
                 else if(handler.CheckArgumentType(i, js::Type::Undefined)) std::cout << "undefined";
                 else if(handler.CheckArgumentType(i, js::Type::Null)) std::cout << "null";
@@ -99,6 +100,7 @@ namespace bjs::node::console
                 {
                     duk_json_encode(Context, i);
                     std::cout << duk_to_string(Context, -1);
+                    duk_pop(Context);
                 }
                 else if(handler.CheckArgumentType(i, js::Type::Undefined)) std::cout << "undefined";
                 else if(handler.CheckArgumentType(i, js::Type::Null)) std::cout << "null";

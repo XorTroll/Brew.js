@@ -1,7 +1,7 @@
 
 /**
 
-    @file Titles.hpp
+    @file Object.hpp
     @brief Brew.js API - libnx - 'jipc' module
     @author XorTroll
     @copyright Brew.js project
